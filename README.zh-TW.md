@@ -93,6 +93,14 @@ writing request
   <img src="assets/ccfa-skills-architecture.svg" alt="CCFA Skills workflow gates" width="100%">
 </p>
 
+<p align="center">
+  <img src="assets/ccfa-skills-workflow.svg" alt="CCFA Skills step-by-step workflow" width="100%">
+</p>
+
+<p align="center">
+  <img src="assets/ccfa-skills-review-boundaries.svg" alt="CCFA Skills reviewer boundary map" width="100%">
+</p>
+
 這個結構重要，是因為 CCF-A 審稿並不是一個單一分數，而是新穎性、重要性、可靠性、證據、清晰度、可復現性和 venue fit 之間的綜合判斷。CCFA Skills 將這些維度拆開處理，同時保留它們之間的依賴關係。
 
 ## Skill 家族

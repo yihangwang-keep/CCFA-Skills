@@ -592,3 +592,12 @@ sources:
     verified_at: null
     stale_after_days: 365
     notes: Local architecture reference; not a public source.
+  - id: local-ccfa-architecture-svgs
+    title: Local CCFA Architecture SVG Assets
+    url: repo:assets/
+    source_type: local_reference
+    used_by: [ccf-common, forge-skills]
+    recorded_at: 2026-06-05
+    verified_at: 2026-06-05
+    stale_after_days: 365
+    notes: Local architecture diagrams for CCFA skill-family routing, workflow, and reviewer-boundary documentation.

@@ -93,6 +93,14 @@ The second `ccf-idea-optimizer` pass is therefore not duplication. The first pas
   <img src="assets/ccfa-skills-architecture.svg" alt="CCFA Skills workflow gates" width="100%">
 </p>
 
+<p align="center">
+  <img src="assets/ccfa-skills-workflow.svg" alt="CCFA Skills step-by-step workflow" width="100%">
+</p>
+
+<p align="center">
+  <img src="assets/ccfa-skills-review-boundaries.svg" alt="CCFA Skills reviewer boundary map" width="100%">
+</p>
+
 This structure matters because CCF-A review is not a single score but a negotiation among novelty, significance, soundness, evidence, clarity, reproducibility, and venue fit. The skills separate these dimensions while keeping their dependencies visible.
 
 ## Skill Family
