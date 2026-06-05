@@ -1,6 +1,13 @@
 ---
 name: hpca
 description: Writing and formatting guidance for HPCA (International Symposium on High-Performance Computer Architecture) papers. Use when drafting, formatting, or submitting to HPCA 2026. Covers IEEEtran.cls with conference mode, architecture-specific conventions (simulation methodology, performance metrics, hardware evaluation, sensitivity analysis), double-blind anonymity, 12-page limit, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # HPCA 2026 Conference Writing Skill

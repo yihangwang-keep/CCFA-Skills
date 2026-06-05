@@ -1,6 +1,13 @@
 ---
 name: percom
 description: Writing and formatting guidance for PerCom (IEEE International Conference on Pervasive Computing and Communications) papers. Use when drafting, formatting, or submitting to PerCom 2026. Covers IEEEtran.cls conference format, double-blind anonymity with peerreview mode, CCS Concepts for ACM-published proceedings, page limits, reference formatting with IEEEtran BibTeX style, and camera-ready preparation. PerCom is a CCF-B conference on pervasive computing published by IEEE.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # PerCom 2026 Conference Writing Skill

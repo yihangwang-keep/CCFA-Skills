@@ -1,6 +1,13 @@
 ---
 name: cvpr
 description: Writing and formatting guidance for CVPR (IEEE/CVF Computer Vision and Pattern Recognition Conference) papers. Use when drafting, formatting, and submitting to CVPR 2026. Covers the cvpr.cls document class, two-column layout, double-blind anonymity (8-page limit excluding references), rebuttal preparation, figure/table placement rules, and camera-ready submission requirements. Also applicable to ICCV since they share the same cvpr.sty.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # CVPR 2026 Conference Writing Skill

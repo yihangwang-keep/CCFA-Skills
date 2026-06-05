@@ -1,6 +1,13 @@
 ---
 name: osdi
 description: Writing and formatting guidance for OSDI (USENIX Symposium on Operating Systems Design and Implementation) papers. Use when drafting, formatting, and submitting to OSDI 2026. Covers ACM acmart sigplan format with anonymous review mode, camera-ready metadata (DOI/ISBN/price), OSDI-specific page limits (14 pages), theorem environments, code listing conventions, systems-specific evaluation standards, and USENIX conference submission policies.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # OSDI 2026 Conference Writing Skill

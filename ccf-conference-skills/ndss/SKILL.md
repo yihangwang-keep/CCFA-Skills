@@ -1,6 +1,13 @@
 ---
 name: ndss
 description: Writing and formatting guidance for NDSS (Network and Distributed System Security Symposium) papers. Use when drafting, formatting, or submitting to NDSS 2026. NDSS is NOT double-blind. Covers the bare_conf_NDSS2026.tex template with IEEEtran conference class, USENIX styling overlay, author block formatting, security-specific conventions including threat models, responsible disclosure, 16-page limit, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # NDSS 2026 Writing Guide

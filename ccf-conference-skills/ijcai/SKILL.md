@@ -1,6 +1,13 @@
 ---
 name: ijcai
 description: Writing and formatting guidance for IJCAI (International Joint Conference on Artificial Intelligence) papers. Use when drafting, formatting, and submitting to IJCAI 2026. Covers ijcai26.sty with required pdfinfo template version block, line numbering toggle, Times font and soul package, amsthm theorem environments, author/affiliation formatting, abstract setup, double-blind anonymity rules, and AI-specific writing conventions.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # IJCAI 2026 Conference Writing Skill

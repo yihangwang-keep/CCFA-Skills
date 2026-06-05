@@ -1,6 +1,13 @@
 ---
 name: naacl
 description: Writing and formatting guidance for NAACL (North American Chapter of the Association for Computational Linguistics) conference papers. Use when drafting, formatting, and submitting to NAACL 2026. NAACL shares the acl.sty template with ACL and EMNLP. Covers review/final mode switching, double-blind anonymity, NAACL-specific page limits (8 pages), and NLP writing conventions. See the ACL skill for shared formatting rules.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # NAACL 2026 Conference Writing Skill

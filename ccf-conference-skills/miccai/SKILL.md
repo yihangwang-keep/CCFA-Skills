@@ -1,6 +1,13 @@
 ---
 name: miccai
 description: Writing and formatting guidance for MICCAI (International Conference on Medical Image Computing and Computer-Assisted Intervention) papers. Use when drafting, formatting, or submitting to MICCAI 2026. Covers MICCAI-modified Springer LNCS llncs.cls format, double-blind anonymity, page limits (8 pages + 2 for references), reference formatting with splncs04 BibTeX style, numbered citations, medical imaging research conventions, and camera-ready preparation. MICCAI is a CCF-B conference published by Springer.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # MICCAI 2026 Conference Writing Skill

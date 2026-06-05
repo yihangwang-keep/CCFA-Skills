@@ -1,6 +1,13 @@
 ---
 name: ics
 description: Writing and formatting guidance for ICS (International Conference on Supercomputing) papers. Use when drafting, formatting, or submitting to ICS 2026. Covers ACM acmart sigconf format with anonymous review mode, supercomputing-specific conventions, 12-page limit, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # ICS Writing Guide

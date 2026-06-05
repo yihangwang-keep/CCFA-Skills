@@ -1,6 +1,13 @@
 ---
 name: vldb
 description: Writing and formatting guidance for VLDB/PVLDB (Proceedings of the VLDB Endowment) papers. Use when drafting, formatting, or submitting to VLDB 2026. Covers ACM acmart sigconf format with PVLDB-specific author block, DOI/copyright requirements, VLDB page limits (12 pages), two-column PVLDB reference format, artifact availability statements, and camera-ready preparation for the VLDB Endowment.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # VLDB 2026 Conference Writing Skill

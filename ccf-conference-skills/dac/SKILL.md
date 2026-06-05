@@ -1,6 +1,13 @@
 ---
 name: dac
 description: Writing and formatting guidance for DAC (Design Automation Conference) papers. Use when drafting, formatting, or submitting to DAC 2026. Covers ACM acmart sigconf format with anonymous review mode, EDA/architecture paper conventions (design automation, circuit optimization, CAD tool methodology), 12-page limit, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # DAC 2026 Conference Writing Skill

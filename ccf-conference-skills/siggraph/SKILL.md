@@ -1,6 +1,13 @@
 ---
 name: siggraph
 description: Writing and formatting guidance for SIGGRAPH (ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques) papers. Use when drafting, formatting, or submitting to SIGGRAPH 2026. Covers ACM acmart siggraph format with anonymous review mode, SIGGRAPH page limits (8 pages), technical rigor requirements for graphics research, image/animation quality standards, and ACM camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # SIGGRAPH 2026 Conference Writing Skill

@@ -1,6 +1,13 @@
 ---
 name: emnlp
 description: Writing and formatting guidance for EMNLP (Conference on Empirical Methods in Natural Language Processing) papers. Use when drafting, formatting, or submitting to EMNLP 2026. EMNLP shares the acl.sty template with ACL. Covers review/final mode switching, double-blind anonymity, EMNLP-specific submission policies, camera-ready formatting, and NLP-specific writing conventions including datasets, baselines, and error analysis. See the ACL skill for shared formatting rules.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # EMNLP 2026 Conference Writing Skill

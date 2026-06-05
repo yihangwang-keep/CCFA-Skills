@@ -1,6 +1,13 @@
 ---
 name: cscw
 description: Writing and formatting guidance for CSCW (ACM Conference on Computer-Supported Cooperative Work and Social Computing) papers. Use when drafting, formatting, or submitting to CSCW 2026. Covers ACM acmart sigchi format with anonymous review mode, CSCW-specific requirements (CCS Concepts, author keywords), empirical/research methodology standards, ethics and IRB requirements, figure quality, double-blind anonymity, page limits, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # CSCW 2026 Conference Writing Skill

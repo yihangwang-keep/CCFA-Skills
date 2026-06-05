@@ -1,6 +1,13 @@
 ---
 name: iclr
 description: Writing and formatting guidance for ICLR (International Conference on Learning Representations) papers. Use when drafting, formatting, or submitting to ICLR 2026. Critically, ICLR uses OpenReview where papers are NOT anonymous — authors are visible. Covers iclr2026_conference LaTeX class with submission/final options, author formatting, OpenReview-specific requirements (non-anonymous submission), abstract/keywords setup, rebuttal during review, and camera-ready final compilation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # ICLR 2026 Conference Writing Skill

@@ -1,6 +1,13 @@
 ---
 name: esa
 description: Writing and formatting guidance for ESA (European Symposium on Algorithms) conference papers. Use when drafting, formatting, or submitting to ESA 2026. Covers Springer LNCS llncs class, page limits, algorithm-specific writing conventions (theorem environments, pseudocode), figure/table formatting, and camera-ready submission requirements.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # ESA 2026 Conference Writing Skill

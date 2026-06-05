@@ -1,6 +1,13 @@
 ---
 name: nsdi
 description: Writing and formatting guidance for NSDI (Symposium on Network System Design and Implementation) papers. Use when drafting, formatting, or submitting to NSDI 2026. NSDI is NOT double-blind — author identities are visible. Covers usenix-2020-09.sty format with \\maketitles, systems paper conventions (motivation, design rationale, implementation challenges, evaluation with real-world deployment), 16-page limit, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # NSDI Writing Guide

@@ -1,6 +1,13 @@
 ---
 name: sigmetrics
 description: Writing and formatting guidance for SIGMETRICS (ACM SIGMETRICS Conference on Measurement and Modeling of Computer Systems) papers. Use when drafting, formatting, or submitting to SIGMETRICS 2026. Covers ACM acmart sigconf format with anonymous review mode, performance evaluation-specific conventions, 12-page limit, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # SIGMETRICS Writing Guide

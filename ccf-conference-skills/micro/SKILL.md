@@ -1,6 +1,13 @@
 ---
 name: micro
 description: Writing and formatting guidance for MICRO (IEEE/ACM International Symposium on Microarchitecture) papers. Use when drafting, formatting, or submitting to MICRO 2026. Covers ACM acmart sigplan format, microarchitecture-specific writing conventions (architecture description, methodology, evaluation with simulation/hardware, area/performance/power tradeoffs), double-blind anonymity, page limits, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # MICRO 2026 Conference Writing Skill

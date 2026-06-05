@@ -111,6 +111,8 @@ The repository also includes a venue layer for conference-specific authoring sup
 
 ### `ccf-brainstorming`
 
+Clarifies complex research requests before downstream work. It turns fuzzy goals into a short research brief: the decision to make, audience, available inputs, constraints, success criteria, workflow options, and recommended next CCFA skill.
+
 It is used only when needed. It fits brainstorming, requirements clarification, task decomposition, research-route discussion, or a design brief before choosing the next skill.
 
 ### `ccf-idea-optimizer`

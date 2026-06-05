@@ -1,6 +1,13 @@
 ---
 name: icml
 description: Writing and formatting guidance for ICML (International Conference on Machine Learning) papers. Use when drafting, revising, and formatting papers for ICML 2026. Covers icml2026 LaTeX class options (submission/accepted/preprint), theorem environment setup, title formatting with running title, cleveref usage, double-blind anonymization, and camera-ready compilation with the accepted option.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # ICML 2026 Conference Writing Skill

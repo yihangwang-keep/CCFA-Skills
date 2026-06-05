@@ -1,6 +1,13 @@
 ---
 name: icassp
 description: Writing and formatting guidance for ICASSP (IEEE International Conference on Acoustics, Speech, and Signal Processing). Use when drafting, formatting, or submitting papers to ICASSP 2026. Covers IEEEtran conference class, two-column layout, 4-page content limit (+ 1 optional references-only page), non-blind submission (author names included), reference formatting with IEEEtran style, and camera-ready preparation via IEEE Xplore.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # ICASSP 2026 Conference Writing Skill

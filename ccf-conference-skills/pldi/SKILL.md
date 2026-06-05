@@ -1,6 +1,13 @@
 ---
 name: pldi
 description: Writing and formatting guidance for PLDI (ACM SIGPLAN Symposium on Programming Language Design and Implementation). Use when drafting, formatting, or submitting to PLDI. Covers ACM acmart with sigplan format, anonymous double-blind review mode, PLDI page limits (12 pages), theorem/proof environments, code listings, camera-ready preparation with DOI/ISBN, and ACM-Reference-Format citations.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # PLDI Conference Writing Skill

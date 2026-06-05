@@ -1,6 +1,13 @@
 ---
 name: msst
 description: Writing and formatting guidance for MSST (International Conference on Massive Storage Systems and Technology) papers. Use when drafting, formatting, or submitting to MSST 2026. Covers IEEEtran conference class, storage systems-specific conventions, 10-page limit, and camera-ready preparation with IEEE Xplore metadata.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # MSST Writing Guide

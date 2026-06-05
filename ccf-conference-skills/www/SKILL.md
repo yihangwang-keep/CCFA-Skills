@@ -1,6 +1,13 @@
 ---
 name: www
 description: Writing and formatting guidance for WWW (The Web Conference, ACM International World Wide Web Conference) papers. Use when drafting, formatting, and submitting to WWW 2026. Covers ACM acmart sigconf format with double-blind review mode, WWW page limits (14 pages), Web-specific conventions (network effects, scale, user studies), and ACM camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # WWW 2026 Conference Writing Skill

@@ -1,6 +1,13 @@
 ---
 name: aaai
 description: Writing and formatting guidance for AAAI Conference on Artificial Intelligence papers. Use when drafting, revising, or formatting papers for AAAI 2026 submission or camera-ready. Covers aaai2026 LaTeX class, anonymous submission mode, page limits, reference formatting with natbib, figure/table placement, Times font requirements, and CCF-A category requirements.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # AAAI 2026 Conference Writing Skill

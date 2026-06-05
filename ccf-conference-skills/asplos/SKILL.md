@@ -1,6 +1,13 @@
 ---
 name: asplos
 description: Writing and formatting guidance for ASPLOS (International Conference on Architectural Support for Programming Languages and Operating Systems) papers. Use when drafting, formatting, or submitting to ASPLOS 2026. ASPLOS is a unique cross-disciplinary venue at the intersection of architecture, systems, and PL. Covers ACM acmart sigplan format with anonymous review mode, ASPLOS-specific writing conventions (contribution clarity, architectural methodology, real-system evaluation), 14-page limit, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # ASPLOS Writing Guide

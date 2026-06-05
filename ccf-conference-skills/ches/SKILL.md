@@ -1,6 +1,13 @@
 ---
 name: ches
 description: Writing and formatting guidance for CHES (Conference on Cryptographic Hardware and Embedded Systems) papers. Use when drafting, formatting, or submitting to CHES 2026. Covers Springer LNCS llncs.cls format with splncs04 bibliography style, double-blind anonymity, 30-page limit (LNCS standard), side-channel analysis, hardware implementation, and camera-ready preparation.
+metadata:
+  ccf_skill_controls:
+    handoff_question_mode: partial
+    respect_session_denylists: true
+    protect_idea_scope_in_writing: true
+    private_material_safety: moderate
+    shared_controls: ../ccf-common/references/
 ---
 
 # CHES 2026 Conference Writing Skill
