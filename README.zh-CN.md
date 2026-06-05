@@ -90,15 +90,15 @@ writing request
 因此，第二次出现 `ccf-idea-optimizer` 不是重复。第一次 optimizer 负责把粗糙方向整理到“可以被判断”的状态；后续在 reviewer 诊断后，只有 handoff mode 允许时才会进入定向修复。`ccf-conference-paper-rebuttal` 被隔离在默认投稿前闭环之外，只有用户明确要求 rebuttal、作者回应、response letter 或审稿意见回复时才使用。
 
 <p align="center">
-  <img src="assets/ccfa-skills-architecture.svg" alt="CCFA Skills workflow gates" width="100%">
+  <img src="assets/ccfa-skills-architecture.zh-CN.svg" alt="CCFA Skills 工作流门控" width="100%">
 </p>
 
 <p align="center">
-  <img src="assets/ccfa-skills-workflow.svg" alt="CCFA Skills step-by-step workflow" width="100%">
+  <img src="assets/ccfa-skills-workflow.zh-CN.svg" alt="CCFA Skills 逐步工作流" width="100%">
 </p>
 
 <p align="center">
-  <img src="assets/ccfa-skills-review-boundaries.svg" alt="CCFA Skills reviewer boundary map" width="100%">
+  <img src="assets/ccfa-skills-review-boundaries.zh-CN.svg" alt="CCFA Skills 评审边界图" width="100%">
 </p>
 
 这个结构重要，是因为 CCF-A 审稿并不是一个单一分数，而是新颖性、重要性、可靠性、证据、清晰度、可复现性和 venue fit 之间的综合判断。CCFA Skills 将这些维度拆开处理，同时保留它们之间的依赖关系。
