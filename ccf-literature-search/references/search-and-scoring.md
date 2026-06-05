@@ -1,6 +1,6 @@
 # Literature Search And Scoring
 
-Use this file for source selection, MDPI exclusion, paper classification, and quality scoring.
+Use this file for source selection, source-quality exclusions, paper classification, and quality scoring.
 
 ## Source Tiers
 

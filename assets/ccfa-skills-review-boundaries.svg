@@ -1,6 +1,6 @@
 <svg width="1440" height="940" viewBox="0 0 1440 940" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">CCFA Review Boundary Architecture</title>
-  <desc id="desc">Boundary map for CCFA idea review, full scientific conference review, writing review, and explicit rebuttal modules.</desc>
+  <desc id="desc">Boundary map for CCFA idea review, full paper review, writing review, and explicit rebuttal modules.</desc>
   <defs>
     <filter id="shadow" x="-12%" y="-18%" width="124%" height="140%" color-interpolation-filters="sRGB">
       <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.1"/>
@@ -26,7 +26,7 @@
   <rect width="1440" height="940" rx="28" fill="#f8fafc"/>
   <rect x="40" y="34" width="1360" height="858" rx="22" fill="#ffffff" stroke="#e2e8f0"/>
   <text x="720" y="78" text-anchor="middle" class="font title">Review / Reviewer Boundary Map</text>
-  <text x="720" y="108" text-anchor="middle" class="font sub">Separate idea scoring, full scientific review, writing review, and rebuttal to avoid generic AI-style reviews</text>
+  <text x="720" y="108" text-anchor="middle" class="font sub">Separate idea scoring, full paper review, writing review, and rebuttal to avoid generic reviews</text>
 
   <rect x="82" y="148" width="1276" height="86" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="110" y="180" class="font label">Routing rule</text>
@@ -54,7 +54,7 @@
 
   <g filter="url(#shadow)">
     <rect x="410" y="278" width="326" height="432" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
-    <text x="573" y="314" text-anchor="middle" class="font h" fill="#0c4a6e">Full Scientific Review</text>
+    <text x="573" y="314" text-anchor="middle" class="font h" fill="#0c4a6e">Full Paper Review</text>
     <text x="573" y="338" text-anchor="middle" class="font skill" fill="#075985">ccf-conference-reviewer</text>
     <line x1="438" y1="358" x2="708" y2="358" stroke="#7dd3fc"/>
     <text x="438" y="388" class="font label">Starts when</text>
@@ -84,7 +84,7 @@
     <text x="806" y="514" class="font b">presentation, terminology, fig/table narration,</text>
     <text x="806" y="534" class="font b">LaTeX/template/citation checks.</text>
     <text x="806" y="572" class="font label">Does not own</text>
-    <text x="806" y="596" class="font b">scientific novelty verdict, acceptance-style scoring,</text>
+    <text x="806" y="596" class="font b">novelty verdict, acceptance-style scoring,</text>
     <text x="806" y="616" class="font b">AC/meta-review or reviewer simulation.</text>
     <text x="806" y="654" class="font label">Output</text>
     <text x="806" y="678" class="font b">paragraph issue table, concrete revision actions, format risks.</text>

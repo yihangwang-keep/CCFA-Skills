@@ -135,7 +135,7 @@
     <rect x="992" y="586" width="300" height="126" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
     <circle cx="1022" cy="616" r="18" fill="#0284c7"/>
     <text x="1022" y="622" text-anchor="middle" class="font num">8</text>
-    <text x="1050" y="612" class="font h" fill="#0c4a6e">Complete Scientific Review</text>
+    <text x="1050" y="612" class="font h" fill="#0c4a6e">Full Paper Review</text>
     <text x="1010" y="642" class="font b" fill="#075985">desk check / related work / claim-evidence /</text>
     <text x="1010" y="660" class="font b" fill="#075985">experiment audit / reviewers / AC / scores</text>
     <text x="1010" y="682" class="font skill" fill="#075985">ccf-conference-reviewer</text>
@@ -152,7 +152,7 @@
     <text x="194" y="874" text-anchor="middle" class="font num">9</text>
     <text x="222" y="864" class="font h" fill="#164e63">Writing / LaTeX Review Detail</text>
     <text x="182" y="894" class="font b" fill="#0e7490">paragraph writing, format, LaTeX, figure/table;</text>
-    <text x="182" y="912" class="font b" fill="#0e7490">consistency; no scientific scoring</text>
+    <text x="182" y="912" class="font b" fill="#0e7490">consistency; no paper scoring</text>
     <text x="182" y="936" class="font skill" fill="#0e7490">ccf-conference-writing-reviewer</text>
   </g>
 
@@ -183,5 +183,5 @@
 
   <rect x="74" y="1000" width="1352" height="62" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
   <text x="100" y="1026" class="font h">Mode and safety overlay</text>
-  <text x="100" y="1048" class="font b">quick: local edits / short scans / no full checklist. standard: full searches, whole-paper review, experiment plans, reusable files. Always: no fabricated citations/results, public-safe search, MDPI exclusion, score-risk not acceptance probability.</text>
+  <text x="100" y="1048" class="font b">quick: local edits / short scans / no full checklist. standard: full searches, whole-paper review, experiment plans, reusable files. Always: no fabricated citations/results, public-safe search, source-quality screening, score-risk not acceptance probability.</text>
 </svg>

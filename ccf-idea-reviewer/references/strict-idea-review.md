@@ -10,7 +10,7 @@ Search process:
 
 1. Convert the idea into public-safe keywords: problem, setting, method family, claimed mechanism, dataset/benchmark, target venue family, and 2-3 likely synonyms.
 2. Do not paste confidential user wording into a search query when the idea is unpublished and specific. Query generic public keywords first. If exact private wording is necessary, ask before using it.
-3. Prefer authoritative and high-impact sources: official proceedings, OpenReview, arXiv only when needed for fast-moving fields, ACM/IEEE/USENIX/ACL Anthology/CVF/PMLR/NeurIPS/ICLR/AAAI pages, DBLP, Semantic Scholar, OpenAlex, and major journal publishers. Exclude MDPI by policy.
+3. Prefer authoritative and high-impact sources: official proceedings, OpenReview, arXiv only when needed for fast-moving fields, ACM/IEEE/USENIX/ACL Anthology/CVF/PMLR/NeurIPS/ICLR/AAAI pages, DBLP, Semantic Scholar, OpenAlex, and major journal publishers. Apply the shared source-quality exclusions.
 4. Record 3-8 closest works or state why fewer were found.
 5. Separate `not searched`, `searched but weak coverage`, and `searched with closest-work confidence`.
 

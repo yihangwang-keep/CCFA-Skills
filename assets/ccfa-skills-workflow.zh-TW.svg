@@ -135,7 +135,7 @@
     <rect x="992" y="586" width="300" height="126" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
     <circle cx="1022" cy="616" r="18" fill="#0284c7"/>
     <text x="1022" y="622" text-anchor="middle" class="font num">8</text>
-    <text x="1050" y="612" class="font h" fill="#0c4a6e">完整科學審稿</text>
+    <text x="1050" y="612" class="font h" fill="#0c4a6e">完整論文評審</text>
     <text x="1010" y="642" class="font b" fill="#075985">desk check / related work / claim-evidence /</text>
     <text x="1010" y="660" class="font b" fill="#075985">實驗審計 / 審稿人 / AC / 分數</text>
     <text x="1010" y="682" class="font skill" fill="#075985">ccf-conference-reviewer</text>
@@ -183,5 +183,5 @@
 
   <rect x="74" y="1000" width="1352" height="62" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
   <text x="100" y="1026" class="font h">模式与安全覆蓋</text>
-  <text x="100" y="1048" class="font b">quick：局部修改 / 短掃描 / 不強制完整 checklist。standard：完整檢索、整篇審稿、實驗方案、可複用文件。始終：不編造引用/結果，使用公開安全檢索，排除 MDPI，score-risk 不等於接收機率。</text>
+  <text x="100" y="1048" class="font b">quick：局部修改 / 短掃描 / 不強制完整 checklist。standard：完整檢索、整篇審稿、實驗方案、可複用文件。始終：不編造引用/結果，使用公開安全檢索，篩選來源品質，分數風險不等於接收機率。</text>
 </svg>

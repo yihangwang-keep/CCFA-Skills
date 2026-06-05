@@ -1,6 +1,6 @@
 <svg width="1440" height="940" viewBox="0 0 1440 940" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">CCFA 评审边界架构</title>
-  <desc id="desc">CCFA 思路评审、完整科学审稿、写作评审和显式 rebuttal 模块的边界图。</desc>
+  <desc id="desc">CCFA 思路评审、完整论文评审、写作评审和显式 rebuttal 模块的边界图。</desc>
   <defs>
     <filter id="shadow" x="-12%" y="-18%" width="124%" height="140%" color-interpolation-filters="sRGB">
       <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.1"/>
@@ -26,7 +26,7 @@
   <rect width="1440" height="940" rx="28" fill="#f8fafc"/>
   <rect x="40" y="34" width="1360" height="858" rx="22" fill="#ffffff" stroke="#e2e8f0"/>
   <text x="720" y="78" text-anchor="middle" class="font title">评审 / Reviewer 边界图</text>
-  <text x="720" y="108" text-anchor="middle" class="font sub">明确拆分 idea 评分、完整科学审稿、写作评审和 rebuttal，避免泛泛 AI 式审稿</text>
+  <text x="720" y="108" text-anchor="middle" class="font sub">明确拆分 idea 评分、完整论文评审、写作评审和 rebuttal，避免空泛评审</text>
 
   <rect x="82" y="148" width="1276" height="86" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="110" y="180" class="font label">路由规则</text>
@@ -54,7 +54,7 @@
 
   <g filter="url(#shadow)">
     <rect x="410" y="278" width="326" height="432" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
-    <text x="573" y="314" text-anchor="middle" class="font h" fill="#0c4a6e">完整科学审稿</text>
+    <text x="573" y="314" text-anchor="middle" class="font h" fill="#0c4a6e">完整论文评审</text>
     <text x="573" y="338" text-anchor="middle" class="font skill" fill="#075985">ccf-conference-reviewer</text>
     <line x1="438" y1="358" x2="708" y2="358" stroke="#7dd3fc"/>
     <text x="438" y="388" class="font label">启动条件</text>

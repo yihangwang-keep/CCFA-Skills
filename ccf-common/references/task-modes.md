@@ -40,7 +40,7 @@ Unresolved:
 2. If the user says standard, full, final, submission-ready, checklist-audit, score-risk, 全面检查, 投稿前, or wants a reusable folder/file, use standard mode.
 3. If the user gives only one paragraph for polishing, default to quick mode.
 4. If the user gives a full section, manuscript, review set, literature search, or experiment plan, default to standard mode.
-5. Safety rules never become quick: do not invent evidence or results, do not expose private text in searches without authorization, preserve idea scope unless authorized, and exclude MDPI in literature search.
+5. Safety rules never become quick: do not invent evidence or results, do not expose private text in searches without authorization, preserve idea scope unless authorized, and apply source-quality exclusions in literature search.
 
 ## Output Contract
 

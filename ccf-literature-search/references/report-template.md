@@ -23,7 +23,7 @@ If the user provides a project directory, write the folder there. Otherwise use 
 Date: YYYY-MM-DD
 Search purpose:
 Target venue/family:
-MDPI policy: excluded
+Source-quality policy: applied
 
 ## Summary
 
@@ -85,7 +85,7 @@ For pure benchmark papers, set `numeric_evidence_score` to `N/A benchmark`.
 
 ## Excluded Sources
 
-- MDPI: excluded by policy.
+- Policy-excluded or low-quality sources: noted in screening notes only.
 - Other exclusions:
 
 ## Unknowns

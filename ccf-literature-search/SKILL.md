@@ -1,6 +1,6 @@
 ---
 name: ccf-literature-search
-description: "Search high-quality literature online for CCF-A research workflows, score paper quality, classify paper type, and write a literature-search folder. Use for related work, introduction grounding, idea optimization, idea review, experiment design, literature survey, citation discovery, prior-art checks, benchmark/dataset discovery, 文献检索, 查找相关工作, 相关工作, 文献综述, 引言支撑, idea前沿检索, benchmark搜索. Excludes MDPI by policy."
+description: "Search high-quality literature online for CCF-A research workflows, score paper quality, classify paper type, apply source-quality screening, and write a literature-search folder. Use for related work, introduction grounding, idea optimization, idea review, experiment design, literature survey, citation discovery, prior-art checks, benchmark/dataset discovery, 文献检索, 查找相关工作, 相关工作, 文献综述, 引言支撑, idea前沿检索, benchmark搜索."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -20,7 +20,7 @@ Load `../ccf-common/references/task-modes.md` before deciding quick or standard 
 
 Treat user ideas, draft text, unpublished results, and private manuscripts as private material. Load `../ccf-common/references/privacy-and-evidence.md` before browsing. Search with public keywords, public titles, venue names, method names, public abstracts, or user-approved query text. Do not paste private draft sentences into a search query unless the user explicitly authorizes it.
 
-Hard source ban: do not search, cite, recommend, or include MDPI venues, journals, URLs, or PDFs. If a search result is from MDPI, discard it and note `excluded: MDPI` only in internal screening or the search-notes file.
+Source-quality exclusion: do not search, cite, recommend, or include policy-excluded venues, journals, URLs, or PDFs. The shared policy includes MDPI sources in this exclusion set; record exclusions only in internal screening or the search-notes file.
 
 ## Core Rule
 
@@ -31,7 +31,7 @@ Ground novelty and positioning using high-quality, inspectable sources. Prefer i
 In standard mode, complete this checklist before final output. In quick mode, run the relevant subset and return a compact checklist status.
 
 1. The user's topic is converted into safe public search queries.
-2. MDPI is excluded from search domains, candidates, and final outputs.
+2. Shared source-quality exclusions are applied to search domains, candidates, and final outputs.
 3. Sources prioritize primary or high-confidence venues: official proceedings, arXiv/OpenReview when appropriate, ACL Anthology, CVF, PMLR, ACM, IEEE, USENIX, DBLP, Semantic Scholar, OpenAlex, Crossref, and venue or project pages.
 4. Candidate papers are deduplicated by title and linked to a stable URL.
 5. Each included paper has venue/year/source status, paper type, and relevance rationale.
@@ -49,7 +49,7 @@ In standard mode, complete this checklist before final output. In quick mode, ru
    - Quick: 6-10 screened candidates, 3-6 final papers.
    - Standard: 15-30 screened candidates, 8-15 final papers unless the user requests another size.
 4. Search discovery indexes first, then verify candidates through stable paper pages or official proceedings when possible. Use broad web search only to find primary links; do not rely on snippets for final claims.
-5. Filter by influence and fit. Prefer CCF-A/B conferences, top-field conferences, strong journals, widely used benchmarks, or recent high-signal preprints from credible groups. Exclude low-quality, predatory, inaccessible, or MDPI sources.
+5. Filter by influence and fit. Prefer CCF-A/B conferences, top-field conferences, strong journals, widely used benchmarks, or recent high-signal preprints from credible groups. Exclude low-quality, predatory, inaccessible, or policy-excluded sources.
 6. Classify each paper with the paper-type taxonomy and score it:
    - `insight`: how clear and non-obvious the central idea is.
    - `completeness`: method/evaluation/proof/dataset/reproducibility coverage.
@@ -103,5 +103,5 @@ Compact checklist status:
 
 Load only what is needed:
 
-- `references/search-and-scoring.md`: Use for source policy, MDPI exclusion, source tiers, paper-type taxonomy, and scoring anchors.
+- `references/search-and-scoring.md`: Use for source policy, source-quality exclusions, source tiers, paper-type taxonomy, and scoring anchors.
 - `references/report-template.md`: Use when writing the literature-search folder files.

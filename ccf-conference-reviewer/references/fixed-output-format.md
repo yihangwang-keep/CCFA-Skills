@@ -43,7 +43,7 @@ Queries used:
 Sources searched:
 Closest works found:
 Unverified related-work risks:
-MDPI exclusion status:
+Source-quality screening status:
 ```
 
 ## 5. Expected Review Outcome

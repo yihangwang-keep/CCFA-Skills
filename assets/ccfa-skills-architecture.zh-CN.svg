@@ -61,7 +61,7 @@
   <g filter="url(#shadow)">
     <rect x="572" y="352" width="190" height="92" rx="8" fill="#ccfbf1" stroke="#0f766e"/>
     <text x="667" y="380" text-anchor="middle" class="font card-title" fill="#134e4a">3. 文献检索</text>
-    <text x="667" y="403" text-anchor="middle" class="font card-sub" fill="#0f766e">高质量来源 / 禁 MDPI</text>
+    <text x="667" y="403" text-anchor="middle" class="font card-sub" fill="#0f766e">高质量来源筛选</text>
     <text x="667" y="424" text-anchor="middle" class="font card-skill" fill="#115e59">ccf-literature-search</text>
   </g>
 
@@ -92,7 +92,7 @@
 
   <g filter="url(#shadow)">
     <rect x="612" y="484" width="244" height="72" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
-    <text x="734" y="509" text-anchor="middle" class="font card-title" fill="#0c4a6e">7. 完整科学审稿</text>
+    <text x="734" y="509" text-anchor="middle" class="font card-title" fill="#0c4a6e">7. 完整论文评审</text>
     <text x="734" y="532" text-anchor="middle" class="font card-skill" fill="#075985">ccf-conference-reviewer</text>
   </g>
 
@@ -125,7 +125,7 @@
 
   <rect x="76" y="786" width="1288" height="96" rx="14" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="104" y="818" class="font band-title">共享治理层</text>
-  <text x="104" y="844" class="font sub">ccf-common：路由、quick/standard 模式、PARTIAL handoff、隐私/证据、MDPI 排除、来源表</text>
+  <text x="104" y="844" class="font sub">ccf-common：路由、quick/standard 模式、PARTIAL handoff、隐私/证据、来源质量规则、来源表</text>
   <text x="104" y="868" class="font sub">forge-skills：skill 创建、维护、校验、双语触发词、家族一致性审计</text>
 
   <rect x="990" y="800" width="320" height="58" rx="8" fill="#ffffff" stroke="#cbd5e1"/>

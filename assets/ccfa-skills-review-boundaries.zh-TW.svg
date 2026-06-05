@@ -1,6 +1,6 @@
 <svg width="1440" height="940" viewBox="0 0 1440 940" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">CCFA 評審邊界架構</title>
-  <desc id="desc">CCFA 思路評審、完整科學審稿、寫作評審和明確 rebuttal 模組的邊界圖。</desc>
+  <desc id="desc">CCFA 思路評審、完整論文評審、寫作評審和明確 rebuttal 模組的邊界圖。</desc>
   <defs>
     <filter id="shadow" x="-12%" y="-18%" width="124%" height="140%" color-interpolation-filters="sRGB">
       <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.1"/>
@@ -26,7 +26,7 @@
   <rect width="1440" height="940" rx="28" fill="#f8fafc"/>
   <rect x="40" y="34" width="1360" height="858" rx="22" fill="#ffffff" stroke="#e2e8f0"/>
   <text x="720" y="78" text-anchor="middle" class="font title">評審 / Reviewer 邊界圖</text>
-  <text x="720" y="108" text-anchor="middle" class="font sub">明確拆分 idea 評分、完整科學審稿、寫作評審和 rebuttal，避免泛泛 AI 式審稿</text>
+  <text x="720" y="108" text-anchor="middle" class="font sub">明確拆分 idea 評分、完整論文評審、寫作評審和 rebuttal，避免空泛評審</text>
 
   <rect x="82" y="148" width="1276" height="86" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="110" y="180" class="font label">路由規則</text>
@@ -54,7 +54,7 @@
 
   <g filter="url(#shadow)">
     <rect x="410" y="278" width="326" height="432" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
-    <text x="573" y="314" text-anchor="middle" class="font h" fill="#0c4a6e">完整科學審稿</text>
+    <text x="573" y="314" text-anchor="middle" class="font h" fill="#0c4a6e">完整論文評審</text>
     <text x="573" y="338" text-anchor="middle" class="font skill" fill="#075985">ccf-conference-reviewer</text>
     <line x1="438" y1="358" x2="708" y2="358" stroke="#7dd3fc"/>
     <text x="438" y="388" class="font label">啟動條件</text>

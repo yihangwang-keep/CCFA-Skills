@@ -24,4 +24,4 @@ python ..\ccf-common\scripts\check_sources.py
 - Treat unsearched prior art as uncertainty, not proof of novelty.
 - Use public peer-review and research-question frameworks as scaffolds for judgment; do not copy their wording or treat them as venue-specific scoring forms.
 - Follow `../ccf-common/references/privacy-and-evidence.md` before using private idea text in any search query.
-- Exclude MDPI from literature discovery by CCFA policy unless the user explicitly asks to discuss why a specific MDPI paper should be ignored.
+- Apply the shared source-quality policy unless the user explicitly asks to discuss a specific excluded paper separately.

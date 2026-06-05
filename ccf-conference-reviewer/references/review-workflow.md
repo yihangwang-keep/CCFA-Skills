@@ -37,7 +37,7 @@ Rules:
 - Do not paste private manuscript text into web queries unless authorized.
 - Query public keywords: title terms if public, method family, task, dataset, benchmark, venue family, and core claim.
 - Prefer proceedings, OpenReview, CVF, PMLR, ACL Anthology, ACM, IEEE, USENIX, DBLP, Semantic Scholar, OpenAlex, arXiv, project pages, and benchmark pages.
-- Exclude MDPI from search, scoring, and final recommendations.
+- Apply the shared source-quality exclusions to search, scoring, and final recommendations.
 - Mark every missing-related-work item as `searched`, `user-provided`, or `unverified`.
 
 ## Audits
