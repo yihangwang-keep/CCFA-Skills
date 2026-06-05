@@ -17,7 +17,7 @@ The safety level is moderate by default:
 - Do not commit or publish personal absolute paths, usernames, expanded home directories, private local skill roots, or machine-specific command examples.
 - Use `$CODEX_HOME`, `$HOME`, repo-relative paths, or non-identifying `local:` / `repo:` references in documentation, registries, diagrams, scripts, and examples.
 - Treat local filesystem paths inside user materials as private user data. Do not copy them into public-facing outputs unless the user explicitly asks and the path is already safe to disclose.
-- Before finishing CCFA-family maintenance, scan committed text files for local path leaks and remove them.
+- Before finishing CCFA-family maintenance, run `ccf-common/scripts/check_path_privacy.py` at the repository root and remove any reported local path leaks.
 
 ## Evidence Discipline
 

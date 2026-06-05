@@ -7,11 +7,10 @@ Do not write machine-specific absolute paths, usernames, home directories, or ex
 Before finishing a skill-family maintenance task, search for path leaks:
 
 ```powershell
-$PathLeakPattern = '([A-Za-z]:[\\/]+Users[\\/]+|/Users/[^/]+/|(\$HOME|~)[\\/]+\.codex[\\/]+skills[\\/]+\.system)'
-rg -n --hidden --glob '!**/.git/**' --glob '!*.png' --glob '!*.jpg' --pcre2 $PathLeakPattern .
+python 'ccf-common/scripts/check_path_privacy.py' .
 ```
 
-Any match in committed documentation should be replaced with a variable or repo-relative path.
+Any match should be replaced with a variable, repo-relative path, or non-identifying local reference.
 
 ## Locate Skill Tools
 

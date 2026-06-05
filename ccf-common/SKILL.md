@@ -40,6 +40,7 @@ Load only the file needed for the current maintenance task:
 5. Never commit personal absolute paths, usernames, expanded home directories, private local skill roots, or machine-specific command examples. Use `$CODEX_HOME`, `$HOME`, repo-relative paths, or non-identifying placeholders.
 6. Put new public sources in `references/source-registry.yaml`; do not duplicate long URL lists in sibling `source-notes.md` files. Local references must use repo-relative or non-identifying `local:`/`repo:` identifiers, not machine paths.
 7. Run `scripts/check_sources.py` after source-registry edits. The script reports issues only and must not rewrite registry files.
+8. Run `scripts/check_path_privacy.py` before finalizing CCFA-family changes that touch docs, examples, source records, scripts, diagrams, or release files.
 
 ## Output Contract
 

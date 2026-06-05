@@ -46,7 +46,7 @@ python '<skill-creator-dir>/scripts/init_skill.py' <skill-name> --path '<skills-
 5. Write `SKILL.md` before filling optional resources. Put all "when to use" trigger wording in the YAML `description`; the body is loaded only after trigger selection. Use imperative instructions and avoid user-facing tutorial prose.
 6. Add resources that directly support the skill. Remove placeholder files and unused directories. Test any script by running it on a small representative example.
 7. Validate and iterate. Run the available validator, then inspect manually for trigger quality, resource links, naming, and excessive context. Use realistic future prompts to decide whether the skill actually helps.
-8. Run a path-privacy scan before finishing CCFA-family maintenance. Replace any committed local absolute path or username with `$CODEX_HOME`, `$HOME`, a repo-relative path, or a non-identifying placeholder.
+8. Run `ccf-common/scripts/check_path_privacy.py` before finishing CCFA-family maintenance. Replace any committed local absolute path or username with `$CODEX_HOME`, `$HOME`, a repo-relative path, or a non-identifying placeholder.
 
 ## Reference Files
 

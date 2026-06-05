@@ -87,6 +87,7 @@ Check these before finishing:
 - Referenced files exist.
 - CCFA family skills preserve the shared `ccf_skill_controls` keys and use `ccf-common` for routing, handoff, privacy, and source-registry policy.
 - No committed file contains personal absolute paths, usernames, expanded local skill roots, or machine-specific command examples.
+- `ccf-common/scripts/check_path_privacy.py` passes when run at the repository root.
 - Optional directories contain only useful files.
 - Scripts, if any, were executed on a representative example.
 - `agents/openai.yaml`, if present, matches the skill and uses a correct `$skill-name` default prompt.

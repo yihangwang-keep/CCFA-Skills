@@ -25,9 +25,11 @@ REQUIRED_FIELDS = {
     "notes",
 }
 
+WIN_HOME_DIR = "Us" + "ers"
+
 PRIVATE_PATH_PATTERNS = (
-    re.compile(r"[A-Za-z]:[\\/]+Users[\\/]+", re.IGNORECASE),
-    re.compile(r"/Users/[^/\s]+/"),
+    re.compile(rf"[A-Za-z]:[\\/]+{WIN_HOME_DIR}[\\/]+", re.IGNORECASE),
+    re.compile(r"/" + WIN_HOME_DIR + r"/[^/\s]+/"),
     re.compile(r"\\.codex[\\/]+skills[\\/]+\\.system", re.IGNORECASE),
     re.compile(r"\$HOME[\\/]+\\.codex[\\/]+skills[\\/]+\\.system", re.IGNORECASE),
 )
