@@ -12,6 +12,13 @@ The safety level is moderate by default:
 4. For literature and policy checks, prefer public queries: title, venue, method keywords, author-approved public abstract, official venue page, proceedings page, arXiv/OpenReview/CVF/PMLR/ACL Anthology page, DBLP/Semantic Scholar/OpenAlex record, project page, benchmark name, or dataset name.
 5. When exact private wording matters, ask before using it in a query unless the user already made it public in the current request.
 
+## Path And Identity Privacy
+
+- Do not commit or publish personal absolute paths, usernames, expanded home directories, private local skill roots, or machine-specific command examples.
+- Use `$CODEX_HOME`, `$HOME`, repo-relative paths, or non-identifying `local:` / `repo:` references in documentation, registries, diagrams, scripts, and examples.
+- Treat local filesystem paths inside user materials as private user data. Do not copy them into public-facing outputs unless the user explicitly asks and the path is already safe to disclose.
+- Before finishing CCFA-family maintenance, scan committed text files for local path leaks and remove them.
+
 ## Evidence Discipline
 
 - Do not invent literature, citations, baselines, experiments, results, reviewer consensus, paper changes, rebuttal commitments, score changes, benchmark ranks, user-study findings, statistical significance, or acceptance probability.

@@ -22,6 +22,8 @@ If the user disables a skill or asks for writing-only behavior, encode that boun
 
 When adding sources, update `../ccf-common/references/source-registry.yaml` instead of duplicating URL lists in sibling skills. When adding browsing or evidence rules, keep them aligned with `../ccf-common/references/privacy-and-evidence.md`.
 
+Never commit machine-specific absolute paths, usernames, expanded home directories, or private local directory names into skills, README files, source registries, diagrams, examples, scripts, or command snippets. Use `$CODEX_HOME`, `$HOME`, repo-relative paths, or placeholders that do not identify the user or machine.
+
 ## Core Rule
 
 Build skills as compact operational guidance for another Codex session. Keep `SKILL.md` focused on trigger-relevant workflow, decisions, and resource navigation. Put detailed examples, checklists, schemas, policy text, or long instructions in `references/` and load them only when needed.
@@ -44,6 +46,7 @@ python '<skill-creator-dir>/scripts/init_skill.py' <skill-name> --path '<skills-
 5. Write `SKILL.md` before filling optional resources. Put all "when to use" trigger wording in the YAML `description`; the body is loaded only after trigger selection. Use imperative instructions and avoid user-facing tutorial prose.
 6. Add resources that directly support the skill. Remove placeholder files and unused directories. Test any script by running it on a small representative example.
 7. Validate and iterate. Run the available validator, then inspect manually for trigger quality, resource links, naming, and excessive context. Use realistic future prompts to decide whether the skill actually helps.
+8. Run a path-privacy scan before finishing CCFA-family maintenance. Replace any committed local absolute path or username with `$CODEX_HOME`, `$HOME`, a repo-relative path, or a non-identifying placeholder.
 
 ## Reference Files
 

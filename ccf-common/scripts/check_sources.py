@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -24,6 +25,13 @@ REQUIRED_FIELDS = {
     "notes",
 }
 
+PRIVATE_PATH_PATTERNS = (
+    re.compile(r"[A-Za-z]:[\\/]+Users[\\/]+", re.IGNORECASE),
+    re.compile(r"/Users/[^/\s]+/"),
+    re.compile(r"\\.codex[\\/]+skills[\\/]+\\.system", re.IGNORECASE),
+    re.compile(r"\$HOME[\\/]+\\.codex[\\/]+skills[\\/]+\\.system", re.IGNORECASE),
+)
+
 
 def parse_date(value):
     if value in (None, ""):
@@ -37,7 +45,7 @@ def parse_date(value):
 
 
 def check_url(url, timeout):
-    if not isinstance(url, str) or url.startswith("C:/") or url.startswith("file:"):
+    if not isinstance(url, str) or not url.startswith(("http://", "https://")):
         return "skip-local"
     request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "ccfa-source-check/1.0"})
     try:
@@ -85,6 +93,9 @@ def main():
         seen_ids.add(source_id)
         if not isinstance(source.get("used_by"), list) or not source.get("used_by"):
             errors.append(f"{source_id}: used_by must be a non-empty list")
+        url = source.get("url")
+        if isinstance(url, str) and any(pattern.search(url) for pattern in PRIVATE_PATH_PATTERNS):
+            errors.append(f"{source_id}: url must not contain a personal absolute path or local skill-root leak")
 
         verified_at = parse_date(source.get("verified_at"))
         stale_after = source.get("stale_after_days")

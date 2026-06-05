@@ -37,8 +37,9 @@ Load only the file needed for the current maintenance task:
 2. Use `references/routing.md` before adding new trigger language to prevent overlapping ownership.
 3. Use `references/task-modes.md` before changing checklist strictness, quick polishing, standard review, or output contracts.
 4. Use `references/privacy-and-evidence.md` before adding any browsing, citation, novelty, scoring, experiment-result, compression, or rebuttal instruction.
-5. Put new public sources in `references/source-registry.yaml`; do not duplicate long URL lists in sibling `source-notes.md` files.
-6. Run `scripts/check_sources.py` after source-registry edits. The script reports issues only and must not rewrite registry files.
+5. Never commit personal absolute paths, usernames, expanded home directories, private local skill roots, or machine-specific command examples. Use `$CODEX_HOME`, `$HOME`, repo-relative paths, or non-identifying placeholders.
+6. Put new public sources in `references/source-registry.yaml`; do not duplicate long URL lists in sibling `source-notes.md` files. Local references must use repo-relative or non-identifying `local:`/`repo:` identifiers, not machine paths.
+7. Run `scripts/check_sources.py` after source-registry edits. The script reports issues only and must not rewrite registry files.
 
 ## Output Contract
 

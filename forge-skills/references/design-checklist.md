@@ -20,6 +20,7 @@ If examples are missing, invent likely examples and proceed unless the domain is
 - Check the target directory before creating the skill.
 - Avoid names that collide with system skills or are too broad, such as `helper`, `coding`, or `skill-creator`.
 - Place personal skills in `$CODEX_HOME/skills` when set, otherwise `~/.codex/skills`.
+- Do not write expanded home directories, usernames, drive-specific local paths, or machine-specific skill roots into committed files. Use `$CODEX_HOME`, `$HOME`, repo-relative paths, or non-identifying placeholders.
 
 ## Resource Decision
 
@@ -85,6 +86,7 @@ Check these before finishing:
 - `SKILL.md` has no unfinished placeholders.
 - Referenced files exist.
 - CCFA family skills preserve the shared `ccf_skill_controls` keys and use `ccf-common` for routing, handoff, privacy, and source-registry policy.
+- No committed file contains personal absolute paths, usernames, expanded local skill roots, or machine-specific command examples.
 - Optional directories contain only useful files.
 - Scripts, if any, were executed on a representative example.
 - `agents/openai.yaml`, if present, matches the skill and uses a correct `$skill-name` default prompt.
