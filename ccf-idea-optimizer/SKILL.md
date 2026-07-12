@@ -39,10 +39,12 @@ In standard mode, complete this checklist before final output. In quick mode, ru
 5. The method mechanism is explained, not only named.
 6. Innovation type is classified: problem, setting, method, data/benchmark, theory, system, empirical finding, evaluation, or synthesis.
 7. The experiment plan tests the central claim and includes baselines, ablations, robustness, and failure analysis as needed by the venue.
-8. Reviewer risks are labeled as writing-fixable, design-fixable, evidence-fixable, requires-new-result, venue-mismatch, or likely-pivot.
-9. Diverse variants are checked for internal contradictions, mutually incompatible assumptions, and theme drift.
-10. Early-stage outputs separate `current weakness` from `development potential`; uncertainty is labeled as `needs-search`, `needs-mechanism`, or `needs-evidence`, not as rejection.
-11. Any optional module transition to `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-idea-reviewer`, `ccf-experiment-designer`, or `ccf-paper-writer` follows the CCFA handoff mode; if denied or disabled, output a local risk scan or next-step note only.
+8. For algorithmic ideas, the method has a meaningful objective, variables and constraints, a verifiable solution process, and a theoretical or optimality reference. The proposed method contains no heuristic decision mechanism.
+9. The proposed scenario preserves the motivating difficulty and is not simplified, rule-shaped, or threshold-selected to manufacture a performance gap.
+10. Reviewer risks are labeled as writing-fixable, design-fixable, evidence-fixable, requires-new-result, venue-mismatch, or likely-pivot.
+11. Diverse variants are checked for internal contradictions, mutually incompatible assumptions, and theme drift.
+12. Early-stage outputs separate `current weakness` from `development potential`; uncertainty is labeled as `needs-search`, `needs-mechanism`, or `needs-evidence`, not as rejection.
+13. Any optional module transition to `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-idea-reviewer`, `ccf-experiment-designer`, or `ccf-paper-writer` follows the CCFA handoff mode; if denied or disabled, output a local risk scan or next-step note only.
 
 Load `references/idea-intake.md` when inputs are incomplete or several idea drafts must be normalized.
 

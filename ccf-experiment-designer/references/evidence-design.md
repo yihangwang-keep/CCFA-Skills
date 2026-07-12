@@ -76,6 +76,32 @@ Baseline categories:
 - Human, oracle, random, heuristic, or classical baseline when meaningful.
 - Deployed or default system baseline for systems/HCI/security tasks.
 
+## Algorithmic Contribution Gate
+
+Apply this gate when the claimed contribution is an algorithm, optimizer, scheduler, controller, planner, policy, or solver. Record `not applicable` with a reason for non-algorithmic work.
+
+1. **Formal target:** state the objective or decision criterion, decision variables, constraints, assumptions, and single- or multi-objective tradeoff. A metric used only after execution is not automatically an optimization objective.
+2. **Auditable solution process:** specify initialization, update or search steps, termination condition, feasibility handling, randomness, hyperparameters, and computational complexity. Another researcher should be able to trace how an input becomes a solution.
+3. **Verification:** test feasibility and constraint satisfaction on every run. Add convergence, correctness, invariant, residual, or reproducibility checks appropriate to the solver.
+4. **Optimality or theory reference:** use an exact solver, exhaustive search on small instances, oracle, certified lower/upper bound, relaxation, proven approximation ratio, convergence theorem with a stated solution target, regret bound, or domain-specific analytical reference. State the optimality gap and what the reference does or does not certify.
+5. **No-heuristic rule:** the proposed algorithm must contain no heuristic decision mechanism. Reject rule-of-thumb, greedy heuristic, heuristic local search, metaheuristic, manually patched, and empirical trial-and-error procedures without exception. Adding a proof, certificate, formal wrapper, learned component, or non-heuristic module elsewhere does not make a method containing a heuristic mechanism admissible. Heuristics may be retained only as prior-work or comparison baselines and must be labeled as such.
+6. **Mechanism over rule accumulation:** every rule or component must follow from the formulation, enforce a real constraint, or test a named mechanism. Remove decorative rules whose only purpose is improving the benchmark score.
+
+If the proposed method contains any heuristic decision mechanism, reject the proposed algorithmic route and redesign it before adding more experiments. Separately, reject it if no meaningful objective, verifiable solution process, and qualifying guarantee or optimality reference can be defined. Renaming a heuristic as a policy, framework, strategy, adaptive algorithm, hybrid method, or learned rule does not pass this gate.
+
+## Scenario Integrity Gate
+
+Define and freeze scenario generation before using outcomes to choose favorable cases.
+
+- **Preserve the bottleneck:** simplification must not remove the uncertainty, coupling, scarcity, scale, dynamics, partial observability, strategic behavior, or other difficulty that motivates the claimed method.
+- **Independent construction:** derive scenarios from real data, domain ranges, public protocols, or method-independent generators. Do not construct scenarios around the proposed method's rules or failure thresholds.
+- **Coverage:** include realistic, diverse, hard, boundary, and failure cases. Report the sampling distribution, seeds, exclusions, and any post-hoc filtering.
+- **No threshold-manufactured gap:** choose thresholds from domain meaning, training/validation data, or a preregistered rule. Apply matched tuning budgets to all tunable methods and report sweeps or sensitivity. Never select a test threshold because it maximizes the proposed method's lead.
+- **Rule-baseline check:** include a simple rule-based baseline. If it solves the simplified scenario, either restore the missing difficulty, justify the scenario as a legitimate special case, or narrow the novelty claim; do not add more ad hoc rules to reclaim a lead.
+- **Controlled modification:** when changing a scenario, state the external reason, the affected assumption, and whether all methods are reevaluated under the same version. Keep the original result visible when the change follows result inspection.
+
+Fail the gate when the principal advantage disappears under credible scenario variation, matched tuning, or a simple rule baseline and the paper still claims a general algorithmic advance. Treat that outcome as evidence to revise the problem or claim, not as a reason to engineer a more favorable benchmark.
+
 ## Ablation Logic
 
 Each ablation should test a mechanism:
@@ -96,6 +122,8 @@ Useful ablations:
 - Change data scale, workload, or domain.
 - Test hard cases and failure cases.
 - Analyze compute, memory, latency, or cost.
+
+Threshold sweeps are sensitivity analysis, not evidence of mechanism by themselves. Fix the selection protocol before test evaluation, use the same tuning budget for comparable baselines, and show the full relevant range rather than only the threshold with the largest gap.
 
 If the algorithm method is not a combination of mechanisms, do not invent ablations. And we encourage to create a new algorithmic mechanism to support the claim, rather than just combine existing mechanisms. But we can update the existing mechanism to fit the new situation in order to support the claim.
 

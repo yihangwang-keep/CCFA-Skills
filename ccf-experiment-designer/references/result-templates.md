@@ -11,6 +11,31 @@ Use these templates to produce fill-in result tables. Keep all unknown numbers b
 ```
 Evidence needed must answer what the evidences needed for this claim.
 
+## Algorithmic Contribution Gate (must for algorithmic work)
+
+```md
+| Item | Required record | Verification / reference | Status |
+| --- | --- | --- | --- |
+| Formal target | objective, variables, constraints, assumptions | formulation review | pass / fail / unresolved |
+| Solution process | initialization, steps, termination, feasibility, complexity | trace or reproducibility test | pass / fail / unresolved |
+| Solver verification | residual, invariant, convergence, correctness, or constraint checks | named check and tolerance | pass / fail / unresolved |
+| Optimality / theory | exact small-instance solver, oracle, bound, relaxation, or guarantee | gap or certification scope | pass / fail / N/A with reason |
+| No-heuristic rule | proposed method contains no heuristic decision mechanism; heuristics are baselines only | component-by-component classification audit; no exceptions | pass / fail / unresolved |
+```
+
+## Scenario Integrity Gate (must)
+
+```md
+| Item | Scenario protocol | Evidence | Status |
+| --- | --- | --- | --- |
+| Bottleneck preserved | motivating difficulty retained | comparison with simplified case | pass / fail / unresolved |
+| Independent construction | source, generator, ranges, seeds fixed without result-based selection | protocol or provenance | pass / fail / unresolved |
+| Coverage | realistic, diverse, hard, boundary, and failure cases | coverage table | pass / fail / unresolved |
+| Threshold integrity | domain/validation/preregistered selection with matched tuning budgets | full sweep or sensitivity | pass / fail / N/A |
+| Simple rule baseline | non-learned/non-optimized sanity policy | result and interpretation | pass / fail / N/A with reason |
+| Scenario changes | reason, version, affected assumption, all methods rerun | change ledger | pass / fail / unchanged |
+```
+
 ## Main Comparison Table
 
 ```md

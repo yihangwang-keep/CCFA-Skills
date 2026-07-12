@@ -36,9 +36,9 @@ Source-quality policy: applied
 
 ## Paper Table
 
-| # | Title | Year | Venue/source | Link | Type | Insight | Completeness | Numeric evidence | Overall | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 |  |  |  |  | pure method / pure benchmark / method + benchmark |  |  |  |  |  |
+| # | Title | Year | Venue/source | Link | Type | Problem scenario | Algorithm used | Insight | Completeness | Numeric evidence | Overall | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 |  |  |  |  | pure method / pure benchmark / method + benchmark |  |  |  |  |  |  |  |
 
 ## Clusters
 
@@ -73,7 +73,7 @@ Source-quality policy: applied
 Use these columns:
 
 ```csv
-title,year,venue_or_source,link,paper_type,insight_score,completeness_score,numeric_evidence_score,overall_label,relevance_note,quality_note
+title,year,venue_or_source,link,paper_type,problem_scenario,algorithm_used,insight_score,completeness_score,numeric_evidence_score,overall_label,relevance_note,quality_note
 ```
 
 For pure benchmark papers, set `numeric_evidence_score` to `N/A benchmark`.

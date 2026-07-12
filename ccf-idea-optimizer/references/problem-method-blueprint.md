@@ -40,6 +40,24 @@ Alternative designs rejected:
 
 If the method is a combination of known components, identify the non-obvious interaction. If no interaction exists, the idea is likely an engineering assembly and needs a sharper contribution or a stronger benchmark/evidence story.
 
+For an algorithmic contribution, additionally require:
+
+```text
+Decision variables and constraints:
+Solution procedure and termination:
+Feasibility / correctness / convergence check:
+Exact solver, oracle, bound, relaxation, or theoretical guarantee:
+Optimality gap and qualifying guarantee / certificate:
+```
+
+Do not turn a collection of hand-written rules into an alleged algorithmic novelty by adding more conditions. Do not propose any algorithm containing a heuristic decision mechanism. Greedy heuristics, heuristic local search, metaheuristics, rules of thumb, manually patched procedures, and empirical trial-and-error procedures always fail this gate. A proof, certificate, formal wrapper, learned component, or non-heuristic module elsewhere creates no exception. If no meaningful objective, verifiable solution process, and guarantee or certificate exist, independently redesign or reject the algorithmic route.
+
+## Scenario Validity
+
+A new or modified setting must introduce a meaningful technical requirement while retaining the difficulty that motivates the research. Specify its real-world or scientific basis, workload and constraint ranges, scenario generator or data provenance, and how it differs from prior settings.
+
+Reject scenario engineering that makes the task trivial for a simple rule, removes the central coupling or uncertainty, encodes the proposed method's assumptions into the benchmark, or chooses thresholds after seeing results to create a larger gap. If a simple rule solves the setting, restore the missing difficulty or narrow the contribution to the legitimate special case. Thresholds may represent domain constraints or sensitivity variables, but their selection protocol and full relevant range must be visible.
+
 ## Coherence Filter
 
 Before presenting an optimized idea, check:

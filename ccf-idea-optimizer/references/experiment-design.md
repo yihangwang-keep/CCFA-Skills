@@ -38,9 +38,15 @@ Use ablations to test mechanism, not only performance drops:
 
 - Remove each core component.
 - Replace the proposed component with a plausible generic alternative.
-- Vary the key hyperparameter or threshold.
+- Vary the key hyperparameter or threshold across a justified range; fix the selection protocol before test evaluation and do not report only the value that maximizes the proposed method's lead.
 - Show when the method fails.
 - Include qualitative or diagnostic evidence when numeric metrics hide behavior.
+
+## Algorithm And Scenario Integrity
+
+For algorithmic ideas, define the objective, variables, constraints, assumptions, solver steps, termination, and feasibility or correctness checks before designing comparison tables. Require an exact solver, oracle, certified bound, relaxation, proven approximation/convergence property, or other defensible theoretical or optimality reference. Do not propose a method containing any heuristic decision mechanism, including a hybrid method with only one heuristic component. There are no proof, certificate, naming, or formal-wrapper exceptions. Heuristics may appear only as explicitly labeled baselines. If the proposed method contains a heuristic or lacks a qualifying guarantee or certificate, redesign or reject the algorithmic route before experiment planning.
+
+Define scenarios independently of the desired result. Preserve the motivating difficulty, cover realistic and hard variations, use matched tuning budgets, and include a simple rule baseline. Do not stack rules or modify scenarios and thresholds merely to win a benchmark. If the rule baseline solves the setting, revise the setting or narrow the claim before expanding the experiment suite.
 
 ## Venue-Specific Evidence
 

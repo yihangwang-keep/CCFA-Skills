@@ -33,16 +33,17 @@ Ground novelty and positioning using high-quality, inspectable sources. Prefer i
 In standard mode, complete this checklist before final output. In quick mode, run the relevant subset and return a compact checklist status.
 
 1. The user's topic is converted into safe public search queries.
-2. Shared source-quality exclusions are applied to search domains, candidates, and final outputs.
-3. Sources prioritize primary or high-confidence venues: official proceedings, arXiv/OpenReview when appropriate, ACL Anthology, CVF, PMLR, ACM, IEEE, USENIX, DBLP, Semantic Scholar, OpenAlex, Crossref, and venue or project pages.
-4. Candidate papers are deduplicated by title and linked to a stable URL.
-5. Each included paper has venue/year/source status, paper type, and relevance rationale.
-6. Paper quality is scored on insight, completeness, and experimental numeric evidence. Pure benchmark papers skip the numeric-results score and receive a benchmark-quality note instead.
-7. Paper type is one of `pure benchmark`, `pure method`, `method + benchmark`, `survey`, `system/tool`, `theory/proof`, or `other`.
-8. Every claim about a paper is traceable to the linked source or marked as inferred.
-9. For idea-stage searches, each closest-work cluster includes what is already covered, what remains under-tested, and at least one possible differentiation or rescue route.
-10. A literature-search folder is written when file access is available and the user asked for a reusable report or standard workflow.
-11. Optional handoff to `ccf-literature-monitor`, `ccf-paper-writer`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-experiment-designer`, or `ccf-paper-reviewer` follows CCFA handoff mode.
+2. For each included method paper, state the problem scenario it addresses and the algorithm it uses.
+3. Shared source-quality exclusions are applied to search domains, candidates, and final outputs.
+4. Sources prioritize primary or high-confidence venues: official proceedings, arXiv/OpenReview when appropriate, ACL Anthology, CVF, PMLR, ACM, IEEE, USENIX, DBLP, Semantic Scholar, OpenAlex, Crossref, and venue or project pages.
+5. Candidate papers are deduplicated by title and linked to a stable URL.
+6. Each included paper has venue/year/source status, paper type, and relevance rationale.
+7. Paper quality is scored on insight, completeness, and experimental numeric evidence. Pure benchmark papers skip the numeric-results score and receive a benchmark-quality note instead.
+8. Paper type is one of `pure benchmark`, `pure method`, `method + benchmark`, `survey`, `system/tool`, `theory/proof`, or `other`.
+9. Every claim about a paper is traceable to the linked source or marked as inferred.
+10. For idea-stage searches, each closest-work cluster includes what is already covered, what remains under-tested, and at least one possible differentiation or rescue route.
+11. A literature-search folder is written when file access is available and the user asked for a reusable report or standard workflow.
+12. Optional handoff to `ccf-literature-monitor`, `ccf-paper-writer`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-experiment-designer`, or `ccf-paper-reviewer` follows CCFA handoff mode.
 
 ## Workflow
 
@@ -72,7 +73,7 @@ literature-search-YYYYMMDD-<topic-slug>/
    - For idea optimization: stale/overcrowded directions, open gaps, timely pivots, and minimum viable research questions.
    - For idea review: novelty confidence and likely prior-art risks.
    - For literature monitoring: watch queries, tracked competitors, and recurring overlap signals.
-   - For experiment design: datasets, baselines, metrics, benchmark protocols.
+   - For experiment design: problem scenarios, algorithms, datasets, baselines, metrics, and benchmark protocols.
    - For paper review: missing related work and baseline risks.
 
 ## Adaptive Output Contracts

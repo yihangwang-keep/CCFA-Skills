@@ -43,6 +43,8 @@ Prefer a mix of:
 - benchmark/dataset papers,
 - survey or taxonomy papers only when they clarify a field boundary.
 
+For each included method paper, record the problem scenario it addresses and the algorithm it uses. Heuristic methods may be recorded only as prior art or baselines, not as proposed-algorithm candidates.
+
 ## Opportunity Mapping
 
 When the search is for early direction scouting, classify each cluster as one or more of:
