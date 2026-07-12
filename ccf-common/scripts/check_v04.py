@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_SKILLS = {
     "ccf-common",
     "ccf-experiment-designer",
+    "ccf-experiment-debugger",
     "ccf-idea-optimizer",
     "ccf-idea-reviewer",
     "ccf-integrity-auditor",

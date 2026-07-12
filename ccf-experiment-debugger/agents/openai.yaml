@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCF Experiment Debugger"
+  short_description: "Diagnose failed experiments from code to algorithm to scenario"
+  default_prompt: "Use $ccf-experiment-debugger to diagnose why this experiment failed or did not match expectations, checking code before algorithm and scenario."

@@ -2,7 +2,7 @@ schema_version: 4
 generated_at: 2026-06-09
 authority: SKILL.md wins if this registry conflicts with a skill body.
 naming_policy: canonical runtime names use ccf-<object>-<role/action>; ccf-common is the governance exception.
-runtime_skill_count: 16
+runtime_skill_count: 17
 skills:
   - name: ccf-project-scaffolder
     trigger: "Create project folders, copy/select templates, initialize ccfa.yaml."
@@ -31,7 +31,11 @@ skills:
   - name: ccf-experiment-designer
     trigger: "Design experiments, baselines, metrics, ablations, robustness tests, result templates, and real-result tables/figures."
     exclude: "Does not invent results or draw docs diagrams."
-    handoff: "ccf-literature-searcher, ccf-visual-composer, ccf-paper-writer, ccf-paper-reviewer, ccf-integrity-auditor, ccf-submission-checker"
+    handoff: "ccf-experiment-debugger, ccf-literature-searcher, ccf-visual-composer, ccf-paper-writer, ccf-paper-reviewer, ccf-integrity-auditor, ccf-submission-checker"
+  - name: ccf-experiment-debugger
+    trigger: "Diagnose failed, unstable, unexpectedly weak, divergent, or irreproducible experiments in code-first, algorithm-second, scenario-last order."
+    exclude: "Does not design initial experiments, invent successful results, or change scenarios to force expected outcomes."
+    handoff: "ccf-experiment-designer, ccf-literature-searcher, ccf-idea-optimizer"
   - name: ccf-visual-composer
     trigger: "Compose, polish, generate, and QA publication-grade figures, tables, Python plotting code, creative data-analysis plots, captions, palettes, panel maps, and manuscript visual layout integration from supplied data/results."
     exclude: "Does not design experiments, invent results, write manuscript prose as the main task, or perform final submission compliance."
