@@ -97,7 +97,9 @@ Useful ablations:
 - Test hard cases and failure cases.
 - Analyze compute, memory, latency, or cost.
 
-## Benchmark Or Dataset Design
+If the algorithm method is not a combination of mechanisms, do not invent ablations. And we encourage to create a new algorithmic mechanism to support the claim, rather than just combine existing mechanisms. But we can update the existing mechanism to fit the new situation in order to support the claim.
+
+## Benchmark Or Dataset Design(if needed)
 
 For a new benchmark:
 

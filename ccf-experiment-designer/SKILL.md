@@ -27,11 +27,12 @@ Design experiments that test the paper's central claims. Build result tables and
 1. Identify target venue, paper type, central claims, available results, and whether the task is planning or presenting results.
 2. Extract the storyline from the idea or draft. Use `../ccf-paper-writer/references/storyline-blueprint.md` only as a schema, not as a writing handoff.
 3. Map every major claim to required evidence, reviewer question, dataset/workload, baseline, metric, ablation, and robustness/failure test.
-4. If datasets or baselines are unknown, use public-safe search or hand off to `ccf-literature-searcher`; mark uncertainty instead of guessing.
-5. Load `references/evidence-design.md` for venue-family expectations and `references/result-templates.md` for result tables.
-6. For result presentation, preserve units, seeds, confidence intervals, dataset names, and metric direction. Mark missing values explicitly.
-7. Hand off to `ccf-visual-composer` for publication-grade figure/table layout, palettes, panel maps, captions, manuscript integration, and render QA.
-8. Hand off to `ccf-paper-writer` for manuscript prose, `ccf-integrity-auditor` for number/claim consistency, and `ccf-submission-checker` for package or artifact readiness.
+4. Clearly show what the metrics are for each claim judgment, and what evidence is needed to support the claim in the Claim-Evidence Matrix.
+5. If datasets or baselines are unknown, use public-safe search or hand off to `ccf-literature-searcher`; mark uncertainty instead of guessing.
+6. Load `references/evidence-design.md` for venue-family expectations and `references/result-templates.md` for result tables.
+7. For result presentation, preserve units, seeds, confidence intervals, dataset names, and metric direction. Mark missing values explicitly.
+8. Hand off to `ccf-visual-composer` for publication-grade figure/table layout, palettes, panel maps, captions, manuscript integration, and render QA.
+9. When finishing the experiment design, check carefully that all the claims are covered by evidence needed and experiments are designed logically, use multi-agents to verity and fix the design flaws.  
 
 ## Adaptive Output Contract
 

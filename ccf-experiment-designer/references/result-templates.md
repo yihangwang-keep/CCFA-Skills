@@ -2,13 +2,14 @@
 
 Use these templates to produce fill-in result tables. Keep all unknown numbers blank, `TBD`, or bracketed placeholders.
 
-## Claim-Evidence Matrix
+## Claim-Evidence Matrix(must)
 
 ```md
 | Claim | Reviewer question | Evidence needed | Dataset/benchmark | Baselines | Metrics | Result placeholder | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  | TBD | planned / running / done |
 ```
+Evidence needed must answer what the evidences needed for this claim.
 
 ## Main Comparison Table
 
@@ -20,7 +21,7 @@ Use these templates to produce fill-in result tables. Keep all unknown numbers b
 | Baseline B | citation needed |  | TBD | TBD | TBD |  |
 ```
 
-## Ablation Table
+## Ablation Table(if needed)
 
 ```md
 | Variant | Component changed | Mechanism tested | Metric 1 ↑/↓ | Metric 2 ↑/↓ | Interpretation after user fills result |
@@ -30,7 +31,7 @@ Use these templates to produce fill-in result tables. Keep all unknown numbers b
 | generic replacement | replace A | specificity of design | TBD | TBD |  |
 ```
 
-## Robustness / Stress Test Table
+## Robustness / Stress Test Table(if needed)
 
 ```md
 | Stress condition | Why it matters | Dataset/workload | Metric | User result | Failure threshold | Reviewer concern answered |
@@ -38,7 +39,7 @@ Use these templates to produce fill-in result tables. Keep all unknown numbers b
 |  |  |  |  | TBD |  |  |
 ```
 
-## Qualitative / Case Study Table
+## Qualitative / Case Study Table(if needed)
 
 ```md
 | Case | Selection rule | Expected observation | User-provided result | What it demonstrates | Failure or limitation |
@@ -46,7 +47,7 @@ Use these templates to produce fill-in result tables. Keep all unknown numbers b
 |  | representative / hard / failure |  | TBD |  |  |
 ```
 
-## Execution Priority Table
+## Execution Priority Table(must)
 
 ```md
 | Priority | Experiment | Claim defended | Cost | Dependency | Appendix/main | Stop condition |
