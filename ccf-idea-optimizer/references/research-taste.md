@@ -69,16 +69,16 @@ If the answer to any question is missing, optimize the idea before polishing tex
 
 For fast-moving topics, a good idea should survive a current related-work scan. Treat these as warnings:
 
-- The idea is a direct extension of a crowded benchmark trend with no new bottleneck.
+- The idea is a direct extension of a crowded evaluation trend with no new bottleneck.
 - The method is "add LLM/VLM/diffusion/agent" without a mechanism tied to the problem.
 - The claimed gap is likely solved by recent workshop, arXiv, OpenReview, or proceedings papers.
-- The evidence package would only show small leaderboard gains without explaining why.
-- The idea depends on an obsolete dataset, baseline, threat model, workload, or user scenario.
+- The evidence package would only show small metric gains without explaining why.
+- The idea depends on an obsolete dataset, baseline, threat model, operating regime, or user scenario.
 
 Prefer directions that:
 
 - expose a new measurable failure mode,
 - simplify an overcomplicated paradigm,
 - connect a strong method to a neglected but important constraint,
-- create a benchmark/protocol that changes what can be measured,
+- create an evaluation method or formulation that changes what can be measured,
 - turn an empirical observation into a mechanism, theorem, or system design.

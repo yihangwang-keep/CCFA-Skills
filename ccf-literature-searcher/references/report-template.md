@@ -30,7 +30,7 @@ Source-quality policy: applied
 - Closest-work clusters:
 - Opportunity map:
 - Strongest baselines:
-- Benchmark/dataset candidates:
+- Evidence object candidates:
 - Novelty risks:
 - Recommended next action:
 
@@ -38,7 +38,7 @@ Source-quality policy: applied
 
 | # | Title | Year | Venue/source | Link | Type | Problem scenario | Algorithm used | Insight | Completeness | Numeric evidence | Overall | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 |  |  |  |  | pure method / pure benchmark / method + benchmark |  |  |  |  |  |  |  |
+| 1 |  |  |  |  | pure method / pure evaluation artifact / method + evaluation artifact |  |  |  |  |  |  |  |
 
 ## Clusters
 
@@ -54,12 +54,12 @@ Source-quality policy: applied
 
 | Cluster | Status | Open gap | Possible direction | Evidence needed | Risk |
 | --- | --- | --- | --- | --- | --- |
-|  | crowded but open / covered central claim / benchmark gap / mechanism gap / deployment-system gap / theory-analysis gap / negative-result opportunity |  |  |  |  |
+|  | crowded but open / covered central claim / formulation gap / evaluation-setting gap / mechanism gap / deployment-system gap / theory-analysis gap / negative-result opportunity |  |  |  |  |
 
-## Benchmark And Dataset Candidates
+## Evidence Object Candidates
 
-| Name | Link | Task | Metrics | Baselines | Fit | Risks |
-| --- | --- | --- | --- | --- | --- | --- |
+| Name | Link | Type | Task/scenario | Metrics | Baselines | Fit | Risks |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 
 ## Citation And Positioning Cautions
 
@@ -76,7 +76,7 @@ Use these columns:
 title,year,venue_or_source,link,paper_type,problem_scenario,algorithm_used,insight_score,completeness_score,numeric_evidence_score,overall_label,relevance_note,quality_note
 ```
 
-For pure benchmark papers, set `numeric_evidence_score` to `N/A benchmark`.
+For pure simulator, scenario generator, standard formulation, evaluation suite, or dataset papers, set `numeric_evidence_score` to `N/A artifact`.
 
 ## search-notes.md
 
@@ -100,7 +100,7 @@ For pure benchmark papers, set `numeric_evidence_score` to `N/A benchmark`.
 
 - Papers not accessible:
 - Venue status not verified:
-- Missing benchmark details:
+- Missing formulation / evaluation-setting / artifact details:
 
 ## Handoff Notes
 
@@ -108,5 +108,6 @@ For pure benchmark papers, set `numeric_evidence_score` to `N/A benchmark`.
 - For idea optimization:
 - For direction scouting:
 - For experiment design:
+- For experiment environment design:
 - For review:
 ```

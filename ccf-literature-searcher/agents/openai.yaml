@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Literature Searcher"
-  short_description: "Search and screen literature, related work, datasets, benchmarks, and citation evidence for CCF research workflows."
+  short_description: "Search literature, formulations, objectives, constraints, baselines, and evidence."
   default_prompt: "Use $ccf-literature-searcher for its owned CCFA workflow. Respect trigger boundaries, artifact ownership, evidence limits, and handoff rules."

@@ -30,11 +30,15 @@ NLP:
 
 DB/KDD/IR:
 
-- Realistic workload, scale, latency, throughput, memory, ranking metrics, indexing or pipeline cost, ablations, and deployment constraints.
+- Realistic operating regime, scale, latency, throughput, memory, ranking metrics, indexing or pipeline cost, ablations, and deployment constraints.
 
 Systems/networks/architecture/storage:
 
-- Real bottleneck, implementation detail, end-to-end results, microbenchmarks, sensitivity, overhead, workload variation, operational boundaries.
+- Real bottleneck, implementation detail, end-to-end results, component-level measurements, sensitivity, overhead, operating-regime variation, operational boundaries.
+
+Communication/wireless/networking optimization:
+
+- Clear optimization target object, objective function, decision variables, channel and mobility assumptions, interference, bandwidth/power/energy constraints, queue/latency/reliability/AoI when relevant, uncertainty that changes decisions, coupled decisions, simple rule baselines, decoupled baselines, oracle or bound references, scenario simplicity, algorithm explainability, and stress regimes.
 
 Security/crypto:
 
@@ -46,7 +50,7 @@ HCI/CSCW/UbiComp:
 
 SE/PL/FM:
 
-- Tool benchmarks, real programs, formal statements, proof sketches, soundness/completeness tradeoffs, threats to validity, usability where relevant.
+- Real programs, case suites, formal statements, proof sketches, soundness/completeness tradeoffs, threats to validity, usability where relevant.
 
 Theory:
 
@@ -85,7 +89,7 @@ Apply this gate when the claimed contribution is an algorithm, optimizer, schedu
 3. **Verification:** test feasibility and constraint satisfaction on every run. Add convergence, correctness, invariant, residual, or reproducibility checks appropriate to the solver.
 4. **Optimality or theory reference:** use an exact solver, exhaustive search on small instances, oracle, certified lower/upper bound, relaxation, proven approximation ratio, convergence theorem with a stated solution target, regret bound, or domain-specific analytical reference. State the optimality gap and what the reference does or does not certify.
 5. **No-heuristic rule:** the proposed algorithm must contain no heuristic decision mechanism. Reject rule-of-thumb, greedy heuristic, heuristic local search, metaheuristic, manually patched, and empirical trial-and-error procedures without exception. Adding a proof, certificate, formal wrapper, learned component, or non-heuristic module elsewhere does not make a method containing a heuristic mechanism admissible. Heuristics may be retained only as prior-work or comparison baselines and must be labeled as such.
-6. **Mechanism over rule accumulation:** every rule or component must follow from the formulation, enforce a real constraint, or test a named mechanism. Remove decorative rules whose only purpose is improving the benchmark score.
+6. **Mechanism over rule accumulation:** every rule or component must follow from the formulation, enforce a real constraint, or test a named mechanism. Remove decorative rules whose only purpose is improving the reported score.
 
 If the proposed method contains any heuristic decision mechanism, reject the proposed algorithmic route and redesign it before adding more experiments. Separately, reject it if no meaningful objective, verifiable solution process, and qualifying guarantee or optimality reference can be defined. Renaming a heuristic as a policy, framework, strategy, adaptive algorithm, hybrid method, or learned rule does not pass this gate.
 
@@ -94,13 +98,13 @@ If the proposed method contains any heuristic decision mechanism, reject the pro
 Define and freeze scenario generation before using outcomes to choose favorable cases.
 
 - **Preserve the bottleneck:** simplification must not remove the uncertainty, coupling, scarcity, scale, dynamics, partial observability, strategic behavior, or other difficulty that motivates the claimed method.
-- **Independent construction:** derive scenarios from real data, domain ranges, public protocols, or method-independent generators. Do not construct scenarios around the proposed method's rules or failure thresholds.
+- **Independent construction:** derive scenarios from real data, domain ranges, standards, or method-independent generators. Do not construct scenarios around the proposed method's rules or failure thresholds.
 - **Coverage:** include realistic, diverse, hard, boundary, and failure cases. Report the sampling distribution, seeds, exclusions, and any post-hoc filtering.
 - **No threshold-manufactured gap:** choose thresholds from domain meaning, training/validation data, or a preregistered rule. Apply matched tuning budgets to all tunable methods and report sweeps or sensitivity. Never select a test threshold because it maximizes the proposed method's lead.
 - **Rule-baseline check:** include a simple rule-based baseline. If it solves the simplified scenario, either restore the missing difficulty, justify the scenario as a legitimate special case, or narrow the novelty claim; do not add more ad hoc rules to reclaim a lead.
 - **Controlled modification:** when changing a scenario, state the external reason, the affected assumption, and whether all methods are reevaluated under the same version. Keep the original result visible when the change follows result inspection.
 
-Fail the gate when the principal advantage disappears under credible scenario variation, matched tuning, or a simple rule baseline and the paper still claims a general algorithmic advance. Treat that outcome as evidence to revise the problem or claim, not as a reason to engineer a more favorable benchmark.
+Fail the gate when the principal advantage disappears under credible scenario variation, matched tuning, or a simple rule baseline and the paper still claims a general algorithmic advance. Treat that outcome as evidence to revise the problem or claim, not as a reason to engineer a more favorable setting.
 
 ## Ablation Logic
 
@@ -119,22 +123,23 @@ Useful ablations:
 - Remove a module.
 - Replace a specialized component with a generic alternative.
 - Vary a key hyperparameter.
-- Change data scale, workload, or domain.
+- Change scale, scenario regime, or domain.
 - Test hard cases and failure cases.
 - Analyze compute, memory, latency, or cost.
 
-Threshold sweeps are sensitivity analysis, not evidence of mechanism by themselves. Fix the selection protocol before test evaluation, use the same tuning budget for comparable baselines, and show the full relevant range rather than only the threshold with the largest gap.
+Threshold sweeps are sensitivity analysis, not evidence of mechanism by themselves. Fix the selection rule before test evaluation, use the same tuning budget for comparable baselines, and show the full relevant range rather than only the threshold with the largest gap.
 
 If the algorithm method is not a combination of mechanisms, do not invent ablations. And we encourage to create a new algorithmic mechanism to support the claim, rather than just combine existing mechanisms. But we can update the existing mechanism to fit the new situation in order to support the claim.
 
-## Benchmark Or Dataset Design(if needed)
+## Scenario, Simulator, Or Dataset Design(if needed)
 
-For a new benchmark:
+For a new scenario generator, simulator, trace, or dataset:
 
 ```text
 Task definition:
 Data source:
 Annotation or generation process:
+Scenario or simulator generation process:
 Splits:
 Metrics:
 Baseline suite:
@@ -145,7 +150,7 @@ License and ethics:
 Maintenance plan:
 ```
 
-Benchmark papers should be evaluated as benchmarks, not only as methods. Do not score them as weak because they lack a method, and do not invent adoption claims.
+Trace, simulator, or scenario-generator papers should be evaluated as evidence artifacts, not only as methods. Do not score them as weak because they lack a method, and do not invent adoption claims.
 
 ## Minimum Convincing Package
 

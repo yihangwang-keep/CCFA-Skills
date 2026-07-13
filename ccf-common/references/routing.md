@@ -2,7 +2,7 @@
 
 Route by the user's primary intent. Do not activate every downstream skill just because it may become useful later.
 
-v0.7 consolidates helper skills into the owning workflow skills. Runtime surface is intentionally small: 17 installable `ccf-*` skills plus the LaTeX/template reference tree. Removed helper names must not be installed as standalone skills.
+v0.7 consolidates helper skills into the owning workflow skills. Runtime surface is intentionally small: 18 installable `ccf-*` skills plus the LaTeX/template reference tree. Removed helper names must not be installed as standalone skills.
 
 ## Canonical Runtime Skills
 
@@ -13,8 +13,9 @@ v0.7 consolidates helper skills into the owning workflow skills. Runtime surface
 | Explore, rescue, or turn a rough direction into a problem-gap-insight-method-evidence plan. | `ccf-idea-optimizer` | exploratory idea shaping, rescue routes | Does not rank multiple ideas as the main task. |
 | Score, compare, rank, and triage early ideas when the user explicitly asks for judgment. | `ccf-idea-reviewer` | idea scoring, stage-aware triage | Does not brainstorm directions or optimize a single idea as the main task. |
 | Monitor recent papers, arXiv/OpenReview/venue feeds, labs, competitors, and recurring novelty threats. | `ccf-literature-monitor` | arxiv-watch, venue-watch, novelty-check, trend-scouting, competitor-tracking | Does not replace deep related-work search, citation audit, or final idea scoring. |
-| Search literature, prior art, datasets, benchmarks, citation evidence, and opportunity gaps. | `ccf-literature-searcher` | search, screening, opportunity map | Does not audit only already cited papers or act as a final idea kill gate. |
-| Design experiments and real-result tables/figures. | `ccf-experiment-designer` | experiment design, result templates, result figures/tables | Does not invent results. |
+| Search literature, prior art, formulations, objectives, constraints, baselines, simulation settings, datasets, citation evidence, and opportunity gaps. | `ccf-literature-searcher` | search, screening, opportunity map | Does not audit only already cited papers or act as a final idea kill gate. |
+| Design or audit non-toy communication/networking optimization environments before algorithm and experiment design. | `ccf-experiment-env-design` | objective/constraint design, scenario abstraction, environment audit, joint-optimization gate, handoff spec | Does not design result tables, invent results, or replace literature search. |
+| Design experiments and real-result tables/figures. | `ccf-experiment-designer` | experiment design, result templates, result figures/tables | Does not invent results or own primary communication objective/constraint/scenario design. |
 | Diagnose experiments that failed, diverged, cannot be reproduced, or do not match expectations. | `ccf-experiment-debugger` | code diagnosis, algorithm diagnosis, scenario diagnosis, controlled rerun | Does not design the initial experiment or change scenarios to force a desired result. |
 | Compose publication-grade figures/tables, Python plotting code, palettes, captions, panel maps, and manuscript visual layout integration from supplied results. | `ccf-visual-composer` | visual-contract, figure-design, python-plotting, table-design, layout-integration, render-qa | Does not design experiments, invent results, write manuscript prose, or perform final submission compliance. |
 | Draft, revise, polish, compress, and presentation-adapt paper text. | `ccf-paper-writer` | writing, polishing, compression, venue-aware LaTeX drafting, slides/poster/talk/Q&A | Preserves user format for edits; does not run full review or rebuttal. |
@@ -35,6 +36,7 @@ ccf-project-scaffolder
   -> ccf-idea-reviewer
   -> ccf-literature-monitor
   -> ccf-literature-searcher
+  -> ccf-experiment-env-design (conditional for communication/networking scenario design)
   -> ccf-experiment-designer
   -> ccf-experiment-debugger (conditional when an experiment fails)
   -> ccf-visual-composer
@@ -81,7 +83,8 @@ For manuscript writing from only an idea, `ccf-paper-writer` checks the venue gu
 | 优化一个 NeurIPS idea / 找几个可做方向 / 这个方向还能怎么救 | `ccf-idea-optimizer` |
 | 给三个 idea 评分排名 / 明确让我严格取舍 | `ccf-idea-reviewer` |
 | 监控竞品 / 追踪新论文 / 最近有没有类似 idea | `ccf-literature-monitor` |
-| 搜索 related work、benchmark 和还有哪些 open gap | `ccf-literature-searcher` |
+| 搜索 related work、目标函数、约束、baseline、建模依据和 open gap | `ccf-literature-searcher` |
+| 设计通信优化目标函数和约束 / 判断任务通信问题是不是玩具 / 做 experiment-env-design | `ccf-experiment-env-design` |
 | 设计对比实验、消融和结果表 | `ccf-experiment-designer` |
 | 实验失败、复现失败、结果异常或不符合预期，排查原因 | `ccf-experiment-debugger` |
 | 根据真实结果规划论文图表的数据和证据结构 | `ccf-experiment-designer` |

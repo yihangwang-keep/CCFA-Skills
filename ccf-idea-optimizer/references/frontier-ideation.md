@@ -19,7 +19,7 @@ Problem angle:
 Root bottleneck:
 Target user/community:
 Method mechanism:
-Data or benchmark:
+Data or evaluation artifact:
 Evidence type:
 Venue family:
 Main risk:
@@ -29,7 +29,7 @@ Useful variation patterns:
 
 - Same problem, simpler mechanism.
 - Same method family, sharper problem.
-- New benchmark/protocol instead of new model.
+- New evaluation method, simulator, or formulation instead of a new model.
 - System/tool contribution instead of only algorithmic contribution.
 - Theory/analysis contribution that explains an empirical pattern.
 - Human-centered or deployment constraint that changes the problem.
@@ -56,7 +56,7 @@ Novelty status: unsearched; needs ccf-literature-searcher before strong novelty 
 Revise candidates before rejecting them. A candidate should be rejected only after naming the smallest plausible repair and explaining why it fails. Watch for:
 
 - The method requires data the setting cannot provide.
-- The benchmark does not test the claimed mechanism.
+- The evaluation setting does not test the claimed mechanism.
 - The contribution tries to be method, dataset, system, theory, and application all at once.
 - The venue audience mismatch is severe.
 - The core insight is only a renamed component.
@@ -67,7 +67,7 @@ Revise candidates before rejecting them. A candidate should be rejected only aft
 Use these before declaring a direction stale or too weak:
 
 - Narrow the target setting until the bottleneck is measurable.
-- Replace "new model" novelty with a benchmark, protocol, diagnostic, or analysis contribution.
+- Replace "new model" novelty with an evaluation, formulation, diagnostic, or analysis contribution.
 - Keep the problem but simplify the mechanism.
 - Keep the method family but change the claim from SOTA improvement to failure-mode explanation, robustness, cost, or deployment constraint.
 - Switch venue family when the idea is valuable but not a main-track fit for the named venue.

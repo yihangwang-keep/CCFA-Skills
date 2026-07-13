@@ -5,7 +5,7 @@ Use these templates to produce fill-in result tables. Keep all unknown numbers b
 ## Claim-Evidence Matrix(must)
 
 ```md
-| Claim | Reviewer question | Evidence needed | Dataset/benchmark | Baselines | Metrics | Result placeholder | Status |
+| Claim | Reviewer question | Evidence needed | Scenario / setting / formulation | Baselines | Metrics | Result placeholder | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  | TBD | planned / running / done |
 ```
@@ -26,10 +26,10 @@ Evidence needed must answer what the evidences needed for this claim.
 ## Scenario Integrity Gate (must)
 
 ```md
-| Item | Scenario protocol | Evidence | Status |
+| Item | Scenario construction | Evidence | Status |
 | --- | --- | --- | --- |
 | Bottleneck preserved | motivating difficulty retained | comparison with simplified case | pass / fail / unresolved |
-| Independent construction | source, generator, ranges, seeds fixed without result-based selection | protocol or provenance | pass / fail / unresolved |
+| Independent construction | source, generator, ranges, seeds fixed without result-based selection | construction rule or provenance | pass / fail / unresolved |
 | Coverage | realistic, diverse, hard, boundary, and failure cases | coverage table | pass / fail / unresolved |
 | Threshold integrity | domain/validation/preregistered selection with matched tuning budgets | full sweep or sensitivity | pass / fail / N/A |
 | Simple rule baseline | non-learned/non-optimized sanity policy | result and interpretation | pass / fail / N/A with reason |
@@ -59,7 +59,7 @@ Evidence needed must answer what the evidences needed for this claim.
 ## Robustness / Stress Test Table(if needed)
 
 ```md
-| Stress condition | Why it matters | Dataset/workload | Metric | User result | Failure threshold | Reviewer concern answered |
+| Stress condition | Why it matters | Scenario / parameter setting | Metric | User result | Failure threshold | Reviewer concern answered |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  | TBD |  |  |
 ```
@@ -85,5 +85,5 @@ Evidence needed must answer what the evidences needed for this claim.
 Use this note when returning templates:
 
 ```text
-No experimental result has been generated here. All TBD cells must be filled from user-run experiments, paper-provided numbers, or verified public baseline reports with matching protocol.
+No experimental result has been generated here. All TBD cells must be filled from user-run experiments, paper-provided numbers, or verified public baseline reports under a matching formulation and setting.
 ```

@@ -1,6 +1,6 @@
 ---
 name: ccf-idea-optimizer
-description: "Turn rough CCF research directions into concrete problem, gap, insight, method, novelty, and evidence plans. Use for idea optimization, fuzzy idea concretization, research direction shaping, early direction exploration, salvage routes, 优化idea, 具象化idea, 研究思路优化, 找方向, 方向探索. Do not rank or score multiple ideas as the main output."
+description: "Turn rough CCF research directions into concrete problem, gap, insight, method, novelty, scenario, and evidence plans. Use for idea optimization, fuzzy idea concretization, research direction shaping, early direction exploration, salvage routes, communication/scenario-aware idea shaping, 优化idea, 具象化idea, 研究思路优化, 找方向, 方向探索. Do not rank or score multiple ideas as the main output."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -26,7 +26,7 @@ Treat rough ideas, unpublished method details, draft abstracts, and experiment p
 
 ## Core Rule
 
-Optimize the research idea before optimizing the writing. Do not inflate novelty, invent related work, invent results, or turn weak ideas into confident claims. Make the idea more CCF-A-ready by sharpening the problem, mechanism, contribution, evidence package, and reviewer-facing risk register. For fuzzy ideas, generate diverse but internally consistent candidate concretizations; prefer timely, elegant, non-stale directions and clearly mark novelty uncertainty until searched. In exploratory mode, do not kill a seed direction just because it is currently weak or crowded: produce at least one plausible rescue route, narrower problem, venue switch, benchmark/evidence route, or "minimum viable research question" before recommending a pivot. Follow the user's requested output shape: idea card, alternatives, roadmap, questions, table, Chinese explanation, or handoff-ready brief.
+Optimize the research idea before optimizing the writing. Do not inflate novelty, invent related work, invent results, or turn weak ideas into confident claims. Make the idea more CCF-A-ready by sharpening the problem, mechanism, contribution, scenario or environment, evidence package, and reviewer-facing risk register. For fuzzy ideas, generate diverse but internally consistent candidate concretizations; prefer timely, elegant, non-stale directions and clearly mark novelty uncertainty until searched. In exploratory mode, do not kill a seed direction just because it is currently weak or crowded: produce at least one plausible rescue route, narrower problem, venue switch, field-appropriate evidence route, or "minimum viable research question" before recommending a pivot. For communication and networking ideas, explicitly check whether the scenario creates a real coupled optimization problem rather than a toy resource-allocation setup. Follow the user's requested output shape: idea card, alternatives, roadmap, questions, table, Chinese explanation, or handoff-ready brief.
 
 ## Mandatory Checklist
 
@@ -34,17 +34,18 @@ In standard mode, complete this checklist before final output. In quick mode, ru
 
 1. Target venue, venue family, field, and idea stage are explicit or marked unknown.
 2. The raw idea is normalized into problem, gap, root challenge, insight, method, evidence, and limitation.
-3. Missing inputs that affect confidence are named: related work, datasets, code, compute, timeline, collaborators, or domain constraints.
+3. Missing inputs that affect confidence are named: related work, objective function, decision variables, constraints, scenario assumptions, baselines, code, compute, timeline, collaborators, or domain constraints.
 4. Novelty is treated as uncertain until grounded against closest known work or a current literature search.
 5. The method mechanism is explained, not only named.
-6. Innovation type is classified: problem, setting, method, data/benchmark, theory, system, empirical finding, evaluation, or synthesis.
+6. Innovation type is classified: problem, setting/scenario, objective/constraint formulation, method, data artifact, theory, system, empirical finding, evaluation, or synthesis.
 7. The experiment plan tests the central claim and includes baselines, ablations, robustness, and failure analysis as needed by the venue.
 8. For algorithmic ideas, the method has a meaningful objective, variables and constraints, a verifiable solution process, and a theoretical or optimality reference. The proposed method contains no heuristic decision mechanism.
 9. The proposed scenario preserves the motivating difficulty and is not simplified, rule-shaped, or threshold-selected to manufacture a performance gap.
-10. Reviewer risks are labeled as writing-fixable, design-fixable, evidence-fixable, requires-new-result, venue-mismatch, or likely-pivot.
-11. Diverse variants are checked for internal contradictions, mutually incompatible assumptions, and theme drift.
-12. Early-stage outputs separate `current weakness` from `development potential`; uncertainty is labeled as `needs-search`, `needs-mechanism`, or `needs-evidence`, not as rejection.
-13. Any optional module transition to `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-idea-reviewer`, `ccf-experiment-designer`, or `ccf-paper-writer` follows the CCFA handoff mode; if denied or disabled, output a local risk scan or next-step note only.
+10. For communication, networking, UAV, edge, IoT, vehicular, satellite, or task-oriented communication ideas, the objective function, optimization target object, decision variables, resource constraints, scenario abstraction, explainability, and joint-optimization necessity are checked locally or handed to `ccf-experiment-env-design`.
+11. Reviewer risks are labeled as writing-fixable, design-fixable, evidence-fixable, requires-new-result, venue-mismatch, or likely-pivot.
+12. Diverse variants are checked for internal contradictions, mutually incompatible assumptions, and theme drift.
+13. Early-stage outputs separate `current weakness` from `development potential`; uncertainty is labeled as `needs-search`, `needs-mechanism`, `needs-scenario`, or `needs-evidence`, not as rejection.
+14. Any optional module transition to `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-idea-reviewer`, `ccf-experiment-env-design`, `ccf-experiment-designer`, or `ccf-paper-writer` follows the CCFA handoff mode; if denied or disabled, output a local risk scan or next-step note only.
 
 Load `references/idea-intake.md` when inputs are incomplete or several idea drafts must be normalized.
 
@@ -57,7 +58,7 @@ Load `references/idea-intake.md` when inputs are incomplete or several idea draf
 5. For fuzzy or underdetermined ideas, load `references/frontier-ideation.md` and produce 3-5 candidate concretizations with high diversity across problem angle, mechanism, evidence type, and venue fit. Randomness is allowed in exploration, but final candidates must be coherent and non-conflicting.
 6. Sharpen the problem and method. Load `references/problem-method-blueprint.md`; convert vague motivation into a decision-relevant problem and convert method names into mechanisms, assumptions, failure modes, and alternatives.
 7. Shape the innovation. Decide the strongest honest contribution type and remove unsupported or diluted claims.
-8. Design the minimum convincing evidence package. Load `references/experiment-design.md`; specify datasets, baselines, ablations, metrics, stress tests, efficiency, user study, proof, or systems evaluation as required by the venue family. Follow CCFA handoff mode before using `ccf-experiment-designer` for a full experiment plan.
+8. Design the minimum convincing evidence package. Load `references/experiment-design.md`; specify objective, constraints, baselines, ablations, metrics, stress tests, efficiency, proof, simulation settings, or systems evaluation as required by the venue family. For communication or networking ideas whose main weakness is the problem environment, follow CCFA handoff mode before using `ccf-experiment-env-design`; use `ccf-experiment-designer` for the full experiment plan after the environment is credible.
 9. Run an internal development pass. In exploratory mode, use a coach-like viability scan: what can be saved, what must be narrowed, what evidence would decide, and what the next interaction should ask. Follow the CCFA handoff mode before using `ccf-idea-reviewer` as an optional scoring module; use it only when the user explicitly wants scoring, ranking, investment triage, or strict novelty judgment. If it is denied or disabled, perform a compact multi-expert risk scan focused only on problem and method.
 10. Produce an optimized idea plan, rescue/pivot options, and a writing-readiness note. Follow the CCFA handoff mode before offering the viable plan to `ccf-paper-writer`; if writing is denied or not confirmed, stop at the idea plan.
 
@@ -78,6 +79,7 @@ Core insight:
 Method blueprint:
 Innovation claims:
 Experiment plan:
+Scenario / environment gate:
 Closest-work / novelty unknowns:
 Reviewer-risk register:
 Rescue routes and suggested pivots:

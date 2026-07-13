@@ -14,23 +14,27 @@ Make these visible before writing:
 
 ## AI / ML: NeurIPS, ICML, ICLR, AAAI
 
-Prioritize conceptual insight, learning mechanism, rigorous empirical validation, ablations, and scope. A good idea should explain what is learned about models, optimization, data, representations, agents, evaluation, or reasoning. Avoid pure leaderboard chasing without diagnostic value.
+Prioritize conceptual insight, learning mechanism, rigorous empirical validation, ablations, and scope. A good idea should explain what is learned about models, optimization, data, representations, agents, evaluation, or reasoning, with diagnostic value beyond small metric changes.
 
 ## CV / Vision: CVPR, ICCV, ECCV
 
-Prioritize visual task importance, fair baselines, visual evidence, ablations, failure cases, dataset or protocol credibility, and generalization. A strong idea often combines a clear visual bottleneck with an inspectable mechanism.
+Prioritize visual task importance, fair baselines, visual evidence, ablations, failure cases, data/evaluation credibility, and generalization. A strong idea often combines a clear visual bottleneck with an inspectable mechanism.
 
 ## NLP / ACL-Family
 
-Prioritize task validity, language/data quality, annotation or evaluation soundness, strong baselines, analysis, replicability, and responsible use. Watch for benchmark overfitting, dataset leakage, and vague human-facing utility.
+Prioritize task validity, language/data quality, annotation or evaluation soundness, strong baselines, analysis, replicability, and responsible use. Watch for evaluation overfitting, dataset leakage, and vague human-facing utility.
 
 ## DB / KDD / IR / WWW
 
-Prioritize realistic workload, scale, metrics, ranking or retrieval validity, efficiency, deployment relevance, and user or system utility. The idea should make clear why the proposed method matters under real data and constraints.
+Prioritize realistic operating regimes, scale, metrics, ranking or retrieval validity, efficiency, deployment relevance, and user or system utility. The idea should make clear why the proposed method matters under real data and constraints.
 
 ## Systems / Networks / Architecture
 
 Prioritize real bottlenecks, implementation credibility, end-to-end evaluation, operational constraints, and comparison with practical baselines. A good idea often wins because the design resolves a tension between performance, reliability, cost, or deployability.
+
+## Communication / Wireless / Networking Optimization
+
+Prioritize a clean optimization target object, credible channel/network assumptions, decision variables, binding constraints, uncertainty that changes decisions, and baselines that include simple rules, classical solvers, decoupled pipelines, and oracle or relaxation references. A strong idea should explain why joint optimization is necessary and why the scenario is not solved by max-SINR, nearest relay, equal allocation, fixed trajectory, or greedy scheduling. Keep the scenario as simple as possible while preserving the central coupling, so the later algorithm can be explained through a clear mechanism. If the scenario/formulation is the main contribution bottleneck, hand off to `ccf-experiment-env-design` before designing experiments.
 
 ## Security
 

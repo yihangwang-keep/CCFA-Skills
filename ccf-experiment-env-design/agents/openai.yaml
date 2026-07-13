@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCF Experiment Env Design"
+  short_description: "Audit communication objectives, constraints, scenarios, and non-toy depth."
+  default_prompt: "Use $ccf-experiment-env-design to design or judge whether a communication optimization objective, constraints, and scenario are non-toy, explainable, and paper-worthy."
