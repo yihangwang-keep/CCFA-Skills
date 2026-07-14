@@ -2,7 +2,7 @@ schema_version: 4
 generated_at: 2026-07-13
 authority: SKILL.md wins if this registry conflicts with a skill body.
 naming_policy: canonical runtime names use ccf-<object>-<role/action>; ccf-common is the governance exception.
-runtime_skill_count: 18
+runtime_skill_count: 19
 skills:
   - name: ccf-project-scaffolder
     trigger: "Create project folders, copy/select templates, initialize ccfa.yaml."
@@ -27,15 +27,19 @@ skills:
   - name: ccf-literature-searcher
     trigger: "Search and screen literature, related work, prior art, formulations, objectives, constraints, baselines, simulation settings, datasets, citation evidence, and research opportunity gaps."
     exclude: "Does not audit only already-cited references or act as a final idea kill gate."
-    handoff: "ccf-idea-optimizer, ccf-idea-reviewer, ccf-experiment-env-design, ccf-experiment-designer, ccf-paper-writer, ccf-integrity-auditor"
+    handoff: "ccf-idea-optimizer, ccf-idea-reviewer, ccf-experiment-env-design, ccf-experiment-env-code-auditor, ccf-experiment-designer, ccf-paper-writer, ccf-integrity-auditor"
   - name: ccf-experiment-env-design
     trigger: "Design and audit non-toy communication, wireless, networking, UAV, edge, IoT, vehicular, satellite, and mission-coupled optimization environments; judge objective function, optimization target, constraints, scenario abstraction, explainability, joint-optimization necessity, and paper-worthiness."
     exclude: "Does not design result tables, invent results, or replace literature search."
-    handoff: "ccf-literature-searcher, ccf-idea-optimizer, ccf-experiment-designer, ccf-experiment-debugger, ccf-paper-writer"
+    handoff: "ccf-literature-searcher, ccf-idea-optimizer, ccf-experiment-env-code-auditor, ccf-experiment-designer, ccf-experiment-debugger, ccf-paper-writer"
+  - name: ccf-experiment-env-code-auditor
+    trigger: "Audit a communication scenario's problem and plan, then trace objectives, variables, constraints, transitions, and information patterns into complete-scenario code behavior; check whether tuned rules are forced to sacrifice one side of the intended tradeoff and diagnose why if they are not."
+    exclude: "Limited to the current scenario plan, implementation, and execution evidence."
+    handoff: "ccf-experiment-env-design, ccf-experiment-designer, ccf-experiment-debugger"
   - name: ccf-experiment-designer
     trigger: "Design experiments, scenarios, simulation settings, baselines, metrics, ablations, robustness tests, result templates, and real-result tables/figures."
     exclude: "Does not invent results, draw docs diagrams, or own primary communication objective/constraint/scenario design."
-    handoff: "ccf-experiment-env-design, ccf-experiment-debugger, ccf-literature-searcher, ccf-visual-composer, ccf-paper-writer, ccf-paper-reviewer, ccf-integrity-auditor, ccf-submission-checker"
+    handoff: "ccf-experiment-env-design, ccf-experiment-env-code-auditor, ccf-experiment-debugger, ccf-literature-searcher, ccf-visual-composer, ccf-paper-writer, ccf-paper-reviewer, ccf-integrity-auditor, ccf-submission-checker"
   - name: ccf-experiment-debugger
     trigger: "Diagnose failed, unstable, unexpectedly weak, divergent, or irreproducible experiments in code-first, algorithm-second, scenario-last order."
     exclude: "Does not design initial experiments, invent successful results, or change scenarios to force expected outcomes."

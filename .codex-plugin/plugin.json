@@ -18,7 +18,7 @@
   "interface": {
     "displayName": "CCFA Skills",
     "shortDescription": "CCF paper-project workflow skills.",
-    "longDescription": "A governed 16-skill ccf-* family for CCF/NeurIPS paper projects: idea, monitoring, literature, experiments, publication visuals with bundled Python plotting recipes, writing, review, audit, submission, rebuttal, and family maintenance.",
+    "longDescription": "A governed 19-skill ccf-* family for CCF/NeurIPS paper projects: idea, monitoring, literature, environment formulation and code auditing, experiments, publication visuals, writing, review, integrity, submission, rebuttal, and family maintenance.",
     "developerName": "CCFA Skills maintainers",
     "category": "Productivity",
     "capabilities": [

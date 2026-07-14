@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCF Experiment Env Code Auditor"
+  short_description: "Audit scenario code, plan balance, and tunable rules"
+  default_prompt: "Use $ccf-experiment-env-code-auditor to check the scenario problem and plan, verify the complete code implementation, and see whether tuned rules must sacrifice one side of the intended tradeoff."

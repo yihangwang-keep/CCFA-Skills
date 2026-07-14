@@ -1,120 +1,64 @@
-# Environment Specification Template
+# Communication Optimization Problem Spec
 
-Use this template for a reusable communication optimization environment. Keep unknown values as `TBD`.
+Use this compact specification when writing a handoff-ready communication optimization environment. Keep the focus on the explainable scenario background, focused scientific question, mathematical model, objective function, constraints, and non-toy shortcut test.
 
 ```yaml
-environment_name:
+problem_name:
 target_domain:
-target_venue_or_family:
 paper_claim_supported:
-publication_verdict: paper-worthy / salvageable / modeling-only / toy / needs-literature
+verdict: paper-worthy / salvageable / modeling-only / toy / needs-literature
 
-task_semantics:
-  external_task:
+scenario_background:
+  communication_context:
+  communicating_entities:
+  task_or_service_need:
   why_communication_matters:
-  task_utility:
-  failure_cost:
+  abstraction_boundary:
 
-optimization_core:
-  target_object:
-  objective_form:
-  objective_terms:
-  primary_tradeoff:
+scenario_problem_and_causes:
+  concrete_problem:
+  affected_entities_or_task:
+  observed_consequence:
+  communication_cause:
+  decision_causal_chain:
+
+plan_reasonableness:
+  objective_to_cause_mapping:
+  variable_to_cause_mapping:
+  constraint_to_cause_mapping:
+  dynamics_and_uncertainty_role:
+  inactive_or_decorative_components:
+  tunable_rule_risk:
+  verdict: reasonable / repair-needed / unsupported
+
+focused_scientific_question:
+  question:
+  why_it_matters:
+  central_tradeoff:
+
+mathematical_model:
+  parameters:
   decision_variables:
-  decision_timescales:
-  hard_constraints:
-  soft_constraints:
-  binding_constraints:
-  feasibility_checks:
-
-entities:
-  transmitters:
-  receivers:
-  relays_or_edges:
-  controllers:
-  moving_agents:
-  users_or_flows:
-
-time_and_space:
-  time_horizon:
-  decision_epoch:
-  spatial_region:
-  mobility_model_or_trace:
-  topology_model:
-
-communication_model:
-  spectrum:
-  channel_model:
-  path_loss:
-  fading_or_blockage:
-  interference_model:
-  noise_model:
-  csi_assumption:
-  link_rate_or_reliability_model:
-
-traffic_and_task_model:
-  arrival_process:
-  packet_or_data_units:
-  deadlines:
-  priorities:
-  queues_or_aoi:
-  mission_events:
-
-decision_problem:
-  state:
-  decisions:
-  objective:
+  state_variables_if_online:
+  objective_function:
   constraints:
-  information_pattern:
-  offline_or_online:
-  tractability_note:
-  explainable_algorithmic_structure:
-  feasibility_checks:
+  information_available_at_decision_time:
 
-joint_optimization_necessity:
-  coupled_decisions:
-  why_decoupling_fails:
-  simple_rule_baselines:
-  expected_hard_cases:
-
-uncertainty_and_stress:
-  random_variables:
-  distributions_or_trace_sources:
-  seeds:
-  stress_cases:
-  boundary_cases:
-
-baselines_and_references_needed:
-  classical_baselines:
-  communication_baselines:
-  decoupled_baselines:
-  oracle_or_bounds:
-  literature_search_queries:
-
-evaluation_contract:
-  primary_metrics:
-  secondary_metrics:
-  metric_direction:
-  units:
-  parameter_sweeps:
-  reproducibility_artifacts:
-
-toy_risks_and_repairs:
-  failed_gates:
-  overcomplexity_risks:
-  explainability_risks:
-  required_repairs:
-  claim_narrowing:
+handoff:
+  ready_for_algorithm_design: yes / no
+  ready_for_experiment_design: yes / no
+  unresolved_questions:
   next_owner:
 ```
 
-## Minimum Handoff Packet
+## Required Core
 
-When handing off to `ccf-experiment-designer`, include:
+Every completed spec must make the following parts explicit:
 
-- the environment YAML or equivalent structured spec;
-- gate verdict and failed-gate repairs;
-- central claim and what evidence must test;
-- baseline families and oracle/bound expectations;
-- objective function, constraints, scenario abstraction level, parameter sweeps, stress cases, and reproducibility requirements;
-- unresolved literature or source-basis questions.
+- Scenario problem and causes: what problem exists, who or what it affects, and why communication decisions cause it.
+- Plan reasonableness: whether each objective term, variable, constraint, dynamic, uncertainty source, and coupling corresponds to the stated causes and changes decisions in credible ranges.
+- Scenario background: who communicates, why communication matters, and which abstraction boundary keeps the scenario explainable.
+- Scientific question: the single focused tradeoff the paper studies.
+- Mathematical model: variables, objective function, constraints, and information pattern.
+- Tunable-rule check: whether simple rules are forced to sacrifice one side when improving the other; if not, whether a real coupling, binding constraint, dynamic effect, uncertainty, or conflict regime is missing or inactive.
+- Complexity balance: whether the scenario avoids both tunable-rule triviality and components that do not affect feasibility, decisions, or the central tradeoff.
