@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCF Environment Design"
+  short_description: "Design paper scenarios and minimum viable versions"
+  default_prompt: "Use $ccf-env-design to define the paper scenario and derive an MVP that preserves the same optimization problem and scientific tradeoff."

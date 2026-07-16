@@ -73,7 +73,7 @@ literature-search-YYYYMMDD-<topic-slug>/
    - For idea optimization: stale/overcrowded directions, open gaps, timely pivots, and minimum viable research questions.
    - For idea review: novelty confidence and likely prior-art risks.
    - For literature monitoring: watch queries, tracked competitors, and recurring overlap signals.
-   - For experiment environment design: task scenarios, objective functions, communication models, constraints, decision variables, baseline families, tractability notes, and unresolved realism questions for `ccf-experiment-env-design`.
+   - For experiment environment design: task scenarios, objective functions, communication models, constraints, decision variables, baseline families, tractability notes, and unresolved realism questions for `ccf-env-design`.
    - For experiment design: problem scenarios, algorithms, datasets or simulation settings, baselines, metrics, and formulation requirements.
    - For paper review: missing related work and baseline risks.
 

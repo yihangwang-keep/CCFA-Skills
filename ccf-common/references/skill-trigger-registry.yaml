@@ -1,8 +1,8 @@
 schema_version: 4
-generated_at: 2026-07-13
+generated_at: 2026-07-15
 authority: SKILL.md wins if this registry conflicts with a skill body.
 naming_policy: canonical runtime names use ccf-<object>-<role/action>; ccf-common is the governance exception.
-runtime_skill_count: 19
+runtime_skill_count: 21
 skills:
   - name: ccf-project-scaffolder
     trigger: "Create project folders, copy/select templates, initialize ccfa.yaml."
@@ -27,23 +27,31 @@ skills:
   - name: ccf-literature-searcher
     trigger: "Search and screen literature, related work, prior art, formulations, objectives, constraints, baselines, simulation settings, datasets, citation evidence, and research opportunity gaps."
     exclude: "Does not audit only already-cited references or act as a final idea kill gate."
-    handoff: "ccf-idea-optimizer, ccf-idea-reviewer, ccf-experiment-env-design, ccf-experiment-env-code-auditor, ccf-experiment-designer, ccf-paper-writer, ccf-integrity-auditor"
-  - name: ccf-experiment-env-design
-    trigger: "Design and audit non-toy communication, wireless, networking, UAV, edge, IoT, vehicular, satellite, and mission-coupled optimization environments; judge objective function, optimization target, constraints, scenario abstraction, explainability, joint-optimization necessity, and paper-worthiness."
-    exclude: "Does not design result tables, invent results, or replace literature search."
-    handoff: "ccf-literature-searcher, ccf-idea-optimizer, ccf-experiment-env-code-auditor, ccf-experiment-designer, ccf-experiment-debugger, ccf-paper-writer"
-  - name: ccf-experiment-env-code-auditor
-    trigger: "Audit a communication scenario's problem and plan, then trace objectives, variables, constraints, transitions, and information patterns into complete-scenario code behavior; check whether tuned rules are forced to sacrifice one side of the intended tradeoff and diagnose why if they are not."
-    exclude: "Limited to the current scenario plan, implementation, and execution evidence."
-    handoff: "ccf-experiment-env-design, ccf-experiment-designer, ccf-experiment-debugger"
+    handoff: "ccf-idea-optimizer, ccf-idea-reviewer, ccf-env-design, ccf-env-code-auditor, ccf-experiment-designer, ccf-paper-writer, ccf-integrity-auditor"
+  - name: ccf-env-design
+    trigger: "Design or audit a communication/networking paper scenario, its formal objective and constraints, complexity balance, minimum viable version (MVP), and algorithm-required environment information."
+    exclude: "Does not design algorithms, validate algorithm code, invent results, or replace literature search."
+    handoff: "ccf-literature-searcher, ccf-idea-optimizer, ccf-env-code-auditor, ccf-algorithm-designer, ccf-experiment-debugger"
+  - name: ccf-env-code-auditor
+    trigger: "Use when the primary object under review is a paper scenario, its MVP, mathematical model, environment implementation, executed behavior, or environment information exposed for algorithm verification."
+    exclude: "Do not use when the primary object under review is algorithm design, algorithm-code semantics, convergence, hyperparameters, or algorithm performance."
+    handoff: "ccf-env-design, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-debugger"
+  - name: ccf-algorithm-designer
+    trigger: "Design a formal algorithm MVP and stepwise verification targets for an accepted paper-scenario MVP."
+    exclude: "Does not redesign the scenario, audit implementation code, or design publication experiments."
+    handoff: "ccf-literature-searcher, ccf-env-design, ccf-env-code-auditor, ccf-algorithm-code-auditor, ccf-experiment-debugger, ccf-experiment-designer"
+  - name: ccf-algorithm-code-auditor
+    trigger: "Audit algorithm-MVP equation-to-code fidelity, feasibility, convergence/correctness, exact/oracle/bound evidence, and end-to-end acceptance."
+    exclude: "Does not choose the initial algorithm, redesign the environment, or design publication experiments."
+    handoff: "ccf-algorithm-designer, ccf-env-code-auditor, ccf-env-design, ccf-experiment-debugger, ccf-experiment-designer"
   - name: ccf-experiment-designer
-    trigger: "Design experiments, scenarios, simulation settings, baselines, metrics, ablations, robustness tests, result templates, and real-result tables/figures."
-    exclude: "Does not invent results, draw docs diagrams, or own primary communication objective/constraint/scenario design."
-    handoff: "ccf-experiment-env-design, ccf-experiment-env-code-auditor, ccf-experiment-debugger, ccf-literature-searcher, ccf-visual-composer, ccf-paper-writer, ccf-paper-reviewer, ccf-integrity-auditor, ccf-submission-checker"
+    trigger: "Turn validated MVP evidence into paper-scope experiments, scenario coverage, simulation settings, baselines, metrics, ablations, robustness tests, result templates, and real-result tables/figures."
+    exclude: "Does not design the primary scenario or algorithm, validate code, or invent results."
+    handoff: "ccf-env-design, ccf-env-code-auditor, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-debugger, ccf-literature-searcher, ccf-visual-composer, ccf-paper-writer, ccf-paper-reviewer, ccf-integrity-auditor, ccf-submission-checker"
   - name: ccf-experiment-debugger
-    trigger: "Diagnose failed, unstable, unexpectedly weak, divergent, or irreproducible experiments in code-first, algorithm-second, scenario-last order."
-    exclude: "Does not design initial experiments, invent successful results, or change scenarios to force expected outcomes."
-    handoff: "ccf-experiment-designer, ccf-literature-searcher, ccf-idea-optimizer"
+    trigger: "Coordinate failed, unstable, divergent, irreproducible, or unexpectedly weak MVP repair from environment-auditor and algorithm-auditor evidence; isolate the owner, apply the smallest change, and close reruns."
+    exclude: "Does not replace implementation auditors, design the initial workflow, or fabricate success."
+    handoff: "ccf-env-design, ccf-env-code-auditor, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-designer"
   - name: ccf-visual-composer
     trigger: "Compose, polish, generate, and QA publication-grade figures, tables, Python plotting code, creative data-analysis plots, captions, palettes, panel maps, and manuscript visual layout integration from supplied data/results."
     exclude: "Does not design experiments, invent results, write manuscript prose as the main task, or perform final submission compliance."

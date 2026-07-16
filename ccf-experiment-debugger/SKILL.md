@@ -1,6 +1,6 @@
 ---
 name: ccf-experiment-debugger
-description: "Diagnose and repair failed research experiments whose results are wrong, unstable, unexpectedly weak, or inconsistent with expectations. Use for experiment failure analysis, unexpected results, reproduction failures, training divergence, metric anomalies, 实验失败, 结果不符合预期, 效果异常, 复现失败, 排查实验原因. Check code implementation first, algorithm design second, and scenario definition last; use ResearchWiki or public web evidence to find candidate solutions. Do not use for initial experiment planning or fabricate successful results."
+description: "Coordinate diagnosis and minimal repair of failed environment or algorithm MVP runs using evidence from ccf-env-code-auditor and ccf-algorithm-code-auditor. Use for wrong, unstable, divergent, irreproducible, unexpectedly weak, or failed MVP results, 实验失败, MVP失败, 结果异常, 复现失败, 最小修改, 排查原因. Route confirmed environment-code, algorithm-code, algorithm-design, or scenario-design causes to the owning skill and close the loop with auditor reruns. Do not design initial experiments or fabricate success."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -14,48 +14,55 @@ metadata:
 
 ## Invocation Controls
 
-**CCFA Handoff Mode: PARTIAL (Recommended).** Follow `metadata.ccf_skill_controls.handoff_question_mode` and `../ccf-common/references/handoff-modes.md`. Use `../ccf-common/references/routing.md` to keep failed-experiment diagnosis separate from initial experiment design, broad literature search, idea optimization, and manuscript review.
-
-Treat experiment code, logs, configurations, unpublished results, and failure details as private user data. Load `../ccf-common/references/privacy-and-evidence.md` before web search. Never paste private code, paths, tokens, unpublished numbers, or distinctive private text into public queries.
+**CCFA Handoff Mode: PARTIAL (Recommended).** Follow `metadata.ccf_skill_controls.handoff_question_mode` and `../ccf-common/references/handoff-modes.md`. Treat failed runs, code, configurations, and unpublished results as private user data.
 
 ## Core Rule
 
-Diagnose in this fixed order:
+Operate as the failure coordinator around the two implementation auditors. Do not create a third independent audit protocol. Freeze the failed run and its artifact versions, obtain or refresh environment-auditor evidence, obtain or refresh algorithm-auditor evidence, identify the first confirmed owner, apply the smallest change through that owner, and rerun every affected auditor gate.
+
+Use this ownership order:
 
 ```text
-code implementation -> algorithm design -> scenario definition
+environment implementation
+-> algorithm implementation
+-> algorithm design
+-> scenario design
 ```
 
-Do not modify the algorithm until code defects have been tested and ruled out. Do not modify the scenario until both code and algorithm causes have been tested and ruled out. Stop at the first confirmed cause, apply the smallest justified fix, and rerun a controlled comparison before continuing.
+This order controls modification, not blame. Existing decisive evidence may identify a later owner directly, but every upstream contract on which that conclusion depends must already be accepted.
 
-ResearchWiki and web findings are candidate explanations, not proof of the local root cause. Confirm every adopted solution against the user's code and rerun evidence. Never tune thresholds, simplify scenarios, remove hard cases, or change metrics merely to make results match expectations.
+## Ordered Failure Loop
+
+1. **Failure-authority gate:** record the failed command, first divergence, paper-scenario/MVP version, environment spec/code version, environment verdict, algorithm spec/code version, algorithm verdict, configuration, seeds, metrics, criteria, logs, and preserved outputs.
+2. **Environment-auditor gate:** use `ccf-env-code-auditor` evidence to establish authority, design-contract consistency, model-to-code traceability, semantics, independent execution, optimization fidelity, and tradeoff behavior. Repair a confirmed environment-code defect through that auditor and rerun it before continuing.
+3. **Algorithm-auditor gate:** after environment acceptance, use `ccf-algorithm-code-auditor` evidence to establish environment-contract consistency, algorithm-design completeness, equation-to-code traceability, semantics, reference checks, and independent MVP behavior. Repair a confirmed algorithm-code defect through that auditor and rerun it.
+4. **Algorithm-design gate:** when both implementations match their specifications but the algorithm mechanism or assumptions fail the declared target, route the smallest formal mechanism change to `ccf-algorithm-designer`, then rerun `ccf-algorithm-code-auditor`.
+5. **Scenario-design gate:** modify the scenario only when accepted audit evidence identifies a causal, mathematical, feasibility, complexity, or paper-to-MVP defect. Route the smallest scenario-contract change to `ccf-env-design`, rerun `ccf-env-code-auditor`, then refresh affected algorithm design and audit evidence.
+6. **Closure gate:** accept the repair when the original failing case and all auditor gates invalidated by the change pass under the new authoritative versions. Otherwise record the remaining failure and continue from its confirmed owner.
+
+Load `references/diagnostic-protocol.md` for the failure record, ownership ledger, minimal-change record, and rerun closure.
 
 ## Workflow
 
-1. Capture the failure signature: expected behavior, observed behavior, command, code/config version, environment, seed, logs, metrics, and the earliest point of divergence. Mark missing inputs instead of guessing.
-2. Load `references/diagnostic-protocol.md` and run the code gate. Reproduce the failure, reduce it to the smallest case, and inspect implementation, data, configuration, metrics, baselines, randomness, environment, and stale artifacts.
-3. If a code cause is confirmed, patch only the responsible code when the user authorized a fix, add a regression check, and rerun the failing case. Do not proceed to algorithm or scenario changes unless the failure remains.
-4. After the code gate passes, run the algorithm gate. Check formulation-to-code consistency, assumptions, feasibility, objective direction, convergence/correctness evidence, and exact/oracle/bound comparisons. Proposed fixes must remain non-heuristic and comply with `../ccf-experiment-designer/references/evidence-design.md`.
-5. After both earlier gates pass, run the scenario gate. Check whether the scenario violates method assumptions, is infeasible, lacks the claimed difficulty, or uses an invalid generator/protocol. Change it only for an external scientific or domain reason, then rerun every method under the same version.
-6. At each gate, query ResearchWiki or the public web only with the smallest safe technical description needed. Record source, proposed mechanism, applicability, and the local test that confirmed or rejected it.
-7. Return the root-cause ledger and the exact rerun needed. Use `confirmed`, `probable`, `ruled out`, or `unresolved`; do not claim success before the rerun passes.
+1. Preserve the original failed run and inventory available auditor reports.
+2. Start at the earliest auditor gate whose evidence is missing, stale, or contradicted.
+3. Keep one active root-cause hypothesis and change one owned contract or implementation item at a time.
+4. Record the reason, owner, changed artifact/version, dependent gates, rerun command, and result.
+5. Return the confirmed cause, minimal modification, refreshed auditor verdicts, and unresolved evidence.
 
 ## Output Contract
 
 ```text
-Failure signature:
-Current diagnostic gate:
-Code checks and evidence:
-Algorithm checks and evidence:
-Scenario checks and evidence:
-ResearchWiki / web findings:
-Root cause and confidence:
-Minimal fix:
-Regression or controlled rerun:
+Failure signature and authoritative versions:
+Environment-auditor status:
+Algorithm-auditor status:
+Confirmed owner and evidence:
+Minimal modification:
+Invalidated and rerun gates:
 Result after rerun:
-Unresolved risks:
+Remaining failure or next owner:
 ```
 
 ## Reference
 
-- `references/diagnostic-protocol.md`: Load for the ordered code, algorithm, scenario, source-search, and verification gates.
+- `references/diagnostic-protocol.md`: auditor-centered failure isolation, ownership, minimal repair, and closure protocol.

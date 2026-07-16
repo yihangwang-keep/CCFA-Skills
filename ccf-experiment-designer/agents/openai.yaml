@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Experiment Designer"
-  short_description: "Design experiments, baselines, ablations, settings, and real-result evidence specs."
-  default_prompt: "Use $ccf-experiment-designer for experiment design, baselines, ablations, settings, result templates, and real-result evidence structure; use $ccf-experiment-env-design for primary communication objective, constraint, and scenario design."
+  short_description: "Design paper-scope evidence after MVP validation"
+  default_prompt: "Use $ccf-experiment-designer to turn validated MVP evidence into paper-scope baselines, metrics, ablations, robustness tests, and result templates."

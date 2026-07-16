@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCF Algorithm Designer"
+  short_description: "Design verifiable algorithm MVPs for paper scenarios"
+  default_prompt: "Use $ccf-algorithm-designer to design a formal algorithm MVP and staged verification for an accepted paper-scenario MVP."

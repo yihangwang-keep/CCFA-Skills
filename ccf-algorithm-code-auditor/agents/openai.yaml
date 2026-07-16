@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCF Algorithm Code Auditor"
+  short_description: "Audit algorithm MVP code and solution evidence"
+  default_prompt: "Use $ccf-algorithm-code-auditor to verify equation-to-code fidelity, feasibility, reference evidence, and end-to-end acceptance on the scenario MVP."

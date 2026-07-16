@@ -1,95 +1,60 @@
-# Failed Experiment Diagnostic Protocol
+# Auditor-Centered Failure Protocol
 
-Use this protocol when an experiment crashes, diverges, cannot be reproduced, produces implausible metrics, or underperforms the stated expectation.
+Use this protocol after an environment or algorithm MVP run fails, diverges, becomes unstable, cannot be reproduced, or misses its declared criteria.
 
 ## Failure Record
 
-Record before changing anything:
-
 ```text
-Expected behavior and evidence for that expectation:
-Observed behavior:
-First failing step or metric:
+Expected criterion:
+Observed result and first divergence:
 Run command and configuration:
-Code revision and environment:
-Dataset/scenario version:
-Seeds and hardware:
-Relevant logs and artifacts:
+Paper scenario and MVP version:
+Environment spec/code version and audit verdict:
+Algorithm spec/code version and audit verdict:
+Metrics, tolerances, seeds, hardware, and dependencies:
+Logs, traces, checkpoints, and preserved outputs:
 ```
 
-Preserve the original run. Change one factor at a time and keep a ledger of hypothesis, test, result, and conclusion.
+## Auditor Evidence Ledger
 
-## Gate 1: Code Implementation
+| Layer | Required current evidence | Status | Decisive finding | Owner |
+| --- | --- | --- | --- | --- |
+| Environment authority/design contract | accepted scenario, MVP, equations, information contract | accepted / stale / contradicted / missing |  | `ccf-env-design` or `ccf-env-code-auditor` |
+| Environment implementation | traceability, semantics, independent MVP execution, fidelity, tradeoff | pass / conditional / fail / missing |  | `ccf-env-code-auditor` |
+| Algorithm authority/design contract | formal target, family, mechanism, MVP, verification plan | accepted / stale / contradicted / missing |  | `ccf-algorithm-designer` or `ccf-algorithm-code-auditor` |
+| Algorithm implementation | traceability, semantics, reference evidence, independent MVP execution | pass / conditional / fail / missing |  | `ccf-algorithm-code-auditor` |
 
-Reproduce first. Prefer a deterministic minimal case and compare the last known-good run when available.
+Do not infer a downstream cause from stale or failed upstream contracts. Refresh the earliest dependent auditor evidence first.
 
-Check:
+## Minimal-Change Routing
 
-- entry point, configuration precedence, defaults, command-line overrides, and unused parameters;
-- data loading, splits, ordering, leakage, normalization, units, shapes, masks, padding, and empty samples;
-- objective sign, loss reduction, reward/penalty direction, gradient flow, update order, detach operations, clipping, and stopping conditions;
-- state transitions, constraint enforcement, action bounds, indexing, off-by-one errors, and terminal handling;
-- metric implementation, numerator/denominator, aggregation level, direction, evaluation mode, and baseline protocol;
-- initialization, seeds, nondeterministic kernels, precision, device placement, dependencies, checkpoint loading, caches, and stale result files;
-- a hand-computed toy case, assertion, invariant, unit test, or comparison with a trusted implementation.
+| Confirmed cause | Owning action | Required rerun |
+| --- | --- | --- |
+| Environment code contradicts accepted scenario/model | repair the smallest responsible environment path | affected `ccf-env-code-auditor` gates, then algorithm audit if inputs/behavior changed |
+| Algorithm code contradicts accepted algorithm spec | repair the smallest responsible algorithm path | affected `ccf-algorithm-code-auditor` gates |
+| Algorithm implementation matches spec but mechanism misses its formal target | revise the smallest mechanism or assumption in `ccf-algorithm-designer` | complete algorithm audit under the new spec |
+| Scenario contract or MVP is causally, mathematically, or feasibly invalid | revise the smallest scenario item in `ccf-env-design` and derive the MVP again | complete environment audit, then affected algorithm design/audit |
 
-Pass this gate only when the failure is reproducible and the relevant code path has positive checks, not merely because no exception was raised. If a defect is found, fix it and rerun before considering algorithm changes.
-
-## Gate 2: Algorithm Design
-
-Enter only after Gate 1 passes or a code fix fails to resolve the experiment.
-
-Check:
-
-- the implemented objective, variables, constraints, assumptions, and update rules match the stated formulation;
-- the scenario lies within the algorithm's stated assumptions;
-- feasibility, constraint residuals, convergence/correctness conditions, termination, and numerical stability;
-- exact enumeration or solver on small instances, oracle behavior, certified lower/upper bounds, relaxation gaps, or the stated theoretical reference;
-- one mechanism at a time through diagnostic ablation without changing evaluation rules;
-- whether the expected result was supported by theory, prior evidence under a matching protocol, or only an unsupported expectation.
-
-Do not introduce heuristic decisions, rule stacking, post-hoc patches, or threshold selection. An algorithm change must state the diagnosed mechanism, the formal change, and a falsifiable test. Rerun the same scenario and baseline protocol before accepting it.
-
-## Gate 3: Scenario Definition
-
-Enter only after Gates 1 and 2 pass or their fixes fail under controlled reruns.
-
-Check:
-
-- feasibility and consistency of scenario parameters and constraints;
-- whether scale, dynamics, uncertainty, coupling, resource scarcity, or other difficulty matches the research claim;
-- whether the generator, data distribution, workload, units, and boundary cases match domain evidence;
-- train/validation/test separation, seed coverage, sampling bias, hidden filtering, and scenario-version drift;
-- whether a simple rule solves the scenario, indicating that the motivating difficulty was removed;
-- whether thresholds or ranges were selected after observing method rankings.
-
-Modify a scenario only to correct an evidenced mismatch or invalid assumption. State the external reason, preserve the original result, version the change, and rerun all methods with equal tuning budgets. Never modify a scenario to manufacture a performance gap.
-
-## ResearchWiki And Web Search
-
-Use ResearchWiki first when a relevant local knowledge base is available. Locate it through a user-provided `/ResearchWiki`, `$RESEARCHWIKI_ROOT`, or a project-local `skills/ResearchWiki`; read its `SKILL.md`, then query problem, algorithm, experiment-pattern, effect-evidence, and reviewer-risk pages. Follow page sources and evidence status.
-
-Use the public web when ResearchWiki has no relevant coverage or current implementation details are needed. Prefer official library documentation, upstream source code and issue trackers, primary papers, author repositories, and benchmark specifications. Search with public error text, API names, algorithm names, and public problem descriptions; do not expose private code or results.
-
-For every retrieved candidate, record:
+## Change Record
 
 ```text
-Source and access date:
-Claim or proposed mechanism:
-Match to the local version and assumptions:
-Local confirming test:
-Outcome: confirmed / rejected / unresolved
+Confirmed cause and evidence:
+Owner:
+Smallest changed item:
+Old and new artifact versions:
+Why this change addresses the cause:
+Auditor gates invalidated:
+Rerun commands and seeds:
+Outcome:
 ```
 
-Do not adopt a retrieved fix solely because it worked elsewhere.
+## Closure
 
-## Completion Gate
-
-A diagnosis is complete only when:
+The loop closes when:
 
 1. the failure is reproducible or its nondeterminism is characterized;
-2. the cause is isolated by a controlled test;
-3. the minimal fix is applied without changing unrelated factors;
-4. the original failing case passes after the fix;
-5. at least one regression, invariant, or repeated-seed check passes;
-6. the result is reported honestly if it still does not meet the original expectation.
+2. current environment and algorithm auditor evidence establishes the owner;
+3. one minimal owned change is applied and versioned;
+4. the original failing case passes its declared criteria;
+5. every auditor gate invalidated by the change passes;
+6. remaining limitations and unresolved evidence are recorded.

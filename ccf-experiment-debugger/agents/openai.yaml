@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Experiment Debugger"
-  short_description: "Diagnose failed experiments from code to algorithm to scenario"
-  default_prompt: "Use $ccf-experiment-debugger to diagnose why this experiment failed or did not match expectations, checking code before algorithm and scenario."
+  short_description: "Coordinate auditor-led MVP failure repair"
+  default_prompt: "Use $ccf-experiment-debugger to isolate this MVP failure from environment and algorithm auditor evidence, apply the smallest owned change, and close the rerun loop."

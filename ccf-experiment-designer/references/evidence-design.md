@@ -93,6 +93,8 @@ Apply this gate when the claimed contribution is an algorithm, optimizer, schedu
 
 If the proposed method contains any heuristic decision mechanism, reject the proposed algorithmic route and redesign it before adding more experiments. Separately, reject it if no meaningful objective, verifiable solution process, and qualifying guarantee or optimality reference can be defined. Renaming a heuristic as a policy, framework, strategy, adaptive algorithm, hybrid method, or learned rule does not pass this gate.
 
+For the experiment-design stage, do not recreate this upstream design work. Require and cite the accepted `ccf-algorithm-designer` specification and `ccf-algorithm-code-auditor` evidence. Missing design or implementation acceptance routes back to its owner; it is not repaired by adding more baselines or ablations.
+
 ## Scenario Integrity Gate
 
 Define and freeze scenario generation before using outcomes to choose favorable cases.
@@ -105,6 +107,8 @@ Define and freeze scenario generation before using outcomes to choose favorable 
 - **Controlled modification:** when changing a scenario, state the external reason, the affected assumption, and whether all methods are reevaluated under the same version. Keep the original result visible when the change follows result inspection.
 
 Fail the gate when the principal advantage disappears under credible scenario variation, matched tuning, or a simple rule baseline and the paper still claims a general algorithmic advance. Treat that outcome as evidence to revise the problem or claim, not as a reason to engineer a more favorable setting.
+
+MVP success establishes end-to-end implementation and mechanism evidence. Map broader claims about scale, uncertainty, dynamics, or parameter ranges to explicit additional experiments before using them in the paper.
 
 ## Ablation Logic
 

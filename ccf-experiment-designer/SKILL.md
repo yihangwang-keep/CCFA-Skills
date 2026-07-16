@@ -1,6 +1,6 @@
 ---
 name: ccf-experiment-designer
-description: "Design CCF paper evidence packages: scenarios, simulation settings, baselines, metrics, ablations, robustness tests, result-table templates, and real-result figure/table presentation. Use for experiment design, evaluation-setting planning, baseline selection, ablation design, result tables, publication figures from supplied numbers, 设计实验, 对比实验, 消融, 结果图表. Do not invent results or perform primary communication objective/constraint/scenario design."
+description: "Design CCF paper evidence packages after MVP validation: paper-scenario coverage, simulation settings, baselines, metrics, ablations, robustness tests, result-table templates, and real-result figure/table presentation. Use for experiment design, baseline selection, ablation design, result tables, publication figures from supplied numbers, 设计实验, 对比实验, 消融, 结果图表. Do not invent results or perform primary scenario or algorithm design."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -14,7 +14,7 @@ metadata:
 
 ## Core Rule
 
-Design experiments that test the paper's central claims. For an algorithmic contribution, require an explicit optimization or decision objective, an auditable solution process, and a theoretical or optimality reference. Do not accept or recommend a heuristic as the proposed algorithm. Heuristics may appear only as prior work or comparison baselines. Do not design an artificial win by stacking hand-written rules, simplifying away the claimed difficulty, or selecting thresholds that manufacture a gap. For communication, networking, systems, and optimization papers, structure evidence around the objective, constraints, coupling, feasibility, stress regimes, and oracle/bound comparisons. Build result tables and evidence-bound figure specs only from supplied real values or explicit placeholders. Never fabricate numbers, improvements, significance, ranks, or user-study outcomes. Publication-grade layout, palette, caption placement, and render QA belong to `ccf-visual-composer`. Follow the user's requested output shape: experiment plan, table, LaTeX table, figure spec, ablation list, or execution queue.
+Design experiments that test the paper's central claims. Treat the validated MVP as evidence that the formulation, environment, and algorithm work end to end; then design the settings needed to evaluate the paper's claimed scenario scope. For an algorithmic contribution, require an explicit optimization or decision objective, an auditable solution process, and a theoretical or optimality reference. Heuristics may appear as comparison baselines. Structure communication and networking evidence around the objective, constraints, coupling, feasibility, scenario coverage, stress regimes, and oracle/bound comparisons. Build result artifacts only from supplied real values or explicit placeholders. Publication-grade layout belongs to `ccf-visual-composer`.
 
 ## Modes
 
@@ -28,8 +28,8 @@ Design experiments that test the paper's central claims. For an algorithmic cont
 2. Extract the storyline from the idea or draft. Use `../ccf-paper-writer/references/storyline-blueprint.md` only as a schema, not as a writing handoff.
 3. Map every major claim to required evidence, reviewer question, scenario/simulation setting, baseline, metric, ablation, and robustness/failure test.
 4. Clearly show what the metrics are for each claim judgment, and what evidence is needed to support the claim in the Claim-Evidence Matrix.
-5. For an algorithmic paper, run the Algorithmic Contribution Gate in `references/evidence-design.md`. Reject every proposed method that contains a heuristic decision mechanism. A rule set, threshold policy, manually patched strategy, or empirical search procedure is not an admissible proposed algorithm, regardless of how it is named or whether other components are formalized.
-6. Run the Scenario Integrity Gate in `references/evidence-design.md`. Require scenarios to preserve the claimed difficulty, cover credible variation, and be specified independently of the desired ranking. If the primary task is to create or judge a communication/networking optimization environment, follow CCFA handoff mode before using `ccf-experiment-env-design`.
+5. For an algorithmic paper, run the Algorithmic Contribution Gate in `references/evidence-design.md`. Reject every proposed method that contains a heuristic decision mechanism. If algorithm design or implementation evidence is missing, route to `ccf-algorithm-designer` or `ccf-algorithm-code-auditor` instead of designing the method here.
+6. Run the Scenario Integrity Gate in `references/evidence-design.md`. Use the validated MVP as the development reference and map each broader paper claim to the additional settings required for evidence. If the primary task is to create or judge the communication/networking scenario itself, follow CCFA handoff mode before using `ccf-env-design`.
 7. If scenarios, simulation settings, objective/constraint references, or baselines are unknown, use public-safe search or hand off to `ccf-literature-searcher`; request both formulation and algorithm coverage and mark uncertainty instead of guessing.
 8. Load `references/evidence-design.md` for venue-family expectations and `references/result-templates.md` for result tables.
 9. For result presentation, preserve units, seeds, confidence intervals, scenario or setting names, and metric direction. Mark missing values explicitly.
