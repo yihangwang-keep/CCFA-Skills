@@ -29,15 +29,15 @@ skills:
     exclude: "Does not audit only already-cited references or act as a final idea kill gate."
     handoff: "ccf-idea-optimizer, ccf-idea-reviewer, ccf-env-design, ccf-env-code-auditor, ccf-experiment-designer, ccf-paper-writer, ccf-integrity-auditor"
   - name: ccf-env-design
-    trigger: "Design or audit a communication/networking paper scenario, its formal objective and constraints, complexity balance, minimum viable version (MVP), and algorithm-required environment information."
+    trigger: "Design, audit, or evolve a communication/networking paper scenario, its formal objective and constraints, complexity balance, minimum executable scenario (MES), and algorithm-required environment information."
     exclude: "Does not design algorithms, validate algorithm code, invent results, or replace literature search."
     handoff: "ccf-literature-searcher, ccf-idea-optimizer, ccf-env-code-auditor, ccf-algorithm-designer, ccf-experiment-debugger"
   - name: ccf-env-code-auditor
-    trigger: "Use when the primary object under review is a paper scenario, its MVP, mathematical model, environment implementation, executed behavior, or environment information exposed for algorithm verification."
+    trigger: "Use when the primary object under review is a paper scenario, its MES, mathematical model, environment implementation, executed behavior, or environment information exposed for algorithm verification."
     exclude: "Do not use when the primary object under review is algorithm design, algorithm-code semantics, convergence, hyperparameters, or algorithm performance."
     handoff: "ccf-env-design, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-debugger"
   - name: ccf-algorithm-designer
-    trigger: "Design a formal algorithm MVP and stepwise verification targets for an accepted paper-scenario MVP."
+    trigger: "Design a formal algorithm MVP and stepwise verification targets for an accepted minimum executable scenario (MES)."
     exclude: "Does not redesign the scenario, audit implementation code, or design publication experiments."
     handoff: "ccf-literature-searcher, ccf-env-design, ccf-env-code-auditor, ccf-algorithm-code-auditor, ccf-experiment-debugger, ccf-experiment-designer"
   - name: ccf-algorithm-code-auditor

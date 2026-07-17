@@ -7,7 +7,8 @@ Use these terms across the communication environment, algorithm, audit, repair, 
 - **Paper scenario:** the communication task, actors, physical/network conditions, task consequences, and abstraction boundary studied by the paper.
 - **Formal optimization problem:** the decision variables, objective, constraints, dynamics, uncertainty, information pattern, and feasibility meaning derived from the paper scenario.
 - **Parameter applicability range:** the method-independent range of physical, communication, task, load, deadline, topology, and uncertainty settings for which the formal problem and final conclusions are intended to hold.
-- **Scenario MVP:** the first complete, reproducible instance obtained by fixing parameters of the formal problem. It may reduce coverage but must not remove the objective, material constraints, decision coupling, information pattern, feasibility meaning, or task causal chain.
+- **Minimum Executable Scenario (MES):** the smallest end-to-end scenario package for one accepted paper-scenario and formal-problem version. It preserves the complete task causal chain, objective, material constraints, decision coupling, information pattern, feasibility meaning, and central tradeoff, and binds them to executable entry points, registered configurations, interfaces, seeds or traces, an independent checker, and acceptance criteria. It may contain more than one registered case when those cases are necessary to activate the tradeoff. "Minimum" means causally and auditably complete, not the fewest entities or easiest instance.
+- **MES lineage:** an accepted MES is immutable evidence. A method-independent extension creates a successor with an explicit parent and delta; a formal semantic change creates a new formal-problem version and MES; a changed research identity creates a new paper-scenario lineage.
 - **Task causal chain:** the path from exogenous conditions and communication decisions through network behavior to task or service consequences. A physical network event such as reconnection, contact, or successful transmission is not automatically task recovery; trace it through application state, dependencies, completion, and acknowledgement semantics.
 - **Central tradeoff:** the attributable conflict among task value, communication resources, feasibility, delay, reliability, freshness, energy, or another domain quantity that the optimization must resolve.
 - **Information pattern:** what is available at each decision time, when it becomes available, and what remains unavailable, future, or audit-only.
@@ -15,24 +16,40 @@ Use these terms across the communication environment, algorithm, audit, repair, 
 - **Causal bottleneck:** the scarce resource, binding constraint, dependent event, or coupled decision through which communication affects the task outcome.
 - **Supported conclusion:** a paper conclusion whose stated applicability range is no broader than the supplied analysis, proof, execution, or experimental evidence.
 - **Conclusion applicability range:** the scenario versions, parameter range, assumptions, information pattern, and operating conditions under which a supported conclusion may be used.
-- **Environment-valid:** the paper scenario, formal problem, parameter range, scenario MVP, and environment implementation consistently represent the intended communication problem.
+- **Environment-valid:** the paper scenario, formal problem, parameter range, current MES, and environment implementation consistently represent the intended communication problem.
 - **Joint-ready:** an environment-valid problem also has an accepted algorithm contract, executable verification path, and sufficient evidence to proceed to paper-range experiment design.
 
-Environment design and environment-code audit may issue `environment-valid`, plus separate findings on algorithmic need and interface completeness. They do not issue `joint-ready`; that downstream state requires a current accepted algorithm specification and implementation audit against the same environment version.
+Environment design defines the L1 acceptance and L2 probe contracts and may issue a design verdict. Environment-code audit executes those contracts and owns `environment-valid`, `algorithmic_need`, and interface-completeness results. Neither issues `joint-ready`; that downstream state requires a current accepted algorithm specification and implementation audit against the same environment version.
 
 ## Environment And Algorithm Authority
 
-The environment owns the paper scenario, formal optimization problem, parameter applicability range, scenario MVP, information pattern, and feasibility meaning. The algorithm consumes a versioned environment contract. It may challenge that contract with evidence, but it must not directly change the objective, constraints, task semantics, or information pattern.
+The environment owns the paper scenario, formal optimization problem, parameter applicability range, MES lineage, information pattern, and feasibility meaning. The algorithm consumes a versioned environment contract. It may challenge that contract with evidence, but it must not directly change the objective, constraints, task semantics, information pattern, or MES.
 
-An algorithm-originated environment amendment must establish:
+An algorithm-originated environment or mathematical-model amendment must establish:
 
-1. the same defect remains when the current algorithm is replaced by another credible solver or rule;
+1. algorithm-code and algorithm-design repair have been exhausted for the current versions, with a repair ledger; when available, another credible solver, reference, bound, or probe reproduces the defect, or formal evidence independently establishes an infeasible/ill-posed authoritative problem, invalid environment-target evidence, information mismatch, or missing causal semantics. An unattainable algorithm-specific guarantee remains algorithm-owned;
 2. the amendment follows from the task causal chain, physical model, protocol, standard, trace, or service requirement;
 3. the task or service outcome, scientific question, task causal chain, central tradeoff, and intended contribution type are preserved; a material R1 change that preserves this research identity starts a rebaselined problem version, while a change to the identity is a reframe;
 4. no future, global, exact-solution, or audit-only information becomes algorithm-visible without a justified change to the information pattern;
-5. the amendment improves the problem definition independently of the proposed algorithm's ranking.
+5. the amendment improves the problem definition independently of the proposed algorithm's ranking;
+6. the successor does not simplify the research problem for tractability, ranking, or acceptance by deleting or weakening a material objective term, constraint, coupling, dynamic, uncertainty, information restriction, difficult registered case, target, feasibility rule, or resource limit; exposing future/audit-only information; or replacing the authoritative objective with an algorithm surrogate. An item independently proven inconsistent with the paper scenario may be corrected or replaced only when the intended causal difficulty and central tradeoff remain intact and all dependent evidence is rebaselined.
 
-Changing a formula or interface to enforce an already declared feasibility or information meaning is a contract correction. Changing what counts as feasible, what is available at decision time, the objective semantics, or the material feasible set is a new R1 problem version even when the research identity is preserved. Neither kind of change may inherit current algorithm, baseline, or result evidence without the declared reruns.
+Changing a formula or interface to enforce an already declared feasibility or information meaning is a contract correction. Changing what counts as feasible, what is available at decision time, the objective semantics, or the material feasible set is a new R1 problem version even when the research identity is preserved. A documented algorithm-repair exhaustion triggers environment review, but it does not predetermine the amendment. If no causally justified, non-simplifying correction exists, keep the environment version and report the route as blocked, unsupported, or requiring a research reframe. Neither kind of change may inherit current algorithm, baseline, or result evidence without the declared reruns.
+
+## Method Roles And Heuristics
+
+Classify every executable decision method before using its evidence:
+
+- **`environment_probe`:** a fixed, random-feasible, greedy, domain, or tuned simple rule used to test whether the MES activates the causal bottleneck, central tradeoff, feasibility boundary, and need for optimization. It is environment evidence, not the paper's proposed algorithm.
+- **`proposed`:** the algorithmic contribution presented by the paper. Any heuristic decision mechanism in this role is a blocking failure, including a hidden fallback, manually patched branch, rule accumulation, heuristic local search, or renamed strategy. A formal wrapper or certified component elsewhere does not cure the heuristic component.
+- **`baseline`:** a comparison method. Heuristic methods are allowed when labeled, properly tuned, and run under matched information, feasibility, stopping, and resource conditions.
+- **`reference` or `diagnostic`:** an exact, oracle, bound, checker, or targeted diagnostic method whose certification scope is explicit.
+
+Environment validity and proposed-algorithm admissibility are separate decisions. A heuristic probe can validate or challenge the environment without passing the proposed method's no-heuristic gate. Conversely, rejecting a proposed heuristic does not by itself invalidate the environment. The algorithm designer owns role classification and the no-heuristic contract; the algorithm code auditor verifies it component by component; experiment design consumes the current acceptance record.
+
+Use `algorithmic_need: demonstrated | not_demonstrated | contradicted | insufficient_evidence | stale` in machine-readable records. A completed, fair L2 sweep can yield either `demonstrated` or `not_demonstrated`; completion of the evidence procedure and the scientific outcome are separate fields.
+
+Legacy `scenario MVP`, `scenario_mvp`, and `scenario_mvp_version` values may be read only as aliases for MES fields. New artifacts use `minimum_executable_scenario` and `minimum_executable_scenario_version`. If canonical and legacy values coexist and differ, report a version conflict rather than merging them.
 
 ## Terminology Boundaries
 
@@ -45,4 +62,4 @@ Changing a formula or interface to enforce an already declared feasibility or in
 
 ## Evidence Wording
 
-Internal protocols may keep complete gate matrices, candidate comparisons, and evidence ledgers. User-visible output should lead with the requested artifact and expose only the supported conclusion, decisive evidence, material limitation, version change, required rerun, or user decision that affects the result.
+Internal protocols may keep complete gate matrices, candidate comparisons, rejected hypotheses, reviewer disagreements, artifact manifests, and evidence ledgers. These are model-working records, not a default response template. User-visible output should lead with the requested artifact and expose only the current verdict, decisive evidence, material limitation, version change, required rerun, next owner, or user decision that affects the result. Show the full internal record only when the user explicitly requests an audit trail.

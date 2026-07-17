@@ -20,9 +20,9 @@ The runtime surface has 21 installable `ccf-*` skills, including 19 research-wor
 | Score, compare, rank, and triage early ideas when the user explicitly asks for judgment. | `ccf-idea-reviewer` | idea scoring, stage-aware triage | Does not brainstorm directions or optimize a single idea as the main task. |
 | Monitor recent papers, arXiv/OpenReview/venue feeds, labs, competitors, and recurring novelty threats. | `ccf-literature-monitor` | arxiv-watch, venue-watch, novelty-check, trend-scouting, competitor-tracking | Does not replace deep related-work search, citation audit, or final idea scoring. |
 | Search literature, prior art, formulations, objectives, constraints, baselines, simulation settings, datasets, citation evidence, and opportunity gaps. | `ccf-literature-searcher` | search, screening, opportunity map | Does not audit only already cited papers or act as a final idea kill gate. |
-| Design or audit a non-toy communication/networking paper scenario and derive its minimum viable version (MVP). | `ccf-env-design` | objective/constraint design, scenario abstraction, complexity balance, paper-to-MVP derivation, handoff spec | Does not design algorithms, result tables, or invent results. |
-| Audit the paper scenario, its MVP, and environment code with one consistent plan-to-execution protocol. | `ccf-env-code-auditor` | plan gate, static trace, complete-MVP execution, tunable-rule gate, repair | Does not judge algorithm suitability, convergence, or performance. |
-| Design the formal algorithm MVP and its stepwise verification targets for an accepted scenario MVP. | `ccf-algorithm-designer` | algorithm selection, derivation, MVP, repair | Does not redesign the scenario, audit code, or design publication experiments. |
+| Design, audit, or evolve a non-toy communication/networking paper scenario and its minimum executable scenario (MES). | `ccf-env-design` | objective/constraint design, scenario abstraction, complexity balance, paper-to-MES derivation, evolution contract, handoff spec | Does not design algorithms, result tables, or invent results. |
+| Audit the paper scenario, its MES, and environment code with one plan-to-execution protocol and CCFA-native implementation review. | `ccf-env-code-auditor` | plan gate, static trace, complete-MES execution, environment-probe gate, repair, native review | Does not judge algorithm suitability, convergence, or performance. |
+| Design the formal algorithm MVP and its stepwise verification targets for an accepted MES. | `ccf-algorithm-designer` | algorithm selection, derivation, MVP, repair | Does not redesign the scenario, audit code, or design publication experiments. |
 | Audit algorithm-MVP code, feasibility, correctness/convergence, and exact/oracle/bound evidence. | `ccf-algorithm-code-auditor` | equation-to-code trace, reference checks, MVP acceptance, repair | Does not choose the initial algorithm or redesign the environment. |
 | Turn validated MVP evidence into experiments and real-result tables/figures for the paper's conclusion applicability range. | `ccf-experiment-designer` | experiment design, scenario coverage, result templates, result figures/tables | Does not invent results or own primary scenario/algorithm design. |
 | Coordinate the environment-algorithm design-validation loop or repair a failed MVP from auditor evidence. | `ccf-experiment-debugger` | Ralph loop coordination, auditor refresh, owner isolation, environment amendment, minimal repair, rerun closure | Does not replace either auditor or own problem/algorithm design. |
@@ -45,8 +45,8 @@ ccf-project-scaffolder
   -> ccf-idea-reviewer
   -> ccf-literature-monitor
   -> ccf-literature-searcher
-  -> ccf-env-design (paper scenario + scenario MVP)
-  -> ccf-env-code-auditor (scenario-MVP acceptance; rerun after environment changes)
+  -> ccf-env-design (paper scenario + MES lineage)
+  -> ccf-env-code-auditor (MES acceptance; rerun after environment changes)
   -> ccf-algorithm-designer (formal algorithm + algorithm MVP)
   -> ccf-algorithm-code-auditor (algorithm-MVP acceptance)
   -> ccf-experiment-debugger (design-validation loop; conditional failure routing and repair)
@@ -98,7 +98,7 @@ For manuscript writing from only an idea, `ccf-paper-writer` checks the venue gu
 | 搜索 related work、目标函数、约束、baseline、建模依据和 open gap | `ccf-literature-searcher` |
 | 设计通信优化目标函数和约束 / 判断任务通信问题是不是玩具 / 做 env-design | `ccf-env-design` |
 | 先审查场景问题和计划，再检查完整代码实现是否迫使启发式在 tradeoff 两侧之间取舍 | `ccf-env-code-auditor` |
-| 从论文场景形成 MVP，并设计正式算法 MVP 与逐步验证目标 | `ccf-algorithm-designer` |
+| 基于已接受的 MES 设计正式算法 MVP 与逐步验证目标 | `ccf-algorithm-designer` |
 | 核验算法 MVP 的公式到代码、可行性、oracle/bound 和端到端结果 | `ccf-algorithm-code-auditor` |
 | 设计对比实验、消融和结果表 | `ccf-experiment-designer` |
 | 用 Ralph loop 做环境—算法设计、验证、最小修改和独立复审，或修复失败的 MVP | `ccf-experiment-debugger` |

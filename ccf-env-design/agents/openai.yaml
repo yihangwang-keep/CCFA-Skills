@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Environment Design"
-  short_description: "Design paper scenarios and scenario MVPs"
-  default_prompt: "Use $ccf-env-design to define the paper scenario, formal optimization problem, parameter applicability range, and a scenario MVP that preserves the same task causal chain and central tradeoff."
+  short_description: "Design and evolve executable paper scenarios"
+  default_prompt: "Use $ccf-env-design to define or evolve the paper scenario, formal problem, and MES lineage; when algorithm repair is exhausted, accept only a model-defect correction that preserves the causal question and does not simplify material difficulty."

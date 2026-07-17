@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Experiment Designer"
-  short_description: "Design paper-range evidence from accepted MVPs"
-  default_prompt: "Use $ccf-experiment-designer to turn version-compatible accepted environment and algorithm MVP evidence into conclusion-bound settings, baselines, metrics, mechanism tests, robustness checks, and TBD result templates."
+  short_description: "Design paper-range evidence from accepted MES evidence"
+  default_prompt: "Use $ccf-experiment-designer to turn version-compatible MES, two-layer environment, and algorithm-MVP acceptance into conclusion-bound settings, fair baselines, metrics, mechanism tests, robustness checks, and TBD result templates."

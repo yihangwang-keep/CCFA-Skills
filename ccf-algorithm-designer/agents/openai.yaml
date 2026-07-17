@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Communication Algorithm Designer"
   short_description: "Design verifiable communication algorithm MVPs"
-  default_prompt: "Use $ccf-algorithm-designer to design a formal communication algorithm MVP and staged verification for an environment-authorized paper-scenario MVP."
+  default_prompt: "Use $ccf-algorithm-designer to design and repair a formal algorithm MVP for an accepted MES, enforce component-level no-heuristic eligibility, and escalate route-exhaustion evidence for environment-owned classification without proposing an easier problem."

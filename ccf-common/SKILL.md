@@ -25,9 +25,10 @@ This is the shared control module for the CCFA Skills family. Do not use it as a
 Load only the file needed for the current maintenance task:
 
 - `references/routing.md`: Use to resolve which CCFA skill owns a request and to avoid trigger overlap.
-- `references/communication-research-terms.md`: Use for communication paper-scenario, formal-problem, MVP, environment-algorithm authority, conclusion, and evidence terminology.
+- `references/communication-research-terms.md`: Use for paper-scenario, formal-problem, minimum-executable-scenario, environment-algorithm authority, method-role, conclusion, and evidence terminology.
 - `references/task-modes.md`: Use to interpret quick and standard execution modes across CCFA skills.
 - `references/review-output-standards.md`: Use to keep numeric scoring, multi-reviewer panels, score-change conditions, and visible output quality consistent.
+- `references/implementation-review-protocol.md`: Use for the CCFA-native, two-axis implementation review shared by environment and algorithm code auditors.
 - `references/handoff-modes.md`: Use to interpret `metadata.ccf_skill_controls.handoff_question_mode`.
 - `references/privacy-and-evidence.md`: Use when handling manuscripts, reviews, rebuttals, private drafts, literature searches, or evidence statements.
 - `references/source-registry.yaml`: Use as the shared source inventory for venue rules, review methods, exemplar records, and research-workflow references.

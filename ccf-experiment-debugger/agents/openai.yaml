@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Experiment Debugger"
-  short_description: "Run evidence-led MVP repair and validation loops"
-  default_prompt: "Use $ccf-experiment-debugger to isolate this environment or algorithm MVP failure, preserve the frozen research layers, apply one owned delta per round, and close every invalidated check with fresh domain audits and code review."
+  short_description: "Run evidence-led MES and algorithm repair loops"
+  default_prompt: "Use $ccf-experiment-debugger to isolate this environment, MES, or algorithm-MVP failure, apply one owned delta per round, escalate exhausted algorithm repair to non-simplifying model review, and close invalidated checks with native independent review."

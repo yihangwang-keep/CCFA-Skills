@@ -92,7 +92,11 @@ REQUIRED_CORE_GATES = {
         "Formal-problem gate",
         "Problem-traceability gate",
         "Coupling-and-complexity gate",
-        "Paper-to-MVP gate",
+        "Paper-to-MES gate",
+        "L1 audit-contract gate",
+        "L2 probe-contract gate",
+        "Evolution-and-version gate",
+        "Algorithm-to-model escalation gate",
         "Algorithm-information gate",
         "Handoff-readiness gate",
     ),
@@ -103,7 +107,7 @@ REQUIRED_CORE_GATES = {
         "Semantic-correctness gate",
         "Independent-execution gate",
         "Optimization-fidelity gate",
-        "Tradeoff gate",
+        "Layer-2 tradeoff-resistance gate",
         "Acceptance gate",
     ),
     "ccf-algorithm-designer/SKILL.md": (
@@ -112,9 +116,11 @@ REQUIRED_CORE_GATES = {
         "Structure gate",
         "Algorithm-family gate",
         "Mechanism gate",
+        "No-heuristic gate",
         "Environment-information gate",
         "Algorithm-MVP gate",
         "Verification-plan gate",
+        "Algorithm-repair-exhaustion gate",
         "Handoff-readiness gate",
     ),
     "ccf-algorithm-code-auditor/SKILL.md": (
@@ -123,8 +129,9 @@ REQUIRED_CORE_GATES = {
         "Design-contract gate",
         "Traceability gate",
         "Semantic-correctness gate",
+        "Proposed-method eligibility gate",
         "Reference gate",
-        "Independent-MVP gate",
+        "Independent-MES gate",
         "Acceptance gate",
     ),
 }
@@ -268,6 +275,79 @@ def check_research_terminology(errors: list[str]) -> None:
 
 
 def check_design_validation_contract(errors: list[str]) -> None:
+    for rel in (
+        "ccf-common/references/implementation-review-protocol.md",
+        "ccf-env-design/references/scenario-evolution-contract.md",
+    ):
+        if not (ROOT / rel).is_file():
+            fail(errors, f"missing shared protocol: {rel}")
+
+    review_ref = "../ccf-common/references/implementation-review-protocol.md"
+    for rel in (
+        "ccf-env-code-auditor/SKILL.md",
+        "ccf-algorithm-code-auditor/SKILL.md",
+        "ccf-experiment-debugger/SKILL.md",
+    ):
+        if review_ref not in read(ROOT / rel):
+            fail(errors, f"{rel}: missing CCFA-native implementation-review reference")
+
+    evolution_skill = read(ROOT / "ccf-env-design" / "SKILL.md")
+    if "references/scenario-evolution-contract.md" not in evolution_skill:
+        fail(errors, "ccf-env-design/SKILL.md: missing scenario-evolution contract reference")
+
+    semantic_tokens = {
+        "ccf-common/references/implementation-review-protocol.md": (
+            "canonical review envelope",
+            "review_protocol_digest",
+            "coordinator_id",
+            "fresh: true",
+            "read_only: true",
+            "implementer_ids",
+            "reviewer_distinctness_check",
+            "reviewer_coordinator_exclusion_check",
+            "cannot offset",
+            "stale",
+            "terminal_acceptance",
+        ),
+        "ccf-env-design/references/scenario-evolution-contract.md": (
+            "implementation_repair",
+            "evidence_expansion",
+            "scenario_extension",
+            "formal_amendment",
+            "research_reframe",
+            "`invalidation` is not a sixth change class",
+            "algorithm_repair_exhaustion_if_applicable",
+            "route_id",
+            "exhaustion_scope",
+            "proposed_failure_classification",
+            "environment_review_if_applicable",
+            "confirmed_classification",
+            "decision_owner: ccf-env-design",
+            "non_simplification:",
+            "unjustified_removed_or_weakened_items",
+            "case_sampling_distribution_impact",
+            "cross_case_aggregation_impact",
+            "objective_weighting_or_priority_impact",
+            "horizon_or_termination_impact",
+            "target_scope",
+            "target_definition_owner",
+            "evidence_items",
+            "evidence_owner",
+            "target_impact",
+            "tolerance_impact",
+            "feasibility_rule_impact",
+            "solver_status_impact",
+            "time_or_resource_budget_impact",
+            "seed_selection_impact",
+            "preserved_causal_difficulty_and_tradeoff",
+        ),
+    }
+    for rel, tokens in semantic_tokens.items():
+        protocol_text = read(ROOT / rel)
+        for token in tokens:
+            if token not in protocol_text:
+                fail(errors, f"{rel}: missing protected contract token {token!r}")
+
     for rel, gates in REQUIRED_CORE_GATES.items():
         text = read(ROOT / rel)
         for gate in gates:
@@ -287,12 +367,44 @@ def check_design_validation_contract(errors: list[str]) -> None:
         "R3",
         "V0 validation contract",
         "one active owner",
-        "Environment Amendment Request",
-        "Validation Contract Changes",
+        "scenario-evolution contract",
+        "Environment And Validation Changes",
         "Terminal Status Precedence",
         "scope: environment",
-        "changing seeds to avoid failure",
-        "$code-review",
+        "choosing favorable seeds",
+        "contract-fidelity",
+        "implementation-assurance",
+        "candidate_artifact_set_id",
+        "route_records",
+        "active_route_id",
+        "state_history",
+        "environment_review",
+        "route_id",
+        "exhaustion_scope",
+        "proposed_failure_classification",
+        "confirmed_classification",
+        "decision_owner: ccf-env-design",
+        "target_scope",
+        "target_definition_owner",
+        "evidence_items",
+        "evidence_owner",
+        "terminal_review_ids",
+        "non_simplification:",
+        "unjustified_removed_or_weakened_items",
+        "predecessor_regression_anchors",
+        "objective_weighting_or_priority_impact",
+        "target_impact",
+        "tolerance_impact",
+        "feasibility_rule_impact",
+        "solver_status_impact",
+        "time_or_resource_budget_impact",
+        "seed_selection_impact",
+        "case_sampling_distribution_impact",
+        "cross_case_aggregation_impact",
+        "horizon_or_termination_impact",
+        "exogenous_resource_or_capability_impact",
+        "research requirement",
+        "model_defect",
         "accepted",
         "no-algorithmic-contribution",
         "rebaseline-required",
@@ -302,6 +414,40 @@ def check_design_validation_contract(errors: list[str]) -> None:
     for token in required:
         if token not in text:
             fail(errors, f"design-validation-loop.md missing required contract token: {token}")
+
+    pipeline_text = read(ROOT / "ccf-pipeline-orchestrator" / "SKILL.md")
+    for token in ("classified", "formal amendment", "fully rebaselines", "research reframe"):
+        if token not in pipeline_text:
+            fail(errors, f"ccf-pipeline-orchestrator/SKILL.md missing evolution token: {token}")
+
+    debugger_paths = (
+        ROOT / "ccf-experiment-debugger" / "SKILL.md",
+        ROOT / "ccf-experiment-debugger" / "references" / "diagnostic-protocol.md",
+        protocol,
+        ROOT / "ccf-common" / "references" / "implementation-review-protocol.md",
+        ROOT / "ccf-env-code-auditor" / "SKILL.md",
+        ROOT / "ccf-env-code-auditor" / "references" / "audit-protocol.md",
+        ROOT / "ccf-algorithm-code-auditor" / "SKILL.md",
+        ROOT / "ccf-algorithm-code-auditor" / "references" / "algorithm-audit-protocol.md",
+    )
+    forbidden_external_invocations = ("$code-review", "$diagnosing-bugs", "$tdd", "$research")
+    forbidden_git_fixed_points = (
+        "dedicated loop branch",
+        "dedicated branch or worktree",
+        "checkpoint commit",
+        "loop_base_sha",
+        "round_base_sha",
+        "checkpoint_head",
+        "reviewed `HEAD`",
+    )
+    for path in debugger_paths:
+        debugger_text = read(path)
+        for token in forbidden_external_invocations:
+            if token in debugger_text:
+                fail(errors, f"{path.relative_to(ROOT)} must not invoke external workflow {token}")
+        for token in forbidden_git_fixed_points:
+            if token in debugger_text:
+                fail(errors, f"{path.relative_to(ROOT)} must not require Git fixed point {token!r}")
 
     scaffold = ROOT / "ccf-project-scaffolder" / "assets" / "ccfa.yaml"
     scaffold_text = read(scaffold)

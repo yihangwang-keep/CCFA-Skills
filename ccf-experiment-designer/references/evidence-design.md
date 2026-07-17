@@ -31,18 +31,23 @@ Use only version-compatible accepted artifacts:
 paper_scenario_version:
 formal_problem_version:
 parameter_applicability_range_version:
-scenario_mvp_version:
+minimum_executable_scenario_version:
+parent_mes_version:
 environment_code_version:
-environment_audit_verdict:
+environment_contract_fidelity_verdict:
+algorithmic_need: demonstrated | not_demonstrated | contradicted | insufficient_evidence | stale
 algorithm_specification_version:
 algorithm_code_version:
 algorithm_audit_verdict:
+method_role:
+no_heuristic_gate:
+no_heuristic_gate_status:
 exact_or_oracle_bound_reference:
 independent_checker:
 known_limitations_and_exclusions: []
 ```
 
-For non-algorithmic work, mark algorithm fields `not applicable` with a reason. A conditional verdict supports only the settings explicitly accepted by its auditor. If an environment amendment changed the formal problem or scenario MVP, do not reuse earlier method rankings, objective values, or conclusion scope without complete rebaselining.
+For non-algorithmic work, mark algorithm fields `not applicable` with a reason. A conditional verdict supports only the settings explicitly accepted by its auditor. A same-semantics MES successor preserves earlier evidence only for the parent authority tuple; rerun every method and conclusion item affected by successor cases or behavior. If a formal amendment changes the problem semantics, do not reuse earlier method rankings, objective values, or conclusion scope without complete rebaselining.
 
 ## Conclusion-Evidence Ledger
 
@@ -78,22 +83,13 @@ Cover only dimensions that exist in the accepted paper scenario and formal probl
 
 Do not add unrelated mechanisms or operating dimensions merely to make the experiment package look broader.
 
-## Algorithmic Contribution Gate
+## Upstream Algorithmic-Contribution Record
 
-Apply this gate when the paper presents an algorithm, optimizer, scheduler, controller, planner, or solver as a contribution. Record `not applicable` with a reason otherwise.
+For an algorithmic paper, require current, version-compatible acceptance records for the formal target, implementation-ready solution process, verification criteria, qualifying theory or exact/oracle/bound reference, `method_role: proposed`, component classification, `no_heuristic_gate: required`, and `no_heuristic_gate_status: pass`. Experiment design checks only presence, status, scope, and version compatibility; it does not derive the algorithm, classify components, or repeat code audit.
 
-1. **Formal target:** state the objective or decision criterion, decision variables, constraints, assumptions, and single- or multi-objective tradeoff. A metric computed only after execution is not automatically an optimization objective.
-2. **Auditable solution process:** specify initialization, update or search steps, termination, feasibility handling, randomness, tunable parameters, and computational complexity. Another researcher must be able to trace how an input becomes a solution.
-3. **Verification:** check feasibility and constraint satisfaction on every run. Add convergence, correctness, invariant, residual, or reproducibility checks appropriate to the solver.
-4. **Optimality or theory reference:** use an exact solver, exhaustive search on small instances, oracle, certified lower/upper bound, relaxation, proven approximation ratio, convergence theorem with a stated solution target, regret bound, or domain-specific analytical reference. State the gap and exactly what the reference certifies.
-5. **No-heuristic rule:** the proposed algorithm must contain no heuristic decision mechanism. Reject rule-of-thumb, greedy heuristic, heuristic local search, metaheuristic, manually patched, and empirical trial-and-error procedures without exception. Adding a proof, certificate, formal wrapper, or admissible module elsewhere does not make a method containing a heuristic mechanism admissible. Heuristics may be retained only as prior-work or comparison baselines and must be labeled as such.
-6. **Mechanism over rule accumulation:** every component must follow from the formulation, enforce a real constraint, or test a named mechanism. Remove decorative rules whose only purpose is improving the reported score.
+If the accepted record reports any heuristic decision mechanism in the proposed method, stop the experiment branch and return it to `ccf-algorithm-designer` or `ccf-algorithm-code-auditor`. Missing, conditional, or stale evidence also returns to its owner. Heuristic methods remain permitted under explicit environment-probe, baseline, reference, or diagnostic roles.
 
-If any heuristic decision mechanism exists in the proposed method, reject that algorithmic route and return it to `ccf-algorithm-designer` before adding experiments. Separately reject the route when no meaningful objective, verifiable solution process, and qualifying guarantee or optimality reference exists. Renaming a heuristic as a framework, strategy, adaptive algorithm, hybrid method, or decision rule does not pass this gate.
-
-At this stage, cite the accepted `ccf-algorithm-designer` specification and `ccf-algorithm-code-auditor` evidence. Do not repeat their design work. Missing or stale acceptance returns to the owner.
-
-## Scenario Integrity Gate
+## Scenario Integrity And Upstream L2 Evidence
 
 Freeze scenario generation before inspecting comparative outcomes.
 
@@ -101,12 +97,13 @@ Freeze scenario generation before inspecting comparative outcomes.
 - **Method-independent construction:** derive settings from physical/task ranges, standards, traces, service requirements, or a generator fixed without using the proposed method's favorable outcomes.
 - **Coverage:** include credible nominal, diverse, hard, boundary, and failure settings. Report generation rules, parameter ranges, seeds, exclusions, and any after-the-fact filtering.
 - **Threshold integrity:** choose thresholds from domain meaning or a predeclared development rule. Give comparable methods matched tuning budgets and report the full relevant sweep. Never choose a final setting because it maximizes the proposed method's lead.
-- **Simple-rule check:** include a properly tuned simple rule using the same information and feasibility conditions. If it resolves the simplified scenario, restore only a missing difficulty with task or physical justification, present the setting as a legitimate special case, or narrow the paper conclusion. Do not accumulate ad hoc rules to manufacture a lead.
+- **Consume L2:** require a current `ccf-env-code-auditor` record containing the frozen MES, target basis and attainability, representative probes, tuning/search budgets, matched conditions, and `algorithmic_need`. Experiment design does not rerun or rejudge this gate.
+- **New contradiction:** heuristic methods may still appear as paper baselines. If new, fairly tuned evidence reaches the accepted target or contradicts L2, preserve it and route it through `ccf-experiment-debugger` to the environment auditor. Do not directly rewrite `algorithmic_need`, alter environment parameters, or construct a favorable successor MES inside experiment design.
 - **Controlled modification:** state the external reason, changed assumption, old and new versions, invalidated evidence, and required reruns. Keep the original result visible when the modification follows result inspection.
 
-The gate fails when the principal advantage disappears under credible variation, matched tuning, or the simple-rule check while the paper still states a general algorithmic conclusion. Route a genuine environment defect through `ccf-experiment-debugger`; do not construct a favorable replacement setting.
+The experiment branch fails when the principal advantage disappears under credible variation or matched tuning while the paper still states a general algorithmic conclusion. Route the contradiction through `ccf-experiment-debugger`; do not construct a favorable replacement setting or issue a new environment verdict here.
 
-MVP acceptance establishes end-to-end correctness only for its fixed instance. Conclusions about scale, load, topology, channel conditions, mobility, uncertainty, deadlines, or other ranges require explicit paper-range evidence.
+MES acceptance establishes end-to-end correctness only for its registered cases. Conclusions about scale, load, topology, channel conditions, mobility, uncertainty, deadlines, or other ranges require explicit paper-range evidence.
 
 ## Baseline Matrix
 
@@ -164,10 +161,10 @@ Useful tests include removing one mechanism, replacing it with a generic admissi
 
 ## Robustness, Failure, And Version Boundaries
 
-- Expand one major parameter dimension at a time from the accepted scenario MVP into the predeclared applicability range so failures remain attributable.
+- Expand one major parameter dimension at a time from accepted MES cases into the predeclared applicability range so failures remain attributable. This is evidence expansion, not an MES edit.
 - Preserve every failed, infeasible, timed-out, and boundary setting. Distinguish solver failure from proven problem infeasibility.
 - Rerun the simple-rule check and relevant exact/oracle/bound comparison at each newly covered regime.
-- When the algorithm changes, rerun the scenario MVP, regressions, the current expansion level, and all affected baselines.
+- When the algorithm changes, rerun the MES, regressions, the current expansion level, and all affected baselines.
 - When the formal problem changes, end the current comparison epoch and rebaseline every method under the new version.
 - Compare different problem versions only through a genuinely common physical or service quantity, with the version change explicit.
 

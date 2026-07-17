@@ -1,6 +1,6 @@
 ---
 name: ccf-experiment-debugger
-description: "Coordinate evidence-led diagnosis, minimal repair, and repeated design-validation loops for communication environment or algorithm MVP failures. Use for Ralph loop, Ralph-loop, design-validation cycles, environment-algorithm revision, wrong, unstable, divergent, irreproducible, unexpectedly weak, or failed MVP results, 设计-验证-修改循环, 实验失败, MVP失败, 结果异常, 复现失败, 最小修改, 排查原因. Preserve the ordered environment-code, algorithm-code, algorithm-design, scenario-design ownership path and close every invalidated check. Do not design initial paper experiments or fabricate success."
+description: "Coordinate evidence-led diagnosis, minimal repair, and Ralph-style design-validation loops for failed communication environment, MES, or algorithm-MVP evidence. Use for Ralph loop, design-validation cycles, environment-algorithm revision, wrong, unstable, divergent, irreproducible, unexpectedly weak, 实验失败, 设计-验证-修改循环, 最小修改. Preserve ownership, artifact identity, native independent review, and invalidated checks. Do not design initial experiments or fabricate success."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -14,61 +14,65 @@ metadata:
 
 ## Core Rule
 
-Coordinate repair around `ccf-env-code-auditor` and `ccf-algorithm-code-auditor`; do not create a third audit protocol. Freeze the failed run and authoritative versions, locate the first confirmed owner, change one owned item, and rerun every invalidated check.
+Coordinate existing owners and auditors; do not create a third domain audit. Freeze the failed evidence and current artifact set, find the earliest confirmed owner, apply one owned delta, and rerun the original failure plus every invalidated check.
 
-Use this ownership order:
+Use this repair order:
 
 ```text
-environment implementation
--> algorithm implementation
--> algorithm design
--> scenario design
+environment implementation -> algorithm implementation -> algorithm design -> scenario design
 ```
 
-The order controls modification, not blame. Decisive current evidence may identify a later owner directly, but every upstream contract on which that conclusion depends must already be accepted. Algorithm failure alone never authorizes a change to the paper scenario or formal optimization problem.
+```text
+algorithm route exhausted -> ccf-env-design environment/formal-model review
+  -> algorithm_specific: close/supersede route; open a new route only if credible
+  -> model_defect: authorize a non-simplifying formal-problem/MES successor
+  -> unresolved: block without changing the environment
+```
+
+The order controls permission, not blame. One weak algorithm result stays algorithm-side. When environment L1 and algorithm-code fidelity are current but documented algorithm mechanism/family repairs still cannot pass, the debugger must open an environment/formal-model review. Only a confirmed model defect may change the authority, and the successor may complete or correct the model but never simplify the research problem.
 
 ## Modes
 
-- `diagnose`: isolate one failed or weak run, apply one minimal repair through its owner, and close affected checks.
-- `design-validation-loop`: repeat design, implementation, MVP validation, independent audit, and minimal repair against one fixed loop instruction and persistent ledger until a valid terminal status is recorded.
+- `diagnose`: isolate and close one failure with the smallest owned repair.
+- `design-validation-loop`: repeat design, execution, validation, audit, independent review, and one-delta repair against one fixed instruction and persistent ledger.
 
-For `diagnose`, load `references/diagnostic-protocol.md`. For `design-validation-loop`, load both debugger references and `../ccf-common/references/communication-research-terms.md`.
+Load `references/diagnostic-protocol.md` for `diagnose`. Load both debugger references for a loop.
 
 ## Ordered Failure Gates
 
-1. **Failure authority:** preserve the command, first divergence, paper-scenario and scenario-MVP versions, environment specification/code verdict, algorithm specification/code verdict, validation-contract version, configuration, seeds, criteria, logs, and outputs.
-2. **Environment implementation:** use current `ccf-env-code-auditor` evidence to check authority, paper-problem consistency, equation-to-code traceability, semantics, independent execution, optimization fidelity, and central-tradeoff behavior. Repair a confirmed environment-code defect and rerun this auditor before continuing.
-3. **Algorithm implementation:** after environment acceptance, use current `ccf-algorithm-code-auditor` evidence to check environment-contract consistency, design completeness, equation-to-code traceability, semantics, reference checks, and independent MVP behavior. Repair a confirmed algorithm-code defect and rerun this auditor.
-4. **Algorithm design:** when both implementations match their accepted specifications but the mechanism or assumptions miss the formal target, route one formal change to `ccf-algorithm-designer`, then refresh implementation and algorithm-auditor evidence.
-5. **Scenario design:** change the environment contract only when accepted evidence establishes a causal, mathematical, feasibility, complexity-balance, paper-scenario-to-MVP, or information-pattern defect. Route an environment amendment to `ccf-env-design`; after acceptance, rerun the complete affected environment, algorithm, and result chain.
-6. **Closure:** apply the scope-specific terminal rules and accept only when the original failing case and every check invalidated by the delta pass under the same authoritative and validation-contract versions.
+1. **Failure authority:** preserve the command, first divergence, authority versions, MES, implementation revisions, validation contract, configuration, seeds or traces, logs, and outputs in a digested artifact set.
+2. **Environment L1:** require current `ccf-env-code-auditor` evidence that code is faithful to the environment design contract. Repair confirmed implementation defects before downstream reasoning.
+3. **Environment L2:** require a frozen, method-independent MES and adequately tuned, budget-matched heuristic probes. If a probe reaches the predeclared joint target, keep any valid L1 verdict but set `algorithmic_need: not_demonstrated` and stop the algorithm-contribution route; never change the MES to force probe failure.
+4. **Algorithm implementation:** after L1 and L2 acceptance, require current algorithm traceability, semantics, reference evidence, no-heuristic verification for `method_role: proposed`, and complete MES execution.
+5. **Algorithm design:** when implementation matches its contract but the mechanism misses the formal target, route one mechanism or family revision to `ccf-algorithm-designer`. Preserve each failed revision; when credible algorithm repair is exhausted, create a repair-exhaustion record rather than accumulating patches.
+6. **Environment and mathematical model:** an exhaustion record triggers `ccf-env-design` review. Accept a change only when evidence classifies a model defect, then version the corrected formal problem and successor MES. Reject weakening done for tractability or acceptance. A scenario-inconsistent item may be corrected only on independent evidence and must retain the causal difficulty and central tradeoff.
+7. **Closure:** require the original case, invalidated checks, applicable domain audit, and both CCFA-native review axes to be current for the same candidate artifact set.
 
-## Loop Discipline
+## Ralph Discipline
 
-1. Keep the paper scenario, formal problem, scenario MVP, environment, algorithm, fixed points, and the validation contract defined in `references/design-validation-loop.md` versioned in the ledger. Lock that contract before the first repair.
-2. Start at the earliest missing, stale, failed, or contradicted check. Keep one owner, one active cause, and one delta per round.
-3. For repository changes, work on a dedicated branch or worktree, record the round base before editing, and commit the single delta as a checkpoint. Invoke the existing `$code-review` skill in a fresh review agent against that fixed point and the frozen specification. Keep its Standards and Spec axes unchanged; do not reproduce them here.
-4. Reuse `$diagnosing-bugs` for a hard implementation defect, `$tdd` when the requested repair is test-first, and `$research` when an environment amendment needs external task, physical, protocol, or service evidence. Keep their protocols in their owning skills.
-5. Do not remove a failed case or relax the validation contract to obtain a pass. A material validation change needs its owning design skill, independent audit, a new contract version, and a terminal restart decision.
-6. After any repair, mark dependent evidence stale before rerunning it. A verdict applies only to the exact artifact versions, validation contract, and reviewed `HEAD` recorded with it.
-7. End only with `accepted`, `no-algorithmic-contribution`, `rebaseline-required`, `reframe`, or `blocked`. Apply their precedence rules; a loop limit or completion phrase is not acceptance evidence.
+1. Freeze the research layers and validation contract defined in `references/design-validation-loop.md`; identify inputs by paths and content digests, not by a Git branch, commit, or `HEAD`.
+2. Keep one fixed loop instruction. Put round-specific state only in the ledger. Select one active owner and one delta per round.
+3. After a delta, mark every dependent result and review stale before rerunning it. The applicable code auditor coordinates fresh read-only contract-fidelity and implementation-assurance reviewers using `../ccf-common/references/implementation-review-protocol.md`.
+4. Do not call external debugging, TDD, research, or generic code-review workflows from this protocol. An owner may use ordinary project tools needed for its single repair, but Ralph adds no branch, worktree, commit, installation, or publication-experiment behavior.
+5. Do not remove a failed case, retune validation after seeing outcomes, expose audit-only information, or modify the environment to favor a method. Environment/model revision after exhausted algorithm repair must preserve the paper scenario's causal question and all material difficulty. A material authority change creates a successor version and invalidates dependent evidence.
+6. End only with a domain-valid terminal status. A completion marker, loop limit, resource limit, or successful command exit controls continuation only; it is never scientific acceptance.
 
-## Visible Output
+`Ralph` here names this domain design-validation iteration only.
 
-Keep gate matrices, candidate comparisons, ownership history, and the complete ledger internal unless the user requests an audit record. Return the requested repaired artifact or diagnosis first, followed only by:
+## Internal Record And User Output
+
+Keep artifact manifests, hypotheses, reviewer reports, gate matrices, and round history internal unless the user asks for the audit trail. By default return the repaired artifact or diagnosis first, then only:
 
 ```text
-Current status and authoritative versions:
+Status and authoritative versions:
 Confirmed cause and decisive evidence:
 Changed item and owner:
-Checks invalidated and refreshed:
-Supported conclusion or remaining blocker:
+Checks and review axes refreshed:
+Supported conclusion or blocker:
 ```
-
-Never print empty headings or routine pass details.
 
 ## References
 
-- `references/diagnostic-protocol.md`: failure record, owner selection, minimal delta, invalidation, and closure.
-- `references/design-validation-loop.md`: frozen research layers, fixed loop instruction, persistent ledger, environment amendment, independent review, and terminal statuses.
-- `../ccf-common/references/communication-research-terms.md`: communication research identity, environment authority, and amendment semantics used by the loop.
+- `references/diagnostic-protocol.md`: failure record, owner routing, one delta, invalidation, and closure.
+- `references/design-validation-loop.md`: frozen layers, Ralph ledger, round protocol, scenario evolution, validation changes, and terminal status.
+- `../ccf-common/references/implementation-review-protocol.md`: native independent reviewer lifecycle and artifact-set binding.

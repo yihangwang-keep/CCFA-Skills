@@ -44,7 +44,9 @@ Readers apply the alias before treating conclusion state as absent. During an au
 
 These compatibility rules do not authorize any skill to rewrite project state. A version update and a field rename are one explicit migration operation, not an incidental read-time cleanup.
 
-For scenario-driven algorithm projects, register the versioned artifact roots under `artifacts.environment_design`, `artifacts.environment_audit`, `artifacts.algorithm_design`, `artifacts.algorithm_audit`, and `artifacts.experiment_debug`. Detailed gate evidence and loop state stay in those artifacts rather than being expanded inline in `ccfa.yaml`.
+For scenario-driven algorithm projects, register the versioned artifact roots under `artifacts.environment_design`, `artifacts.environment_audit`, `artifacts.algorithm_design`, `artifacts.algorithm_audit`, and `artifacts.experiment_debug`. Store paper-scenario, formal-problem, parameter-range, MES, implementation-revision, validation-contract, and evidence-epoch identities in the owning artifacts; keep only current pointers in project state when needed. Scenario-evolution records live below `artifacts.environment_design`, normally at `scenario-evolution/`. Detailed gate evidence, artifact manifests, native implementation reviews, and design-validation loop ledgers stay out of `ccfa.yaml`.
+
+Artifact-local fields use `minimum_executable_scenario` and `minimum_executable_scenario_version`. Readers may interpret `scenario_mvp` and `scenario_mvp_version` as read-only aliases. A writer must not emit the legacy fields, and conflicting canonical and legacy values require an explicit migration decision.
 
 Optional monitoring fields:
 

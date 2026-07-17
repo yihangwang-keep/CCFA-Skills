@@ -27,7 +27,8 @@ Keep this internal unless the user requests an audit or a version conflict affec
 | Artifact | Version | Required verdict | Current verdict | Limitation or excluded range |
 | --- | --- | --- | --- | --- |
 | Paper scenario and formal problem |  | accepted | TBD |  |
-| Scenario MVP and environment |  | accepted | TBD |  |
+| MES and environment contract fidelity |  | accepted | TBD |  |
+| Upstream L2 heuristic-resistance record |  | `algorithmic_need: demonstrated` | TBD | target basis, attainability, probe coverage, and tuning limits |
 | Algorithm specification and implementation, when applicable |  | accepted | TBD |  |
 | Exact/oracle/bound reference and independent checker |  | accepted | TBD |  |
 ```
@@ -43,7 +44,7 @@ Use internally for algorithmic work. Show it only for an audit request or when a
 | Solution process | initialization, steps, termination, feasibility, complexity | accepted specification and trace | pass / fail / unresolved |
 | Solver verification | residual, invariant, convergence, correctness, constraint checks | named check and tolerance | pass / fail / unresolved |
 | Optimality or theory | exact solver, oracle, bound, relaxation, or qualifying guarantee | gap and certification scope | pass / fail / N/A with reason |
-| No-heuristic rule | proposed method contains no heuristic decision mechanism; heuristics are comparison baselines only | component-by-component classification | pass / fail / unresolved |
+| No-heuristic rule | `method_role: proposed` contains no heuristic decision mechanism; other roles are explicit | upstream component-by-component classification | pass / fail / unresolved |
 ```
 
 ## Scenario Integrity Gate
@@ -57,7 +58,7 @@ Keep this internal unless the user asks for the gate record or a failed item cha
 | Method-independent construction | source, ranges, generator, and seeds fixed without favorable-result selection | provenance and version | pass / fail / unresolved |
 | Applicability coverage | nominal, hard, boundary, and failure settings | coverage table | pass / fail / unresolved |
 | Threshold integrity | domain or predeclared selection with matched tuning budgets | full relevant sweep | pass / fail / N/A |
-| Simple-rule check | properly tuned sanity rule under matching information and feasibility | result and interpretation | pass / fail / N/A with reason |
+| Upstream L2 record | environment-auditor target, attainability, probe coverage, tuning, and matched conditions | current auditor artifact | current / stale / missing |
 | Scenario changes | reason, old/new versions, invalidated evidence, all methods rerun | change ledger | pass / fail / unchanged |
 ```
 
@@ -102,7 +103,7 @@ Do not create this table when the accepted method has no separable mechanism to 
 
 ## Version-Boundary Record
 
-Use when an environment amendment or scenario-MVP change invalidates prior results.
+Use when an environment amendment or MES-successor change invalidates prior results.
 
 ```md
 | Evidence item | Old version/status | New version/status | Why invalidated | Required rerun | Reusable common physical/service metric |
