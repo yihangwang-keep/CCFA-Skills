@@ -1,7 +1,7 @@
 # PolarDB-MP Style Card
 
 Venue/year: SIGMOD 2024 family.
-Source: ACM Best Paper Awards source record `acm-best-paper-awards`; verify the exact paper page before public award-status claims.
+Source: ACM Best Paper Awards source record `acm-best-paper-awards`; verify the exact paper page before public statements about award status.
 Use when: database systems, cloud-native DBMS, distributed transactions, shared storage/memory, storage-compute disaggregation, or architecture papers.
 
 ## Story Pattern
@@ -20,7 +20,7 @@ The paper type is a systems/database contribution: start from a concrete scalabi
 - Move from cloud workload pressure to a precise database-system limitation.
 - Explain why simpler fixes such as caching, sharding, or tuning are insufficient.
 - Introduce the key architectural insight early.
-- State contributions as design, implementation, and evaluation claims.
+- State contributions as design, implementation, and evaluation conclusions.
 
 ## Method/System Moves
 
@@ -37,4 +37,4 @@ The paper type is a systems/database contribution: start from a concrete scalabi
 
 ## Do-Not-Copy Boundary
 
-Do not borrow product-specific claims, architecture details, or performance language. Use only the systems-writing pattern.
+Do not borrow product-specific statements, architecture details, or performance language. Use only the systems-writing pattern.

@@ -26,15 +26,15 @@ Do not invent prior art, experimental evidence, reviewer sentiment, or acceptanc
 
 Load `../ccf-common/references/review-output-standards.md` whenever producing numeric scores, multi-expert panel notes, score-change conditions, or standard-mode reports.
 
-Treat rough ideas, unpublished method details, draft abstracts, and experiment plans as private user data. Load `../ccf-common/references/privacy-and-evidence.md` before browsing, using private text in a query, or making evidence/provenance claims.
+Treat rough ideas, unpublished method details, draft abstracts, and experiment plans as private user data. Load `../ccf-common/references/privacy-and-evidence.md` before browsing, using private text in a query, or making evidence/provenance statements.
 
 ## Core Rule
 
 Review the problem and method only. Do not review prose, section structure, LaTeX, or rebuttal strategy. Act as a strict target-venue or target-journal reviewer: identify the real insight, subtract closest prior work, attack weak mechanisms, and convert every serious deduction into a concrete repair or pivot condition.
 
-No generic reviewer filler is allowed. Every material criticism must name the exact idea claim or mechanism, the evidence or closest work behind the concern, why a strict reviewer would deduct, and what change would alter the score.
+No generic reviewer filler is allowed. Every material criticism must name the exact proposed conclusion or mechanism, the evidence or closest work behind the concern, why a strict reviewer would deduct, and what change would alter the score.
 
-Stage awareness is mandatory. A rough seed can score low on current conference readiness while still having good development potential. Do not translate "not ready", "novelty unsearched", "mechanism under-specified", or "overcrowded area" into `abandon`. Use `abandon` only when there is no testable central claim and no plausible reformulation after naming at least one attempted rescue route.
+Stage awareness is mandatory. A rough seed can score low on current conference readiness while still having good development potential. Do not translate "not ready", "novelty unsearched", "mechanism under-specified", or "overcrowded area" into `abandon`. Use `abandon` only when there is no testable central conclusion and no plausible reformulation after naming at least one attempted rescue route.
 
 ## Mandatory Review Checklist
 
@@ -59,7 +59,7 @@ Load `references/strict-idea-review.md` in standard mode or whenever the user as
 2. Normalize each idea into a problem-method card. If the idea is too vague to score, infer only fields that are obvious from context and mark the rest as assumptions; ask only when the missing field would change the verdict.
 3. Map the venue family and review lens. If the user names a current venue policy, page rule, review form, or target-year criterion, verify the official source before applying it.
 4. In standard mode, load `references/strict-idea-review.md` and search closest literature with public-safe queries. Prefer `ccf-literature-searcher` when allowed by handoff mode; otherwise use local browsing and the shared source policy. Apply source-quality exclusions. If not searched, cap novelty confidence and state the exact uncertainty.
-5. Build the closest-work table and novelty delta before scoring. A novelty claim must say what remains after subtracting the nearest prior work.
+5. Build the closest-work table and novelty delta before scoring. A novelty conclusion must say what remains after subtracting the nearest prior work.
 6. Load `../ccf-common/references/review-output-standards.md` and `references/expert-panel.md`; produce independent notes from the required expert roles. Each role must include a concrete rejection-grade concern or a reason no such concern exists. Do not force disagreement, praise, or rejection.
 7. Load `references/rubric.md` and score the 10 dimensions. Use `references/calibration.md` to aggregate, calibrate confidence, apply fatal gates, and choose a recommendation. Include score-change conditions rather than unsupported acceptance probabilities.
 8. Convert every major weakness into an upgrade action. Label actions as problem-refinement, method-redesign, novelty-grounding, evidence-design, feasibility-check, venue-switch, pivot, or abandon. For every idea that is not `accept-to-develop`, include the smallest change that could raise development potential.

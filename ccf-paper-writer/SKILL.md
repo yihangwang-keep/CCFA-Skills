@@ -18,25 +18,25 @@ metadata:
 
 This is the manuscript text owner. It also owns local compression and presentation adaptation because both change paper wording or paper-derived communication. Keep idea scope, method mechanism, experiments, numbers, and conclusions unchanged unless the user explicitly authorizes a research-scope change. Follow `../ccf-common/references/task-modes.md`, especially the output-flexibility rule: user-requested output format comes before this skill's internal checklist shape.
 
-Do not invent results, baselines, experiments, reviewer impact, or missing evidence. For citations, never guess bib entries: search for the correct paper and obtain its bib entry before citing `references/citation-workflow.md`. Unsupported claims must be weakened, marked as needing evidence, or left unchanged with a risk note.
+Do not invent results, baselines, experiments, reviewer impact, or missing evidence. For citations, never guess bib entries: search for the correct paper and obtain its bib entry before citing `references/citation-workflow.md`. Unsupported conclusions must be narrowed, marked as needing evidence, or left unchanged with a risk note.
 
 When running local writing self-review, score-risk checks, or reviewer-style revision loops, load `../ccf-common/references/review-output-standards.md`. Use scores as diagnostic feedback only; do not present them as acceptance probabilities.
 
 ## Core Rule
 
-Write for the target CCF venue, not for a generic paper. Improve structure, section logic, paragraph roles, contribution framing, claim-evidence alignment, reviewer-facing clarity, and concise presentation. A submission manuscript should also target the venue's usable page budget: too short is a writing failure, not just a harmless demo choice; too long triggers compression. Do not use reference papers to copy wording, claims, examples, technical content, or distinctive phrasing.
+Write for the target CCF venue, not for a generic paper. Improve structure, section logic, paragraph roles, contribution framing, conclusion-evidence alignment, reviewer-facing clarity, and concise presentation. A submission manuscript should also target the venue's usable page budget: too short is a writing failure, not just a harmless demo choice; too long triggers compression. Do not use reference papers to copy wording, conclusions, examples, technical content, or distinctive phrasing.
 
 The visible output should feel like useful writing, not a process report. Use planning tables and checklists internally; show them only when the user asks for planning, audit status, or rationale.
 
-Apply `references/prose-quality-guardrails.md` to all manuscript-facing prose. Avoid defensive or incremental framing, label-heavy symbols such as `Q1`/`C1`, formula dumping, number-only abstracts, punctuation-driven structure, overlong compound sentences, strange shorthand, third-person narration about "the paper", and unsupported hype. Prioritize cohesive paragraph logic, stable terminology, evidence-bounded claims, and varied sentence rhythm.
+Apply `references/prose-quality-guardrails.md` to all manuscript-facing prose. Avoid defensive or incremental framing, label-heavy symbols such as `Q1`/`C1`, formula dumping, number-only abstracts, punctuation-driven structure, overlong compound sentences, strange shorthand, third-person narration about "the paper", and unsupported hype. Prioritize cohesive paragraph logic, stable terminology, evidence-bounded conclusions, and varied sentence rhythm.
 
 ## Format And Output Policy
 
 1. For polishing, rewriting, line editing, or compression of existing text, preserve the original format unless the user asks to restructure it. Keep LaTeX commands, section headings, citation keys, labels, equations, figure/table environments, Markdown headings, lists, and table shape intact whenever possible. Return the revised text in the same format first.
-2. For one paragraph or one subsection, default to a direct improved version plus a short optional note only if a claim, number, citation, or meaning changed.
+2. For one paragraph or one subsection, default to a direct improved version plus a short optional note only if a conclusion, number, citation, or meaning changed.
 3. For a rough idea or "write from scratch" request, create the requested artifact rather than stopping at a plan. If the user asks for a paper/manuscript and names a target venue, read `references/venue-guides/index.md` and the specific venue guide, then draft in that venue's LaTeX style. Establish a page/word budget from the venue guide and `references/length-budget-policy.md`; if the venue is absent or no venue is provided, use the NeurIPS guide and `ccf-latex-templates/NeurIPS/neurips_2026.tex` as the fallback and label the assumption.
 4. If the user requests Markdown, Chinese prose, English prose, an outline, a full LaTeX file, a diff-style rewrite, or a section-only output, follow that request. Do not force the default CCF paper storyline order when the user's format is intentional.
-5. Be flexible outside review tasks. When a choice could improve the paper but changes direction, present it as a concise question or option, for example: "可以把贡献改成 benchmark 视角吗？这会降低方法新颖性风险，但需要补数据集定位。"
+5. Be flexible outside review tasks. When a choice could improve the paper but changes direction, present it as a concise question or option, for example: "可以把贡献收窄为通信任务建模与精确参考求解吗？这会降低算法贡献强度，但需要明确结论适用范围和因果链证据。"
 6. Never invent results, baselines, experiments, reviewer impact, or missing evidence. Obtain correct citations through literature search per step5; never guess a bib entry. When evidence is absent, use `TBD`, a cautious placeholder, or a clearly marked "needs evidence" sentence.
 7. Do not block drafting because current venue policy is not freshly verified. Use the local venue guide for draft shape, add a freshness note when relevant, and route final compliance to `ccf-submission-checker`.
 8. For full-paper requests, produce a full manuscript-level artifact: Abstract, Introduction, Background/Related Work or Preliminaries, Method, Experiments, Analysis/Ablation, Limitations, Ethics/Reproducibility when relevant, Conclusion, References, and Appendix/checklist placeholders if expected by the venue. Aim for the target venue's draft page budget, usually 85-100% of the main-body limit for submission-style drafts. Do not answer a full-paper request with only an abstract, outline, or short demo snippet.
@@ -46,8 +46,8 @@ Apply `references/prose-quality-guardrails.md` to all manuscript-facing prose. A
 ## Modes
 
 - `draft`: create or revise paper sections.
-- `polish`: improve clarity, flow, terminology, and claim-evidence presentation.
-- `compress`: shorten text to word/page limits using `references/compression-rules.md` without changing claims or numbers.
+- `polish`: improve clarity, flow, terminology, and conclusion-evidence presentation.
+- `compress`: shorten text to word/page limits using `references/compression-rules.md` without changing conclusions or numbers.
 - `presentation`: convert a completed or near-completed paper into slides, poster, talk script, figure narration, and Q&A, without replacing submission review.
 
 ## Workflow
@@ -55,7 +55,7 @@ Apply `references/prose-quality-guardrails.md` to all manuscript-facing prose. A
 1. Identify mode, requested output format, target venue, paper type, draft state, available evidence, target length/page budget, and whether idea-scope changes are authorized. Load `references/output-style-policy.md` whenever output format, source-format preservation, or from-scratch LaTeX drafting matters.
 2. If the user supplied existing text, preserve its format and revise in place unless the user asked for a new structure.
 3. **Select venue and exemplars.** If the user names a target venue (e.g., "投CVPR", "for NeurIPS"): load the venue guide from `references/venue-guides/index.md` and the matched exemplar cards from `references/exemplars/index.md`. If no venue is specified, load `references/custom-format/default-user-format.md` which selects the user custom exemplars. If neither venue nor custom exemplars exist, use NeurIPS as the LaTeX fallback and the most relevant general-purpose exemplars. Then load `references/length-budget-policy.md` and create a section-level length plan. A short seed idea must still become a full submission-shaped manuscript; do not produce a short article because the input was short. Target85--100% of the venue main-body page budget.
-4. Build or update the global story with `references/storyline-blueprint.md`. For storyline generation, scientific storytelling, narrative design, paper/story structure, research insight framing, claim generation, abstract planning, or introduction planning, use its multi-expert storyline pipeline and expression logic. For ordinary drafting, use its compact arc: scientific origin -> knowledge gap -> scientific tension -> fundamental question -> core insight -> method mechanism -> evidence ladder -> bounded claim. Keep this internal unless the user asked for a plan.
+4. Build or update the global story with `references/storyline-blueprint.md`. For storyline generation, scientific storytelling, narrative design, paper/story structure, research insight framing, conclusion formulation, abstract planning, or introduction planning, use its multi-expert storyline pipeline and expression logic. For ordinary drafting, use its compact arc: scientific origin -> knowledge gap -> scientific tension -> fundamental question -> core insight -> method mechanism -> evidence ladder -> bounded conclusion. Keep this internal unless the user asked for a plan.
 5. **Prepare citations** (mandatory for full manuscripts and section drafts): load `references/citation-workflow.md`. Identify citation slots by section, search for literature for each slot, obtain correct bib entries, save them to the project `.bib` file, and insert cites naturally per the workflow. Do not draft a section without first identifying what it needs to cite. If the closest-competitor literature is unknown, hand off to `ccf-literature-searcher` before continuing.
 6. For full-paper, abstract, introduction, method, experiment, conclusion, or exemplar-pattern tasks, load `references/prose-quality-guardrails.md` and `references/research-writing-patterns.md`, then draft or revise section by section using `references/section-modules.md` and `references/writing-checklists.md`. For full manuscripts, compare the draft against the length budget and expand or compress as needed.
 7. **Compile and check** (mandatory for full manuscripts when a LaTeX engine is available): compile the draft, measure the actual page count, and compare against the venue budget from step3. If under target by >15%, expand with mechanism detail, experiment setup, analysis, limitations, and `TBD` placeholders---not padding or invented results. If over target by >10%, compress with `references/compression-rules.md`. Recompile after any substantial change and repeat until the page count is within tolerance. Record the final status: `underfilled / target-fit / draft-over / final-over / not compiled`.
@@ -73,7 +73,7 @@ State concisely what was produced and which skills can pick up from here:
 ``text
 Next CCFA skills available:
 - ccf-paper-reviewer: scientific review, score prediction, reviewer simulation, venue-fit check
-- ccf-integrity-auditor: citation existence, claim-evidence consistency, bibtex correctness
+- ccf-integrity-auditor: citation existence, conclusion-evidence consistency, bibtex correctness
 - ccf-submission-checker: venue template compliance, page/anonymity limits, LaTeX compilation
 - ccf-experiment-designer: missing experiments, baseline design, ablation planning
 - ccf-visual-composer: publication-grade figures/tables, palette, caption, layout, visual QA
@@ -87,7 +87,7 @@ Only list skills that are actually relevant to the paper current state. Do not s
 
 ## Adaptive Output Contract
 
-- Polish/rewrite/compress existing text: output the revised text first, in the same format. Add brief notes only for changed meaning, unsupported claims, or user-requested rationale.
+- Polish/rewrite/compress existing text: output the revised text first, in the same format. Add brief notes only for changed meaning, unsupported conclusions, or user-requested rationale.
 - Draft from idea: output the requested artifact. For a manuscript request, default to a LaTeX draft with venue assumptions, page budget, and `TBD` evidence placeholders. If no target venue guide exists, use NeurIPS fallback. A short seed should become a full submission-shaped manuscript unless the user explicitly asked for a short demo or skeleton.
 - Section planning: output the section plan or paragraph roles only when the user asks for planning or the input is too incomplete to draft responsibly.
 - Presentation: output slides, poster copy, talk script, or Q&A in the requested format.
@@ -99,8 +99,8 @@ Only list skills that are actually relevant to the paper current state. Do not s
 - `references/output-style-policy.md`: user-format priority, edit-format preservation, and NeurIPS fallback behavior.
 - `references/length-budget-policy.md`: venue page/word budget, underfilled draft expansion, compile-adjust loop, and compression trigger.
 - `references/research-writing-patterns.md`: section-level patterns, dense output rules, and exemplar-mode adaptation.
-- `references/prose-quality-guardrails.md`: anti-defensive prose rules, paragraph cohesion, terminology consistency, evidence-bounded claims, sentence rhythm, and final prose self-audit.
-- `references/storyline-blueprint.md`: whole-paper story, multi-expert storyline generation, scientific storytelling structure, and claim construction.
+- `references/prose-quality-guardrails.md`: anti-defensive prose rules, paragraph cohesion, terminology consistency, evidence-bounded conclusions, sentence rhythm, and final prose self-audit.
+- `references/storyline-blueprint.md`: whole-paper story, multi-expert storyline generation, scientific storytelling structure, and conclusion construction.
 - `references/section-modules.md`: section drafting.
 - `references/writing-checklists.md`: readiness checks.
 - `references/score-lifting-loop.md`: score-risk improvement loop.

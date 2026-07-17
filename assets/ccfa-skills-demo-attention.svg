@@ -9,7 +9,7 @@
 <rect x="0" y="0" width="1800" height="158" rx="0" fill="url(#header)" stroke="none" stroke-width="2" />
 <text x="72" y="66" font-size="44" font-weight="850" fill="#FFFFFF" text-anchor="start">Attention Demo Loop</text>
 <text x="72" y="108" font-size="20" font-weight="500" fill="#D8E6F2" text-anchor="start">Original Transformer paper to ICLR-style writing, review, rebuttal, and checks.</text>
-<text x="1728" y="132" font-size="16" font-weight="650" fill="#D8E6F2" text-anchor="end">v0.7 · 16 owner skills · one paper-project loop</text>
+<text x="1728" y="132" font-size="16" font-weight="650" fill="#D8E6F2" text-anchor="end">v0.8 · 21 owner skills · versioned research loops</text>
 <rect x="90" y="235" width="350" height="155" rx="28" fill="#FFFFFF" stroke="none" stroke-width="2" filter="url(#shadow)"/>
 <text x="124" y="302" font-size="42" font-weight="860" fill="#D2673D" text-anchor="start">28.4</text>
 <text x="124" y="340" font-size="17" font-weight="560" fill="#5A6775" text-anchor="start">WMT14 EN-DE BLEU</text>
@@ -54,7 +54,7 @@
 <text x="1385" y="565" font-size="28" font-weight="850" fill="#FFFFFF" text-anchor="middle">6</text>
 <text x="1323" y="647" font-size="22" font-weight="820" fill="#15202B" text-anchor="start">Critique</text>
 <text x="1323" y="678" font-size="14" font-weight="520" fill="#5A6775" text-anchor="start">writing + science +</text>
-<text x="1323" y="697" font-size="14" font-weight="520" fill="#5A6775" text-anchor="start">integrity</text>
+<text x="1323" y="697" font-size="14" font-weight="520" fill="#5A6775" text-anchor="start">conclusion support</text>
 <line x1="1437" y1="555" x2="1585" y2="555" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow)"/>
 <circle cx="1643" cy="555" r="42" fill="#477AA6" filter="url(#shadow)"/>
 <text x="1643" y="565" font-size="28" font-weight="850" fill="#FFFFFF" text-anchor="middle">7</text>

@@ -14,11 +14,11 @@ Use this file to prevent omissions during manuscript writing review, paragraph-b
 
 - The paper's intended story is summarized in one sentence.
 - Abstract, introduction, contribution list, headings, figures/tables, and conclusion are read before local paragraph comments.
-- Contributions are stated as the paper claims them and checked for specificity, overlap, and evidence support.
+- Contributions are recorded as stated by the paper and checked for specificity, overlap, and evidence support.
 - High-impact paragraphs receive IDs and local diagnoses.
 - Paragraph issues are tied to role, takeaway, logic, evidence, redundancy, and concrete edit action.
 - Global motivation and problem-gap-root-challenge chain are checked.
-- Claim-evidence alignment is included for major claims.
+- Conclusion-evidence alignment is included for major conclusions.
 - Quantitative writing scorecard is produced when enough text is available.
 - Writing-review panel roles are run independently before synthesis in standard mode.
 - Terminology, notation, datasets, models, and contribution wording are checked across sections.
@@ -34,7 +34,7 @@ Use this file to prevent omissions during manuscript writing review, paragraph-b
 - Paragraph IDs are assigned by section.
 - Each high-impact paragraph has a current role and desired reviewer takeaway.
 - A paragraph is flagged when it mixes multiple jobs.
-- Unsupported claims are tied to the exact missing citation/result/proof/example/qualification.
+- Unsupported conclusions are tied to the exact missing citation/result/proof/example/qualification.
 - Repeated material is marked as cut, merge, move, or appendix candidate.
 - Transitions between paragraphs are checked for causal order.
 - Sentence rhythm and syntax are checked so paragraphs do not become mechanically uniform.
@@ -68,10 +68,10 @@ Checklist status:
 ## Revision Planning Checklist
 
 - Every material writing weakness has a revision action.
-- Each action has a fix class: writing-fixable, structure-fixable, claim-qualification, citation/positioning, figure/table, LaTeX/format, compression, requires-new-result, accepted-limitation, or venue-mismatch.
+- Each action has a fix class: writing-fixable, structure-fixable, conclusion-qualification, citation/positioning, figure/table, LaTeX/format, compression, requires-new-result, accepted-limitation, or venue-mismatch.
 - Actions requiring new experiments, proofs, baselines, or studies are separated from writing-only fixes.
 - Required edits identify where to revise.
-- Claims to weaken, move, support, or remove are listed.
+- Conclusions to weaken, move, support, or remove are listed.
 - Risk-reduction condition is tied to reviewer confusion or format compliance.
 
 ## Scientific Review Redirect
@@ -89,7 +89,7 @@ Checklist status:
 - Paragraph IDs:
 - Storyline:
 - Prose quality:
-- Claim-evidence:
+- Conclusion-evidence:
 - Consistency:
 - LaTeX/format:
 - Revision actions:

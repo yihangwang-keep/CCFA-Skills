@@ -31,7 +31,7 @@ The paper frames movie dubbing as a multimodal alignment task with three simulta
 ## Evidence Moves
 
 - Combine objective metrics with perceptual or demo-based evidence.
-- Compare against prior single-stage methods when staged learning is the core claim.
+- Compare against prior single-stage methods when staged learning is the central contribution.
 - Include ablations for each consistency module.
 
 ## Reusable Techniques
@@ -46,4 +46,4 @@ Use for multimodal generation papers where temporal alignment is as important as
 
 ## Do-Not-Copy Boundary
 
-Do not reuse movie-dubbing examples, prosody/duration module names, or demo claims unless they belong to the user's work.
+Do not reuse movie-dubbing examples, prosody/duration module names, or demo statements unless they belong to the user's work.

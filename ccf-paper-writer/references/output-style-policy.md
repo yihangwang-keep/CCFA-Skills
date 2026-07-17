@@ -2,6 +2,13 @@
 
 Use this reference when the requested writing output could conflict with the default CCFA reporting shape.
 
+## Contents
+
+- Priority order and edit preservation
+- Idea-to-manuscript and information-dense output
+- Citation formatting rules
+- Flexible suggestions and hard blockers
+
 ## Priority Order
 
 1. User-requested final format.
@@ -19,7 +26,7 @@ Preserve existing structure unless the user asks for restructuring:
 - Markdown headings, tables, lists, code fences, and links.
 - Paragraph count and section order when the request is "polish", "润色", "改写但不改结构", or "keep format".
 
-If a sentence contains an unsupported claim, either soften it in place or add a short note after the revised text. Do not turn a polish request into a long review report.
+If a sentence contains an unsupported statement, either soften it in place or add a short note after the revised text. Do not turn a polish request into a long review report.
 
 ## From Idea To Manuscript
 
@@ -41,7 +48,7 @@ Do not block the draft because final venue policy may be stale. State the freshn
 
 Do not use the main answer for generic process narration. The first visible artifact should be the draft, revised text, table, review response, or file path requested by the user. Keep notes short and concrete:
 
-- name the exact unsupported claim,
+- name the exact unsupported statement,
 - name the missing evidence or file,
 - name the section affected,
 - name the next owner only when a handoff is useful.
@@ -52,13 +59,13 @@ For full workflow demos, every skill should leave a concrete artifact rather tha
 
 Every manuscript must follow these citation formatting rules:
 
-1. **Natural weaving:** Citations appear as part of the narrative. The claim precedes the citation bracket. A sentence should make sense if the brackets were removed.
+1. **Natural weaving:** Citations appear as part of the narrative. The point precedes the citation bracket. A sentence should make sense if the brackets were removed.
 
 2. **No author-name subjects:** Do not use `Author et al. [N]` as the grammatical subject of a sentence. Use the method name, the finding, or the paradigm as the subject: "Self-attention [1]..." not "Vaswani et al. [1]..."
 
 3. **Group with purpose:** When citing multiple works, group them by what they share: "Contrastive objectives [9,10,11]" rather than dumping "Several works [1,2,3,4,5,6,7,8] have studied this."
 
-4. **One citation per claim:** Do not repeat the same citation in consecutive sentences. If two sentences draw on the same source, merge them or rephrase.
+4. **One citation per point:** Do not repeat the same citation in consecutive sentences. If two sentences draw on the same source, merge them or rephrase.
 
 5. **Bib file as source of truth:** Every `\cite{}` key must exist in the project `.bib` file. Never write a citation from memory.
 

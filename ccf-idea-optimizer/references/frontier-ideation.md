@@ -6,7 +6,7 @@ Use this file when the user provides a fuzzy, broad, or stale-prone idea and wan
 
 Generate diverse candidates first, then filter. High randomness is allowed during exploration, but final suggestions must be coherent, feasible, and aligned with the user's theme.
 
-Do not claim frontier novelty unless a current literature search supports it. If no search is performed, label novelty as `unsearched`.
+Do not state frontier novelty as established unless a current literature search supports it. If no search is performed, label novelty as `unsearched`.
 
 Do not collapse the search space too early. In exploratory work, keep at least three kinds of options when possible: a conservative repair of the user's seed, a narrower high-precision problem, and a more ambitious reframing. If all candidates look weak, identify the best salvageable ingredient before recommending a pivot.
 
@@ -48,7 +48,7 @@ Ask or search:
 If current search is not available, state:
 
 ```text
-Novelty status: unsearched; needs ccf-literature-searcher before strong novelty claims.
+Novelty status: unsearched; needs ccf-literature-searcher before strong novelty conclusions.
 ```
 
 ## Coherence Audit
@@ -56,7 +56,7 @@ Novelty status: unsearched; needs ccf-literature-searcher before strong novelty 
 Revise candidates before rejecting them. A candidate should be rejected only after naming the smallest plausible repair and explaining why it fails. Watch for:
 
 - The method requires data the setting cannot provide.
-- The evaluation setting does not test the claimed mechanism.
+- The evaluation setting does not test the proposed mechanism.
 - The contribution tries to be method, dataset, system, theory, and application all at once.
 - The venue audience mismatch is severe.
 - The core insight is only a renamed component.
@@ -69,7 +69,7 @@ Use these before declaring a direction stale or too weak:
 - Narrow the target setting until the bottleneck is measurable.
 - Replace "new model" novelty with an evaluation, formulation, diagnostic, or analysis contribution.
 - Keep the problem but simplify the mechanism.
-- Keep the method family but change the claim from SOTA improvement to failure-mode explanation, robustness, cost, or deployment constraint.
+- Keep the method family but change the intended paper conclusion from SOTA improvement to failure-mode explanation, robustness, cost, or deployment constraint.
 - Switch venue family when the idea is valuable but not a main-track fit for the named venue.
 - Turn a crowded positive-result idea into a negative-result or measurement paper if that would teach the community something.
 

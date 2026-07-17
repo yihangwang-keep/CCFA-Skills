@@ -17,7 +17,7 @@ Use when: the user explicitly asks for recent ICLR outstanding-paper style, espe
 - Identify a surprising gap in how strong models are understood, evaluated, or trained.
 - Prefer one crisp observation over a list of incremental improvements.
 - Connect practical impact to a deeper explanation: geometry, unified interfaces, priors, discrete sampling, or feature artifacts.
-- Make the evidence package unusually complete for the claim: theory plus experiments, system scale plus examples, or in-silico plus wet-lab validation.
+- Make the evidence package unusually complete for the stated conclusion: theory plus experiments, system scale plus examples, or in-silico plus wet-lab validation.
 
 ## Transferable Moves
 

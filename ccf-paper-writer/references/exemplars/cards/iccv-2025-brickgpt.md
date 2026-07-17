@@ -10,7 +10,7 @@ The paper turns generative modeling into a physically constrained construction p
 
 ## Abstract Moves
 
-- Claim firstness only after naming the concrete task boundary.
+- Mention a first-of-its-kind contribution only after naming the concrete task boundary.
 - Introduce dataset construction as the precondition for the model.
 - State the generative mechanism and the physical safeguard separately.
 - End with multiple validation modes: stable, diverse, visually aligned, manually buildable, robotically buildable.
@@ -31,7 +31,7 @@ The paper turns generative modeling into a physically constrained construction p
 
 - Combine automatic metrics, physical validity checks, qualitative galleries, and real assembly demonstrations.
 - Show failure cases where visual plausibility is not enough.
-- Use dataset scale and diversity to support generalization claims.
+- Use dataset scale and diversity to support generalization statements.
 
 ## Reusable Techniques
 
@@ -45,4 +45,4 @@ Use this card when a paper must convince reviewers that generated outputs are ac
 
 ## Do-Not-Copy Boundary
 
-Do not reuse brick-specific constraints, dataset claims, or buildability demonstrations unless the user's domain has equivalent evidence.
+Do not reuse brick-specific constraints, dataset statements, or buildability demonstrations unless the user's domain has equivalent evidence.

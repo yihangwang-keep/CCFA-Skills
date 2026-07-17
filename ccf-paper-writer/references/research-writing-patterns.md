@@ -2,7 +2,15 @@
 
 Use this file for full-paper drafting, section-specific rewriting, and exemplar-mode adaptation. It consolidates section-level writing patterns for CCFA while keeping venue routing, evidence policy, and artifact contracts in CCFA.
 
-These are transferable writing patterns, not copied examples. Do not reuse sentence templates, distinctive wording, examples, claims, or confidence from any source paper or external skill. Adapt the logic to the user's actual problem, method, and evidence.
+These are transferable writing patterns, not copied examples. Do not reuse sentence templates, distinctive wording, examples, conclusions, or confidence from any source paper or external skill. Adapt the logic to the user's actual problem, method, and evidence.
+
+## Contents
+
+- Dense output and natural prose rules
+- Exemplar/source-paper adaptation
+- Abstract, introduction, and related-work patterns
+- Method, experiment, figure/table, and conclusion patterns
+- End-of-draft self-review
 
 Always apply `prose-quality-guardrails.md` with this file. It is the authority for avoiding defensive or incremental prose, label-heavy symbols, formula dumping, number-only abstracts, punctuation-driven structure, overlong compound sentences, strange shorthand, third-person manuscript narration, and unsupported hype.
 
@@ -16,7 +24,7 @@ For broad writing tasks, produce the artifact first and make it substantial:
 - Revision request: provide revised text in source format plus only the necessary edit notes.
 - Exemplar request: show the source writing pattern, then adapt it into original text.
 
-Avoid empty "next steps" and generic warnings. A warning is useful only if it names the unsupported claim, missing evidence, affected section, and concrete fix.
+Avoid empty "next steps" and generic warnings. A warning is useful only if it names the unsupported conclusion, missing evidence, affected section, and concrete fix.
 
 For underfilled full drafts, add substantive paper content before finishing: deeper problem setup, closest-work contrast, method mechanism, experiment protocol, analysis scaffolds, limitations, and reproducibility notes. Use `TBD` for missing evidence; do not pad with generic background.
 
@@ -26,7 +34,7 @@ CCF-A papers read as continuous prose arguments, not as annotated outlines. The 
 
 ### What Best Papers Do
 
-- Each paragraph opens with a claim or observation, then supports it with evidence, reasoning, or citations.
+- Each paragraph opens with a point or observation, then supports it with evidence, reasoning, or citations.
 - Citations appear inside sentences as part of the argument, not as parenthetical interruptions.
 - Technical terms are defined once, used consistently, and never bolded in running text unless the venue template requires it.
 - Method descriptions follow a logical flow: problem, design rationale, mechanism, justification.
@@ -48,7 +56,7 @@ CCF-A papers read as continuous prose arguments, not as annotated outlines. The 
 
 - **Over-bolded terms:** Do not bold every technical term. Use italics sparingly for the first definition only. Reserve bold for venue-mandated formatting (e.g., NeurIPS checklist headings).
 
-- **Question/claim labels as prose:** Avoid `Q1`, `Q2`, `C1`, `C2`, `RQ1`, and similar shorthand in the main narrative. Use natural names and sentence-level transitions unless the venue or study design explicitly requires labels.
+- **Question/conclusion labels as prose:** Avoid `Q1`, `Q2`, `C1`, `C2`, `RQ1`, and similar shorthand in the main narrative. Use natural names and sentence-level transitions unless the venue or study design explicitly requires labels.
 
 - **Number-led abstracts:** Do not let the abstract become a list of gains. Put task, gap, insight, method, and scope before numeric evidence.
 
@@ -70,7 +78,7 @@ Load `references/citation-workflow.md` for the full workflow. In the writing its
 - "Many methods have been proposed [1,2,3,4,5,6,7,8]."
 - "In [1], the authors show that attention improves translation quality."
 
-The claim comes first, then the citation. The sentence should make sense without the brackets. See `references/citation-workflow.md` for the complete rules.
+The point comes first, then the citation. The sentence should make sense without the brackets. See `references/citation-workflow.md` for the complete rules.
 
 ## Exemplar And Source-Paper Mode
 
@@ -131,7 +139,7 @@ Use when the paper has several independent technical pieces.
 Abstract checks:
 
 - A reader can identify task, challenge, insight/method, and evidence in one pass.
-- Every result claim is later supported.
+- Every result statement is later supported.
 - Method names are readable before details are introduced.
 - No sentence carries several unrelated messages.
 - The abstract is not dominated by numeric comparisons; numbers appear only as decisive evidence after the contribution is clear.
@@ -186,7 +194,7 @@ For each topic group:
 
 - Every named paradigm or thread gets at least3 citations.
 - The closest competitor must be cited and discussed explicitly, not hidden in a list.
-- If any claim about prior work cannot be verified, route to `ccf-literature-searcher` before writing.
+- If any statement about prior work cannot be verified, route to `ccf-literature-searcher` before writing.
 - Do not cite a paper only because it is famous; every citation must serve the argument.
 
 ## Method Pattern
@@ -210,7 +218,7 @@ Method clarity checks:
 - Notation appears before use.
 - Every module has a reason to exist.
 - Implementation details are sufficient for reproduction or explicitly deferred to appendix.
-- The method does not rely on claims that experiments never test.
+- The method does not rely on conclusions that experiments never test.
 
 ## Experiment Pattern
 
@@ -223,7 +231,7 @@ Experiments should answer three reviewer questions:
 Recommended section order:
 
 1. Setup: datasets, preprocessing, metrics, baselines, implementation.
-2. Main results: one table per primary claim.
+2. Main results: one table per primary conclusion.
 3. Ablation: remove/replace/disable major modules.
 4. Analysis: robustness, efficiency, sensitivity, qualitative examples, or failure cases.
 5. Limitations tied to evaluation scope.
@@ -244,7 +252,7 @@ Table/figure rules:
 2. State the key insight.
 3. Summarize strongest evidence.
 4. Bound limitations as scope boundaries, not hidden fatal flaws.
-5. Name a concrete future direction without adding unsupported claims.
+5. Name a concrete future direction without adding unsupported conclusions.
 
 ## End-Of-Draft Self-Review
 
@@ -254,6 +262,6 @@ For full-paper drafts, run this internally and surface only unresolved issues un
 | --- | --- | --- | --- |
 | Contribution | What new knowledge does the paper provide? | pass / revise / needs evidence | |
 | Clarity | Can a reader reproduce the method? | pass / revise / needs evidence | |
-| Empirical strength | Are main claims backed by strong results? | pass / revise / needs evidence | |
+| Empirical strength | Are main conclusions backed by strong results? | pass / revise / needs evidence | |
 | Evaluation completeness | Are baselines, ablations, and metrics sufficient? | pass / revise / needs evidence | |
 | Method soundness | Do benefits outweigh assumptions and limitations? | pass / revise / needs evidence | |

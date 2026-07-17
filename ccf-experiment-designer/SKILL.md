@@ -1,6 +1,6 @@
 ---
 name: ccf-experiment-designer
-description: "Design CCF paper evidence packages after MVP validation: paper-scenario coverage, simulation settings, baselines, metrics, ablations, robustness tests, result-table templates, and real-result figure/table presentation. Use for experiment design, baseline selection, ablation design, result tables, publication figures from supplied numbers, 设计实验, 对比实验, 消融, 结果图表. Do not invent results or perform primary scenario or algorithm design."
+description: "Design communication-paper evidence after accepted paper-scenario, environment, and applicable algorithm MVP evidence: parameter-range coverage, simulation settings, baselines, metrics, mechanism tests, robustness, result templates, and presentation plans. Use for experiment design, baseline selection, ablation design, result tables, publication figures from supplied numbers, 设计实验, 对比实验, 消融, 结果图表. Do not invent results, redo upstream environment or algorithm design, or mix evidence from incompatible versions."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -14,51 +14,56 @@ metadata:
 
 ## Core Rule
 
-Design experiments that test the paper's central claims. Treat the validated MVP as evidence that the formulation, environment, and algorithm work end to end; then design the settings needed to evaluate the paper's claimed scenario scope. For an algorithmic contribution, require an explicit optimization or decision objective, an auditable solution process, and a theoretical or optimality reference. Heuristics may appear as comparison baselines. Structure communication and networking evidence around the objective, constraints, coupling, feasibility, scenario coverage, stress regimes, and oracle/bound comparisons. Build result artifacts only from supplied real values or explicit placeholders. Publication-grade layout belongs to `ccf-visual-composer`.
+Consume accepted upstream evidence; do not recreate environment or algorithm design inside experiment planning. Map each intended paper conclusion and its applicability range to the smallest discriminating set of settings, baselines, metrics, mechanism tests, robustness checks, and failure evidence. Keep the paper scenario, formal optimization problem, parameter applicability range, scenario MVP, objective, constraints, information pattern, and feasibility meaning version-consistent.
+
+For an algorithmic contribution, retain the accepted gate that requires an explicit objective, an auditable solution process, a qualifying theory or optimality reference, and no heuristic decision mechanism in the proposed method. Heuristics remain comparison baselines only. Build result artifacts exclusively from supplied real values, verified matching public values, or `TBD` placeholders. Publication layout belongs to `ccf-visual-composer`.
 
 ## Modes
 
-- `design`: scenarios, simulation settings, baselines, metrics, ablations, robustness, efficiency, failure analysis, and execution priority.
+- `design`: conclusion coverage, settings, baselines, metrics, mechanism tests, robustness, efficiency, failure analysis, and execution priority.
 - `result-template`: fill-in tables with `TBD` placeholders.
-- `result-presentation`: result tables, figure evidence plans, chart specs, caption facts, and missing-value markers from supplied real results.
+- `result-presentation`: result tables, figure evidence plans, chart specifications, caption facts, and missing-value markers from supplied results.
+
+## Upstream Acceptance Gate
+
+Before paper-range design, record the accepted versions of:
+
+- paper scenario, formal optimization problem, parameter applicability range, and scenario MVP;
+- environment specification/code and `ccf-env-code-auditor` verdict;
+- algorithm specification/code and `ccf-algorithm-code-auditor` verdict when the paper presents an algorithmic contribution;
+- exact solver, oracle, certified bound, independent checker, or other accepted reference used by the conclusions;
+- unresolved limitations and the parameter settings they exclude.
+
+If an applicable item is missing, stale, conditional outside the requested range, or version-incompatible, stop the affected experiment branch and route it to its owner. Use `ccf-experiment-debugger` for failed or inconsistent evidence. Do not repair an upstream defect by adding experiments.
 
 ## Workflow
 
-1. Identify target venue, paper type, central claims, available results, and whether the task is planning or presenting results.
-2. Extract the storyline from the idea or draft. Use `../ccf-paper-writer/references/storyline-blueprint.md` only as a schema, not as a writing handoff.
-3. Map every major claim to required evidence, reviewer question, scenario/simulation setting, baseline, metric, ablation, and robustness/failure test.
-4. Clearly show what the metrics are for each claim judgment, and what evidence is needed to support the claim in the Claim-Evidence Matrix.
-5. For an algorithmic paper, run the Algorithmic Contribution Gate in `references/evidence-design.md`. Reject every proposed method that contains a heuristic decision mechanism. If algorithm design or implementation evidence is missing, route to `ccf-algorithm-designer` or `ccf-algorithm-code-auditor` instead of designing the method here.
-6. Run the Scenario Integrity Gate in `references/evidence-design.md`. Use the validated MVP as the development reference and map each broader paper claim to the additional settings required for evidence. If the primary task is to create or judge the communication/networking scenario itself, follow CCFA handoff mode before using `ccf-env-design`.
-7. If scenarios, simulation settings, objective/constraint references, or baselines are unknown, use public-safe search or hand off to `ccf-literature-searcher`; request both formulation and algorithm coverage and mark uncertainty instead of guessing.
-8. Load `references/evidence-design.md` for venue-family expectations and `references/result-templates.md` for result tables.
-9. For result presentation, preserve units, seeds, confidence intervals, scenario or setting names, and metric direction. Mark missing values explicitly.
-10. Hand off to `ccf-visual-composer` for publication-grade figure/table layout, palettes, panel maps, captions, manuscript integration, and render QA.
-11. When finishing the experiment design, check carefully that all claims are covered by the needed evidence and that experiments are logically designed. If sub-agents are available and their use is authorized, use them to verify and repair design flaws.
+1. Identify the target venue, paper type, intended conclusions, conclusion applicability range, accepted artifact versions, available results, and requested mode.
+2. Build an internal conclusion-evidence ledger: for every major conclusion, record the decisive question, required setting, baseline, metric, mechanism test, robustness/failure test, and a result-dependent interpretation rule.
+3. Apply the Algorithmic Contribution Gate in `references/evidence-design.md` only to algorithmic work. Consume the upstream acceptance record; route a failure to `ccf-algorithm-designer` or `ccf-algorithm-code-auditor`.
+4. Apply the Scenario Integrity Gate. Extend the validated scenario MVP only across predeclared dimensions of the parameter applicability range. A change to the objective, decision variables, material constraints, information pattern, feasibility meaning, or task causal chain returns to environment design and requires rebaselining.
+5. Choose baselines that test necessity and fairness: closest prior method, current strong method, tuned simple rule, decoupled alternative, and exact/oracle/bound reference where applicable. Give comparable methods the same information, feasibility conditions, stopping tolerance, tuning budget, and compute accounting.
+6. Choose metrics that directly measure objective value, feasibility, constraint residuals, task/service consequences, central tradeoff, runtime/resource cost, and failure behavior. State direction, unit, aggregation, uncertainty summary, and decision threshold.
+7. If settings, objective/constraint references, or baselines are unknown, use public-safe search or route to `ccf-literature-searcher`; record `TBD` instead of guessing.
+8. Load `references/evidence-design.md` for the detailed evidence rules. Load `references/result-templates.md` only when tables or presentation scaffolds are requested.
+9. Preserve units, seeds, uncertainty intervals, setting names, version identifiers, metric direction, exclusions, and failed configurations. Never combine old and new environment versions in one comparison without a valid common physical or service metric and an explicit version boundary.
+10. Route publication-grade figure/table composition, captions, manuscript placement, and render QA to `ccf-visual-composer`.
 
-## Adaptive Output Contract
+## Internal Checks And Visible Output
 
-Return the requested artifact first. For a result table request, output the table. For a figure request, output the evidence-bound figure spec and caption facts, then name `ccf-visual-composer` as next owner for visual composition when needed. For a full experiment-design request, use this default structure:
+Keep the upstream gate, full conclusion-evidence ledger, rejected experiment candidates, and routine integrity checks internal unless the user asks for an audit. The user-visible response starts with the requested plan, table, or figure specification. Add only material context:
 
 ```text
-Mode:
-Venue and assumptions:
-Claim-evidence matrix:
-Algorithmic contribution gate (when applicable):
-Scenario integrity gate:
-Scenario / simulation / formulation needs:
-Baseline matrix:
-Main experiments:
-Ablations:
-Robustness / failure / efficiency:
-Result tables or figure specs:
-Missing values:
-Execution priority:
-No-fabrication status:
-Next CCFA owner:
+Supported conclusion and applicability range:
+Authoritative versions used:
+Experiments and stop/interpretation rules:
+TBD results or missing evidence:
+Version conflict, limitation, or next owner when material:
 ```
+
+Do not emit empty sections, full gate reports, or routine no-fabrication boilerplate when the requested artifact already marks every unknown value as `TBD`.
 
 ## References
 
-- `references/evidence-design.md`: experiment, scenario, simulation-setting, and evaluation-setting design.
-- `references/result-templates.md`: fill-in result tables and presentation scaffolds.
+- `references/evidence-design.md`: communication experiment, scenario-range, baseline, metric, mechanism, robustness, and interpretation rules.
+- `references/result-templates.md`: optional fill-in result tables and presentation scaffolds.

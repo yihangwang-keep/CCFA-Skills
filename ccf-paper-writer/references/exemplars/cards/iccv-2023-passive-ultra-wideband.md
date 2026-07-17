@@ -29,7 +29,7 @@ The paper defines an unusually difficult imaging regime: dynamic scenes over sec
 
 ## Evidence Moves
 
-- Show examples across the claimed timescale range.
+- Show examples across the stated timescale range.
 - Include controlled experiments that verify the passive measurement assumption.
 - Use qualitative visualizations to make invisible transient information interpretable.
 
@@ -41,4 +41,4 @@ The paper defines an unusually difficult imaging regime: dynamic scenes over sec
 
 ## Do-Not-Copy Boundary
 
-Do not reuse passive-imaging claims, timescale ranges, or single-photon constraints unless the user's system actually operates there.
+Do not reuse passive-imaging statements, timescale ranges, or single-photon constraints unless the user's system actually operates there.

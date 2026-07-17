@@ -26,5 +26,5 @@ Use when: the user explicitly asks for recent ICLR outstanding-paper style, espe
 ## Reviewer-Facing Warnings
 
 - Do not borrow the "outstanding" confidence unless the user's paper has a similarly crisp thesis and strong validation.
-- Do not use broad LLM or transformer claims without a clear scope statement.
+- Do not use broad LLM or transformer statements without a clear scope statement.
 - If the paper studies a failure mode, include controls that distinguish artifact from real capability gap.

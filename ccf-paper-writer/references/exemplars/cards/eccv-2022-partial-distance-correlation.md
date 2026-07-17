@@ -41,4 +41,4 @@ The paper revives a statistical dependence measure and shows that it solves seve
 
 ## Do-Not-Copy Boundary
 
-Do not reuse the partial-distance-correlation method or versatility claim unless the user's work genuinely supports multiple validated uses.
+Do not reuse the partial-distance-correlation method or versatility statement unless the user's work genuinely supports multiple validated uses.

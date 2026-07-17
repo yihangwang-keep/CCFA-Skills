@@ -6,6 +6,14 @@ When novelty, insight, or acceptance potential is decision-critical, apply `stri
 
 Score current readiness, not the user's worth or the absolute future of the direction. For rough seeds, include a separate development-potential label. A score of 2-3 often means "not ready without redesign"; it does not automatically mean "do not pursue."
 
+## Contents
+
+- [Weighted Dimensions](#weighted-dimensions)
+- [Quantitative Feedback Output](#quantitative-feedback-output)
+- [Score Anchors](#score-anchors)
+- [Dimension Guidance](#dimension-guidance)
+- [Deduction Format](#deduction-format)
+
 ## Weighted Dimensions
 
 | Dimension | Weight |
@@ -59,13 +67,13 @@ Confidence:
 Score-change conditions:
 ```
 
-Every score of 3 or below must name the exact claim, missing mechanism, closest-work risk, missing evidence, or venue criterion that caused the deduction.
+Every score of 3 or below must name the exact proposed paper conclusion, missing mechanism, closest-work risk, missing evidence, or venue criterion that caused the deduction.
 
 ## Score Anchors
 
 ### 5
 
-Clear CCF-A-level signal. The problem is important, the insight is non-obvious, the method has a defensible mechanism, closest-work comparison leaves a meaningful novelty delta, and the evidence package can decisively test the claim.
+Clear CCF-A-level signal. The problem is important, the insight is non-obvious, the method has a defensible mechanism, closest-work comparison leaves a meaningful novelty delta, and the evidence package can decisively test the intended paper conclusion.
 
 ### 4
 
@@ -81,11 +89,11 @@ Weak in its current form. The idea is likely incremental, under-motivated, poorl
 
 ### 1
 
-Fatal for the current formulation. The problem is not important for the venue, closest work likely already covers the contribution, the method is unsound, the components conflict, or the central claim is untestable. Use `abandon` only if no credible reformulation remains.
+Fatal for the current formulation. The problem is not important for the venue, closest work likely already covers the contribution, the method is unsound, the components conflict, or the central paper conclusion is untestable. Use `abandon` only if no credible reformulation remains.
 
 ## Dimension Guidance
 
-- Problem importance: audience, stakes, bottleneck, and nontriviality. Penalize vague "important application" claims without a named bottleneck.
+- Problem importance: audience, stakes, bottleneck, and nontriviality. Penalize vague "important application" statements without a named bottleneck.
 - Novelty: distance from closest work; mark uncertainty separately from low novelty. Do not score above 3 when closest work was not checked and novelty is central.
 - Conceptual innovation: new insight, formulation, mechanism, benchmark, theory, or system design. Penalize pure module recombination unless the combination creates a new capability or explanation.
 - Method soundness: assumptions, mechanism, feasibility, and plausible correctness. Penalize architectures whose components optimize incompatible objectives.

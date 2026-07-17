@@ -2,9 +2,16 @@
 
 Use this file when drafting, rewriting, or checking a specific paper section. Always connect section writing back to `references/storyline-blueprint.md`.
 
+## Contents
+
+- Module template and section-length guidance
+- Abstract, introduction, and related-work modules
+- Method, experiment, figure/table, and conclusion modules
+- Limitations, small-edit, and LaTeX modes
+
 Use the steps below as internal writing control unless the user asks to see the plan. For direct polishing, line editing, compression, or LaTeX revision, return the revised text in the user's original format rather than exposing paragraph-role analysis.
 
-Also apply `references/prose-quality-guardrails.md`. Section drafting must avoid defensive framing, symbolic question/claim labels in prose, formula dumping, number-only abstracts, third-person manuscript narration, and punctuation used as a substitute for logic.
+Also apply `references/prose-quality-guardrails.md`. Section drafting must avoid defensive framing, symbolic question/conclusion labels in prose, formula dumping, number-only abstracts, third-person manuscript narration, and punctuation used as a substitute for logic.
 
 ## Module Template
 
@@ -16,7 +23,7 @@ For any section:
 4. Check local flow: one paragraph, one message.
 5. Check global flow: section supports the main story and venue plan.
 6. Check prose quality: stable terminology, no unsupported hype, no unnecessary repeated concepts, and varied sentence rhythm.
-7. Update claim-evidence and reviewer-risk maps.
+7. Update conclusion-evidence and reviewer-risk maps.
 
 Show steps 1-2 only when the user requested a plan, outline, diagnosis, or explanation.
 
@@ -33,7 +40,7 @@ These are real-world ranges based on analysis of published CCF-A papers. Use as 
 | Method |2.0--3.5 pages | The largest section. Per-component motivation, equations, architecture details. |
 | Experiments |2.0--3.0 pages | Setup (0.5p), main results (1.0p), ablations and analysis (1.0--1.5p). |
 | Discussion / Analysis |0.5--1.0 page | Architecture-level analysis, failure modes, limitations. |
-| Conclusion |0.2--0.4 page | Restate insight and evidence; no new claims. |
+| Conclusion |0.2--0.4 page | Restate insight and evidence; no new conclusions. |
 
 **Key rule:** The Method and Experiments sections together should fill4.0--6.5 pages. If they are shorter, the paper is empty. If they are much longer, it is likely a systems or benchmark paper. Do not let the Introduction balloon while Method stays skeletal.
 
@@ -49,11 +56,11 @@ Recommended moves:
 2. Specific gap or technical challenge.
 3. Core insight or contribution.
 4. Method mechanism at a high level.
-5. Evidence summary with cautious claims.
+5. Evidence summary with cautious conclusions.
 
 Checks:
 
-- Does every major abstract claim appear later with evidence?
+- Does every major abstract conclusion appear later with evidence?
 - Is the method name understandable without hidden context?
 - Does the abstract fit target venue style: concise for systems, precise for theory, contribution/evidence-balanced for AI/CV/NLP?
 - Is the abstract built around the scientific contribution rather than a dense list of numeric improvements?
@@ -72,9 +79,9 @@ Recommended paragraph roles:
 
 Citation rules:
 
-- Every prior-work claim in the introduction must have a citation. A paragraph that describes what "existing methods" do without citing any is incomplete.
+- Every prior-work statement in the introduction must have a citation. A paragraph that describes what "existing methods" do without citing any is incomplete.
 - The introduction should carry12-20 citations total. Count them before calling the section done. If below8, the paper is under-cited.
-- Use natural citation weaving: claim first, citation second. "Large-scale pretraining on web-scale data [4,5] has become the dominant paradigm..." not "Brown et al. [4] and Chowdhery et al. [5] proposed..."
+- Use natural citation weaving: point first, citation second. "Large-scale pretraining on web-scale data [4,5] has become the dominant paradigm..." not "Brown et al. [4] and Chowdhery et al. [5] proposed..."
 - Do not use more than one "Author et al. [N]" as a sentence subject per paragraph. Prefer "Self-attention mechanisms [1]..." over "Vaswani et al. [1] proposed..."
 
 Checks:
@@ -100,7 +107,7 @@ Citation rules:
 
 - Each topic group must cite3-8 distinct works. A group with fewer than3 citations is a placeholder, not a completed discussion.
 - The entire Related Work section should carry20-35 citations for a typical CCF-A paper. Count before calling it done.
-- Every factual claim about a research thread must be supported by specific citations, not vague references to "prior work."
+- Every factual statement about a research thread must be supported by specific citations, not vague references to "prior work."
 - Do not cite a paper simply because it is famous in the field. Every cited paper must be relevant to the specific point being made.
 - The closest competitor must be cited and discussed explicitly in its own sentence or paragraph. Do not bury it in a citation list.
 
@@ -110,7 +117,7 @@ Checks:
 - If closest work is unknown or fast-moving, use `ccf-literature-searcher` through the CCFA handoff mode rather than inventing citations.
 - Is the distinction technical, not marketing language?
 - Does Related Work prepare the reader for the Method?
-- Are citations complete for all background claims? Every topic group should cite3+ works; if any group has fewer, expand or merge groups.
+- Are citations complete for all background statements? Every topic group should cite3+ works; if any group has fewer, expand or merge groups.
 
 ## Method
 
@@ -141,7 +148,7 @@ Style rule:
 
 - Do not use bold inline labels (`\textbf{Input:}`, `\textbf{Output:}`, `\textbf{Architecture:}`) in every paragraph. Write prose that flows: "The encoder takes a sequence of tokens and produces contextualized representations through stacked self-attention layers" rather than "`\textbf{Encoder:}` The encoder uses self-attention."
 - Do not let theorem statements, equations, or notation blocks replace explanation. Introduce their purpose before the formalism and explain their role afterward.
-- Avoid `Q1`/`C1`-style labels for modules or claims unless the venue or task convention requires them.
+- Avoid `Q1`/`C1`-style labels for modules or conclusions unless the venue or task convention requires them.
 
 Checks:
 
@@ -153,7 +160,7 @@ Checks:
 
 ## Experiments
 
-Goal: prove the claims reviewers care about.
+Goal: establish the conclusions reviewers need to assess.
 
 Recommended structure:
 
@@ -173,7 +180,7 @@ Citation rules:
 
 Checks:
 
-- Does each claimed contribution have a corresponding experiment?
+- Does each stated contribution have a corresponding experiment?
 - If the user needs datasets, baselines, ablations, benchmark design, or fill-in result tables, use `ccf-experiment-designer` through the CCFA handoff mode.
 - Are baselines strong, recent, and fair? Is every baseline cited?
 - Are metrics standard and sufficient?
@@ -202,7 +209,7 @@ Structural rules:
 Checks:
 
 - Can the paper's contribution be understood from figures and captions?
-- Are key claims visible in tables or figures?
+- Are key conclusions visible in tables or figures?
 - Are visual examples aligned with the text discussion?
 - Are all tables free of vertical rules and `\hline`?
 
@@ -216,7 +223,7 @@ Recommended moves:
 2. State the key insight or contribution.
 3. Summarize strongest evidence.
 4. Bound limitations.
-5. Point to future work without adding new claims.
+5. Point to future work without adding new conclusions.
 
 Checks:
 
@@ -232,7 +239,7 @@ Checks:
 
 - Are limitations specific and bounded?
 - Are datasets, human subjects, privacy, security, misuse, bias, or environmental concerns addressed when relevant?
-- Are claims weakened where the limitation narrows validity?
+- Are conclusions qualified where the limitation narrows validity?
 - Does the section improve reviewer trust rather than read like boilerplate?
 
 ## Small Paragraph Edit Mode
@@ -244,10 +251,10 @@ When the user gives one paragraph:
 3. Check sentence flow.
 4. Check term consistency.
 5. Check whether the paragraph repeats a concept without adding logic.
-6. Check whether claims are supported or need softer wording.
+6. Check whether conclusions are supported or need softer wording.
 7. Rewrite with the same technical meaning unless the user asks for structural changes.
 
-Visible output default: the rewritten paragraph only, preserving Markdown/LaTeX/citation formatting. Add a short note only if a claim was softened, a citation/result looked unsupported, or the user asked for explanation.
+Visible output default: the rewritten paragraph only, preserving Markdown/LaTeX/citation formatting. Add a short note only if a conclusion was qualified, a citation/result looked unsupported, or the user asked for explanation.
 
 ## LaTeX Drafting Mode
 

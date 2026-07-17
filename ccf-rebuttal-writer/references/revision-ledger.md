@@ -9,7 +9,7 @@ Use this reference when rebuttal, response-letter, resubmission, or camera-ready
 | `comment_id` | Stable ID such as `R1-C2` or `AC-C1`. |
 | `source` | Reviewer, AC, meta-review, shepherd, or internal audit. |
 | `concern` | Short neutral summary of the issue. |
-| `response_claim` | What the author response says or will say. |
+| `response_statement` | What the author response says or will say. |
 | `manuscript_action` | Concrete edit, experiment, clarification, limitation, or no-change rationale. |
 | `location` | Section, paragraph, line, figure, table, appendix, or TeX file. |
 | `owner_skill` | Usually `ccf-rebuttal-writer`, `ccf-paper-writer`, `ccf-experiment-designer`, or `ccf-submission-checker`. |
@@ -28,7 +28,7 @@ Use this reference when rebuttal, response-letter, resubmission, or camera-ready
 ## Compact Template
 
 ```markdown
-| ID | Concern | Response claim | Manuscript action | Location | Status | Evidence | Risk |
+| ID | Concern | Response statement | Manuscript action | Location | Status | Evidence | Risk |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | R1-C1 |  |  |  |  | open |  |  |
 ```

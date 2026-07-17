@@ -4,6 +4,13 @@ Use this file to reduce length while preserving the paper's story, evidence, and
 
 Compression is triggered when a manuscript exceeds the target venue budget or the user's requested word/page limit. It is the counterpart to `length-budget-policy.md`: underfilled manuscripts should be expanded, overfilled manuscripts should be compressed.
 
+## Contents
+
+- Mode selection and compression hierarchy
+- Protected evidence and appendix decisions
+- Venue-specific and sentence-level rules
+- Risk labels after compression
+
 ## Mode Selection
 
 Quick mode:
@@ -17,7 +24,7 @@ Standard mode:
 
 - Full section, multi-section, full manuscript, page-limit, or camera-ready compression.
 - Build a content inventory and appendix/delete decision table.
-- Check claim-evidence preservation.
+- Check conclusion-evidence preservation.
 - Ask once before appendix/delete if the user's preference is unknown.
 
 If a draft is only slightly over budget (<= 10%), first compress wording, repeated motivation, and low-value background. If it is substantially over budget (> 10%), create a section-level cut plan before rewriting.
@@ -40,9 +47,9 @@ Protect:
 
 - Central problem and root challenge.
 - Core insight and method mechanism.
-- Claims tied to contributions.
+- Conclusions tied to contributions.
 - Numbers, metrics, datasets, and baseline names.
-- Limitations that bound overclaiming.
+- Limitations that prevent overstatement.
 - Reproducibility details required by the venue.
 - Ethics, threat model, or user-study details when required.
 
@@ -57,7 +64,7 @@ Move to appendix when:
 Delete when:
 
 - The material repeats an earlier point.
-- The claim is unsupported and not essential.
+- The statement is unsupported and not essential.
 - The wording is generic venue boilerplate.
 - The citation is background-only and not needed for positioning.
 - The sentence increases confidence without adding evidence.
@@ -90,7 +97,7 @@ Security:
 
 HCI:
 
-- Keep research questions, participant/procedure essentials, analysis method, and claim scope.
+- Keep research questions, participant/procedure essentials, analysis method, and conclusion applicability range.
 - Move instrument details or long coding examples to appendix.
 
 Theory/PL/FM:
@@ -102,10 +109,10 @@ Theory/PL/FM:
 
 - Replace broad openings with specific problem statements.
 - Merge citations that support the same contrast.
-- Convert repeated clauses into one scoped claim.
+- Convert repeated clauses into one scoped conclusion.
 - Use one term consistently rather than alternating synonyms.
 - Prefer "because" and "therefore" relations over long rhetorical bridges.
-- Replace verbose contribution bullets with claim + evidence pairs.
+- Replace verbose contribution bullets with point + evidence pairs.
 - Remove defensive hedges, unexplained labels, punctuation-heavy chains, and third-person manuscript narration before cutting substantive content.
 - Preserve sentence rhythm; do not compress every sentence into the same short template.
 
@@ -113,8 +120,8 @@ Theory/PL/FM:
 
 Use these labels after compression:
 
-- `preserved`: claim/evidence still intact.
-- `weakened`: claim was narrowed to match evidence.
+- `preserved`: conclusion/evidence still intact.
+- `weakened`: conclusion was narrowed to match evidence.
 - `moved-to-appendix`: detail removed from main flow but still available.
 - `deleted`: removed because redundant or unsupported.
 - `risk`: compression may harm clarity or auditability.

@@ -31,14 +31,14 @@ The paper asks how little sensing is enough for a task. It reframes camera desig
 ## Evidence Moves
 
 - Compare against much denser conventional cameras.
-- Include physical prototypes or implementation details when making hardware claims.
+- Include physical prototypes or implementation details when stating hardware results.
 - Report the practical consequences of minimal sensing, not only accuracy.
 
 ## Reusable Techniques
 
 - Write from a provocative question: what is the minimum signal needed?
 - Treat constraints as a design advantage when they improve privacy or power.
-- Use concrete counts and deployment scenarios to make efficiency claims tangible.
+- Use concrete counts and deployment scenarios to make efficiency statements tangible.
 
 ## User Notes
 
@@ -46,4 +46,4 @@ Useful when the user's work is strongest because it removes capacity, measuremen
 
 ## Do-Not-Copy Boundary
 
-Do not copy the freeform-pixel concept, privacy rationale, or self-powered claim unless the user's system has matching design and validation.
+Do not copy the freeform-pixel concept, privacy rationale, or self-powered statement unless the user's system has matching design and validation.

@@ -7,7 +7,7 @@ Start every non-trivial figure or table with a contract. The contract keeps scie
 ```text
 Artifact:
 Target venue / format:
-Core claim:
+Supported conclusion:
 Reviewer question:
 Evidence layer: main / mechanism / robustness / limitation / qualitative
 Source data:
@@ -22,10 +22,10 @@ Traceability:
 
 ## Evidence Hierarchy
 
-- Main result: answers the paper's central claim.
+- Main result: supports the paper's central conclusion.
 - Mechanism: explains why the result happens.
 - Robustness: tests stability across settings, datasets, seeds, or perturbations.
-- Limitation: bounds the claim honestly.
+- Limitation: bounds the conclusion applicability range honestly.
 - Qualitative or case study: makes behavior inspectable, never a substitute for quantitative evidence.
 
 ## Panel Map Rules
@@ -39,7 +39,7 @@ Traceability:
 ## Table Map Rules
 
 - A table should compare, audit, or summarize evidence; it should not be a spreadsheet pasted into a paper.
-- Group rows/columns by reviewer question, dataset family, method family, or claim.
+- Group rows/columns by reviewer question, dataset family, method family, or supported conclusion.
 - Use consistent metric direction, units, uncertainty, and numeric precision.
 - Move secondary columns to appendix when they weaken the main comparison.
 

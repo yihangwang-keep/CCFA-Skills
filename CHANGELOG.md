@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## v0.8.0 - 2026-07-17
+
+- Refactored the communication environment, algorithm, implementation-audit, failed-run repair, and experiment-design skills so full gate reasoning stays in internal evidence ledgers while user-visible output leads with the requested artifact, decisive evidence, limitations, version changes, and next owner.
+- Preserved the existing environment and algorithm design/audit gate logic while defining a versioned authority chain: paper scenario -> formal optimization problem -> parameter applicability range -> scenario MVP -> environment implementation -> algorithm specification -> algorithm implementation.
+- Added a design-validation loop to `ccf-experiment-debugger` with R0-R3 freeze boundaries, one active owner and one minimal delta per round, independent auditor reruns, environment amendment requests, invalidation epochs, and explicit terminal states.
+- Required algorithm-originated environment amendments to pass algorithm-independence, causal-necessity, semantic-preservation, information-honesty, and method-neutrality checks; an accepted semantic change creates a new problem version and invalidates downstream evidence.
+- Reused `$diagnosing-bugs`, `$tdd`, `$research`, and `$code-review` directly at their existing skill boundaries instead of copying their procedures into CCFA. Repository Standards/Spec review supplements but never replaces mathematical and executable audits.
+- Added shared communication-research terminology for task causal chains, central tradeoffs, information patterns, feasibility meaning, supported conclusions, conclusion applicability ranges, `environment-valid`, and `joint-ready`.
+- Migrated the `ccfa.yaml` project-state contract to schema `0.5.0`, replacing `claims` with `paper_conclusions` and registering versioned environment, algorithm, audit, and loop artifact roots.
+- Removed assertion-oriented and default AI/ML vocabulary from runtime skill entry points and the communication design chain, and extended validation to prevent those terms from returning.
+
 ## v0.7.0 - 2026-07-08
 
 - Added `ccf-visual-composer` for publication-grade figure/table visual contracts, palettes, panel maps, caption placement, manuscript integration, and render QA from supplied results.

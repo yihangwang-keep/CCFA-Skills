@@ -42,4 +42,4 @@ The paper frames 3D affordance understanding as a practical robotics problem whe
 
 ## Do-Not-Copy Boundary
 
-Do not reuse affordance labels, robot validation claims, or functional text method names unless they belong to the user's work.
+Do not reuse affordance labels, robot validation statements, or functional text method names unless they belong to the user's work.

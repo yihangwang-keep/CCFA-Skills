@@ -2,6 +2,15 @@
 
 Use this rubric when reviewing a manuscript from the perspective of writing quality, reviewer readability, format discipline, and idea presentation. This file is not a replacement for scientific validation; it diagnoses how the paper communicates its scientific value.
 
+## Contents
+
+- [Review Dimensions](#review-dimensions)
+- [Quantitative Writing Feedback](#quantitative-writing-feedback)
+- [Score Anchors](#score-anchors)
+- [No-Filler Deduction Format](#no-filler-deduction-format)
+- [Writing Review Panel](#writing-review-panel)
+- [Writing-Only Boundaries](#writing-only-boundaries)
+
 ## Review Dimensions
 
 Score each dimension on 1-5 when enough text is available.
@@ -11,14 +20,14 @@ Score each dimension on 1-5 when enough text is available.
 | Storyline and motivation | 10 | Whether the paper makes the problem, gap, and stakes unavoidable before presenting the method. |
 | Contribution display | 10 | Whether contributions are specific, non-overlapping, evidence-backed, and visible in abstract/introduction/conclusion. |
 | Paragraph logic | 10 | Whether each paragraph has one job, a clear topic sentence, causal flow, and no mixed objectives. |
-| Claim-evidence alignment | 12 | Whether every strong claim is supported by experiment, proof, citation, example, or qualified language. |
+| Conclusion-evidence alignment | 12 | Whether every strong conclusion is supported by experiment, proof, citation, example, or qualified language. |
 | Method readability | 9 | Whether notation, modules, algorithm steps, assumptions, and design choices are introduced in the right order. |
 | Experiment narration | 9 | Whether tables/figures are introduced before interpretation and whether the text explains what each result proves. |
 | Related-work positioning | 8 | Whether closest work is compared on technical axes rather than listed chronologically. |
-| Terminology and notation consistency | 8 | Whether key terms, symbols, dataset names, model names, and claims stay stable across sections. |
+| Terminology and notation consistency | 8 | Whether key terms, symbols, dataset names, model names, and conclusions stay stable across sections. |
 | Prose discipline and voice | 10 | Whether the paper avoids defensive/incremental framing, label-heavy symbols, number-only abstracts, formula dumping, third-person manuscript narration, punctuation-driven structure, unsupported hype, and overlong compound sentences. |
 | LaTeX and format discipline | 6 | Whether the manuscript follows venue style, references, captions, labels, equations, algorithms, and page/line constraints. |
-| Reviewer-facing risk | 8 | Whether the writing creates avoidable rejection risks: hidden contribution, exaggerated claim, missing limitation, unclear baseline, or inconsistent story. |
+| Reviewer-facing risk | 8 | Whether the writing creates avoidable rejection risks: hidden contribution, overstated conclusion, missing limitation, unclear baseline, or inconsistent story. |
 
 Weights sum to 100. Compute:
 
@@ -38,7 +47,7 @@ Include this scorecard in standard writing review:
 | Storyline and motivation | 10 |  |  |  |  |
 | Contribution display | 10 |  |  |  |  |
 | Paragraph logic | 10 |  |  |  |  |
-| Claim-evidence alignment | 12 |  |  |  |  |
+| Conclusion-evidence alignment | 12 |  |  |  |  |
 | Method readability | 9 |  |  |  |  |
 | Experiment narration | 9 |  |  |  |  |
 | Related-work positioning | 8 |  |  |  |  |
@@ -53,7 +62,7 @@ For each score of 3 or below, name the location, the reviewer confusion it creat
 
 ### 5
 
-The section or paper reads like a strong venue submission: the story is precise, claims are supported, transitions are natural, figures/tables carry evidence, and formatting does not distract.
+The section or paper reads like a strong venue submission: the story is precise, conclusions are supported, transitions are natural, figures/tables carry evidence, and formatting does not distract.
 
 ### 4
 
@@ -65,7 +74,7 @@ Understandable but not review-ready. A strict reviewer can follow the work, yet 
 
 ### 2
 
-Hard to review fairly. The writing hides the actual contribution, mixes claims, breaks logical order, or leaves major claims unsupported.
+Hard to review fairly. The writing hides the actual contribution, mixes conclusions, breaks logical order, or leaves major conclusions unsupported.
 
 ### 1
 
@@ -104,7 +113,7 @@ Use these independent roles for standard writing review:
 
 - **Storyline reviewer:** checks problem -> gap -> root challenge -> insight -> evidence progression.
 - **Skeptical reviewer-reader:** checks where the prose makes the work look weaker, more incremental, or less supported than it is.
-- **Claim-evidence reviewer:** checks unsupported, over-broad, or misplaced claims.
+- **Conclusion-evidence reviewer:** checks unsupported, over-broad, or misplaced conclusions.
 - **Paragraph-logic reviewer:** checks topic sentences, paragraph jobs, transitions, and redundancy.
 - **Venue-style reviewer:** checks target-venue expectations, contribution display, and figure/table narration.
 - **LaTeX/format reviewer:** checks captions, labels, equations, algorithms, references, anonymity markers, and page-risk signals.
@@ -126,7 +135,7 @@ Do not force praise or criticism. If a role finds the section acceptable on its 
 
 ## Writing-Only Boundaries
 
-- Do not invent results, citations, baselines, or theorem claims.
-- Do not silently rewrite the idea. When a scientific claim is too strong for the evidence, recommend weakening, qualifying, moving, or requesting evidence.
+- Do not invent results, citations, baselines, or theorem statements.
+- Do not silently rewrite the idea. When a scientific conclusion is too strong for the evidence, recommend weakening, qualifying, moving, or requesting evidence.
 - Do not give acceptance probabilities. Report writing risk and likely reviewer confusion.
 - If the user asks for actual rewriting, follow CCFA handoff mode before using `ccf-paper-writer`.

@@ -46,7 +46,7 @@ Draft response or response file:
 Promised paper changes:
 Revision ledger:
 Resubmission adaptation notes:
-Claims/promises to avoid:
+Unsupported conclusions/promises to avoid:
 Next CCFA owner:
 Checklist status:
 ```

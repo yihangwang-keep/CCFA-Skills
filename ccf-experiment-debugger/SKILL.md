@@ -1,6 +1,6 @@
 ---
 name: ccf-experiment-debugger
-description: "Coordinate diagnosis and minimal repair of failed environment or algorithm MVP runs using evidence from ccf-env-code-auditor and ccf-algorithm-code-auditor. Use for wrong, unstable, divergent, irreproducible, unexpectedly weak, or failed MVP results, 实验失败, MVP失败, 结果异常, 复现失败, 最小修改, 排查原因. Route confirmed environment-code, algorithm-code, algorithm-design, or scenario-design causes to the owning skill and close the loop with auditor reruns. Do not design initial experiments or fabricate success."
+description: "Coordinate evidence-led diagnosis, minimal repair, and repeated design-validation loops for communication environment or algorithm MVP failures. Use for Ralph loop, Ralph-loop, design-validation cycles, environment-algorithm revision, wrong, unstable, divergent, irreproducible, unexpectedly weak, or failed MVP results, 设计-验证-修改循环, 实验失败, MVP失败, 结果异常, 复现失败, 最小修改, 排查原因. Preserve the ordered environment-code, algorithm-code, algorithm-design, scenario-design ownership path and close every invalidated check. Do not design initial paper experiments or fabricate success."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -12,13 +12,9 @@ metadata:
 
 # CCF Experiment Debugger
 
-## Invocation Controls
-
-**CCFA Handoff Mode: PARTIAL (Recommended).** Follow `metadata.ccf_skill_controls.handoff_question_mode` and `../ccf-common/references/handoff-modes.md`. Treat failed runs, code, configurations, and unpublished results as private user data.
-
 ## Core Rule
 
-Operate as the failure coordinator around the two implementation auditors. Do not create a third independent audit protocol. Freeze the failed run and its artifact versions, obtain or refresh environment-auditor evidence, obtain or refresh algorithm-auditor evidence, identify the first confirmed owner, apply the smallest change through that owner, and rerun every affected auditor gate.
+Coordinate repair around `ccf-env-code-auditor` and `ccf-algorithm-code-auditor`; do not create a third audit protocol. Freeze the failed run and authoritative versions, locate the first confirmed owner, change one owned item, and rerun every invalidated check.
 
 Use this ownership order:
 
@@ -29,40 +25,50 @@ environment implementation
 -> scenario design
 ```
 
-This order controls modification, not blame. Existing decisive evidence may identify a later owner directly, but every upstream contract on which that conclusion depends must already be accepted.
+The order controls modification, not blame. Decisive current evidence may identify a later owner directly, but every upstream contract on which that conclusion depends must already be accepted. Algorithm failure alone never authorizes a change to the paper scenario or formal optimization problem.
 
-## Ordered Failure Loop
+## Modes
 
-1. **Failure-authority gate:** record the failed command, first divergence, paper-scenario/MVP version, environment spec/code version, environment verdict, algorithm spec/code version, algorithm verdict, configuration, seeds, metrics, criteria, logs, and preserved outputs.
-2. **Environment-auditor gate:** use `ccf-env-code-auditor` evidence to establish authority, design-contract consistency, model-to-code traceability, semantics, independent execution, optimization fidelity, and tradeoff behavior. Repair a confirmed environment-code defect through that auditor and rerun it before continuing.
-3. **Algorithm-auditor gate:** after environment acceptance, use `ccf-algorithm-code-auditor` evidence to establish environment-contract consistency, algorithm-design completeness, equation-to-code traceability, semantics, reference checks, and independent MVP behavior. Repair a confirmed algorithm-code defect through that auditor and rerun it.
-4. **Algorithm-design gate:** when both implementations match their specifications but the algorithm mechanism or assumptions fail the declared target, route the smallest formal mechanism change to `ccf-algorithm-designer`, then rerun `ccf-algorithm-code-auditor`.
-5. **Scenario-design gate:** modify the scenario only when accepted audit evidence identifies a causal, mathematical, feasibility, complexity, or paper-to-MVP defect. Route the smallest scenario-contract change to `ccf-env-design`, rerun `ccf-env-code-auditor`, then refresh affected algorithm design and audit evidence.
-6. **Closure gate:** accept the repair when the original failing case and all auditor gates invalidated by the change pass under the new authoritative versions. Otherwise record the remaining failure and continue from its confirmed owner.
+- `diagnose`: isolate one failed or weak run, apply one minimal repair through its owner, and close affected checks.
+- `design-validation-loop`: repeat design, implementation, MVP validation, independent audit, and minimal repair against one fixed loop instruction and persistent ledger until a valid terminal status is recorded.
 
-Load `references/diagnostic-protocol.md` for the failure record, ownership ledger, minimal-change record, and rerun closure.
+For `diagnose`, load `references/diagnostic-protocol.md`. For `design-validation-loop`, load both debugger references and `../ccf-common/references/communication-research-terms.md`.
 
-## Workflow
+## Ordered Failure Gates
 
-1. Preserve the original failed run and inventory available auditor reports.
-2. Start at the earliest auditor gate whose evidence is missing, stale, or contradicted.
-3. Keep one active root-cause hypothesis and change one owned contract or implementation item at a time.
-4. Record the reason, owner, changed artifact/version, dependent gates, rerun command, and result.
-5. Return the confirmed cause, minimal modification, refreshed auditor verdicts, and unresolved evidence.
+1. **Failure authority:** preserve the command, first divergence, paper-scenario and scenario-MVP versions, environment specification/code verdict, algorithm specification/code verdict, validation-contract version, configuration, seeds, criteria, logs, and outputs.
+2. **Environment implementation:** use current `ccf-env-code-auditor` evidence to check authority, paper-problem consistency, equation-to-code traceability, semantics, independent execution, optimization fidelity, and central-tradeoff behavior. Repair a confirmed environment-code defect and rerun this auditor before continuing.
+3. **Algorithm implementation:** after environment acceptance, use current `ccf-algorithm-code-auditor` evidence to check environment-contract consistency, design completeness, equation-to-code traceability, semantics, reference checks, and independent MVP behavior. Repair a confirmed algorithm-code defect and rerun this auditor.
+4. **Algorithm design:** when both implementations match their accepted specifications but the mechanism or assumptions miss the formal target, route one formal change to `ccf-algorithm-designer`, then refresh implementation and algorithm-auditor evidence.
+5. **Scenario design:** change the environment contract only when accepted evidence establishes a causal, mathematical, feasibility, complexity-balance, paper-scenario-to-MVP, or information-pattern defect. Route an environment amendment to `ccf-env-design`; after acceptance, rerun the complete affected environment, algorithm, and result chain.
+6. **Closure:** apply the scope-specific terminal rules and accept only when the original failing case and every check invalidated by the delta pass under the same authoritative and validation-contract versions.
 
-## Output Contract
+## Loop Discipline
+
+1. Keep the paper scenario, formal problem, scenario MVP, environment, algorithm, fixed points, and the validation contract defined in `references/design-validation-loop.md` versioned in the ledger. Lock that contract before the first repair.
+2. Start at the earliest missing, stale, failed, or contradicted check. Keep one owner, one active cause, and one delta per round.
+3. For repository changes, work on a dedicated branch or worktree, record the round base before editing, and commit the single delta as a checkpoint. Invoke the existing `$code-review` skill in a fresh review agent against that fixed point and the frozen specification. Keep its Standards and Spec axes unchanged; do not reproduce them here.
+4. Reuse `$diagnosing-bugs` for a hard implementation defect, `$tdd` when the requested repair is test-first, and `$research` when an environment amendment needs external task, physical, protocol, or service evidence. Keep their protocols in their owning skills.
+5. Do not remove a failed case or relax the validation contract to obtain a pass. A material validation change needs its owning design skill, independent audit, a new contract version, and a terminal restart decision.
+6. After any repair, mark dependent evidence stale before rerunning it. A verdict applies only to the exact artifact versions, validation contract, and reviewed `HEAD` recorded with it.
+7. End only with `accepted`, `no-algorithmic-contribution`, `rebaseline-required`, `reframe`, or `blocked`. Apply their precedence rules; a loop limit or completion phrase is not acceptance evidence.
+
+## Visible Output
+
+Keep gate matrices, candidate comparisons, ownership history, and the complete ledger internal unless the user requests an audit record. Return the requested repaired artifact or diagnosis first, followed only by:
 
 ```text
-Failure signature and authoritative versions:
-Environment-auditor status:
-Algorithm-auditor status:
-Confirmed owner and evidence:
-Minimal modification:
-Invalidated and rerun gates:
-Result after rerun:
-Remaining failure or next owner:
+Current status and authoritative versions:
+Confirmed cause and decisive evidence:
+Changed item and owner:
+Checks invalidated and refreshed:
+Supported conclusion or remaining blocker:
 ```
 
-## Reference
+Never print empty headings or routine pass details.
 
-- `references/diagnostic-protocol.md`: auditor-centered failure isolation, ownership, minimal repair, and closure protocol.
+## References
+
+- `references/diagnostic-protocol.md`: failure record, owner selection, minimal delta, invalidation, and closure.
+- `references/design-validation-loop.md`: frozen research layers, fixed loop instruction, persistent ledger, environment amendment, independent review, and terminal statuses.
+- `../ccf-common/references/communication-research-terms.md`: communication research identity, environment authority, and amendment semantics used by the loop.

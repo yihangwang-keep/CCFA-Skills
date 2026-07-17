@@ -1,7 +1,7 @@
 # InSpectre Gadget Style Card
 
 Venue/year: USENIX Security 2024 family.
-Source: USENIX Security 2024 technical sessions source record `usenix-security-2024-technical-sessions`; verify the exact paper page before public award-status claims.
+Source: USENIX Security 2024 technical sessions source record `usenix-security-2024-technical-sessions`; verify the exact paper page before public statements about award status.
 Use when: security papers involving attacks, defenses, vulnerability discovery, side channels, exploit chains, formal threat models, or security measurement.
 
 ## Story Pattern
@@ -13,7 +13,7 @@ The paper type is security research: define the threat model and attacker capabi
 - Name the security setting and threat model.
 - State the core failure in existing assumptions or defenses.
 - Describe the method at the level of attack/defense mechanism.
-- Preview evidence without overclaiming universal vulnerability or protection.
+- Preview evidence without overstating universal vulnerability or protection.
 
 ## Introduction Moves
 
@@ -36,4 +36,4 @@ The paper type is security research: define the threat model and attacker capabi
 
 ## Do-Not-Copy Boundary
 
-Do not borrow vulnerability details, exploit wording, or scope claims. Use only the security-review structure.
+Do not borrow vulnerability details, exploit wording, or scope statements. Use only the security-review structure.

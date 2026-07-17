@@ -54,8 +54,8 @@ Use this section to prevent premature downstream work:
 
 - do not optimize the idea until the target contribution type is clear;
 - do not search with private wording unless authorized;
-- do not design experiments before the central claim is stable;
-- do not write manuscript prose before claims and evidence are aligned;
+- do not design experiments before the central paper conclusion is stable;
+- do not write manuscript prose before paper conclusions and evidence are aligned;
 - do not compress before the user decides appendix/delete policy;
 - do not draft rebuttal unless real reviewer comments or explicit rebuttal intent exist.
 

@@ -14,7 +14,7 @@ The paper reframes LLM interaction as a long-horizon collaboration problem rathe
 - Name a behavioral failure: passive responses to ambiguous or open-ended requests.
 - Introduce the framework through its training signal.
 - Report both task performance and interaction quality.
-- Add human-user evidence to strengthen the collaboration claim.
+- Add human-user evidence to strengthen the collaboration statement.
 
 ## Introduction Moves
 
@@ -31,15 +31,15 @@ The paper reframes LLM interaction as a long-horizon collaboration problem rathe
 
 ## Evidence Moves
 
-- Pair automatic evaluation with human judgment when claiming user-centered gains.
+- Pair automatic evaluation with human judgment when stating user-centered gains.
 - Report both performance and interactivity so the method is not seen as only more verbose.
-- Include a cost or time measure if the claim includes collaboration efficiency.
+- Include a cost or time measure if the statement includes collaboration efficiency.
 
 ## Reusable Techniques
 
 - Use "short-term objective versus long-term user goal" as a clean motivation axis.
 - Treat benchmark design as part of the contribution when existing evaluation cannot test the thesis.
-- Let user study evidence calibrate claims about user satisfaction.
+- Let user study evidence calibrate statements about user satisfaction.
 
 ## User Notes
 
@@ -47,4 +47,4 @@ Useful for any paper where the method changes how an AI system behaves in conver
 
 ## Do-Not-Copy Boundary
 
-Do not borrow CollabLLM's reward terminology, benchmark framing, or human-study claims unless the user's work has analogous protocol and evidence.
+Do not borrow CollabLLM's reward terminology, benchmark framing, or human-study statements unless the user's work has analogous protocol and evidence.

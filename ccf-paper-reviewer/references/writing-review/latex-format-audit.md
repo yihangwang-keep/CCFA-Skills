@@ -20,7 +20,7 @@ If compilation is feasible and the user wants format validation, run the local b
 Check:
 
 1. Venue template: correct class/style, anonymization/camera-ready mode, font size, margins, page limit, appendix handling, and supplemental-material rules.
-2. Title/abstract: no undefined acronyms, no overclaiming beyond evidence, no result numbers inconsistent with experiment section.
+2. Title/abstract: no overstatement beyond the evidence, no undefined acronyms, and no result numbers inconsistent with the experiment section.
 3. Section order: motivation before method details; method before results; limitations before broad conclusion when needed.
 4. Labels/refs: no duplicate labels, undefined refs, orphan labels, wrong figure/table/equation references, or stale section names.
 5. Citations: no missing citation keys, no citation-only paragraphs, no overloaded citation lists without comparison text.

@@ -1,6 +1,14 @@
 # Storyline Blueprint
 
-Use this before drafting, after major section edits, and whenever the user asks for storyline generation, scientific storytelling, narrative design, paper/story structure, research insight framing, or claim generation.
+Use this before drafting, after major section edits, and whenever the user asks for storyline generation, scientific storytelling, narrative design, paper/story structure, research insight framing, or conclusion framing.
+
+## Contents
+
+- Storyline definition and global fields
+- Multi-expert generation and fusion
+- Storyline expression logic and evidence ladder
+- Section roles, checks, matrices, and output templates
+- Failure signals
 
 CCF-A writing should make the paper's scientific logic easy for reviewers to reconstruct. A storyline is not an outline, a marketing angle, or a list of modules. It is the single explanatory logic that makes the research necessary, plausible, evidenced, and worth remembering.
 
@@ -9,7 +17,7 @@ CCF-A writing should make the paper's scientific logic easy for reviewers to rec
 A scientific storyline is the paper's central causal argument:
 
 ```text
-scientific origin -> knowledge gap -> scientific tension -> fundamental question -> core insight -> method mechanism -> evidence ladder -> bounded claim
+scientific origin -> knowledge gap -> scientific tension -> fundamental question -> core insight -> method mechanism -> evidence ladder -> supported conclusion with applicability range
 ```
 
 The storyline must answer:
@@ -19,8 +27,8 @@ The storyline must answer:
 - What root reason makes existing approaches insufficient?
 - What insight changes the way the problem should be attacked?
 - How does the method implement that insight?
-- Which evidence tests the claim, rather than merely decorating the paper?
-- What can be claimed honestly, and where does the claim stop?
+- Which evidence tests the conclusion, rather than merely decorating the paper?
+- What can be stated honestly, and what is the conclusion's applicability range?
 
 Do not start a storyline from the method name, module list, benchmark score, or fashionable technique. Start from the scientific origin.
 
@@ -45,7 +53,7 @@ Core insight:
 Proposed method/mechanism:
 Contribution type(s):
 Evidence ladder:
-Expected central claim:
+Expected central conclusion:
 Known limitations:
 Likely reviewer doubts:
 Novelty status: searched / partially searched / user-provided / unsearched
@@ -90,7 +98,7 @@ Fundamental scientific question:
 Core insight:
 Experimental logic:
 Method organization:
-Expected scientific claim:
+Expected scientific conclusion:
 ```
 
 #### Expert 1: Frontier Innovation Expert
@@ -158,7 +166,7 @@ Design:
 - How to open the problem.
 - How to create scientific tension.
 - How to order experiments as a logic chain.
-- How to form a strong but bounded claim.
+- How to form a strong but bounded conclusion.
 
 Output:
 
@@ -176,7 +184,7 @@ Checks:
 
 - Whether the story is truly novel.
 - Whether it is only a repackaging of existing work.
-- Whether it over-explains or overclaims.
+- Whether it over-explains or overstates the evidence.
 - Whether any key logical connection is missing.
 
 Output:
@@ -198,7 +206,7 @@ Scientific Depth: Does it reach the root scientific question?
 Novelty: Does it create a new cognitive angle, not just a new wording?
 Logical Coherence: Do motivation, method, and experiments form a causal chain?
 Narrative Quality: Is there scientific tension and reader curiosity?
-Claim Strength: Does the final claim represent the whole work and match evidence?
+Conclusion Strength: Does the final conclusion represent the whole work and match evidence?
 ```
 
 Cross-review format:
@@ -210,7 +218,7 @@ Scientific Depth:
 Novelty:
 Logical Coherence:
 Narrative Quality:
-Claim Strength:
+Conclusion Strength:
 Fatal weakness if any:
 Repair needed:
 Evidence needed:
@@ -232,9 +240,9 @@ Fusion rules:
 1. Pick one dominant fundamental question.
 2. Pick one core insight that answers that question.
 3. Organize the method as the natural implementation of the insight.
-4. Organize experiments as an evidence ladder for the claim.
+4. Organize experiments as an evidence ladder for the conclusion.
 5. Remove candidate fragments that create a second main story.
-6. Weaken or mark claims that exceed supplied evidence.
+6. Weaken or mark conclusions that exceed supplied evidence.
 7. Preserve useful expert disagreement as limitations, reviewer risks, or future work.
 
 Fusion output:
@@ -246,8 +254,8 @@ Core insight:
 Final story arc:
 Method organization:
 Evidence ladder:
-Central scientific claim:
-Subclaims and evidence:
+Central scientific conclusion:
+Supporting conclusions and evidence:
 Limitations and boundaries:
 Reviewer-risk repairs:
 Discarded story fragments and why:
@@ -300,7 +308,7 @@ The question should be:
 - connected to the method mechanism,
 - answerable by the evidence package.
 
-If there are several questions, choose the one that explains the rest. Put secondary questions into subclaims or experiments.
+If there are several questions, choose the one that explains the rest. Put secondary questions into supporting conclusions or experiments.
 
 ### 4. Core Insight: What Changes
 
@@ -356,31 +364,31 @@ Each evidence item must answer a reviewer question:
 ```text
 Reviewer question:
 Evidence:
-Claim supported:
+Conclusion supported:
 What would be weakened if this evidence failed:
 ```
 
-### 7. Claim Construction: What Can Be Said
+### 7. Conclusion Framing: What Can Be Said
 
-Build one central claim and a small set of subclaims.
+Build one central supported conclusion and a small set of supporting conclusions.
 
-Central claim format:
+Central conclusion format:
 
 ```text
 This work shows that [core insight/mechanism] enables [capability/understanding] for [scope], supported by [evidence types], while limited by [boundary].
 ```
 
-Subclaim map:
+Supporting conclusion map:
 
 ```text
-Subclaim:
+Supporting conclusion:
 Evidence:
 Support strength: strong / adequate / weak / absent
 Risk:
 Revision action:
 ```
 
-Do not make the claim stronger than the evidence. If the strongest novelty is a benchmark, measurement, empirical finding, or system insight, claim that directly instead of pretending the method is the main novelty.
+Do not make the conclusion stronger than the evidence. If the strongest novelty is a benchmark, measurement, empirical finding, or system insight, state that directly instead of pretending the method is the main novelty.
 
 ### 8. Final Takeaway And Boundary
 
@@ -392,7 +400,7 @@ End with what the community should remember:
 - new design principle,
 - new limitation of prior assumptions.
 
-Then bound it honestly. A good boundary increases trust; it should not secretly undercut the central claim.
+Then bound it honestly. A good boundary increases trust; it should not secretly undercut the central conclusion.
 
 ## Compact Core Story Arc
 
@@ -403,8 +411,8 @@ Use this compact arc for ordinary drafting:
 3. The gap has a root reason, not merely weak numbers.
 4. The paper introduces a core insight that addresses that reason.
 5. The method implements the insight through necessary modules or formal steps.
-6. Evidence validates each major claim in a causal order.
-7. Limitations bound the claim without defeating it.
+6. Evidence validates each major conclusion in a causal order.
+7. Limitations bound the conclusion's applicability range without defeating it.
 
 ## Contribution Types
 
@@ -427,13 +435,13 @@ Do not imply a stronger contribution type than the evidence supports.
 
 | Section | Main role | Story check |
 | --- | --- | --- |
-| Abstract | Compress the entire story | Does it include origin, gap, insight, method, and evidence without overclaiming? |
+| Abstract | Compress the entire story | Does it include origin, gap, insight, method, and evidence without overstatement? |
 | Introduction | Build scientific tension and reviewer curiosity | Does the challenge naturally lead to the insight and method? |
 | Related Work | Position novelty | Does each topic explain the gap the paper fills? |
 | Method | Make mechanism auditable | Can reviewers see how the method implements the insight? |
-| Experiments | Build belief | Does every major claim have evidence in a causal order? |
+| Experiments | Build belief | Does every major conclusion have evidence in a causal order? |
 | Figures/Tables | Make evidence inspectable | Does each visual answer one reviewer question? |
-| Limitations | Bound claims | Are limitations honest but not self-defeating? |
+| Limitations | Bound conclusions | Are limitations honest but not self-defeating? |
 | Conclusion | Leave final takeaway | Does it restate what the community now knows or can do? |
 
 ## Storyline Checks After Each Section
@@ -443,10 +451,10 @@ Run these after writing or revising a section:
 1. Paragraph roles:
    - Assign each paragraph one role.
    - Remove or merge paragraphs with unclear roles.
-2. Claim-evidence map:
-   - List every major claim.
+2. Conclusion-evidence map:
+   - List every major conclusion.
    - Point to evidence in experiments, theorem, analysis, user study, or figure.
-   - Mark as `supported`, `needs evidence`, or `overclaim`.
+   - Mark as `supported`, `needs evidence`, or `overstatement`.
 3. Term map:
    - List key terms and abbreviations.
    - Ensure the same concept keeps the same name.
@@ -454,22 +462,22 @@ Run these after writing or revising a section:
 4. Cross-section continuity:
    - Check whether Abstract, Introduction, Method, and Experiments tell the same story.
    - Ensure contributions in Introduction are validated in Experiments.
-   - Ensure limitations do not contradict contribution claims.
+   - Ensure limitations do not contradict stated contributions.
 5. Reviewer-risk register:
    - Record likely objections.
    - Mark each as addressed by writing, evidence, new experiment, or limitation.
 
-## Claim-Evidence Matrix
+## Conclusion-Evidence Matrix
 
 Use this format:
 
 ```text
-Claim:
+Conclusion:
 Where stated:
 Evidence source:
 Evidence strength:
 Reviewer risk:
-Status: supported / needs evidence / overclaim / unclear
+Status: supported / needs evidence / overstatement / unclear
 Revision action:
 ```
 
@@ -486,7 +494,7 @@ Fundamental scientific question:
 Core insight:
 Experimental logic:
 Method organization:
-Expected scientific claim:
+Expected scientific conclusion:
 Main risk:
 ```
 
@@ -498,7 +506,7 @@ Scientific Depth:
 Novelty:
 Logical Coherence:
 Narrative Quality:
-Claim Strength:
+Conclusion Strength:
 Keep / merge / discard:
 Required repair:
 ```
@@ -512,7 +520,7 @@ Fundamental Question:
 Core Insight:
 Method As Consequence:
 Evidence Ladder:
-Central Claim:
+Central Conclusion:
 Boundaries:
 Section-Level Expression:
 Reviewer-Risk Repairs:
@@ -525,12 +533,12 @@ Revise when you see:
 - The method appears before the reader understands the scientific origin.
 - The gap is "existing work has not tried X" without a root reason.
 - The insight is only a component name or implementation detail.
-- The story has several unrelated main claims.
+- The story has several unrelated main conclusions.
 - The paper sells a module but experiments validate only the whole pipeline.
 - The evidence order is a checklist rather than a belief ladder.
-- The Abstract claims broad improvement but experiments cover a narrow setting.
+- The Abstract states broad improvement but experiments cover a narrow setting.
 - Related Work hides the strongest competitor.
-- Experiments introduce claims never promised earlier.
-- The conclusion adds new claims.
+- Experiments introduce conclusions never promised earlier.
+- The conclusion adds new unsupported statements.
 - Figures show many details but no clear reviewer question.
-- The final claim is stronger than the supplied evidence.
+- The final conclusion is stronger than the supplied evidence.

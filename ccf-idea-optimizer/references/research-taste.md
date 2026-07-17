@@ -10,7 +10,7 @@ Strong research usually has:
 - A precise gap against strong prior work.
 - A simple insight that changes how the problem is attacked.
 - A method whose mechanism is inspectable.
-- Evidence that tests the claim rather than decorating it.
+- Evidence that tests the intended paper conclusion rather than decorating it.
 - Honest scope and limitations.
 - A result that would still teach something if the headline number were smaller.
 
@@ -34,9 +34,9 @@ Use intellectual merit as the core idea test:
 
 - Does the idea advance knowledge, capability, method, data, theory, system design, or evaluation?
 - Are the team, resources, and approach credible?
-- Are the claims grounded in evidence that can be produced?
+- Can the planned evidence support the intended paper conclusions?
 
-Use broader impact only when it is real and venue-relevant. Do not add vague societal claims to compensate for weak technical contribution.
+Use broader impact only when it is real and venue-relevant. Do not add vague societal overstatements to compensate for weak technical contribution.
 
 ## Hamming-Style Taste
 
@@ -71,7 +71,7 @@ For fast-moving topics, a good idea should survive a current related-work scan. 
 
 - The idea is a direct extension of a crowded evaluation trend with no new bottleneck.
 - The method is "add LLM/VLM/diffusion/agent" without a mechanism tied to the problem.
-- The claimed gap is likely solved by recent workshop, arXiv, OpenReview, or proceedings papers.
+- The stated gap is likely solved by recent workshop, arXiv, OpenReview, or proceedings papers.
 - The evidence package would only show small metric gains without explaining why.
 - The idea depends on an obsolete dataset, baseline, threat model, operating regime, or user scenario.
 

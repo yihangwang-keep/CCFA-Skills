@@ -2,9 +2,16 @@
 
 Use this file for role-specific idea review. Keep roles independent before aggregating.
 
-Each expert must write as a strict reviewer, not as a generic coach. Do not use generic praise or generic concern. Every role must name a concrete claim, mechanism, closest-work risk, evidence gap, or venue criterion. After the strict concern, each role must name the smallest repair or evidence test that would change its judgment; if no repair exists, explain why.
+Each expert must write as a strict reviewer, not as a generic coach. Do not use generic praise or generic concern. Every role must name a concrete proposed paper conclusion, mechanism, closest-work risk, evidence gap, or venue criterion. After the strict concern, each role must name the smallest repair or evidence test that would change its judgment; if no repair exists, explain why.
 
 Do not force roles to disagree, praise, or reject. A role may say that the idea is plausible on its axis, but it must state the evidence that supports that view. A role may also say `insufficient evidence` when the idea or search basis is too incomplete for a fair judgment.
+
+## Contents
+
+- [Required Roles](#required-roles)
+- [Optional Roles](#optional-roles)
+- [Per-Expert Output](#per-expert-output)
+- [Panel Synthesis](#panel-synthesis)
 
 ## Required Roles
 
@@ -14,7 +21,7 @@ Checks:
 
 - Importance of the problem to the target community.
 - Relationship to closest known work.
-- Whether the claimed gap is real, current, and specific.
+- Whether the stated gap is real, current, and specific.
 - Whether the idea teaches the field something beyond a local improvement.
 - Whether the insight would still look interesting after the obvious related-work paragraph is written.
 
@@ -33,7 +40,7 @@ Checks:
 
 Checks:
 
-- Whether the central claim can be tested.
+- Whether the central paper conclusion can be tested.
 - Baselines, ablations, metrics, datasets, workloads, proofs, or studies.
 - Feasibility under time, compute, data, and implementation constraints.
 - Whether negative results or failure cases would still be informative.

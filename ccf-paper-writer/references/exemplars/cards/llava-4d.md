@@ -24,7 +24,7 @@ Broad success in 2D multimodal understanding is narrowed to a physical-world fai
 - Paragraph 2: prior 3D LMMs as a ladder, followed by the dynamic-object failure.
 - Paragraph 3: observation that static background and moving objects share positions but differ in motion.
 - Paragraph 4: module preview with explicit mapping from observation to design.
-- Contributions: one model-level claim, two insight-to-module claims, one dataset/evidence claim.
+- Contribution statements: one model-level statement, two insight-to-module statements, one dataset/evidence statement.
 
 ## Method Moves
 
@@ -50,4 +50,4 @@ This is one of the user's recognized exemplars. Use it especially when the user'
 
 ## Do-Not-Copy Boundary
 
-Do not reuse the 4D coordinate prompt claim, dynamic-scene examples, dataset framing, or contribution wording unless they are actually the user's own technical content.
+Do not reuse the 4D coordinate prompt statement, dynamic-scene examples, dataset framing, or contribution wording unless they are actually the user's own technical content.

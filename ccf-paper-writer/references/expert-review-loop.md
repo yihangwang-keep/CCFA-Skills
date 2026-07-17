@@ -2,6 +2,13 @@
 
 Use this before submission, after a full section is drafted, or whenever the user asks for reviewer-style critique. Pair it with `references/score-lifting-loop.md` when the goal is reducing weak-score risks or rejection risk.
 
+## Contents
+
+- Review roles and closed-loop workflow
+- Review and revision forms
+- Severity, re-review, and score gates
+- Output modes
+
 ## Review Roles
 
 Simulate multiple reviewer perspectives:
@@ -24,10 +31,10 @@ Run these perspectives independently before synthesis. Do not force praise, disa
    - target threshold, defaulting to no fatal reject risk and at least weak-accept stance.
 2. Triage for fatal risks:
    - unclear contribution,
-   - unsupported central claim,
+   - unsupported central conclusion,
    - weak baseline,
    - missing ablation/proof/study,
-   - overclaim,
+   - overstatement,
    - venue mismatch,
    - reproducibility gap,
    - ethical or policy issue.
@@ -35,7 +42,7 @@ Run these perspectives independently before synthesis. Do not force praise, disa
 4. Convert each weakness into a revision action:
    - rewrite,
    - add evidence,
-   - weaken claim,
+   - qualify conclusion,
    - add experiment,
    - add citation,
    - reorganize section,
@@ -54,7 +61,7 @@ Contribution:
 Strengths:
 Weaknesses:
 Questions for authors:
-Claim-evidence risks:
+Conclusion-evidence risks:
 Missing experiments/proofs/studies:
 Clarity and organization issues:
 Venue-fit concerns:
@@ -95,10 +102,10 @@ Status: open / fixed / requires new result / accepted limitation
 High severity:
 
 - Central contribution is unclear or unsupported.
-- Main experiment/proof/study does not validate the claimed novelty.
+- Main experiment/proof/study does not validate the stated novelty.
 - Strongest baseline is missing.
 - Method cannot be reproduced from the paper.
-- Threat model, dataset, or evaluation protocol invalidates the claim.
+- Threat model, dataset, or evaluation protocol invalidates the stated conclusion.
 - Writing makes the paper look incremental when the idea is stronger.
 
 Medium severity:
@@ -120,11 +127,11 @@ After revision, ask:
 1. Would the same reviewer repeat the same high-severity criticism?
 2. Does the revised story explain why the method is needed?
 3. Does each contribution have explicit evidence?
-4. Are overclaims removed or supported?
+4. Are overstatements removed or supported?
 5. Has the target venue adapter been respected?
 6. Is the remaining risk acceptable and honestly disclosed?
 
-Do not call the paper ready while any central claim remains unsupported.
+Do not call the paper ready while any central conclusion remains unsupported.
 
 ## Score Consistency Gate
 
@@ -141,7 +148,7 @@ Before finalizing the review, ask:
 Before returning a revised section, score-risk report, or reviewer-style notes, check:
 
 1. Scores match the listed severity.
-2. Every score of 3 or below has a concrete edit, evidence addition, or claim-qualification condition.
+2. Every score of 3 or below has a concrete edit, evidence addition, or conclusion-qualification condition.
 3. Reviewer roles do not duplicate the same generic complaint.
 4. Tables are valid Markdown and section labels are complete.
 5. The final text or action list uses clear problem -> reason -> action logic.

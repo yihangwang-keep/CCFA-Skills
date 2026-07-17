@@ -29,7 +29,7 @@ The bundled library must remain:
 
 ## How To Adapt
 
-1. Start from the visual contract: claim, reviewer question, source data, and intended placement.
+1. Start from the visual contract: supported conclusion, reviewer question, source data, and intended placement.
 2. Pick a recipe by evidence shape, not by aesthetics.
 3. Keep the proposed method color stable across all generated figures.
 4. Use typographic hierarchy: large title, strong panel titles, compact axis text, and direct labels for the main evidence.
@@ -60,7 +60,7 @@ Then design a plot grammar:
 - Anchor: the first visual object the reader should inspect.
 - Contrast: color, alignment, slope, position, or grouping.
 - Context: uncertainty, baseline, scale, or source note.
-- Constraint: what the visual refuses to claim.
+- Constraint: which conclusion the visual does not support.
 
 ## Composite Dashboard Rules
 

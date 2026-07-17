@@ -2,25 +2,25 @@
 
 Venue/year: ACL 2024, Best Paper.
 Source: ACL Anthology `https://aclanthology.org/2024.acl-long.787/`.
-Use when: writing NLP evaluation, cognitive science of LLMs, synthetic data, falsification, or claim-testing papers.
+Use when: writing NLP evaluation, cognitive science of LLMs, synthetic data, falsification, or evaluation-focused papers.
 
 ## Story Pattern
 
-The paper takes a strong public claim about LLMs and turns it into an experimental question. Instead of arguing abstractly, it constructs a continuum of synthetic impossible languages and measures model learning across training. The contribution is both a benchmark-like probe and a disciplined test of a contested theoretical claim.
+The paper takes a strong public statement about LLMs and turns it into an experimental question. Instead of arguing abstractly, it constructs a continuum of synthetic impossible languages and measures model learning across training. The contribution is both a benchmark-like probe and a disciplined test of a contested theoretical statement.
 
 ## Abstract Moves
 
-- Start with the claim being tested.
-- State the evidence gap behind the claim.
+- Start with the statement being tested.
+- State the evidence gap behind the statement.
 - Introduce synthetic test languages as the experimental instrument.
 - Report the core finding against the control language.
 - End by opening a broader research program.
 
 ## Introduction Moves
 
-- Quote or paraphrase the disputed claim carefully and concretely.
-- Explain why the claim matters for methodology.
-- Avoid overclaiming by limiting the experiment to a model family and language set.
+- Quote or paraphrase the disputed statement carefully and concretely.
+- Explain why the statement matters for methodology.
+- Avoid overstating by limiting the experiment to a model family and language set.
 
 ## Method Moves
 
@@ -42,4 +42,4 @@ The paper takes a strong public claim about LLMs and turns it into an experiment
 
 ## Do-Not-Copy Boundary
 
-Do not reuse impossible-language tasks, Chomsky-framed claims, or cognitive conclusions unless the user's experiments directly test them.
+Do not reuse impossible-language tasks, Chomsky-framed statements, or cognitive conclusions unless the user's experiments directly test them.

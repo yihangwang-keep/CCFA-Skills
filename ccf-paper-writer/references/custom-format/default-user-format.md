@@ -2,6 +2,12 @@
 
 Use this format whenever the user asks for paper writing, planning, polishing, or review but does not specify a target venue, journal, or conference. State the assumption: "No target venue was specified, so I am using the user-custom writing format."
 
+## Contents
+
+- Source exemplars and writing shape
+- Section defaults and closed-loop generation
+- Citation and output contracts
+
 ## Source Exemplars
 
 The current custom format is distilled from two user-provided exemplar cards:
@@ -21,7 +27,7 @@ Use this structure:
 4. Core insight: express one observation that makes the method feel inevitable.
 5. Mechanism preview: name the main modules by their roles in the story.
 6. Evidence promise: map each contribution to a measurable task, ablation, benchmark, qualitative example, or downstream use.
-7. Boundary: explicitly avoid claims that require an actual target venue, uncollected experiments, or unsupported novelty.
+7. Boundary: explicitly avoid statements that require an actual target venue, uncollected experiments, or unsupported novelty.
 
 ## Section Defaults
 
@@ -53,7 +59,7 @@ Experiments:
 - Main comparison first.
 - Then ablations tied to contribution bullets.
 - Then qualitative examples that expose the motivating failure mode.
-- Then efficiency, scaling, or downstream evidence if claimed.
+- Then efficiency, scaling, or downstream evidence when supported by the supplied evidence.
 - Then limitations and failure cases.
 
 ## Closed-Loop Generation
@@ -63,7 +69,7 @@ Run the same loop used by `references/expert-review-loop.md`:
 1. Draft using this custom format.
 2. Simulate at least three reviewer views: method expert, experiment expert, and writing/storyline expert.
 3. Assign a provisional score on a 1-10 scale with reasons.
-4. Revise high-severity issues first: unclear contribution, unsupported evidence, missing outputs, weak baselines, overclaiming, or format drift.
+4. Revise high-severity issues first: unclear contribution, unsupported evidence, missing outputs, weak baselines, overstatement, or format drift.
 5. Re-review the revision.
 6. Repeat until no high-severity issue remains, or clearly list the remaining unresolved risk.
 
@@ -74,7 +80,7 @@ When using this custom format, follow the citation workflow in `references/citat
 - The introduction must carry12-20 citations woven naturally into the argument chain.
 - Related Work needs3-8 citations per topic group,20-35 total.
 - Every baseline, dataset, and borrowed module must be cited.
-- Use claim-first citation style: the sentence makes its point, then the bracket provides attribution.
+- Use point-first citation style: the sentence makes its point, then the bracket provides attribution.
 - Do not use "Author et al. [N]" as a sentence subject. Use the finding or method as the subject.
 - No `\textbf{Label:}` scaffolding in prose paragraphs. Write continuous arguments.
 - Count total citations before calling the draft complete: under25 for an AI/CV/NLP paper means under-cited.
@@ -87,7 +93,7 @@ When this default format is active, return:
 2. Loaded custom exemplars.
 3. Global story blueprint.
 4. Draft or revision.
-5. Claim-evidence map.
+5. Conclusion-evidence map.
 6. Review score and critique.
 7. Revision pass and re-review score.
 

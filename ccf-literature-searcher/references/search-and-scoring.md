@@ -2,6 +2,15 @@
 
 Use this file for source selection, source-quality exclusions, paper classification, and quality scoring.
 
+## Contents
+
+- [Source Tiers](#source-tiers)
+- [Hard Exclusions](#hard-exclusions)
+- [Search Strategy](#search-strategy)
+- [Opportunity Mapping](#opportunity-mapping)
+- [Paper-Type Taxonomy](#paper-type-taxonomy)
+- [Scoring](#scoring)
+
 ## Source Tiers
 
 Preferred primary sources:
@@ -10,7 +19,7 @@ Preferred primary sources:
 - Stable paper records: arXiv, DBLP, Semantic Scholar, OpenAlex, Crossref, DOI landing pages, project pages, dataset pages, simulator docs, and standard/specification pages when relevant.
 - Strong journals and transactions when the field is journal-centered: JMLR, TPAMI, TOG, TKDE, TDSC, TOSEM, TSE, TODS, CACM, IEEE/ACM Transactions, IEEE JSAC, IEEE TCOM, IEEE TWC, IEEE TMC, IEEE/ACM ToN, Nature/Science family only when relevant.
 
-Discovery sources are allowed for finding candidates, but final claims should point to a stable paper page or proceedings page whenever possible.
+Discovery sources are allowed for finding candidates, but final factual statements should point to a stable paper page or proceedings page whenever possible.
 
 ## Hard Exclusions
 
@@ -53,14 +62,14 @@ For each included method paper, record the problem scenario it addresses and the
 When the search is for early direction scouting, classify each cluster as one or more of:
 
 - `crowded but open`: many papers exist, but a measurable failure mode, setting, or assumption remains weak.
-- `covered central claim`: the same problem, mechanism, and evidence path are already present; the idea needs a new angle.
+- `covered central conclusion`: the same problem, mechanism, and evidence path are already present; the idea needs a new angle.
 - `evaluation-setting gap`: the field lacks a dataset, metric, stress test, simulator, channel/mobility model, evaluation standard, or accepted formulation reference.
 - `mechanism gap`: papers report performance but do not explain why the method works or fails.
 - `deployment/system gap`: real constraints, cost, latency, robustness, privacy, security, or user workflow are under-tested.
 - `theory/analysis gap`: empirical results exist but formal understanding, bounds, or diagnostics are missing.
 - `negative-result opportunity`: common assumptions fail, and a careful diagnostic or falsification paper may be valuable.
 
-For every `covered central claim`, still report the best possible rescue route:
+For every `covered central conclusion`, still report the best possible rescue route:
 
 ```text
 What is covered:
@@ -111,7 +120,7 @@ Experimental numeric evidence:
 - 4: solid numerical evidence with minor weaknesses.
 - 3: adequate numbers but limited settings, baselines, or statistics.
 - 2: weak numbers, narrow evaluation setting, or unclear fairness.
-- 1: numerical evidence absent or not meaningful for claims.
+- 1: numerical evidence absent or not meaningful for the paper conclusions.
 - `N/A artifact`: use for pure simulator, scenario generator, standard formulation, evaluation suite, or dataset papers; instead write an artifact-quality note.
 
 Artifact-quality note for `pure evaluation artifact`:

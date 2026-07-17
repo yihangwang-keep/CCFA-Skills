@@ -34,6 +34,101 @@ EXPECTED_SKILLS = {
     "ccf-paper-to-exemplar",
 }
 
+COMMUNICATION_CHAIN = {
+    "ccf-env-design",
+    "ccf-env-code-auditor",
+    "ccf-algorithm-designer",
+    "ccf-algorithm-code-auditor",
+    "ccf-experiment-debugger",
+    "ccf-experiment-designer",
+}
+
+FORBIDDEN_RUNTIME_TERM = re.compile(
+    r"(?<![A-Za-z])(?:over|sub)?claim(?:s|ed|ing)?(?![A-Za-z])",
+    flags=re.IGNORECASE,
+)
+REFERENCE_TERM_POLICY_FILES = {
+    "ccf-common/references/ccfa-yaml-contract.md",
+    "ccf-common/references/communication-research-terms.md",
+}
+REFERENCE_TERM_EXCLUDED_PREFIXES = (
+    "ccf-paper-writer/references/exemplars/papers/",
+    "ccf-paper-writer/references/venue-guides/",
+)
+FORBIDDEN_COMMUNICATION_DEFAULTS = {
+    "AI/ML": re.compile(r"\bAI\s*/\s*ML\b", flags=re.IGNORECASE),
+    "artificial intelligence": re.compile(r"\bartificial intelligence\b", flags=re.IGNORECASE),
+    "machine learning": re.compile(r"\bmachine learning\b", flags=re.IGNORECASE),
+    "deep learning": re.compile(r"\bdeep learning\b", flags=re.IGNORECASE),
+    "reinforcement learning": re.compile(r"\breinforcement learning\b", flags=re.IGNORECASE),
+    "learning-based": re.compile(r"\blearning[- ]based\b", flags=re.IGNORECASE),
+    "learned": re.compile(r"\blearned\b", flags=re.IGNORECASE),
+    "training": re.compile(r"\btraining\b", flags=re.IGNORECASE),
+    "dataset": re.compile(r"\bdatasets?\b", flags=re.IGNORECASE),
+    "neural": re.compile(r"\bneural(?:\s+networks?)?\b", flags=re.IGNORECASE),
+    "LLM": re.compile(r"\bLLMs?\b", flags=re.IGNORECASE),
+    "reward": re.compile(r"\brewards?\b", flags=re.IGNORECASE),
+    "人工智能": re.compile(r"人工智能"),
+    "人工智慧": re.compile(r"人工智慧"),
+    "机器学习": re.compile(r"机器学习"),
+    "機器學習": re.compile(r"機器學習"),
+    "深度学习": re.compile(r"深度学习"),
+    "深度學習": re.compile(r"深度學習"),
+    "强化学习": re.compile(r"强化学习"),
+    "強化學習": re.compile(r"強化學習"),
+    "神经网络": re.compile(r"神经网络"),
+    "神經網路": re.compile(r"神經網路"),
+    "数据集": re.compile(r"数据集"),
+    "训练": re.compile(r"训练"),
+    "訓練": re.compile(r"訓練"),
+    "資料集": re.compile(r"資料集"),
+}
+
+REQUIRED_CORE_GATES = {
+    "ccf-env-design/SKILL.md": (
+        "Scenario-background gate",
+        "Task-causal-chain gate",
+        "Scientific-question gate",
+        "Formal-problem gate",
+        "Problem-traceability gate",
+        "Coupling-and-complexity gate",
+        "Paper-to-MVP gate",
+        "Algorithm-information gate",
+        "Handoff-readiness gate",
+    ),
+    "ccf-env-code-auditor/SKILL.md": (
+        "Authority gate",
+        "Design-contract gate",
+        "Traceability gate",
+        "Semantic-correctness gate",
+        "Independent-execution gate",
+        "Optimization-fidelity gate",
+        "Tradeoff gate",
+        "Acceptance gate",
+    ),
+    "ccf-algorithm-designer/SKILL.md": (
+        "Authority gate",
+        "Formal-target gate",
+        "Structure gate",
+        "Algorithm-family gate",
+        "Mechanism gate",
+        "Environment-information gate",
+        "Algorithm-MVP gate",
+        "Verification-plan gate",
+        "Handoff-readiness gate",
+    ),
+    "ccf-algorithm-code-auditor/SKILL.md": (
+        "Authority gate",
+        "Environment-contract gate",
+        "Design-contract gate",
+        "Traceability gate",
+        "Semantic-correctness gate",
+        "Reference gate",
+        "Independent-MVP gate",
+        "Acceptance gate",
+    ),
+}
+
 
 def read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
@@ -117,6 +212,157 @@ def check_registry(skill_names: list[str], errors: list[str]) -> None:
         fail(errors, "registry missing skills: " + ", ".join(missing))
 
 
+def line_number(text: str, offset: int) -> int:
+    return text.count("\n", 0, offset) + 1
+
+
+def check_research_terminology(errors: list[str]) -> None:
+    runtime_entries = list(ROOT.glob("ccf-*/SKILL.md"))
+    runtime_entries.extend(ROOT.glob("ccf-*/agents/openai.yaml"))
+    for path in sorted(runtime_entries):
+        text = read(path)
+        match = FORBIDDEN_RUNTIME_TERM.search(text)
+        if match:
+            rel = path.relative_to(ROOT).as_posix()
+            fail(
+                errors,
+                f"{rel}:{line_number(text, match.start())}: use paper conclusion, supported conclusion, "
+                "applicability range, or statement instead of claim terminology",
+            )
+
+    reference_entries = sorted(ROOT.glob("ccf-*/references/**/*.md"))
+    for path in reference_entries:
+        rel = path.relative_to(ROOT).as_posix()
+        if rel in REFERENCE_TERM_POLICY_FILES:
+            continue
+        if rel.startswith(REFERENCE_TERM_EXCLUDED_PREFIXES):
+            continue
+        if "evaluation" in path.relative_to(ROOT).parts:
+            continue
+        text = read(path)
+        match = FORBIDDEN_RUNTIME_TERM.search(text)
+        if match:
+            fail(
+                errors,
+                f"{rel}:{line_number(text, match.start())}: first-party runtime reference uses "
+                "retired assertion terminology",
+            )
+
+    for skill in sorted(COMMUNICATION_CHAIN):
+        root = ROOT / skill
+        paths = [root / "SKILL.md"]
+        reference_root = root / "references"
+        if reference_root.is_dir():
+            paths.extend(sorted(reference_root.rglob("*.md")))
+        for path in paths:
+            text = read(path)
+            for label, pattern in FORBIDDEN_COMMUNICATION_DEFAULTS.items():
+                match = pattern.search(text)
+                if match:
+                    rel = path.relative_to(ROOT).as_posix()
+                    fail(
+                        errors,
+                        f"{rel}:{line_number(text, match.start())}: communication chain contains "
+                        f"the disallowed default term {label!r}",
+                    )
+
+
+def check_design_validation_contract(errors: list[str]) -> None:
+    for rel, gates in REQUIRED_CORE_GATES.items():
+        text = read(ROOT / rel)
+        for gate in gates:
+            if f"**{gate}:**" not in text:
+                fail(errors, f"{rel}: missing preserved core gate {gate!r}")
+
+    protocol = ROOT / "ccf-experiment-debugger" / "references" / "design-validation-loop.md"
+    if not protocol.is_file():
+        fail(errors, "missing design-validation-loop.md")
+        return
+
+    text = read(protocol)
+    required = (
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "V0 validation contract",
+        "one active owner",
+        "Environment Amendment Request",
+        "Validation Contract Changes",
+        "Terminal Status Precedence",
+        "scope: environment",
+        "changing seeds to avoid failure",
+        "$code-review",
+        "accepted",
+        "no-algorithmic-contribution",
+        "rebaseline-required",
+        "reframe",
+        "blocked",
+    )
+    for token in required:
+        if token not in text:
+            fail(errors, f"design-validation-loop.md missing required contract token: {token}")
+
+    scaffold = ROOT / "ccf-project-scaffolder" / "assets" / "ccfa.yaml"
+    scaffold_text = read(scaffold)
+    if 'version: "0.5.0"' not in scaffold_text:
+        fail(errors, "ccfa.yaml scaffold must use contract version 0.5.0")
+    if "paper_conclusions:" not in scaffold_text:
+        fail(errors, "ccfa.yaml scaffold missing paper_conclusions")
+    if re.search(r"^claims\s*:", scaffold_text, flags=re.MULTILINE):
+        fail(errors, "ccfa.yaml scaffold still contains the retired claims field")
+    for artifact in (
+        "environment_design",
+        "environment_audit",
+        "algorithm_design",
+        "algorithm_audit",
+        "experiment_debug",
+    ):
+        if not re.search(rf"^\s{{2}}{artifact}:\s*", scaffold_text, flags=re.MULTILINE):
+            fail(errors, f"ccfa.yaml scaffold missing artifacts.{artifact}")
+
+    contract_rel = "ccf-common/references/ccfa-yaml-contract.md"
+    contract_text = read(ROOT / contract_rel)
+    policy_match = re.search(r"```json\s+(\{.*?\})\s+```", contract_text, flags=re.DOTALL)
+    if not policy_match:
+        fail(errors, f"{contract_rel}: missing machine-readable migration policy")
+    else:
+        try:
+            migration_policy = json.loads(policy_match.group(1)).get("migration", {})
+        except json.JSONDecodeError as exc:
+            fail(errors, f"{contract_rel}: invalid migration policy JSON: {exc}")
+            migration_policy = {}
+        expected_policy = {
+            "source_versions": ["0.4.x"],
+            "target_version": "0.5.0",
+            "legacy_field": "claims",
+            "canonical_field": "paper_conclusions",
+            "read_mode": "read_only_alias",
+            "authorized_copy": "verbatim",
+            "dual_field_merge": "stable_id",
+            "same_id_same_content": "retain_once",
+            "same_id_different_content": "report_conflict",
+            "unkeyed_entries": "preserve_source_order",
+            "remove_legacy": "after_validated_write",
+            "unauthorized_write": "leave_unchanged_and_report",
+        }
+        if migration_policy != expected_policy:
+            fail(errors, f"{contract_rel}: migration policy does not match the v0.4-to-v0.5 contract")
+
+    for rel in (
+        "ccf-project-scaffolder/SKILL.md",
+        "ccf-pipeline-orchestrator/SKILL.md",
+        "ccf-literature-monitor/SKILL.md",
+        "ccf-integrity-auditor/SKILL.md",
+        "ccf-submission-checker/SKILL.md",
+    ):
+        text = read(ROOT / rel)
+        if "ccfa-yaml-contract.md" not in text:
+            fail(errors, f"{rel}: does not route legacy project state through the shared contract")
+        if "artifact-contracts.md" not in text:
+            fail(errors, f"{rel}: does not load shared artifact ownership for project state")
+
+
 def check_venue_guides(errors: list[str]) -> None:
     legacy = ROOT / "ccf-conference-skills"
     if legacy.exists() and list(legacy.rglob("SKILL.md")):
@@ -190,13 +436,24 @@ def check_required_files(errors: list[str]) -> None:
     for rel in required:
         if not (ROOT / rel).exists():
             fail(errors, f"missing required file: {rel}")
+    manifests: dict[str, dict[str, object]] = {}
     for rel in (".codex-plugin/plugin.json", ".claude-plugin/plugin.json"):
         path = ROOT / rel
         if path.exists():
             try:
-                json.loads(read(path))
+                manifests[rel] = json.loads(read(path))
             except json.JSONDecodeError as exc:
                 fail(errors, f"{rel}: invalid JSON: {exc}")
+    versions = {str(manifest.get("version", "")) for manifest in manifests.values()}
+    if len(versions) > 1:
+        fail(errors, "plugin manifest versions do not match: " + ", ".join(sorted(versions)))
+    codex_manifest = manifests.get(".codex-plugin/plugin.json", {})
+    interface = codex_manifest.get("interface", {})
+    if isinstance(interface, dict):
+        long_description = str(interface.get("longDescription", ""))
+        expected_count = f"{len(EXPECTED_SKILLS)}-skill"
+        if expected_count not in long_description:
+            fail(errors, f"Codex plugin longDescription must describe the {expected_count} family")
     for key in (
         "architecture",
         "workflow",
@@ -218,6 +475,8 @@ def main() -> int:
     errors: list[str] = []
     names = check_skills(errors)
     check_registry(names, errors)
+    check_research_terminology(errors)
+    check_design_validation_contract(errors)
     check_venue_guides(errors)
     check_required_files(errors)
     if errors:

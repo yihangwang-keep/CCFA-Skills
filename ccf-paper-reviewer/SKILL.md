@@ -19,7 +19,7 @@ metadata:
 Use this single review entry for both scientific review and writing/format review. Select a review mode instead of routing to a separate writing-review skill:
 
 - `scientific`: novelty, soundness, evidence, experiments, related work, reproducibility, ethics, scores, reviewer panel, and AC/meta-review.
-- `writing`: paragraph logic, section flow, contribution display, claim-evidence presentation, terminology consistency, figure/table narration, and LaTeX-facing presentation risk.
+- `writing`: paragraph logic, section flow, contribution display, conclusion-evidence presentation, terminology consistency, figure/table narration, and LaTeX-facing presentation risk.
 - `full`: scientific + writing + format + revision-action synthesis.
 
 Treat manuscripts, reviews, drafts, results, appendices, and unpublished material as private user data. Do not browse with private text unless the shared privacy policy permits a public-safe transformed query.
@@ -36,7 +36,7 @@ Do not write rebuttal text; route real reviewer-response work to `ccf-rebuttal-w
 
 1. Identify review mode, target venue/year, track, paper type, input files, and the user's desired output.
 2. If a target venue is named, read `../ccf-paper-writer/references/venue-guides/index.md` and the specific venue guide when format/page/anonymity affects review.
-3. Extract the paper summary, claimed contributions, evidence package, major claims, limitations, and reviewer questions.
+3. Extract the paper summary, stated contributions, evidence package, major conclusions, limitations, and reviewer questions.
 4. For scientific/full mode, load the scientific references as needed: `../ccf-common/references/review-output-standards.md`, `references/review-workflow.md`, `references/universal-review-rubric.md`, `references/venue-review-styles.md`, `references/reviewer-panel.md`, `references/calibration-and-rank.md`, and `references/desk-checks.md`.
 5. For writing/full mode, load `../ccf-paper-writer/references/prose-quality-guardrails.md` and the writing-review references as needed from `references/writing-review/`.
 6. Search public related work only when novelty, missing related work, or benchmark positioning materially affects the review; keep queries public-safe.
@@ -80,7 +80,7 @@ Next owner:
 
 - `references/review-workflow.md`: scientific review process.
 - `references/fixed-output-format.md`: fixed report format.
-- `references/universal-review-rubric.md`: scientific dimensions and claim-evidence audit.
+- `references/universal-review-rubric.md`: scientific dimensions and conclusion-evidence audit.
 - `references/venue-review-styles.md`: venue-family expectations.
 - `references/reviewer-panel.md`: simulated reviewers and AC/meta-review.
 - `references/calibration-and-rank.md`: scores, ranks, and confidence.

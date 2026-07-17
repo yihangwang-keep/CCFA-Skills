@@ -4,6 +4,14 @@ Use independent reviewer perspectives before writing the AC/meta-review. Do not 
 
 Do not force reviewers to disagree, praise, or reject. Each reviewer must ground its stance in manuscript evidence, supplied artifacts, or searched sources. If the evidence is insufficient, say `insufficient evidence` and name the missing artifact or check.
 
+## Contents
+
+- [Required Reviewers](#required-reviewers)
+- [Per-Reviewer Format](#per-reviewer-format)
+- [Synthesis Rule](#synthesis-rule)
+- [Additional Full-Review Roles](#additional-full-review-roles)
+- [Panel Synthesis](#panel-synthesis)
+
 ## Required Reviewers
 
 ### Best-Justified Reviewer
@@ -24,7 +32,7 @@ Finds the strongest reject case.
 Checks:
 
 - fatal novelty collapse,
-- unsupported central claim,
+- unsupported central conclusion,
 - invalid method or evaluation,
 - missing decisive comparison,
 - venue mismatch.
@@ -36,7 +44,7 @@ Checks:
 - assumptions,
 - algorithm/proof/system/study validity,
 - mechanism clarity,
-- correctness of causal claims,
+- correctness of causal conclusions,
 - failure modes.
 
 ### Evidence / Experiment Reviewer
@@ -66,7 +74,7 @@ Checks only clarity as it affects scientific review:
 
 - contribution recoverability,
 - figure/table interpretability,
-- claim-evidence visibility,
+- conclusion-evidence visibility,
 - terminology stability.
 
 For detailed paragraph or LaTeX review, use the writing-review references under `references/writing-review/`.
@@ -115,7 +123,7 @@ Use these roles in every full review unless the paper type makes a role genuinel
 
 ### Domain Application Reviewer
 
-Checks whether the method, claim, and evaluation align with the target domain practice.
+Checks whether the method, paper conclusion, and evaluation align with the target domain practice.
 
 - Does the assumption match real-world deployment constraints?
 - Is the experimental setup representative of practical use?
@@ -127,7 +135,7 @@ Checks whether the method, claim, and evaluation align with the target domain pr
 Checks whether the empirical evaluation is rigorous and decisive.
 
 - Are comparisons fair, multi-axis, and reproducible?
-- Do ablations isolate the claimed mechanism?
+- Do ablations isolate the stated mechanism?
 - Are results robust to hyperparameters? Do confidence intervals or repeated runs cover favorable and unfavorable settings when relevant?
 - Are percentage gains or bar charts used where statistical significance is meaningful?
 - Score axis: experimental rigor (1-5).

@@ -40,7 +40,7 @@ Quick mode does not require the full mandatory checklist. Run the local subset o
 
 ```text
 Mode: quick
-Local checks: venue/style, factual preservation, claim-evidence, no invented evidence
+Local checks: venue/style, factual preservation, conclusion-evidence alignment, no invented evidence
 Skipped standard checks: full paper storyline, full reviewer simulation, full source audit
 Unresolved:
 ```
@@ -60,9 +60,9 @@ For non-review skills, the user's requested output shape wins over the skill's d
 
 Review-related skills may keep stricter fixed formats because their value is diagnosis, scoring, and traceable criticism. `ccf-paper-reviewer`, `ccf-idea-reviewer`, and integrity/submission gate checks should remain more structured than writing, search, planning, or experiment-design outputs.
 
-When `ccf-idea-reviewer` is used on an early seed, separate `current conference readiness` from `development potential`. A low current score means the seed is not ready, not that the direction is dead. Use `abandon` only when the idea has no testable claim and no plausible reformulation after at least one concrete rescue attempt.
+When `ccf-idea-reviewer` is used on an early seed, separate `current conference readiness` from `development potential`. A low current score means the seed is not ready, not that the direction is dead. Use `abandon` only when the idea has no testable central research conclusion and no plausible reformulation after at least one concrete rescue attempt.
 
-For broad requests such as "完整流程", "完整文章", "详细报告", "用所有 skills", "full paper", "full review", or "closed loop", do not return fragments. Produce complete artifacts with enough concrete content to be useful: full drafts rather than abstract-only samples, filled tables rather than headings only, reviewer comments with evidence rather than generic risks, and handoff packets that name files, claims, blockers, and next actions.
+For broad requests such as "完整流程", "完整文章", "详细报告", "用所有 skills", "full paper", "full review", or "closed loop", do not return fragments. Produce complete artifacts with enough concrete content to be useful: full drafts rather than abstract-only samples, filled tables rather than headings only, reviewer comments with evidence rather than generic risks, and handoff packets that name files, supported conclusions, blockers, and next actions.
 
 For submission-style manuscript requests, "complete" also means length-aware. The writing owner should establish the target venue's page/word budget, aim near that budget, expand underfilled drafts with evidence-bound content, and compress overfilled drafts before final/submission checks.
 
@@ -72,7 +72,7 @@ When a non-review task is under-specified, proceed with reasonable assumptions a
 
 ## Information Density
 
-Visible output should maximize useful information and minimize boilerplate. Avoid long disclaimers, repeated "what this is not" lists, vague praise, generic next steps, and empty section headings. Every paragraph, bullet, or table row should contain at least one of: a concrete claim, a specific edit, an evidence link, a named artifact, a decision, a blocker, a quantified value, or an actionable question.
+Visible output should maximize useful information and minimize boilerplate. Avoid long disclaimers, repeated "what this is not" lists, vague praise, generic next steps, and empty section headings. Every paragraph, bullet, or table row should contain at least one of: a concrete fact or supported statement, a specific edit, an evidence link, a named artifact, a decision, a blocker, a quantified value, or an actionable question.
 
 ## Output Quality Gate
 
@@ -83,7 +83,7 @@ Before returning a visible artifact, every CCFA skill should do one quick self-r
 3. Review and audit outputs include concrete evidence, severity, score or pass/fail status, and action conditions where applicable.
 4. Writing outputs preserve the user's source format unless restructuring was requested.
 5. Chinese and English punctuation are used consistently; mixed punctuation is allowed only when required by code, LaTeX, citations, or filenames.
-6. The argument flow is clear: problem -> reason -> consequence -> action, or broader claim -> evidence -> limitation -> next step.
+6. The argument flow is clear: problem -> reason -> consequence -> action, or broader conclusion -> evidence -> limitation -> next step.
 7. No generic filler remains where a concrete location, artifact, or action is required.
 
 ## Minimal Status

@@ -1,6 +1,13 @@
 # Exemplar Style Analysis
 
-Use this file when the user provides strong papers as writing references or when a built-in exemplar card is selected from `references/exemplars/index.md`. Extract transferable writing technique only. Do not copy content, claims, examples, terminology, or distinctive phrasing.
+Use this file when the user provides strong papers as writing references or when a built-in exemplar card is selected from `references/exemplars/index.md`. Extract transferable writing technique only. Do not copy content, conclusions, examples, terminology, or distinctive phrasing.
+
+## Contents
+
+- Inputs and non-copying boundaries
+- Extraction workflow and table
+- Section-specific signals
+- Adaptation output
 
 ## Inputs
 
@@ -29,7 +36,7 @@ Reference papers may guide:
 Reference papers must not provide:
 
 - Reused sentences or sentence templates with only noun replacement.
-- The same technical claim.
+- The same technical conclusion.
 - The same novelty framing if it does not fit the user's work.
 - Distinctive examples, metaphors, or phrasings.
 - Unsupported confidence borrowed from another paper's evidence.
@@ -120,7 +127,7 @@ Look for:
 - Table/figure message per result.
 - How baselines are described.
 - How qualitative examples support quantitative findings.
-- Whether claims in Introduction are revisited.
+- Whether stated conclusions in the Introduction are revisited.
 
 ## Adaptation Output
 
@@ -129,5 +136,5 @@ After analyzing exemplars, produce:
 1. `Reference style summary`: 5-10 writing techniques.
 2. `Our story alignment`: which techniques fit the user's paper.
 3. `Section pattern`: paragraph roles for the target section.
-4. `Drafting warnings`: techniques that should not be used because they would distort the user's contribution or overclaim.
+4. `Drafting warnings`: techniques that should not be used because they would distort the user's contribution or overstate the evidence.
 5. `Originality guard`: a reminder that all final prose must be newly written for the user's paper.

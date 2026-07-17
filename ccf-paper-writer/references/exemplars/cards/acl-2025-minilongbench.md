@@ -30,14 +30,14 @@ The paper targets the evaluation cost of long-context understanding. It argues t
 
 ## Evidence Moves
 
-- Use many models to support rank-preservation claims.
+- Use many models to support rank-preservation statements.
 - Report cost reduction and correlation together.
 - Include task-category analysis to avoid the appearance of cherry-picking.
 
 ## Reusable Techniques
 
 - Convert evaluation expense into a first-class problem.
-- Support small-data claims with preservation metrics, not only speedups.
+- Support small-data statements with preservation metrics, not only speedups.
 - Phrase benchmark contributions around utility for future research.
 
 ## User Notes
@@ -46,4 +46,4 @@ Use this card when the user's paper proposes a cheaper evaluation protocol or co
 
 ## Do-Not-Copy Boundary
 
-Do not borrow the LongBench pruning claim, exact cost numbers, or rank-correlation framing unless the user's evaluation validates them.
+Do not borrow the LongBench pruning statement, exact cost numbers, or rank-correlation framing unless the user's evaluation validates them.

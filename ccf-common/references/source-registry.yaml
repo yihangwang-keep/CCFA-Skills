@@ -15,7 +15,7 @@ sources:
     recorded_at: 2026-06-05
     verified_at: null
     stale_after_days: 90
-    notes: Canonical CCF venue category source; verify before public claims.
+    notes: Canonical CCF venue category source; verify before publishing venue statements.
   - id: ccf-directory-mirror
     title: Searchable CCF 2026 Directory Mirror
     url: https://ccf.atom.im/
@@ -186,7 +186,7 @@ sources:
     recorded_at: 2026-06-05
     verified_at: 2026-06-05
     stale_after_days: 365
-    notes: Conceptual inspiration only; do not claim exact calibration from it.
+    notes: Conceptual inspiration only; do not state that it supplies exact calibration.
   - id: cspaper-review-rank
     title: CSPaper Review Rank
     url: https://cspaper.org/articles/introducing-review-rank
@@ -294,7 +294,7 @@ sources:
     recorded_at: 2026-07-08
     verified_at: 2026-07-08
     stale_after_days: 365
-    notes: Workflow inspiration for file-backed state, anti-loop pivoting, separation of execution and evaluation, and direction diversity; not a scientific claim source.
+    notes: Workflow inspiration for file-backed state, anti-loop pivoting, separation of execution and evaluation, and direction diversity; not a scientific evidence source.
   - id: ggsci-palettes
     title: Scientific Journal And Sci-Fi Themed Color Palettes For ggplot2
     url: https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html
@@ -681,7 +681,7 @@ sources:
     recorded_at: 2026-06-09
     verified_at: null
     stale_after_days: 365
-    notes: Use for recent preprint discovery and category watch queries; verify final claims against paper pages.
+    notes: Use for recent preprint discovery and category watch queries; verify final statements against paper pages.
   - id: openreview-api
     title: OpenReview API Documentation
     url: https://docs.openreview.net/
@@ -699,7 +699,7 @@ sources:
     recorded_at: 2026-06-05
     verified_at: null
     stale_after_days: 365
-    notes: Discovery index for paper search and metadata; verify final claims with paper pages when possible.
+    notes: Discovery index for paper search and metadata; verify final statements with paper pages when possible.
   - id: openalex-works-api
     title: OpenAlex Works API Documentation
     url: https://docs.openalex.org/api-entities/works
@@ -799,6 +799,15 @@ sources:
     verified_at: 2026-06-05
     stale_after_days: 365
     notes: Local architecture diagrams for CCFA skill-family routing, workflow, and reviewer-boundary documentation.
+  - id: anthropic-ralph-wiggum-plugin
+    title: Ralph Wiggum Plugin
+    url: https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum
+    source_type: background_method
+    used_by: [ccf-common, ccf-experiment-debugger]
+    recorded_at: 2026-07-17
+    verified_at: 2026-07-17
+    stale_after_days: 365
+    notes: Host-loop reference for repeating one fixed instruction, preserving file-backed progress, and stopping on an explicit marker. CCFA supplies separate domain ownership, evidence, versioning, review, and terminal-status rules; this is not a scientific evidence source.
   - id: gopen-swan-scientific-writing
     title: The Science of Scientific Writing
     url: https://www.cs.tufts.edu/comp/150FP/archive/george-gopen/sci.html

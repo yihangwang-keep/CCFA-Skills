@@ -14,7 +14,7 @@ The paper redefines autoregressive image generation by changing what the next pr
 - Contrast it with the standard formulation.
 - State why the new formulation is intuitive and scalable.
 - Report a dramatic benchmark improvement and speed gain.
-- Extend the claim to scaling laws and zero-shot image editing.
+- Extend the conclusion to scaling laws and zero-shot image editing.
 
 ## Introduction Moves
 
@@ -37,9 +37,9 @@ The paper redefines autoregressive image generation by changing what the next pr
 ## Reusable Techniques
 
 - A new prediction target can be the whole paper story.
-- Make scaling claims with curves, not only final model performance.
+- Make scaling statements with curves, not only final model performance.
 - Let conceptual simplicity and empirical breadth reinforce each other.
 
 ## Do-Not-Copy Boundary
 
-Do not reuse next-scale prediction, reported numbers, or diffusion-comparison claims unless the user's method and evaluation support them.
+Do not reuse next-scale prediction, reported numbers, or diffusion-comparison statements unless the user's method and evaluation support them.

@@ -18,7 +18,7 @@ Make figures and tables evidence-bearing, readable, and integrated with the manu
 
 ## Modes
 
-- `visual-contract`: define core claim, reviewer question, evidence layer, source data, panel/table map, caption role, and output constraints.
+- `visual-contract`: define the supported conclusion, reviewer question, evidence layer, source data, panel/table map, caption role, and output constraints.
 - `figure-design`: design multi-panel figures, chart families, image plates, schematics, legends, labels, color, and export specs from supplied evidence.
 - `python-plotting`: write or adapt Python plotting code using bundled recipes, standard-library SVG output, analytical chart recipes, composite dashboards, or optional libraries available in the user's environment.
 - `table-design`: design publication tables, numeric precision, grouping, ordering, notes, width strategy, and LaTeX table structure from supplied values.
@@ -29,13 +29,13 @@ Make figures and tables evidence-bearing, readable, and integrated with the manu
 
 1. Identify target venue/family, manuscript context, supplied data/results, artifact type, output format, and whether the user wants creation, redesign, or QA.
 2. Load `../ccf-common/references/task-modes.md` and `../ccf-common/references/privacy-and-evidence.md` when the task touches manuscript files, private results, or project artifacts.
-3. If claims, evidence, source data, or result values are missing, mark the gap and hand off to `ccf-experiment-designer`; do not fill the gap by invention.
+3. If conclusions, evidence, source data, or result values are missing, mark the gap and hand off to `ccf-experiment-designer`; do not fill the gap by invention.
 4. Load `references/visual-contract.md` and write the visual contract before changing layout or style.
 5. Load `references/palette-and-accessibility.md` before choosing colors; prefer accessible scientific palettes and semantic consistency over decorative color.
 6. For plotting-code requests, load `references/python-plot-recipes.md` and use `resources/python/ccfa_plot_recipes.py` as a runnable starting point. Prefer analytical plot families when the evidence calls for them: pie/donut for composition, grouped bars for categorical comparisons, volcano plots for effect-size/significance screening, correlation heatmaps for relationship matrices, and composite dashboards for multi-view analysis. If a better plot grammar is needed, load `references/plot-inspiration-map.md` and invent a new evidence-bound chart without copying external code.
 7. Load `references/figure-table-layout.md` for multi-panel composition, LaTeX float/table choices, caption/cross-reference placement, and manuscript integration.
 8. Load `references/render-qa.md`; when source files exist, compile/render and inspect the actual output. When only a spec is requested, include a QA checklist and no-fabrication status.
-9. Hand off to `ccf-paper-writer` for prose rewrites or narrative placement text, `ccf-integrity-auditor` for number/claim consistency, and `ccf-submission-checker` for final venue/package compliance.
+9. Hand off to `ccf-paper-writer` for prose rewrites or narrative placement text, `ccf-integrity-auditor` for number/conclusion consistency, and `ccf-submission-checker` for final venue/package compliance.
 
 ## Output Contract
 

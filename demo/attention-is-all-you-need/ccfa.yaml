@@ -1,4 +1,4 @@
-﻿version: "0.4.5-demo"
+﻿version: "0.5.0-demo"
 project:
   title: "Attention-only sequence transduction"
   source_paper: "Attention Is All You Need"
@@ -23,7 +23,7 @@ artifacts:
   visual_composer_demo: "visual-composer/README.md"
   visual_composer_script: "visual-composer/plot_demo.py"
   visual_composer_figures: "visual-composer/figures/"
-claims:
+paper_conclusions:
   - id: C1
     text: "A sequence transduction model can rely entirely on attention, without recurrence or convolution."
     support: "original paper architecture and experiments"

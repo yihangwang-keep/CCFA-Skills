@@ -33,7 +33,7 @@ The paper starts from a practical drug-discovery goal: generate molecules that a
 
 - Combine standard generative metrics with disease-oriented case studies.
 - Compare against baselines that lack the biological condition.
-- Avoid claiming therapeutic efficacy unless validated experimentally.
+- Avoid stating therapeutic efficacy unless validated experimentally.
 
 ## Reusable Techniques
 
@@ -43,4 +43,4 @@ The paper starts from a practical drug-discovery goal: generate molecules that a
 
 ## Do-Not-Copy Boundary
 
-Do not reuse molecule-generation claims, disease-profile conditioning, or therapeutic language unless the user's work has matching biomedical evidence.
+Do not reuse molecule-generation statements, disease-profile conditioning, or therapeutic language unless the user's work has matching biomedical evidence.

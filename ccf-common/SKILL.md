@@ -14,7 +14,7 @@ metadata:
 
 ## Core Rule
 
-This is the shared control module for the CCFA Skills family. Do not use it as a user-facing research assistant module. Use it to keep routing, handoff behavior, source provenance, private-material handling, and score-risk language consistent across `ccf-*` skills and `ccf-skill-forger`.
+This is the shared control module for the CCFA Skills family. Do not use it as a user-facing research module. Use it to keep terminology, routing, handoff behavior, source provenance, private-material handling, and score-risk language consistent across `ccf-*` skills.
 
 ## Invocation Controls
 
@@ -25,10 +25,11 @@ This is the shared control module for the CCFA Skills family. Do not use it as a
 Load only the file needed for the current maintenance task:
 
 - `references/routing.md`: Use to resolve which CCFA skill owns a request and to avoid trigger overlap.
+- `references/communication-research-terms.md`: Use for communication paper-scenario, formal-problem, MVP, environment-algorithm authority, conclusion, and evidence terminology.
 - `references/task-modes.md`: Use to interpret quick and standard execution modes across CCFA skills.
 - `references/review-output-standards.md`: Use to keep numeric scoring, multi-reviewer panels, score-change conditions, and visible output quality consistent.
 - `references/handoff-modes.md`: Use to interpret `metadata.ccf_skill_controls.handoff_question_mode`.
-- `references/privacy-and-evidence.md`: Use when handling manuscripts, reviews, rebuttals, private drafts, literature searches, or evidence claims.
+- `references/privacy-and-evidence.md`: Use when handling manuscripts, reviews, rebuttals, private drafts, literature searches, or evidence statements.
 - `references/source-registry.yaml`: Use as the shared source inventory for venue rules, review methods, exemplar records, and research-workflow references.
 - `references/ccf-a-venue-map.md`: Use when a non-writing skill needs venue-family mapping without depending on `ccf-paper-writer`.
 - `references/skill-trigger-registry.yaml`: Use as the v0.4 public trigger registry for routing conflict audits.

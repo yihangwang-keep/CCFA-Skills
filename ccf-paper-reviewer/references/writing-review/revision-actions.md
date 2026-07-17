@@ -4,6 +4,13 @@ Use this file to convert writing-review deductions into concrete improvements. T
 
 Before producing a revision plan, load `references/review-checklists.md` and apply its writing-revision checks. If the user asks for scientific re-score, acceptance-style scoring, simulated reviewers, or AC/meta-review, route to `ccf-paper-reviewer` under the CCFA handoff mode.
 
+## Contents
+
+- [Action Classes](#action-classes)
+- [Deduction-To-Action Map](#deduction-to-action-map)
+- [Revision Queue Format](#revision-queue-format)
+- [Re-Score Gate](#re-score-gate)
+
 ## Action Classes
 
 Classify every issue:
@@ -11,7 +18,7 @@ Classify every issue:
 - Writing-fixable: contribution statement, paragraph flow, terminology, figure narration, related-work framing, limitation wording.
 - Structure-fixable: reorder sections, move paragraphs, split mixed paragraphs, merge repeated paragraphs, or change section headings.
 - Prose-quality: remove defensive framing, label-heavy shorthand, third-person manuscript voice, punctuation-driven structure, unsupported hype, number-led abstract prose, formula dumping, or mechanically uniform sentence rhythm.
-- Claim-qualification: weaken, scope, move, or support claims that currently exceed evidence.
+- Conclusion-qualification: weaken, scope, move, or support conclusions that currently exceed evidence.
 - Analysis-fixable: add deeper explanation, error analysis, complexity analysis, sensitivity analysis, qualitative analysis, or proof intuition using existing results.
 - Citation/positioning: add close related work and explain the technical difference, not just a citation.
 - Figure/table: improve readability, captions, grouping, visual examples, failure cases, or main-text signposting.
@@ -30,7 +37,7 @@ Reviewer deduction: "I cannot tell what is new."
 
 Actions:
 
-- Add a one-sentence contribution claim in Abstract and early Introduction.
+- Add a one-sentence contribution statement in the Abstract and early Introduction.
 - State contribution type: method, theory, dataset, benchmark, system, analysis, study, resource, or negative result.
 - Separate "what is new" from "what is inherited from prior work."
 - Add a contribution table only if it clarifies close comparisons.
@@ -42,7 +49,7 @@ Reviewer deduction: "This appears incremental or already known."
 Actions:
 
 - Identify the closest prior work and write the exact difference.
-- Avoid claiming first-ever unless verified.
+- Avoid first-ever statements unless verified.
 - Reframe novelty as insight, formulation, evidence, scale, robustness, efficiency, or integration if method novelty is limited.
 - Add missing citations or baseline comparisons.
 
@@ -59,24 +66,24 @@ Actions:
 
 ### Soundness risk
 
-Reviewer deduction: "Claims may not be technically valid."
+Reviewer deduction: "The paper's technical conclusions may not be valid."
 
 Actions:
 
 - State assumptions and boundaries explicitly.
 - Add proof sketch, derivation, algorithmic invariant, threat model, statistical test, or study-design justification.
-- Remove or weaken claims that exceed the evidence.
+- Remove or weaken conclusions that exceed the evidence.
 - Add a limitation if the concern is real but bounded.
 
 ### Evidence weak
 
-Reviewer deduction: "The evaluation does not support the main claim."
+Reviewer deduction: "The evaluation does not support the main conclusion."
 
 Actions:
 
-- Map each claim to an experiment/proof/study.
+- Map each conclusion to an experiment/proof/study.
 - Add strongest baseline, ablation, robustness check, error analysis, or dataset.
-- If no new result can be added, narrow the claim to what current evidence supports.
+- If no new result can be added, narrow the conclusion to what current evidence supports.
 - Put the most decision-relevant evidence in the main text, not only appendix.
 
 ### Baseline or related work missing
@@ -128,7 +135,7 @@ Reviewer deduction: "This paragraph mixes roles or does not advance the argument
 Actions:
 
 - Assign the paragraph one job: motivation, gap, insight, method, evidence, limitation, or transition.
-- Split mixed claim/evidence/background paragraphs.
+- Split mixed point/evidence/background paragraphs.
 - Move details to the section where a reviewer expects them.
 - Replace vague transition sentences with the specific logical link to the next paragraph.
 
@@ -168,16 +175,16 @@ Actions:
 - Align abstract, introduction, method, experiments, and conclusion wording for the same contribution.
 - Add a notation table only if the method section is notation-heavy.
 
-### Overclaim
+### Overstatement
 
 Reviewer deduction: "The paper overstates its result."
 
 Actions:
 
 - Replace universal language with scoped language.
-- Move speculative claims to limitations or discussion.
+- Move speculative conclusions to limitations or discussion.
 - Add conditions under which the method works or fails.
-- Align Abstract and Conclusion claims with actual evidence.
+- Align conclusions stated in the Abstract and Conclusion with actual evidence.
 
 ### Venue mismatch
 
@@ -210,7 +217,7 @@ Status: open / fixed / requires new result / accepted limitation
 After revision, ask:
 
 1. Would a skeptical reviewer repeat the same criticism?
-2. Does each major claim have visible evidence?
+2. Does each major conclusion have visible evidence?
 3. Are the closest baselines and related works handled?
 4. Are limitations honest and bounded?
 5. Is the target venue's evidence package visible in the main text?

@@ -7,7 +7,7 @@ The visual must sit inside the paper's argument, not after it. Place each figure
 - Mention the figure/table in text before the float appears.
 - The surrounding paragraph should state the question, then the visual should answer it.
 - Captions should identify what is shown, the setting, the key takeaway, units/statistics, and source-data caveats when needed.
-- Do not let captions make claims that are stronger than the supplied evidence.
+- Do not let captions state conclusions that are stronger than the supplied evidence.
 - Prefer stable labels: `fig:overview`, `fig:main-results`, `tab:main`, `tab:ablation`.
 
 ## Figure Composition
@@ -37,4 +37,4 @@ The visual must sit inside the paper's argument, not after it. Place each figure
 - Use `figure*`/`table*` for full-width two-column floats when needed.
 - Keep captions and labels together: caption first, then label, unless the template says otherwise.
 - Verify float order after compile; do not assume source order equals PDF order.
-- Avoid placing a key visual so late that reviewers must search for evidence after the claim.
+- Avoid placing a key visual so late that reviewers must search for evidence after the paper conclusion.

@@ -9,7 +9,7 @@ Make these visible before writing:
 - A problem the venue community recognizes as important.
 - A gap against strong current work.
 - A mechanism that explains why the proposed method should work.
-- An evidence package that can test the central claim.
+- An evidence package that can test the intended paper conclusion.
 - A contribution type that matches the venue's taste.
 
 ## AI / ML: NeurIPS, ICML, ICLR, AAAI
@@ -42,7 +42,7 @@ Prioritize threat model, assumptions, guarantees, bypass analysis, responsible d
 
 ## HCI / UbiComp
 
-Prioritize research question, user population, study design, analysis method, ecological validity, ethics, and claim scope. A strong idea links a human-centered question to a method that can actually answer it.
+Prioritize research question, user population, study design, analysis method, ecological validity, ethics, and inference scope. A strong idea links a human-centered question to a method that can actually answer it.
 
 ## Theory / PL / Formal Methods
 
@@ -50,4 +50,4 @@ Prioritize formal problem statement, assumptions, theorem novelty, proof strateg
 
 ## Graphics / Multimedia / Visualization
 
-Prioritize perceptual quality, user-facing utility, visual fidelity, comparative evidence, efficiency, and clear task framing. Avoid ideas that are only aesthetic demos without a technical or evaluative claim.
+Prioritize perceptual quality, user-facing utility, visual fidelity, comparative evidence, efficiency, and clear task framing. Avoid ideas that are only aesthetic demos without a technical or evaluative conclusion.

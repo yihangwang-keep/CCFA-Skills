@@ -2,13 +2,23 @@
 
 Use this file when the user asks for idea scoring, idea ranking, novelty risk, investment decisions, or `standard` mode review. The goal is to prevent generic reviewer prose.
 
+## Contents
+
+- [Standard-Mode Search Requirement](#standard-mode-search-requirement)
+- [Closest-Work Table](#closest-work-table)
+- [No-Filler Rule](#no-filler-rule)
+- [Harsh Reviewer Lens](#harsh-reviewer-lens)
+- [Stage-Aware Verdict Rule](#stage-aware-verdict-rule)
+- [Required Verdict Shape](#required-verdict-shape)
+- [Score Guardrails](#score-guardrails)
+
 ## Standard-Mode Search Requirement
 
 In standard mode, search for related literature before giving a strong novelty, insight, or acceptance-potential judgment unless the user explicitly forbids browsing or privacy constraints prevent safe searching.
 
 Search process:
 
-1. Convert the idea into public-safe keywords: problem, setting, method family, claimed mechanism, dataset/benchmark, target venue family, and 2-3 likely synonyms.
+1. Convert the idea into public-safe keywords: problem, setting, method family, proposed mechanism, dataset/benchmark, target venue family, and 2-3 likely synonyms.
 2. Do not paste confidential user wording into a search query when the idea is unpublished and specific. Query generic public keywords first. If exact private wording is necessary, ask before using it.
 3. Prefer authoritative and high-impact sources: official proceedings, OpenReview, arXiv only when needed for fast-moving fields, ACM/IEEE/USENIX/ACL Anthology/CVF/PMLR/NeurIPS/ICLR/AAAI pages, DBLP, Semantic Scholar, OpenAlex, and major journal publishers. Apply the shared source-quality exclusions.
 4. Record 3-8 closest works or state why fewer were found.
@@ -45,7 +55,7 @@ Do not output generic comments such as:
 unless each phrase is immediately followed by:
 
 ```text
-Exact claim or mechanism under review:
+Exact paper conclusion, formal proposition, or mechanism under review:
 Closest prior art or missing evidence:
 Why a strict reviewer would deduct:
 Concrete repair or pivot:
@@ -74,7 +84,7 @@ Judge the idea through these axes:
 3. Method mechanism: Is there a causal or algorithmic reason the method should work?
 4. Novelty delta: What exactly remains new after subtracting closest work?
 5. Elegance: Are the components necessary, coherent, and mutually compatible?
-6. Evidence path: Can decisive experiments, proofs, user studies, benchmarks, or systems measurements test the central claim?
+6. Evidence path: Can decisive experiments, proofs, user studies, benchmarks, or systems measurements test the central paper conclusion?
 7. Feasibility: Can the user plausibly execute it with available data, compute, engineering effort, and timeline?
 8. Venue taste: Would the venue see this as a main-track contribution or as a workshop/application variant?
 
@@ -98,7 +108,7 @@ Do not mark `abandon` for:
 - vague mechanism when a concrete mechanism family can be proposed,
 - venue mismatch when another venue family may fit.
 
-Mark `abandon` only when the idea has no testable central claim, the closest work already covers the same problem and mechanism, and no meaningful problem/method/evidence reframing remains.
+Mark `abandon` only when the idea has no testable central paper conclusion, the closest work already covers the same problem and mechanism, and no meaningful problem/method/evidence reframing remains.
 
 ## Required Verdict Shape
 
@@ -127,4 +137,4 @@ For multiple ideas, first run the closest-work and serious-risk scan independent
 - Cap acceptance potential at 3 if the method mechanism is unclear.
 - Cap recommendation at `pivot` if closest prior art already solves the central problem with a similar mechanism. If a different evidence setting, assumption, user group, system constraint, or theory angle could still be meaningful, name that rescue route.
 - Cap recommendation at `pivot` if the only novelty is applying a known method to a new dataset without a venue-valued insight.
-- Mark as `abandon` only when the idea has no testable central claim and no plausible reformulation after the best rescue route has been considered.
+- Mark as `abandon` only when the idea has no testable central paper conclusion and no plausible reformulation after the best rescue route has been considered.

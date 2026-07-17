@@ -29,7 +29,7 @@ For all monitoring modes, use this structure. Output must be complete, factual, 
 
 ## Executive Summary
 
-One paragraph summary of the monitoring result, including total papers scanned, number of high-relevance papers, overlap distribution, and the safest next action. Do not claim that an idea is novel solely because no overlap appeared in the scanned window.
+One paragraph summary of the monitoring result, including total papers scanned, number of high-relevance papers, overlap distribution, and the safest next action. Do not conclude that an idea is novel solely because no overlap appeared in the scanned window.
 
 ## High-Relevance Papers
 
@@ -47,7 +47,7 @@ For each high-relevance paper, provide:
 - **Title:** [full title]
 - **URL:** [arXiv, OpenReview, proceedings, DOI, or project link]
 - **Source/date:** [source and publication/preprint date]
-- **Key contribution:** [what the paper claims or contributes]
+- **Key contribution:** [what the paper states or contributes]
 - **Overlap rationale:** [why this overlaps or differs from the user's idea]
 - **Uncertainty:** [what was not checked]
 - **Action:** [RELAX | RESEARCH | FOLLOW-UP with reasoning]

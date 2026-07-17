@@ -16,7 +16,7 @@ Score each dimension on 1-5 unless a venue requires a different scale.
 
 1. Contribution and novelty
    - 5: clear nontrivial contribution that changes knowledge, capability, framing, data, or practice.
-   - 4: meaningful contribution with a well-defended novelty claim.
+   - 4: meaningful contribution with a well-defended novelty conclusion.
    - 3: incremental but potentially useful contribution; novelty needs sharper positioning.
    - 2: weak novelty or unclear difference from close prior work.
    - 1: no clear contribution or likely overlap with known work.
@@ -31,11 +31,11 @@ Score each dimension on 1-5 unless a venue requires a different scale.
    - 4: mostly sound with minor gaps.
    - 3: plausible but has unresolved assumptions or incomplete validation.
    - 2: material correctness or methodology concerns.
-   - 1: central claim likely invalid.
+   - 1: central conclusion likely invalid.
 4. Evidence and evaluation
-   - 5: strong evidence package matched to claims: baselines, ablations, robustness, analysis, proofs, studies, or realistic workloads.
+   - 5: strong evidence package matched to conclusions: baselines, ablations, robustness, analysis, proofs, studies, or realistic workloads.
    - 4: adequate evidence with some missing secondary checks.
-   - 3: evidence supports part of the story but leaves important claims exposed.
+   - 3: evidence supports part of the story but leaves important conclusions exposed.
    - 2: weak baselines, missing ablations, insufficient datasets, invalid metrics, or underpowered study.
    - 1: central evidence absent or misleading.
 5. Clarity and organization
@@ -68,20 +68,20 @@ Score each dimension on 1-5 unless a venue requires a different scale.
 Mark a risk as fatal when it can independently justify rejection:
 
 - The central contribution is unclear.
-- The novelty claim collapses under close prior work.
-- A main claim lacks evidence.
+- The novelty conclusion collapses under close prior work.
+- A main conclusion lacks evidence.
 - The strongest baseline or comparison is missing.
 - The method, proof, threat model, study design, or evaluation protocol is invalid.
-- The paper is not reproducible enough for the claim type.
+- The paper is not reproducible enough for the conclusion type.
 - The venue fit is wrong.
 - A policy, anonymity, ethics, data, or responsible-research issue is serious.
 
-## Claim-Evidence Audit
+## Conclusion-Evidence Audit
 
-For every major claim in Abstract, Introduction, and Conclusion, produce:
+For every major conclusion in Abstract, Introduction, and Conclusion, produce:
 
 ```text
-Claim:
+Conclusion:
 Where stated:
 Evidence provided:
 Evidence type:
@@ -90,7 +90,7 @@ Reviewer deduction:
 Required fix:
 ```
 
-Hard rule: unsupported claims must be weakened, removed, or backed by evidence. Do not recommend rhetorical strengthening for an unsupported claim.
+Hard rule: unsupported conclusions must be weakened, removed, or backed by evidence. Do not recommend rhetorical strengthening for an unsupported conclusion.
 
 ## Review Tone
 

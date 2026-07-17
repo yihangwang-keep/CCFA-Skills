@@ -19,10 +19,10 @@ python ..\ccf-common\scripts\check_sources.py
 ## Writing-Skill Use Rules
 
 - Use source records only for provenance, venue-policy checks, exemplar source tracking, and update auditing.
-- Use exemplar papers only to extract transferable writing moves: section structure, paragraph roles, claim-evidence patterns, figure/table narration, and reviewer-facing rhythm.
-- Do not copy paper wording, claims, examples, technical content, or distinctive phrasing.
+- Use exemplar papers only to extract transferable writing moves: section structure, paragraph roles, conclusion-evidence patterns, figure/table narration, and reviewer-facing rhythm.
+- Do not copy paper wording, conclusions, examples, technical content, or distinctive phrasing.
 - Before a real submission, verify the target venue's current author instructions, review criteria, page limits, anonymity policy, supplementary material rules, artifact policy, and ethics requirements from official venue pages.
-- Before claiming award status in a paper, slide, README, or public text, verify the current official venue award page.
+- Before stating award status in a paper, slide, README, or public text, verify the current official venue award page.
 
 ## Local Records
 

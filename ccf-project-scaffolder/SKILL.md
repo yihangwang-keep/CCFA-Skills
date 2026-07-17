@@ -30,8 +30,8 @@ Project name, target venue, output directory, template preference, and optional 
 
 1. Identify quick or standard mode from the request, available artifacts, and deadline pressure.
 2. Check `../ccf-common/references/skill-trigger-registry.yaml` for ownership boundaries before absorbing adjacent work.
-3. Read `ccfa.yaml` when it exists. If absent, continue with supplied artifacts and report that project-state tracking is unavailable.
-4. Execute only this skill's owned task. Mark missing evidence, stale venue rules, missing files, or authorization gaps explicitly.
+3. Read `ccfa.yaml` when it exists and load both `../ccf-common/references/ccfa-yaml-contract.md` and `../ccf-common/references/artifact-contracts.md` before interpreting or migrating project state. If absent, continue with supplied artifacts and report that project-state tracking is unavailable.
+4. Execute only this skill's owned task. Mark missing evidence, stale venue rules, missing files, migration conflicts, or authorization gaps explicitly.
 5. Produce the requested scaffold result and name the next owning skill when handoff is needed.
 
 ## Quick And Standard Modes
@@ -41,7 +41,7 @@ Project name, target venue, output directory, template preference, and optional 
 
 ## Adaptive Output Contract
 
-If files were created or copied, report the directory tree, template paths, initialized `ccfa.yaml`, and next-step handoff. If the user only asks for a dry-run plan or install subset, return that requested shape instead. Do not force a full checklist for a small scaffold command.
+If files were created, copied, or migrated, report the directory tree, template paths, initialized or migrated `ccfa.yaml`, migration outcome, and next-step handoff. If the user only asks for a dry-run plan or install subset, return that requested shape instead. Do not force a full checklist for a small scaffold command.
 
 ## Handoff
 
@@ -49,4 +49,4 @@ Handoff to `ccf-pipeline-orchestrator` for stage management, `ccf-paper-writer` 
 
 ## Forbidden
 
-Do not invent title, abstract, claims, experiments, or citations unless the user explicitly supplies them.
+Do not invent a title, abstract, paper conclusions, experiments, or citations unless the user explicitly supplies them.

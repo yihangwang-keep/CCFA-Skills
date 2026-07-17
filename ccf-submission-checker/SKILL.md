@@ -26,7 +26,7 @@ Treat submission as a build, venue-policy, page-budget, and artifact-readiness g
 ## Workflow
 
 1. Identify venue/year/track, submission mode, project directory, TeX/PDF files, supplementary/artifact files, and deadline pressure.
-2. Read `ccfa.yaml` when available. If absent, proceed with supplied files and state that project-state tracking is unavailable.
+2. Read `ccfa.yaml` when available and load both `../ccf-common/references/ccfa-yaml-contract.md` and `../ccf-common/references/artifact-contracts.md` before interpreting project state. If absent, proceed with supplied files and state that project-state tracking is unavailable.
 3. For venue questions, read `../ccf-paper-writer/references/venue-guides/index.md` and the specific venue guide before checking official freshness.
 4. For package checks, inspect compile status, page count, target page budget, anonymity, fonts, PDF metadata, template path, references, supplementary files, and required forms.
 5. For artifact checks, build a reproducibility checklist: code, data, models, environment, seeds, hardware, license, access restrictions, and README.

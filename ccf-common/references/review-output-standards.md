@@ -22,7 +22,7 @@ Repair condition:
 Expected score movement:
 ```
 
-Use score movement conservatively. Prefer ranges such as `+0.5 to +1 overall` only when a concrete change is likely to affect the calibrated stance. Do not claim acceptance probability.
+Use score movement conservatively. Prefer ranges such as `+0.5 to +1 overall` only when a concrete change is likely to affect the calibrated stance. Do not state an acceptance probability as established fact.
 
 ## Multi-Reviewer Panel
 

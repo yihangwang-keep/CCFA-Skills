@@ -2,6 +2,15 @@
 
 Use this file for scores, calibrated stance, confidence, and CSPaper-style relative interpretation.
 
+## Contents
+
+- [Default Overall Scale](#default-overall-scale)
+- [Criterion Scale](#criterion-scale)
+- [Stance Bands](#stance-bands)
+- [Confidence](#confidence)
+- [Consistency Check](#consistency-check)
+- [Mandatory Scorecard Output](#mandatory-scorecard-output)
+
 ## Default Overall Scale
 
 Use 1-10 when the venue does not specify a scale:
@@ -53,8 +62,8 @@ When the user asks for rank, review rank, or cohort-relative quality:
 - State that the interpretation is approximate and not an official cutoff.
 - Use bands: bottom, below average, average/borderline, above average, strong, top-tier.
 - Explain what evidence would move the paper to the next band.
-- Do not claim exact acceptance probability.
-- Do not claim exact percentile unless the user provides a calibrated comparison set.
+- Do not report exact acceptance probability.
+- Do not report an exact percentile unless the user provides a calibrated comparison set.
 
 ## Confidence
 
@@ -74,7 +83,7 @@ Before finalizing scores:
 
 1. Does the overall score match the strongest unresolved weakness?
 2. Would a skeptical reviewer repeat a fatal concern?
-3. Are strength claims backed by exact manuscript evidence?
+3. Are stated strengths backed by exact manuscript evidence?
 4. Are score-change conditions concrete and feasible?
 5. Is the score calibrated to the named venue rather than generic positivity?
 

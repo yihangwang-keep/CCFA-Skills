@@ -7,9 +7,9 @@
 <style>text{font-family:Inter, Segoe UI, Arial, sans-serif;dominant-baseline:auto} .mono{font-family:Consolas,Menlo,monospace}</style>
 <rect x="0" y="0" width="1800" height="1040" rx="0" fill="#F6F8FB" stroke="none" stroke-width="2" />
 <rect x="0" y="0" width="1800" height="158" rx="0" fill="url(#header)" stroke="none" stroke-width="2" />
-<text x="72" y="66" font-size="44" font-weight="850" fill="#FFFFFF" text-anchor="start">Review, Audit, And Action Boundaries</text>
-<text x="72" y="108" font-size="20" font-weight="500" fill="#D8E6F2" text-anchor="start">Judgment, factual integrity, package readiness, rewriting, and response stay separate.</text>
-<text x="1728" y="132" font-size="16" font-weight="650" fill="#D8E6F2" text-anchor="end">v0.7 · 16 owner skills · one paper-project loop</text>
+<text x="72" y="66" font-size="44" font-weight="850" fill="#FFFFFF" text-anchor="start">Review, Conclusion/Evidence Audit, And Action Boundaries</text>
+<text x="72" y="108" font-size="20" font-weight="500" fill="#D8E6F2" text-anchor="start">Judgment, conclusion support, package readiness, rewriting, and response stay separate.</text>
+<text x="1728" y="132" font-size="16" font-weight="650" fill="#D8E6F2" text-anchor="end">v0.8 · 21 owner skills · versioned research loops</text>
 <rect x="120" y="225" width="1560" height="96" rx="24" fill="#FFFFFF" stroke="none" stroke-width="2" filter="url(#shadow)"/>
 <rect x="150" y="251" width="230" height="38" rx="19" fill="#2D3742" stroke="none" stroke-width="2" />
 <text x="265" y="276" font-size="15" font-weight="760" fill="#FFFFFF" text-anchor="middle">Rewrite text</text>
@@ -27,9 +27,9 @@
 <text x="440" y="557" font-size="16" font-weight="520" fill="#5A6775" text-anchor="start">scores novelty, soundness, clarity, reviewer risk</text>
 <rect x="120" y="615" width="1560" height="96" rx="24" fill="#FFFFFF" stroke="none" stroke-width="2" filter="url(#shadow)"/>
 <rect x="150" y="641" width="230" height="38" rx="19" fill="#8A4F86" stroke="none" stroke-width="2" />
-<text x="265" y="666" font-size="15" font-weight="760" fill="#FFFFFF" text-anchor="middle">Audit facts</text>
+<text x="265" y="666" font-size="15" font-weight="760" fill="#FFFFFF" text-anchor="middle">Audit support</text>
 <text x="440" y="658" font-size="22" font-weight="840" fill="#15202B" text-anchor="start">ccf-integrity-auditor</text>
-<text x="440" y="687" font-size="16" font-weight="520" fill="#5A6775" text-anchor="start">verifies claims, numbers, citations, BibTeX support</text>
+<text x="440" y="687" font-size="16" font-weight="520" fill="#5A6775" text-anchor="start">aligns conclusions with numbers, citations, figures, and BibTeX support</text>
 <rect x="120" y="745" width="1560" height="96" rx="24" fill="#FFFFFF" stroke="none" stroke-width="2" filter="url(#shadow)"/>
 <rect x="150" y="771" width="230" height="38" rx="19" fill="#BA4C5E" stroke="none" stroke-width="2" />
 <text x="265" y="796" font-size="15" font-weight="760" fill="#FFFFFF" text-anchor="middle">Check package</text>

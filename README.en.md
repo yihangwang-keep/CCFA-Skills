@@ -27,9 +27,9 @@
 
 A strong paper is rarely defined by the final PDF alone. What matters is the research storyline behind it: an unstable idea finds its position through literature, earns credibility through experiments, becomes a legible argument through writing, and is refined again through review and rebuttal. The hard part is not only drafting one introduction paragraph. The hard part is keeping the idea, evidence, experiments, narrative, and response aligned around the same research question.
 
-CCFA Skills starts from that observation. It treats a CCF-A paper project as a research storyline that can be maintained, audited, and advanced over time, rather than as a one-shot text generation task. An idea should be shaped before it is defended. Experiments should serve explicit claims rather than merely fill tables. Writing should preserve evidence boundaries. A rebuttal should not be an improvised answer at the end of the process, but a traceable bridge to revision and resubmission.
+CCFA Skills starts from that observation. It treats a CCF-A paper project as a research storyline that can be maintained, audited, and advanced over time, rather than as a one-shot text generation task. An idea should be shaped before it is defended. Experiments should support explicit paper conclusions rather than merely fill tables. Writing should preserve evidence boundaries. A rebuttal should not be an improvised answer at the end of the process, but a traceable bridge to revision and resubmission.
 
-The central insight is that paper quality comes from the quality of continuous decisions. Writing, review, integrity audit, submission checking, and rebuttal should not replace one another; they should keep separate responsibilities and hand off through the same project state. The v0.7 line therefore organizes the family into 16 stage roles, so each stage has a clear responsibility, each artifact has a home, and the system behaves more like a collaboration framework around the research storyline than a loose prompt collection. v0.7 also gives `ccf-visual-composer` a bundled Python SVG plotting recipe library for paper-ready visual examples.
+The central insight is that paper quality comes from the quality of continuous decisions. Writing, review, conclusion/evidence audit, submission checking, and rebuttal should not replace one another; they should keep separate responsibilities and hand off through the same project state. The current v0.8 line organizes the family into 21 stage roles, including a versioned environment-algorithm design-validation loop. Each stage has a clear responsibility, each artifact has a home, and the system behaves more like a collaboration framework around the research storyline than a loose prompt collection. v0.8 also gives `ccf-visual-composer` a bundled Python SVG plotting recipe library for paper-ready visual examples.
 
 ![CCFA skill family logic](assets/ccfa-skills-architecture.svg)
 
@@ -44,21 +44,41 @@ project scaffold
   -> idea review
   -> literature monitoring / competitor tracking
   -> literature search
+  -> paper-scenario and formal-problem design
+  -> environment implementation audit
+  -> algorithm design
+  -> algorithm implementation audit
+  -> failed-MVP diagnosis and minimal repair when needed
   -> experiment design
   -> visual composition
   -> writing exemplar extraction (optional)
   -> venue-aware writing
   -> scientific/writing review
-  -> integrity audit
+  -> conclusion/evidence audit
   -> submission package check
   -> rebuttal / revision ledger / resubmission
 ```
 
-`ccfa.yaml` is the shared project-state file. It records `target_venue`, `stage`, `artifacts`, `claims`, `experiments`, `reviews`, `revision_ledger`, and `submission_checks`, so skills can hand off without overwriting each other's files.
+`ccfa.yaml` is the shared project-state file. It records `target_venue`, `stage`, `artifacts`, `paper_conclusions`, `experiments`, `reviews`, `revision_ledger`, and `submission_checks`, so skills can hand off without overwriting each other's files.
+
+### Versioned Design-Validation Loop
+
+Communication scenario and algorithm work follows this loop before publication-range experiment design:
+
+```text
+ccf-env-design
+  -> ccf-env-code-auditor                 [environment-valid]
+  -> ccf-algorithm-designer
+  -> ccf-algorithm-code-auditor           [joint-ready]
+  -> ccf-experiment-debugger on failure
+       -> one owner, one minimal change, all invalidated gates rerun
+```
+
+Algorithm failure does not authorize a silent change to the environment objective, constraints, task semantics, information pattern, or test settings. An accepted environment semantic change creates a new problem version, preserves the failed version as evidence, and invalidates every dependent algorithm, baseline, and result artifact. At checkpoint commits, invoke the installed `$code-review` skill against the fixed comparison point and accepted specification; CCFA reuses that skill without copying its Standards/Spec rules.
 
 ![Workflow](assets/ccfa-skills-workflow.svg)
 
-## Runtime Skills
+## 21 Runtime Skills
 
 | Stage | Skill | Starts when | Main output | Do not use for |
 | --- | --- | --- | --- | --- |
@@ -68,12 +88,17 @@ project scaffold
 | Idea gate | `ccf-idea-reviewer` | Explicitly score, rank, stress-test, or triage ideas. | Scores, risks, stage-aware development potential. | Brainstorming or developing one rough idea further. |
 | Monitoring | `ccf-literature-monitor` | Track new papers, competitors, arXiv/OpenReview/venue feeds, or ask whether recent work overlaps an idea. | Monitoring report, overlap levels, RELAX/RESEARCH/FOLLOW-UP flags, handoff signals. | Deep related-work search, citation audit, or final idea scoring. |
 | Evidence | `ccf-literature-searcher` | Search related work, prior art, datasets, benchmarks, and open gaps. | Literature notes, opportunity map, evidence gaps, related-work structure. | Auditing already cited papers or treating related work as a final idea kill gate. |
+| Environment design | `ccf-env-design` | Define or revise the paper scenario, formal optimization problem, parameter applicability range, scenario MVP, information pattern, and feasibility meaning. | Versioned environment specification and algorithm-facing contract. | Environment-code validation or algorithm design. |
+| Environment gate | `ccf-env-code-auditor` | Verify that environment code implements the accepted problem and runs independently. | Traceability evidence, execution evidence, `environment-valid` verdict. | Scenario redesign or algorithm performance judgment. |
+| Algorithm design | `ccf-algorithm-designer` | Derive a mechanism and algorithm MVP against an accepted environment contract. | Algorithm specification, verification targets, complexity analysis. | Scenario redesign, code audit, or publication experiments. |
+| Algorithm gate | `ccf-algorithm-code-auditor` | Verify the algorithm specification against code and independent MVP behavior. | Traceability evidence, reference comparisons, `joint-ready` verdict. | Initial algorithm selection or environment audit. |
+| Design validation | `ccf-experiment-debugger` | Diagnose a failed or weak MVP, or continue the versioned design-validation loop. | One-owner repair, invalidation ledger, closed reruns, terminal status. | Replacing either auditor or designing initial publication experiments. |
 | Experiments | `ccf-experiment-designer` | Design baselines, metrics, ablations, robustness checks. | Protocols, baseline matrix, result templates, evidence-bound figure/table specs. | Inventing results or drawing docs diagrams. |
 | Visuals | `ccf-visual-composer` | Compose publication-grade figures/tables, Python plotting code, palettes, captions, panel maps, and manuscript integration from supplied results. | Visual contract, plot recipe/code, panel/table map, palette, LaTeX placement, caption plan, render QA ledger. | Designing experiments, inventing results, writing prose as the main task, final submission compliance. |
 | Exemplar | `ccf-paper-to-exemplar` | Convert user-provided paper PDFs into reusable writing exemplar cards. | Exemplar cards, writing patterns, venue tags, writer index updates. | Writing papers or performing review. |
 | Manuscript | `ccf-paper-writer` | Draft, revise, polish, compress, create venue- and length-aware LaTeX, make presentations. | Manuscript text, format-preserving edits, compressed text, page budget, slides/poster/talk. | Full review, integrity audit, submission check, rebuttal. |
 | Review | `ccf-paper-reviewer` | Run scientific review, writing review, scoring, AC/meta-review. | Review report, risk table, revision priorities. | Rewriting the manuscript directly. |
-| Integrity | `ccf-integrity-auditor` | Check claims, numbers, tables/figures, citations, BibTeX. | Claim-support table, numeric consistency report, citation audit. | Broad literature search or full paper review. |
+| Conclusion/evidence audit | `ccf-integrity-auditor` | Check supported conclusions, numbers, tables/figures, citations, and BibTeX. | Conclusion/evidence alignment table, numeric consistency report, citation audit. | Broad literature search or full paper review. |
 | Submission | `ccf-submission-checker` | Check venue rules, pages, anonymity, PDF metadata, artifacts. | Submission package report, LaTeX/PDF build result, artifact checklist. | Polishing manuscript content. |
 | Response | `ccf-rebuttal-writer` | Draft rebuttal, response letter, revision ledger, resubmission plan. | Rebuttal text, reviewer-response table, ledger. | Ordinary manuscript writing. |
 | Governance | `ccf-common` | Maintain routing, evidence/privacy policy, source registry, artifact contracts. | Shared policy and validation controls. | Ordinary research tasks. |
@@ -89,6 +114,11 @@ project scaffold
 | Explicitly score, rank, or select ideas | `ccf-idea-reviewer` | `ccf-idea-optimizer` |
 | Monitor new papers, competitors, or recent similar ideas | `ccf-literature-monitor` | `ccf-literature-searcher` |
 | Find new papers, datasets, benchmarks, or open gaps | `ccf-literature-searcher` | `ccf-integrity-auditor` |
+| Design the paper scenario and formal optimization problem | `ccf-env-design` | `ccf-algorithm-designer` |
+| Verify environment code against the accepted problem | `ccf-env-code-auditor` | `ccf-env-design` |
+| Design the algorithm against an accepted environment | `ccf-algorithm-designer` | `ccf-env-design` |
+| Verify algorithm code and MVP behavior | `ccf-algorithm-code-auditor` | `ccf-algorithm-designer` |
+| Coordinate a failed MVP repair and close reruns | `ccf-experiment-debugger` | `ccf-experiment-designer` |
 | Verify already cited papers | `ccf-integrity-auditor` | `ccf-literature-searcher` |
 | Design experiments, metrics, baselines, and result evidence specs | `ccf-experiment-designer` | `ccf-paper-writer` |
 | Compose figure/table layout, Python plots, palettes, captions, and manuscript visual integration | `ccf-visual-composer` | `ccf-experiment-designer` |
@@ -134,7 +164,7 @@ ccf-doc-diagram-designer
 
 ![Artifact contract](assets/ccfa-skills-artifacts.svg)
 
-`ccfa.yaml` is a status spine, not the whole paper. Concrete outputs still live in idea briefs, literature notes, experiment plans, visual contracts, Python plotting scripts, manuscripts, review reports, integrity audits, submission checks, and revision ledgers. Review and audit skills diagnose; writing changes go back to `ccf-paper-writer`; visual layout and plotting changes go to `ccf-visual-composer`.
+`ccfa.yaml` is a status spine, not the whole paper. Concrete outputs still live in idea briefs, versioned environment and algorithm contracts, validation ledgers, literature notes, experiment plans, visual contracts, Python plotting scripts, manuscripts, review reports, conclusion/evidence audits, submission checks, and revision ledgers. Review and audit skills diagnose; writing changes go back to `ccf-paper-writer`; visual layout and plotting changes go to `ccf-visual-composer`.
 
 ## Output Policy
 
@@ -169,6 +199,8 @@ mkdir -p "$CODEX_HOME/skills"
 cp -R CCFA-Skills/ccf-* "$CODEX_HOME/skills/"
 ```
 
+The full install contains all 21 runtime skills. Install `$code-review` separately when the versioned design-validation loop must review checkpoint commits.
+
 Partial install must include `ccf-common`:
 
 ```bash
@@ -202,7 +234,7 @@ To understand why the family is designed this way, read these in order:
 
 ## Demo
 
-`demo/attention-is-all-you-need/` is an optional ICLR-style closed-loop demo showing idea extraction, idea review, LaTeX writing, visual-composer SVG plotting examples, review, integrity audit, submission check, and rebuttal.
+`demo/attention-is-all-you-need/` is an optional ICLR-style closed-loop demo showing idea extraction, idea review, LaTeX writing, visual-composer SVG plotting examples, review, conclusion/evidence audit, submission check, and rebuttal.
 
 ![Attention demo](assets/ccfa-skills-demo-attention.svg)
 

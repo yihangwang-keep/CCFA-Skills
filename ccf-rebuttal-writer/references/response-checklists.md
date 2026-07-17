@@ -2,6 +2,15 @@
 
 Use this file to prevent omissions when drafting conference paper rebuttals, author responses, response letters, revision summaries, or resubmission responses.
 
+## Contents
+
+- [Intake Checklist](#intake-checklist)
+- [Issue Table Checklist](#issue-table-checklist)
+- [Response Draft Checklist](#response-draft-checklist)
+- [Response Prose Discipline](#response-prose-discipline)
+- [Promise Safety Checklist](#promise-safety-checklist)
+- [Final Readiness Checklist](#final-readiness-checklist)
+
 ## Intake Checklist
 
 - Venue and response type are known.
@@ -42,7 +51,7 @@ Each response should include:
 - exact revision promise if applicable,
 - scoped limitation when needed,
 - self-contained acronyms, settings, or dataset details,
-- no unsupported new claim,
+- no new paper conclusion unsupported by evidence,
 - no defensive wording.
 
 ## Response Prose Discipline
@@ -53,7 +62,7 @@ Use `../../ccf-paper-writer/references/prose-quality-guardrails.md` for response
 - Avoid defensive openings such as "we disagree" unless the reviewer statement is factually wrong and the evidence is immediately given.
 - Do not structure the response with dense `Q1`/`C1` labels unless required by the response template.
 - Replace colon-heavy and dash-heavy chains with direct answer sentences.
-- Keep terms consistent with the manuscript; do not introduce a new name for the same method, module, dataset, or claim.
+- Keep terms consistent with the manuscript; do not introduce a new name for the same method, module, dataset, or paper conclusion.
 - Vary sentence length while staying concise.
 - Prefer evidence, location, and promised edit over rhetoric.
 
@@ -79,7 +88,7 @@ Before promising a change, verify:
 - The result, analysis, citation, or text change is available or feasible.
 - The promise is specific enough to be credible.
 - The promised change addresses the actual concern.
-- The response does not imply a stronger claim than the paper can support.
+- The response does not imply a stronger conclusion than the paper can support.
 - New experiments are not promised unless available or explicitly authorized by the user.
 - If the answer can be delivered now, include the result or explanation in the response rather than only promising a future edit.
 - Infeasible experiments are disclosed transparently.
@@ -108,7 +117,7 @@ Do not call the response ready until:
 - Related concerns are merged when doing so saves space.
 - Existing paper coverage is cited by line, section, table, figure, or appendix when available.
 - Acronyms, experimental settings, and critical context are self-contained.
-- Data and completed analyses are preferred over argumentative claims.
+- Data and completed analyses are preferred over argumentative statements.
 - Tone is calm and respectful.
 - Promises are feasible and specific.
 - Constructive reviewers are thanked specifically where appropriate.

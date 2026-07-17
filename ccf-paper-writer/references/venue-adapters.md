@@ -2,6 +2,12 @@
 
 Use this file after identifying the target CCF A family. Treat it as a writing-priority selector, not as a substitute for the official call for papers.
 
+## Contents
+
+- Universal review priorities
+- Venue-family writing priorities
+- Reviewer questions and venue-plan template
+
 ## Universal CCF A Review Priorities
 
 For any CCF A target, make these visible:
@@ -9,7 +15,7 @@ For any CCF A target, make these visible:
 1. Contribution: what new knowledge, capability, method, result, or theoretical insight does the paper add?
 2. Significance: why should this venue's audience care now?
 3. Soundness: are assumptions, derivations, implementation details, and experiments technically credible?
-4. Evidence: does each major claim have a corresponding experiment, proof, analysis, or user study?
+4. Evidence: does each major conclusion have a corresponding experiment, proof, analysis, or user study?
 5. Clarity: can an expert reviewer reconstruct the problem, method, and evidence without guessing?
 6. Positioning: are strongest prior methods, baselines, and limitations handled honestly?
 7. Reproducibility: are datasets, metrics, protocols, artifacts, hyperparameters, and evaluation settings sufficiently specified?
@@ -23,9 +29,9 @@ Writing emphasis:
 - State the core challenge and contribution early; reviewers should not wait until Method to learn what is new.
 - Connect insight -> mechanism -> measurable benefit.
 - Make the contribution sound non-obvious without hiding concrete implementation.
-- Use strong baselines, ablations, and clear claim-evidence alignment.
+- Use strong baselines, ablations, and clear conclusion-evidence alignment.
 - For CV and multimodal papers, treat figures and qualitative results as primary evidence.
-- For NLP papers, clarify task/data assumptions, linguistic or semantic claims, annotation quality, evaluation validity, and ethical concerns.
+- For NLP papers, clarify task/data assumptions, linguistic or semantic statements, annotation quality, evaluation validity, and ethical concerns.
 - For ML papers, distinguish empirical novelty from conceptual, theoretical, or algorithmic novelty.
 
 Common reviewer questions:
@@ -48,7 +54,7 @@ Writing emphasis:
 - Show both effectiveness and efficiency when relevant.
 - Describe indexes, data structures, optimization objectives, pipelines, or system components in enough detail to reproduce.
 - Use large-scale or realistic datasets; avoid toy-only evidence.
-- Tie experiments to claims about accuracy, latency, throughput, scalability, robustness, or user utility.
+- Tie experiments to conclusions about accuracy, latency, throughput, scalability, robustness, or user utility.
 
 Common reviewer questions:
 
@@ -84,7 +90,7 @@ Target venues include CCS, S&P, USENIX Security, NDSS, CRYPTO, EUROCRYPT.
 
 Writing emphasis:
 
-- Define threat model, attacker capability, defender assumptions, and scope before claims.
+- Define threat model, attacker capability, defender assumptions, and scope before conclusions.
 - For measurement or attack papers, show real-world impact and responsible handling.
 - For defenses, explain security guarantees, deployment constraints, bypasses, and false positives/negatives.
 - For cryptography, prioritize formal definitions, security proof structure, assumptions, and theorem readability.
@@ -94,7 +100,7 @@ Common reviewer questions:
 
 - Is the threat model meaningful?
 - Is the attack or defense novel and practically important?
-- Are claims over-scoped?
+- Are conclusions over-scoped?
 - Are ethics and disclosure handled?
 
 ## Software Engineering, Programming Languages, Formal Methods
@@ -111,7 +117,7 @@ Writing emphasis:
 
 Common reviewer questions:
 
-- Is the formal claim correct and useful?
+- Is the formal conclusion correct and useful?
 - Is the tool or technique evaluated on meaningful programs or benchmarks?
 - Are threats to validity explicit?
 
@@ -131,7 +137,7 @@ Common reviewer questions:
 
 - Are research questions important?
 - Is the study design appropriate?
-- Are claims supported by data?
+- Are conclusions supported by data?
 - Are ethical and population limitations handled?
 
 ## Graphics, Visualization, Multimedia

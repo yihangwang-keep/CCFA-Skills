@@ -1,7 +1,7 @@
 # L25GC+ Style Card
 
 Venue/year: SIGCOMM 2024 family.
-Source: SIGCOMM 2024 program source record `sigcomm-2024-program`; verify the exact paper page before public award-status claims.
+Source: SIGCOMM 2024 program source record `sigcomm-2024-program`; verify the exact paper page before public statements about award status.
 Use when: networking systems, mobile core networks, low-latency data planes, NFV, packet processing, or deployment-driven network architecture papers.
 
 ## Story Pattern
@@ -13,7 +13,7 @@ The paper type is a networked-systems contribution: open with a real latency, th
 - State the network setting and why current designs miss the target.
 - Present the design as a re-architecture around one bottleneck.
 - Preview evaluation on realistic traces, deployments, or workloads.
-- Avoid broad "faster network" claims unless the measured setting supports them.
+- Avoid broad "faster network" statements unless the measured setting supports them.
 
 ## Introduction Moves
 
@@ -36,4 +36,4 @@ The paper type is a networked-systems contribution: open with a real latency, th
 
 ## Do-Not-Copy Boundary
 
-Do not reuse network-specific claims or names unless they are the user's actual system. Transfer only the bottleneck-driven systems narrative.
+Do not reuse network-specific statements or names unless they are the user's actual system. Transfer only the bottleneck-driven systems narrative.

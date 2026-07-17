@@ -2,6 +2,13 @@
 
 Use this file whenever drafting, expanding, compressing, or submission-preparing a full manuscript.
 
+## Contents
+
+- Core budget rule and setup
+- Section budgets and expansion order
+- Compile-and-adjust loop
+- Output status
+
 ## Core Rule
 
 A venue-aware paper draft should target the venue's usable main-body budget, not merely compile. A short idea is not permission to produce a short paper when the user asked for a submission manuscript. Expand with evidence-bound content, `TBD` placeholders, and concrete experiment/analysis scaffolds rather than inventing results.
@@ -83,7 +90,7 @@ Forbidden expansion content:
 
 - Invented numerical results.
 - Invented citations or baselines.
-- Unsupported claims of novelty, superiority, or reviewer reaction.
+- Unsupported statements of novelty, superiority, or reviewer reaction.
 - Padding, generic field background, or repeated motivation.
 
 ## Expansion Content Order

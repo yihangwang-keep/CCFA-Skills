@@ -2,6 +2,16 @@
 
 Use this exact section order for standard-mode reports. The style is based on `cspaper回复参考.md` and extended for CCFA workflows.
 
+## Contents
+
+- [Report Metadata](#1-report-metadata)
+- [Paper Summary And Contribution Map](#3-paper-summary-and-contribution-map)
+- [Expected Review Outcome](#5-expected-review-outcome)
+- [Conclusion-Evidence Audit](#8-conclusion-evidence-audit)
+- [Multi-Reviewer Panel](#10-multi-reviewer-panel)
+- [Quantitative Scores](#13-quantitative-scores)
+- [Action Plan And CCFA Handoffs](#16-action-plan-and-ccfa-handoffs)
+
 ## 1. Report Metadata
 
 ```text
@@ -30,8 +40,8 @@ Use pass/fail/uncertain bullets:
 Include:
 
 - one-paragraph summary,
-- claimed problem,
-- claimed gap,
+- stated problem,
+- stated gap,
 - method/contribution map,
 - evidence package,
 - stated limitations.
@@ -84,11 +94,11 @@ Needed comparison:
 
 Do not invent papers. If the search is incomplete, say so.
 
-## 8. Claim-Evidence Audit
+## 8. Conclusion-Evidence Audit
 
 Use a Markdown table:
 
-| Claim | Where stated | Evidence provided | Strength | Reviewer deduction | Required fix |
+| Conclusion | Where stated | Evidence provided | Strength | Reviewer deduction | Required fix |
 | --- | --- | --- | --- | --- | --- |
 
 ## 9. Experiment / Benchmark / Reproducibility Audit

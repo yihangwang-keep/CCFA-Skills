@@ -6,14 +6,14 @@ For a full experiment plan, baseline search, simulation setting, evaluation sett
 
 ## Evidence Principle
 
-Design experiments to answer the reviewer question, "Does the evidence test the central claim?" Do not add experiments for volume. Every experiment should defend novelty, soundness, significance, generalization, efficiency, or scope.
+Design experiments to answer the reviewer question, "Does the evidence test the intended paper conclusion?" Do not add experiments for volume. Every experiment should defend novelty, soundness, significance, generalization, efficiency, or scope.
 
 ## Experiment Matrix
 
-For each major claim, create:
+For each major paper conclusion, create:
 
 ```text
-Claim:
+Paper conclusion:
 Evidence needed:
 Scenario / setting / formulation / proof / study:
 Baselines:
@@ -46,7 +46,7 @@ Use ablations to test mechanism, not only performance drops:
 
 For algorithmic ideas, define the objective, variables, constraints, assumptions, solver steps, termination, and feasibility or correctness checks before designing comparison tables. Require an exact solver, oracle, certified bound, relaxation, proven approximation/convergence property, or other defensible theoretical or optimality reference. Do not propose a method containing any heuristic decision mechanism, including a hybrid method with only one heuristic component. There are no proof, certificate, naming, or formal-wrapper exceptions. Heuristics may appear only as explicitly labeled baselines. If the proposed method contains a heuristic or lacks a qualifying guarantee or certificate, redesign or reject the algorithmic route before experiment planning.
 
-Define scenarios independently of the desired result. Preserve the motivating difficulty, cover realistic and hard variations, use matched tuning budgets, and include a simple rule baseline. Do not stack rules or modify scenarios and thresholds merely to win under a chosen setting. If the rule baseline solves the setting, revise the setting or narrow the claim before expanding the experiment suite.
+Define scenarios independently of the desired result. Preserve the motivating difficulty, cover realistic and hard variations, use matched tuning budgets, and include a simple rule baseline. Do not stack rules or modify scenarios and thresholds merely to win under a chosen setting. If the rule baseline solves the setting, revise the setting or narrow the supported conclusion before expanding the experiment suite.
 
 For communication, wireless, networking, UAV, edge, IoT, vehicular, satellite, or task-oriented communication ideas, use `ccf-env-design` through the CCFA handoff mode when the problem environment itself needs to be designed or audited. The local minimum check is: optimization target object, objective function, decision variables, channel/network model, binding constraints, uncertainty that affects decisions, coupled decisions, shortcut baseline, scenario simplicity, and explainable algorithmic structure.
 
@@ -59,7 +59,7 @@ For communication, wireless, networking, UAV, edge, IoT, vehicular, satellite, o
 - Systems: end-to-end evaluation, component-level measurements, overhead, sensitivity, resource use, and operational failure cases.
 - Communication/networking: objective function, decision variables, channel and mobility assumptions, interference, power/bandwidth/energy constraints, latency/reliability/AoI when relevant, fairness, online uncertainty, decoupled and rule baselines, oracle or bound, scenario simplicity, explainable mechanism, and stress tests.
 - Security: threat model tests, bypass attempts, adaptive attacks, guarantees, responsible disclosure, and limitations.
-- HCI: participant recruitment, tasks, measures, statistics, qualitative coding, ethics, and claim scope.
+- HCI: participant recruitment, tasks, measures, statistics, qualitative coding, ethics, and inference scope.
 - Theory: theorem statement, proof sketch, examples, relation to known results, and limits of assumptions.
 
 ## Minimum Convincing Package
@@ -72,4 +72,4 @@ The minimum package should include:
 4. Limitation or failure analysis.
 5. Reproducibility details sufficient for audit.
 
-If this package cannot be built under the user's constraints, recommend narrowing the claim, changing venue, or pivoting the idea.
+If this package cannot be built under the user's constraints, recommend narrowing the intended paper conclusion, changing venue, or pivoting the idea.

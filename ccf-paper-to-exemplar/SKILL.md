@@ -115,7 +115,7 @@ Paragraph-by-paragraph role analysis.
 How is the method presented and justified?
 
 ## Evidence Moves
-Evidence types, table/figure strategy, claim mapping.
+Evidence types, table/figure strategy, conclusion mapping.
 
 ## Citation Patterns
 How are citations woven? Density? Style?
@@ -127,7 +127,7 @@ Transferable writing techniques.
 Writing moves from the source that should not be reused, such as label-heavy prose, formula dumping, number-only abstract style, defensive framing, or punctuation-driven structure.
 
 ## Do-Not-Copy Boundary
-Do not copy specific task, claims, examples, or technical content.
+Do not copy specific task, conclusions, examples, or technical content.
 ```
 
 ## Dependencies

@@ -2,6 +2,13 @@
 
 Use this file when writing a literature-search folder.
 
+## Contents
+
+- [Folder Layout](#folder-layout)
+- [`papers.md`](#papersmd)
+- [`papers.csv`](#paperscsv)
+- [`search-notes.md`](#search-notesmd)
+
 ## Folder Layout
 
 Default:
@@ -54,7 +61,7 @@ Source-quality policy: applied
 
 | Cluster | Status | Open gap | Possible direction | Evidence needed | Risk |
 | --- | --- | --- | --- | --- | --- |
-|  | crowded but open / covered central claim / formulation gap / evaluation-setting gap / mechanism gap / deployment-system gap / theory-analysis gap / negative-result opportunity |  |  |  |  |
+|  | crowded but open / covered central conclusion / formulation gap / evaluation-setting gap / mechanism gap / deployment-system gap / theory-analysis gap / negative-result opportunity |  |  |  |  |
 
 ## Evidence Object Candidates
 
@@ -63,7 +70,7 @@ Source-quality policy: applied
 
 ## Citation And Positioning Cautions
 
-- Claims that need direct citation:
+- Statements that need direct citation:
 - Papers that may weaken novelty:
 - Papers that only support background:
 ```

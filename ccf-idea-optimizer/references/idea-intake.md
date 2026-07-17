@@ -70,7 +70,7 @@ Use these labels instead of guessing:
 - `needs-frontier-grounding`: the idea may be stale or crowded and needs current paper search.
 - `needs-feasibility-check`: data, compute, implementation complexity, or timeline is unclear.
 - `needs-domain-constraint`: the real-world setting, threat model, user group, or operating regime is underspecified.
-- `needs-evidence-design`: the paper claim is clearer than the experiment plan.
+- `needs-evidence-design`: the intended paper conclusion is clearer than the experiment plan.
 - `needs-venue-selection`: the idea may be good, but the audience is not yet obvious.
 
 ## Multi-Idea Intake

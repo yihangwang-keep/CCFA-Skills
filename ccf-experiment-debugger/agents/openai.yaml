@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Experiment Debugger"
-  short_description: "Coordinate auditor-led MVP failure repair"
-  default_prompt: "Use $ccf-experiment-debugger to isolate this MVP failure from environment and algorithm auditor evidence, apply the smallest owned change, and close the rerun loop."
+  short_description: "Run evidence-led MVP repair and validation loops"
+  default_prompt: "Use $ccf-experiment-debugger to isolate this environment or algorithm MVP failure, preserve the frozen research layers, apply one owned delta per round, and close every invalidated check with fresh domain audits and code review."

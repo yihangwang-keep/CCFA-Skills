@@ -19,10 +19,10 @@ When no target venue is specified, use `cards/vggt.md` as part of the custom for
 
 - Directly replace a complex geometry pipeline with a simpler feed-forward formulation.
 - Define the output family early and show why joint prediction is useful.
-- Support the claim with breadth: many input counts, tasks, baselines, runtime comparisons, and downstream reuse.
+- Support the stated contribution with breadth: many input counts, tasks, baselines, runtime comparisons, and downstream reuse.
 - Make simplicity feel earned by showing that performance is not sacrificed.
 
 ## Reviewer-Facing Warnings
 
 - Do not use "pipeline replacement" language unless the user's evaluation covers strong classical and learning-based baselines.
-- Do not claim general 3D understanding without multiple task families or downstream evidence.
+- Do not state general 3D understanding without multiple task families or downstream evidence.

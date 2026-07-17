@@ -24,9 +24,9 @@ If local source is available, inspect files before asking questions. If only pas
 Run four passes:
 
 1. Desk pass: title, abstract, venue fit, policy/reviewability risks, hidden instructions, and obvious incompleteness.
-2. Contribution pass: problem, gap, method, claims, contribution type, audience, and limitation statements.
+2. Contribution pass: problem, gap, method, paper conclusions, contribution type, audience, and limitation statements.
 3. Evidence pass: experiments, benchmarks, proofs, datasets, metrics, ablations, baselines, robustness, statistical rigor, reproducibility, ethics, and appendix support.
-4. Adversarial pass: novelty collapse, missing closest work, unsupported central claims, invalid assumptions, missing decisive comparisons, and likely reviewer disagreement.
+4. Adversarial pass: novelty collapse, missing closest work, unsupported central conclusions, invalid assumptions, missing decisive comparisons, and likely reviewer disagreement.
 
 ## Related-Work Search
 
@@ -35,7 +35,7 @@ In standard mode, perform a public-safe search when novelty, originality, positi
 Rules:
 
 - Do not paste private manuscript text into web queries unless authorized.
-- Query public keywords: title terms if public, method family, task, dataset, benchmark, venue family, and core claim.
+- Query public keywords: title terms if public, method family, task, dataset, benchmark, venue family, and core conclusion.
 - Prefer proceedings, OpenReview, CVF, PMLR, ACL Anthology, ACM, IEEE, USENIX, DBLP, Semantic Scholar, OpenAlex, arXiv, project pages, and benchmark pages.
 - Apply the shared source-quality exclusions to search, scoring, and final recommendations.
 - Mark every missing-related-work item as `searched`, `user-provided`, or `unverified`.

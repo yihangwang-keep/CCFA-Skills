@@ -2,6 +2,16 @@
 
 Use this file when converting a rough direction into a CCF-A-ready problem and method plan.
 
+## Contents
+
+- [Problem Sharpening](#problem-sharpening)
+- [Method Mechanism](#method-mechanism)
+- [Scenario Validity](#scenario-validity)
+- [Coherence Filter](#coherence-filter)
+- [Innovation Types](#innovation-types)
+- [Elegance Checks](#elegance-checks)
+- [Fatal Idea Risks](#fatal-idea-risks)
+
 ## Problem Sharpening
 
 A strong problem statement should answer:
@@ -12,7 +22,7 @@ Who in the venue community cares?
 What gap remains after the strongest prior work?
 Why is the gap hard rather than merely unattempted?
 What would become possible if it were solved?
-What scope boundary prevents overclaiming?
+What scope boundary prevents overstatement?
 ```
 
 Good CCF-A problems tend to have at least one of these properties:
@@ -63,11 +73,11 @@ Reject scenario engineering that makes the task trivial for a simple rule, remov
 Before presenting an optimized idea, check:
 
 - The problem setting and method assumptions are compatible.
-- The proposed evidence can actually test the central claim.
+- The proposed evidence can actually test the intended paper conclusion.
 - The contribution type matches the evidence type.
 - The target venue audience would care about the problem, not only the technique.
 - No module requires data, supervision, deployment access, or theoretical assumptions that conflict with another module.
-- The idea does not rely on mutually exclusive claims such as "training-free" and "requires large fine-tuning" unless the distinction is scoped.
+- The idea does not rely on mutually incompatible statements such as "training-free" and "requires large fine-tuning" unless the distinction is scoped.
 
 ## Innovation Types
 
@@ -81,7 +91,7 @@ Classify the strongest honest contribution:
 - New empirical finding or diagnostic analysis.
 - New synthesis that resolves a known tension.
 
-Avoid claiming all types. Pick the top one or two and make the evidence package serve them.
+Avoid overstating the contribution as covering all types. Pick the top one or two and make the evidence package serve them.
 
 ## Elegance Checks
 
@@ -89,7 +99,7 @@ An elegant idea usually has:
 
 - One central insight that explains the method.
 - A method whose parts are necessary, not decorative.
-- A simple claim that can be tested directly.
+- A simple paper conclusion that can be tested directly.
 - A failure mode that is understandable.
 - A result that would teach the community something even if SOTA gains are modest.
 - A design that removes a bottleneck or reveals a simpler formulation, not merely a longer pipeline.
@@ -101,6 +111,6 @@ Mark these early:
 - The novelty collapses under a likely close paper.
 - The problem is too narrow for the target venue.
 - The method is a known trick with new terminology.
-- The central claim cannot be tested with available resources.
+- The central paper conclusion cannot be tested with available resources.
 - The evidence would require a dataset, proof, or system that cannot be built in time.
 - The idea depends on hidden assumptions reviewers will reject.

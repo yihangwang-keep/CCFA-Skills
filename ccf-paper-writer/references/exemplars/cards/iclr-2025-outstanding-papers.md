@@ -21,11 +21,11 @@ Use when: the user explicitly asks for recent ICLR outstanding-paper style, espe
 
 - Pair practical relevance with mechanistic explanation.
 - Name the failure mode or control dimension early.
-- Build a claim-evidence path from diagnostic finding to intervention.
+- Build an evidence path from diagnostic finding to intervention.
 - Let the contribution be an insight plus a tool, not just a new benchmark or model.
 
 ## Reviewer-Facing Warnings
 
-- Avoid claiming causal mechanism unless the experiments isolate it.
+- Avoid stating a causal mechanism unless the experiments isolate it.
 - For editing or alignment papers, define the threat model, target behavior, and evaluation boundary.
 - For finetuning papers, separate optimization dynamics from dataset artifacts.

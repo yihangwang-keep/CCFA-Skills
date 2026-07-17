@@ -1,7 +1,7 @@
 # STOC/FOCS Theory Best-Paper Style Card
 
 Venue/year: STOC/FOCS theory family.
-Source: SIGACT Best Paper Prize source record `sigact-best-paper`; verify the exact paper page before public award-status claims.
+Source: SIGACT Best Paper Prize source record `sigact-best-paper`; verify the exact paper page before public statements about award status.
 Use when: theory papers, algorithms, complexity, lower/upper bounds, proof techniques, formal models, or papers resolving a technical barrier.
 
 ## Story Pattern
@@ -13,7 +13,7 @@ The paper type is theorem-first research: state the model and result precisely, 
 - Name the formal problem and model.
 - State the main result in precise terms.
 - Relate the result to a known barrier, conjecture, bound, or open question.
-- Avoid broad impact claims unless the formal implication is direct.
+- Avoid broad impact statements unless the formal implication is direct.
 
 ## Introduction Moves
 

@@ -47,10 +47,10 @@ Load `../ccf-common/references/review-output-standards.md` when monitor results 
 ## Workflow
 
 1. Load `references/monitoring-workflow.md`.
-2. If project state is available (`ccfa.yaml`), read the current idea, target venue, claims, and tracked competitors.
+2. If project state is available (`ccfa.yaml`), load `../ccf-common/references/ccfa-yaml-contract.md` and `../ccf-common/references/artifact-contracts.md`, then read the current idea, target venue, conclusion state, and tracked competitors.
 3. Choose the mode and time window. If the user says "latest", "recent", "new", "this week", or "today", verify the current date and use an explicit date range.
 4. Execute the requested monitoring mode using public-safe queries and source-quality exclusions from the shared policy.
-5. Classify overlaps by problem, mechanism, evidence, benchmark, dataset, claim, and venue positioning.
+5. Classify overlaps by paper scenario, formal problem, mechanism, evidence, evaluation setting, trace or parameter range, conclusion, and venue positioning.
 6. Report findings with precise implications for other CCFA skills.
 7. Offer optional handoff to `ccf-literature-searcher` for deep retrieval, `ccf-idea-reviewer` for score impact, `ccf-idea-optimizer` for differentiation, or `ccf-paper-writer` for related-work integration.
 
@@ -73,9 +73,9 @@ For each monitoring execution, report in this structure:
 | [title] | [arXiv/OpenReview/venue] | None/Low/Medium/High | Problem/Method/Evidence/Benchmark | [abstract/intro/result] | RELAX/RESEARCH/FOLLOW-UP |
 
 **Actionable flags:**
-- RELAX: no material overlap found in the scanned window; continue, but do not claim full novelty proof.
+- RELAX: no material overlap found in the scanned window; continue, but do not state that novelty has been fully proved.
 - RESEARCH: partial overlap or possible close work; deep retrieve via `ccf-literature-searcher`.
-- FOLLOW-UP: significant overlap in problem, mechanism, and evidence; route to `ccf-idea-reviewer` or `ccf-idea-optimizer` before writing stronger novelty claims.
+- FOLLOW-UP: significant overlap in problem, mechanism, and evidence; route to `ccf-idea-reviewer` or `ccf-idea-optimizer` before writing stronger novelty conclusions.
 
 **Handoff signals:**
 - `ccf-literature-searcher`: [papers or clusters to retrieve deeply]

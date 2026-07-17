@@ -43,7 +43,7 @@ Choose the recommended route by:
 5. whether the output should be a reusable file,
 6. session denylists and handoff mode.
 
-Do not recommend literature search when the immediate need is local text polishing. Do not recommend writing before the idea, evidence, or results are stable enough to support the claims.
+Do not recommend literature search when the immediate need is local text polishing. Do not recommend writing before the idea, evidence, or results are stable enough to support the paper conclusions.
 
 ## Too-Broad Decomposition
 

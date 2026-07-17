@@ -2,6 +2,13 @@
 
 Use this file to prevent omissions during planning, drafting, revision, score-risk auditing, and final readiness checks. Load `../../ccf-common/references/task-modes.md` when deciding quick versus standard mode. For writing tasks, this checklist is usually internal. Show checklist status only when the user asks for audit/rationale, when the output feeds another CCFA skill, or when an unresolved risk affects reliability.
 
+## Contents
+
+- Quick and standard modes
+- Intake, venue, story, and section checks
+- Prose, conclusion-evidence, and reviewer-risk checks
+- Score-lifting and final-readiness checks
+
 ## Quick Mode Checklist
 
 Use this for one paragraph, one small subsection, or single-pass polish:
@@ -9,7 +16,7 @@ Use this for one paragraph, one small subsection, or single-pass polish:
 - Venue or style assumption is clear enough for the local edit.
 - Paragraph or subsection role is identified.
 - Technical meaning, results, datasets, baselines, and conclusion direction are preserved.
-- Local claims are supported, softened, or flagged.
+- Local conclusions are supported, qualified, or flagged.
 - No citation, result, experiment, or reviewer impact is invented.
 - Prose follows `prose-quality-guardrails.md`: no defensive framing, label-heavy symbols, number-only abstract style, third-person manuscript voice, or punctuation-driven structure.
 - Full paper storyline, full score-risk loop, and final-readiness checks are skipped unless the user requests standard mode.
@@ -33,7 +40,7 @@ Use the remaining checklist sections for full sections, whole papers, score-risk
 - Deadline pressure and desired output granularity are known: plan, rewrite, line edit, review, or final check.
 - Available materials are listed: manuscript, appendix, figures, tables, reviews, code, experiments, references, style exemplars.
 - Missing materials that affect confidence are named.
-- Claims that cannot be verified from provided materials are not treated as facts.
+- Statements that cannot be verified from provided materials are not treated as facts.
 
 ## Venue And Style Checklist
 
@@ -59,8 +66,8 @@ Check:
 - The root challenge is technical, scientific, empirical, or human-centered, not just "existing methods fail."
 - The insight explains why the proposed method should work.
 - The method mechanism connects to the insight.
-- The evidence package tests the central claim.
-- The limitation bounds the claim honestly.
+- The evidence package tests the central conclusion.
+- The limitation bounds the conclusion honestly.
 
 ## Section Revision Checklist
 
@@ -86,15 +93,15 @@ Use with `prose-quality-guardrails.md` before calling a draft polished:
 - Quotation marks, colons, dashes, slashes, arrows, and bracketed labels are not used as substitutes for logical transitions.
 - Long compound sentences are split when they mix motivation, mechanism, evidence, and conclusion.
 - Canonical terms are used consistently across abstract, introduction, method, experiments, and conclusion.
-- Strong claims avoid hype and are scoped to available evidence.
+- Strong conclusions avoid hype and are scoped to available evidence.
 - Each paragraph progresses by cause, contrast, refinement, example, or consequence.
 
-## Claim-Evidence Checklist
+## Conclusion-Evidence Checklist
 
-For every major Abstract, Introduction, and Conclusion claim:
+For every major Abstract, Introduction, and Conclusion statement:
 
 ```text
-Claim:
+Conclusion:
 Location:
 Evidence:
 Evidence type:
@@ -104,9 +111,9 @@ Required action:
 
 Rules:
 
-- Supported claims may be sharpened.
-- Weakly supported claims must be narrowed or tied to stronger evidence.
-- Unsupported claims must be removed, weakened, or marked as requiring new evidence.
+- Supported conclusions may be sharpened.
+- Weakly supported conclusions must be narrowed or tied to stronger evidence.
+- Unsupported conclusions must be removed, qualified, or marked as requiring new evidence.
 - Evidence hidden only in the appendix must be signposted in the main text.
 
 ## Reviewer-Risk Checklist
@@ -117,13 +124,13 @@ Scan for:
 - weak novelty positioning,
 - missing or stale related work,
 - significance unclear for the venue,
-- unsupported central claim,
+- unsupported central conclusion,
 - weak baseline,
 - missing ablation, proof, user study, or system evaluation,
 - unfair protocol or metric,
 - reproducibility gap,
 - figure/table readability issue,
-- overclaim,
+- overstatement,
 - generic limitation,
 - ethics or responsible-research issue,
 - venue mismatch.
@@ -148,7 +155,7 @@ Do not call a paper or section ready until:
 - The target venue/custom format is clear.
 - The global story is internally consistent.
 - The prose quality checklist has no high-risk pattern remaining.
-- Central claims have visible support.
+- Central conclusions have visible support.
 - Closest prior work and strongest baselines are handled.
 - Venue-specific evidence is visible in the main paper.
 - Limitations are honest and bounded.
@@ -166,7 +173,7 @@ Checklist status:
 - Storyline:
 - Section roles:
 - Prose quality:
-- Claim-evidence:
+- Conclusion-evidence:
 - Reviewer risks:
 - Score-risk:
 - Final readiness:

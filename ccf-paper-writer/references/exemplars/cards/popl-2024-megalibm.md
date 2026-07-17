@@ -1,7 +1,7 @@
 # MegaLibm Style Card
 
 Venue/year: POPL 2024 family.
-Source: ACM Best Paper Awards source record `acm-best-paper-awards`; verify the exact paper page before public award-status claims.
+Source: ACM Best Paper Awards source record `acm-best-paper-awards`; verify the exact paper page before public statements about award status.
 Use when: programming languages, program synthesis, compiler/tool papers, numerical libraries, formal methods, or papers combining correctness with empirical tool evaluation.
 
 ## Story Pattern
@@ -36,4 +36,4 @@ The paper type is PL/tool research: start with a correctness, synthesis, or veri
 
 ## Do-Not-Copy Boundary
 
-Do not reuse library-specific examples, theorem wording, or tool claims. Transfer only the PL proof-plus-artifact writing pattern.
+Do not reuse library-specific examples, theorem wording, or tool-specific statements. Transfer only the PL proof-plus-artifact writing pattern.

@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Environment Code Auditor"
-  short_description: "Audit paper-to-MVP environment code consistency"
-  default_prompt: "Use $ccf-env-code-auditor to verify paper-to-MVP consistency, complete environment behavior, algorithm-required information, and the intended tradeoff."
+  short_description: "Audit scenario-MVP environment consistency"
+  default_prompt: "Use $ccf-env-code-auditor to verify the paper scenario, formal optimization problem, parameter applicability range, scenario MVP, decision-time information, feasibility meaning, and central tradeoff against executed environment behavior."

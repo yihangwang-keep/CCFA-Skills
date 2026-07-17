@@ -14,10 +14,10 @@ Report the result on a 1-5 scale and optionally convert to a 100-point table for
 
 ## Recommendation Bands
 
-- 4.3-5.0: `accept-to-develop`. Develop aggressively only after closest-work comparison and evidence planning support the central claim.
+- 4.3-5.0: `accept-to-develop`. Develop aggressively only after closest-work comparison and evidence planning make the central paper conclusion defensible.
 - 3.7-4.2: `revise`. Promising, but one or two named score blockers must be fixed.
 - 3.0-3.6: `pivot-with-rescue-route`. Keep the best ingredient but change problem, method, evidence, or venue.
-- 1.0-2.9: `high-risk reformulate` by default; use `abandon` only if no testable claim and no plausible rescue route remain.
+- 1.0-2.9: `high-risk reformulate` by default; use `abandon` only if no testable paper conclusion and no plausible rescue route remain.
 - Any score with high novelty uncertainty: `needs-literature-search` if novelty is decision-critical.
 
 ## Fatal Gates
@@ -84,6 +84,6 @@ For multiple drafts:
 - Do not punish niche ideas if the target venue values depth and rigor.
 - Separate "novelty unknown" from "low novelty".
 - Do not require experiments for theory ideas, proofs for empirical ideas, or user studies for non-HCI ideas.
-- Penalize unsupported acceptance claims, not ambitious but testable ideas.
+- Penalize unsupported predictions of acceptance, not ambitious but testable ideas.
 - Do not hide a reject-level problem under "future work".
 - Do not say "worth pursuing" without naming the exact condition under which it becomes worth pursuing.

@@ -40,12 +40,12 @@ The paper begins from a classic pipeline with strong priors and heavy optimizati
 ## Reusable Techniques
 
 - Use "direct prediction of a family of outputs" as a unifying paper story.
-- Make simplicity reviewer-facing: fewer special components can be a claim if evidence is broad.
+- Make simplicity reviewer-facing: fewer special components can support a stated contribution if evidence is broad.
 - Let one overview figure show input/output breadth and runtime contrast.
 
 ## User Notes
 
-This is one of the user's recognized exemplars. Use it for papers that want to claim a simple model can replace a complicated classical pipeline.
+This is one of the user's recognized exemplars. Use it for papers that want to state that a simple model can replace a complicated classical pipeline.
 
 ## Do-Not-Copy Boundary
 

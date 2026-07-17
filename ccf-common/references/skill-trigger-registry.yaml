@@ -45,12 +45,12 @@ skills:
     exclude: "Does not choose the initial algorithm, redesign the environment, or design publication experiments."
     handoff: "ccf-algorithm-designer, ccf-env-code-auditor, ccf-env-design, ccf-experiment-debugger, ccf-experiment-designer"
   - name: ccf-experiment-designer
-    trigger: "Turn validated MVP evidence into paper-scope experiments, scenario coverage, simulation settings, baselines, metrics, ablations, robustness tests, result templates, and real-result tables/figures."
+    trigger: "Turn validated MVP evidence into experiments for the paper's conclusion applicability range, including scenario coverage, simulation settings, baselines, metrics, ablations, robustness tests, result templates, and real-result tables/figures."
     exclude: "Does not design the primary scenario or algorithm, validate code, or invent results."
     handoff: "ccf-env-design, ccf-env-code-auditor, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-debugger, ccf-literature-searcher, ccf-visual-composer, ccf-paper-writer, ccf-paper-reviewer, ccf-integrity-auditor, ccf-submission-checker"
   - name: ccf-experiment-debugger
-    trigger: "Coordinate failed, unstable, divergent, irreproducible, or unexpectedly weak MVP repair from environment-auditor and algorithm-auditor evidence; isolate the owner, apply the smallest change, and close reruns."
-    exclude: "Does not replace implementation auditors, design the initial workflow, or fabricate success."
+    trigger: "Coordinate an environment-algorithm Ralph design-validation loop or repair a failed, unstable, divergent, irreproducible, or unexpectedly weak MVP from independent auditor evidence."
+    exclude: "Does not replace designers or auditors, redefine the paper scenario without an accepted amendment, or fabricate success."
     handoff: "ccf-env-design, ccf-env-code-auditor, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-designer"
   - name: ccf-visual-composer
     trigger: "Compose, polish, generate, and QA publication-grade figures, tables, Python plotting code, creative data-analysis plots, captions, palettes, panel maps, and manuscript visual layout integration from supplied data/results."
@@ -69,7 +69,7 @@ skills:
     exclude: "Does not rewrite the manuscript or draft rebuttals."
     handoff: "ccf-paper-writer, ccf-experiment-designer, ccf-integrity-auditor, ccf-submission-checker, ccf-rebuttal-writer"
   - name: ccf-integrity-auditor
-    trigger: "Audit claims, numbers, table/figure/text consistency, citation metadata, and citation-context support."
+    trigger: "Audit paper conclusions, numbers, table/figure/text consistency, citation metadata, and citation-context support."
     exclude: "Does not replace full review or broad literature search."
     handoff: "ccf-paper-reviewer, ccf-paper-writer, ccf-visual-composer, ccf-literature-monitor, ccf-literature-searcher"
   - name: ccf-submission-checker

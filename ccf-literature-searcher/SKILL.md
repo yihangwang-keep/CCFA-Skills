@@ -40,7 +40,7 @@ In standard mode, complete this checklist before final output. In quick mode, ru
 6. Each included paper has venue/year/source status, paper type, and relevance rationale.
 7. Paper quality is scored on insight, completeness, and experimental numeric evidence. Pure evaluation-artifact papers skip the numeric-results score and receive a quality note for the artifact they introduce.
 8. Paper type is one of `pure evaluation artifact`, `pure method`, `method + evaluation artifact`, `survey`, `system/tool`, `theory/proof`, or `other`.
-9. Every claim about a paper is traceable to the linked source or marked as inferred.
+9. Every statement about a paper is traceable to the linked source or marked as inferred.
 10. For idea-stage searches, each closest-work cluster includes what is already covered, what remains under-tested, and at least one possible differentiation or rescue route.
 11. A literature-search folder is written when file access is available and the user asked for a reusable report or standard workflow.
 12. Optional handoff to `ccf-literature-monitor`, `ccf-paper-writer`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-experiment-designer`, or `ccf-paper-reviewer` follows CCFA handoff mode.
@@ -53,7 +53,7 @@ In standard mode, complete this checklist before final output. In quick mode, ru
    - Exploratory: 10-20 screened candidates, 5-10 final papers or clusters, plus opportunity gaps.
    - Quick: 6-10 screened candidates, 3-6 final papers.
    - Standard: 15-30 screened candidates, 8-15 final papers unless the user requests another size.
-4. Search discovery indexes first, then verify candidates through stable paper pages or official proceedings when possible. Use broad web search only to find primary links; do not rely on snippets for final claims.
+4. Search discovery indexes first, then verify candidates through stable paper pages or official proceedings when possible. Use broad web search only to find primary links; do not rely on snippets for final statements.
 5. Filter by influence and fit. Prefer CCF-A/B conferences, top-field conferences, strong journals, widely used baselines, or recent high-signal preprints from credible groups. Exclude low-quality, predatory, inaccessible, or policy-excluded sources. For exploratory searches, include one or two "near miss" or negative-signal clusters if they reveal an open gap, failed assumption, outdated evaluation setting, missing user group, or neglected system constraint.
 6. Classify each paper with the paper-type taxonomy and score it:
    - `insight`: how clear and non-obvious the central idea is.

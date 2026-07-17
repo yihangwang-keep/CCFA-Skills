@@ -25,5 +25,5 @@ Use when: the user explicitly asks for recent CVPR best-paper style, especially 
 
 ## Reviewer-Facing Warnings
 
-- Do not claim "without training" or "planning-oriented" unless the experimental protocol proves that exact property.
-- Make sure the output evaluated is the output the paper claims to optimize.
+- Do not state "without training" or "planning-oriented" unless the experimental protocol proves that exact property.
+- Make sure the output evaluated is the output the paper states it optimizes.

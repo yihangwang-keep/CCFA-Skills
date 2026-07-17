@@ -1,4 +1,4 @@
-﻿version: "0.4.0"
+﻿version: "0.5.0"
 project:
   title: ""
   short_name: ""
@@ -14,12 +14,17 @@ stage:
 artifacts:
   manuscript: "manuscript/main.tex"
   bibliography: "manuscript/references.bib"
+  environment_design: "environment-design/"
+  environment_audit: "environment-audit/"
+  algorithm_design: "algorithm-design/"
+  algorithm_audit: "algorithm-audit/"
+  experiment_debug: "experiment-debug/"
   figures: "figures/"
   tables: "tables/"
   experiments: "experiments/"
   reviews: "reviews/"
   submission: "submission/"
-claims: []
+paper_conclusions: []
 experiments: []
 reviews: []
 revision_ledger:

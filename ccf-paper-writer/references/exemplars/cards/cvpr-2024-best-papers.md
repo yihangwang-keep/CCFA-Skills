@@ -25,5 +25,5 @@ Use when: the user explicitly asks for recent CVPR best-paper style, especially 
 
 ## Reviewer-Facing Warnings
 
-- Do not overclaim human preference alignment without careful annotation and evaluation protocols.
-- For dynamics or animation claims, distinguish plausible visual motion from physically correct motion.
+- Do not overstate human preference alignment without careful annotation and evaluation protocols.
+- For dynamics or animation statements, distinguish plausible visual motion from physically correct motion.

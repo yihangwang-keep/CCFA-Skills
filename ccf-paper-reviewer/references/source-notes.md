@@ -19,7 +19,7 @@ python ..\ccf-common\scripts\check_sources.py
 ## Use Rules
 
 - Use official venue criteria for current-year review dimensions, page limits, anonymity, policy, ethics, and review forms.
-- Use CSPaper, Agentic Reviewer, OpenAIReview, and related AI-review tools as workflow inspiration only; do not claim their exact calibration or hidden implementation.
+- Use CSPaper, Agentic Reviewer, OpenAIReview, and related AI-review tools as workflow inspiration only; do not state their exact calibration or hidden implementation as established fact.
 - Use public-safe search queries for related work; never paste private manuscript wording into web search unless the user authorizes it.
 - Apply the shared CCFA source-quality policy.
 - Treat missing related work as searched, user-provided, or unverified.

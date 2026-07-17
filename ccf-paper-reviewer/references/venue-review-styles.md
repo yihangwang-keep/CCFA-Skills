@@ -2,6 +2,13 @@
 
 Use this file after identifying the target venue or CCF-A family. Treat it as a weighting and evidence selector. If current-year policy, page limits, or official review forms matter, verify the official venue page first.
 
+## Contents
+
+- AI/ML: [AAAI](#aaai), [NeurIPS](#neurips), [ICML](#icml), [ICLR](#iclr)
+- Language, vision, and data: [ACL / ARR](#acl--arr), [CVPR / ICCV / ECCV](#cvpr--iccv--eccv), [KDD / SIGMOD / VLDB / ICDE / SIGIR](#kdd--sigmod--vldb--icde--sigir)
+- Systems and foundations: [Systems / Architecture / Networking / Storage](#systems--architecture--networking--storage), [Security / Privacy / Cryptography](#security--privacy--cryptography), [Software Engineering / PL / Formal Methods](#software-engineering--pl--formal-methods)
+- Human-centered and theory: [HCI / CSCW / UbiComp / UIST](#hci--cscw--ubicomp--uist), [Graphics / Visualization / Multimedia / VR](#graphics--visualization--multimedia--vr), [Theory](#theory), [Venue-Fit Output](#venue-fit-output)
+
 ## AAAI
 
 Primary dimensions: significance and novelty of contributions, theoretical or empirical soundness, relevance to the AAAI community, clarity, responsible research, and reproducibility.
@@ -9,9 +16,9 @@ Primary dimensions: significance and novelty of contributions, theoretical or em
 Review emphasis:
 
 - Reward substantive AI contribution, not just application packaging.
-- Check whether the problem, method, experiments, analyses, and claims fit AAAI's broad AI audience.
+- Check whether the problem, method, experiments, analyses, and paper conclusions fit AAAI's broad AI audience.
 - Require reproducibility details, proof/algorithm clarity, datasets, metrics, and responsible-research handling when relevant.
-- Penalize unclear engagement with previous literature, unjustified AI-based approach, weak evaluation, or overbroad social-impact claims.
+- Penalize unclear engagement with previous literature, unjustified AI-based approach, weak evaluation, or overbroad social-impact conclusions.
 
 ## NeurIPS
 
@@ -31,7 +38,7 @@ Primary dimensions: technical quality, significance, novelty/originality, clarit
 Review emphasis:
 
 - Separate algorithmic or theoretical novelty from empirical performance.
-- Require enough experimental breadth to justify general ML claims.
+- Require enough experimental breadth to justify general ML conclusions.
 - Penalize weak statistical practice, missing strong baselines, unclear training/evaluation details, and overstated generalization.
 - Reward clean problem formulation, theory/intuition, and evidence that explains why the method works.
 
@@ -44,7 +51,7 @@ Review emphasis:
 - Ask whether the submission brings sufficient value to the community.
 - Prioritize conceptual clarity, representation/learning insight, empirical soundness, and clear distinction from prior work.
 - For revision planning, identify which clarifications could reasonably raise a reviewer score.
-- Penalize claims that are impressive in wording but not grounded in evidence or theory.
+- Penalize paper conclusions that are impressive in wording but not grounded in evidence or theory.
 
 ## ACL / ARR
 
@@ -66,7 +73,7 @@ Review emphasis:
 - Treat figures, qualitative examples, failure cases, and visual comparisons as evidence, not decoration.
 - Require strong recent baselines, ablations, cross-dataset tests, robustness, and fair protocol.
 - Penalize cherry-picked visuals, missing failure analysis, low-resolution or unreadable figures, and unclear relation to close CV work.
-- Reward inspectable evidence and concise claims tied to benchmarks and visual examples.
+- Reward inspectable evidence and concise conclusions tied to benchmarks and visual examples.
 
 ## KDD / SIGMOD / VLDB / ICDE / SIGIR
 
@@ -75,7 +82,7 @@ Primary dimensions: realistic problem setting, novelty, effectiveness, efficienc
 Review emphasis:
 
 - Require realistic workloads, datasets, query/search/user scenarios, and deployment constraints.
-- Evaluate both effectiveness and efficiency when both are claimed.
+- Evaluate both effectiveness and efficiency when the paper draws conclusions about both.
 - Penalize toy-only evidence, missing indexes/pipeline details, unclear complexity, and weak large-scale validation.
 
 ## Systems / Architecture / Networking / Storage
@@ -115,10 +122,10 @@ Primary dimensions: research question, human problem, study design, analysis val
 
 Review emphasis:
 
-- Connect research questions to methods, participants, measures, analysis, and claims.
+- Connect research questions to methods, participants, measures, analysis, and conclusions.
 - For qualitative work, check coding, themes, triangulation, and reflexivity.
 - For systems, keep interaction design and user value central.
-- Penalize unsupported broad claims from narrow populations.
+- Penalize unsupported broad conclusions from narrow populations.
 
 ## Graphics / Visualization / Multimedia / VR
 
@@ -138,7 +145,7 @@ Review emphasis:
 
 - State model, assumptions, theorems, and contribution boundaries early.
 - Give intuition before dense proof detail.
-- Penalize unclear assumptions, missing proof steps, and overclaiming beyond theorem statements.
+- Penalize unclear assumptions, missing proof steps, and overstatement beyond theorem statements.
 
 ## Venue-Fit Output
 

@@ -32,7 +32,7 @@ The paper imports a familiar scaling lesson from language and vision into reinfo
 
 - Show scaling curves rather than only best numbers.
 - Compare against goal-conditioned baselines.
-- Include qualitative behavior examples to support the capability-change claim.
+- Include qualitative behavior examples to support the capability-change statement.
 
 ## Reusable Techniques
 
@@ -46,4 +46,4 @@ Use for papers where a simple scaling dimension unlocks surprising performance o
 
 ## Do-Not-Copy Boundary
 
-Do not reuse the depth-scaling claim, unsupervised RL setup, or magnitude of gains unless supported by the user's experiments.
+Do not reuse the depth-scaling statement, unsupervised RL setup, or magnitude of gains unless supported by the user's experiments.

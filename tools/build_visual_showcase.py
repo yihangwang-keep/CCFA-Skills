@@ -304,17 +304,17 @@ def build() -> list[Path]:
     outputs.append(
         save_svg(
             lollipop_rank(
-                rows=[{"axis": f"Claim {i}", "score": _round(RNG.uniform(62, 96), 1)} for i in range(1, 8)],
+                rows=[{"axis": f"Conclusion {i}", "score": _round(RNG.uniform(62, 96), 1)} for i in range(1, 8)],
                 value_key="score",
                 label_key="axis",
-                title="Claim strength ranking",
+                title="Conclusion strength ranking",
                 subtitle="Direct labels keep a dense comparison readable without legend hunting.",
                 note=note,
                 unit="",
                 palette=PALETTE_GEM,
                 theme=Theme(width=900, height=520, bg="#FAFBFF", accent=PALETTE_GEM[0]),
             ),
-            OUT / "showcase-01-claim-strength-lollipop.svg",
+            OUT / "showcase-01-conclusion-strength-lollipop.svg",
         )
     )
 

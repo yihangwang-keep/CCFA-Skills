@@ -1,19 +1,19 @@
 # Constrained Highlighting Style Card
 
 Venue/year: CHI 2024 family.
-Source: ACM Best Paper Awards source record `acm-best-paper-awards`; verify the exact CHI paper page before public award-status claims.
+Source: ACM Best Paper Awards source record `acm-best-paper-awards`; verify the exact CHI paper page before public statements about award status.
 Use when: HCI, reading interfaces, interaction technique evaluation, user studies, education technology, or human-centered design papers.
 
 ## Story Pattern
 
-The paper type is HCI research: start from a human activity and a measurable difficulty, introduce the design intervention, then connect study design to the claim. The contribution is not the interface alone; it is the evidence about how and why the interaction changes user behavior or understanding.
+The paper type is HCI research: start from a human activity and a measurable difficulty, introduce the design intervention, then connect study design to the stated contribution. The contribution is not the interface alone; it is the evidence about how and why the interaction changes user behavior or understanding.
 
 ## Abstract Moves
 
 - State the human task and population/context.
 - Describe the intervention without overselling it as universally better.
 - Preview study design, measures, and core finding using user-supplied results only.
-- Bound the claim to the studied context.
+- Bound the stated contribution to the studied context.
 
 ## Introduction Moves
 
@@ -36,4 +36,4 @@ The paper type is HCI research: start from a human activity and a measurable dif
 
 ## Do-Not-Copy Boundary
 
-Do not reuse study claims or intervention specifics. Transfer only the HCI story and evidence structure.
+Do not reuse study statements or intervention specifics. Transfer only the HCI story and evidence structure.

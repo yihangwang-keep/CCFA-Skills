@@ -14,16 +14,16 @@ Use when: writing architecture papers, backbone-replacement papers, or papers wh
 | Background |0.7 | Formal problem statement, notation, why path length matters. |
 | Model Architecture |3.0 | The largest section. Every component motivated individually: attention, multi-head, FFN, embeddings, positional encoding. Each subsection has: motivation, equation, explanation, why it works. |
 | Why Self-Attention |0.5 | Analytical justification: complexity comparison table, path-length analysis. |
-| Training |0.3 | Dataset, hardware, schedule — just enough to justify claims. |
+| Training |0.3 | Dataset, hardware, schedule — just enough to justify the stated conclusions. |
 | Results |1.5 | Main BLEU table, comparison table, ablations table, training curves. |
 | Related Work |1.0 | Organized by paradigm, not by chronology. Each subsection contrasts directly with the gap the paper fills. |
-| Conclusion |0.3 | Restates insight and evidence, no new claims. |
+| Conclusion |0.3 | Restates insight and evidence, no new conclusions. |
 
 Total: ~8.7 pages main text,2.3 pages references + appendix.
 
 ## Story Pattern
 
-The paper starts from a widely understood problem (sequence transduction), identifies a structural bottleneck in existing solutions (sequential computation), introduces a clean conceptual shift (attention as backbone), supports it with both theoretical analysis (path length) and empirical evidence (WMT BLEU), and concludes with bounded claims.
+The paper starts from a widely understood problem (sequence transduction), identifies a structural bottleneck in existing solutions (sequential computation), introduces a clean conceptual shift (attention as backbone), supports it with both theoretical analysis (path length) and empirical evidence (WMT BLEU), and concludes with bounded statements.
 
 ## Section-by-Section Writing Moves
 
@@ -53,9 +53,9 @@ The paper starts from a widely understood problem (sequence transduction), ident
 ### Experiments
 - Setup: dataset sizes, preprocessing, hardware.
 - Main results: a clean table with bold best results.
-- Complexity analysis: a theoretical table that supports the architectural claim.
-- Ablations: each row tests one design choice against a specific claim.
-- Training efficiency: wall-clock time to support the parallelism claim.
+- Complexity analysis: a theoretical table that supports the architectural statement.
+- Ablations: each row tests one design choice against a specific statement.
+- Training efficiency: wall-clock time to support the parallelism statement.
 
 ### Related Work
 - Organized by paradigm: recurrent, convolutional, attention-based, efficient methods.

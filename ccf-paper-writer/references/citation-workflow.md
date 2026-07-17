@@ -6,6 +6,13 @@ Use this file for every paper draft that requires references. The goal is to pro
 
 **Search → Bib → Cite.** Never write a citation from memory or guess a bib entry. Every citation must originate from a verified bib entry stored in the project's `.bib` file.
 
+## Contents
+
+- Citation density and slot selection
+- Literature and BibTeX verification
+- Natural citation placement
+- Continuous checking and handoffs
+
 ## The Problem With Sparse Citations
 
 A CCF-A submission with fewer than25–40 references (for AI/ML/CV/NLP papers) signals shallow literature engagement. The introduction and related work alone should carry15–25 citations. The method and experiments add another10–20. An under-cited paper reads as naive or uninformed.
@@ -83,14 +90,14 @@ This is the most important step. Citations must read as part of the narrative, n
 
 **Good patterns to use:**
 
-- ✅ "Fully convolutional architectures [17] replaced recurrence with gated linear units..." (citation supports the claim, not the sentence structure)
+- ✅ "Fully convolutional architectures [17] replaced recurrence with gated linear units..." (citation supports the point, not the sentence structure)
 - ✅ "The Transformer [1] established self-attention as the dominant sequence-modeling primitive..." (named method + citation)
 - ✅ "Training deep networks became feasible with residual connections [2] and batch normalization [3]..." (two citations woven into one sentence)
 - ✅ "Recent work has pushed this further through larger-scale pretraining [4,5] and architectural innovations [6,7]..." (grouped citations with a narrative spine)
 
 **Rules for natural citation:**
 
-1. Put the claim first, then the citation. The sentence should make sense without the brackets.
+1. Put the point first, then the citation. The sentence should make sense without the brackets.
 2. Use the method/dataset name as the subject when citing a well-known work: "BERT [8] introduced masked language modeling..."
 3. When citing multiple works, group them by what they share: "contrastive objectives [9,10,11]" or "diffusion-based approaches [12,13]."
 4. Do not repeat the same citation in consecutive sentences. Group related statements and cite once at the end.
@@ -104,7 +111,7 @@ After drafting each section:
 1. Check that every `\cite{...}` key exists in the project `.bib` file.
 2. Verify that no citation is invented or guessed.
 3. Confirm that citation density meets the per-section minimums.
-4. Run a quick scan: does every factual claim about prior work have a citation?
+4. Run a quick scan: does every factual statement about prior work have a citation?
 
 ### Step6: Update Bib File Continuously
 
@@ -131,6 +138,6 @@ Project .bib file exists and is current: yes / no
 No citations invented or guessed: yes / no
 Per-section density meets minimums: yes / no
 Every \cite{} key exists in .bib: yes / no
-Natural citation pattern (claim first, then cite): yes / no
+Natural citation pattern (point first, then cite): yes / no
 No "Author et al. (Year)" as running-text subject: yes / no
 ```

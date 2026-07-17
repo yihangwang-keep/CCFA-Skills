@@ -2,6 +2,14 @@
 
 Use this file to classify reviewer concerns and choose a response tactic.
 
+## Contents
+
+- [Concern Types](#concern-types)
+- [Global Response Pattern](#global-response-pattern)
+- [Response Tactics](#response-tactics)
+- [Priority Rules](#priority-rules)
+- [Tone Rules](#tone-rules)
+
 ## Concern Types
 
 - Misunderstanding: the paper already contains the answer but it was easy to miss.
@@ -9,7 +17,7 @@ Use this file to classify reviewer concerns and choose a response tactic.
 - Valid weakness: the reviewer is right and the response should concede, bound, and revise.
 - Missing evidence: existing evidence is insufficient or not visible enough.
 - Requested new result: the reviewer asks for a baseline, ablation, theorem, dataset, user study, or analysis.
-- Scope or limitation: the issue is outside the paper's claim or should be bounded honestly.
+- Scope or limitation: the issue is outside the paper's conclusion applicability range or should be bounded honestly.
 - Venue-fit or significance concern: the reviewer is unsure why the work matters to the venue.
 - Policy or ethics concern: the response must be factual, cautious, and compliance-oriented.
 - Hostile or guideline-violating review: the review appears dismissive, inappropriate, or inconsistent with venue rules.
@@ -111,7 +119,7 @@ Use when the reviewer identified a real weakness that can be fixed in text or an
 Structure:
 
 ```text
-We agree this was insufficiently clear. We will revise [section] to [specific action], and we will add [evidence/detail] to support [claim].
+We agree this was insufficiently clear. We will revise [section] to [specific action], and we will add [evidence/detail] to support [paper conclusion].
 ```
 
 ### Add existing evidence
@@ -122,7 +130,7 @@ Rules:
 
 - Name the exact result, metric, dataset, table, figure, appendix, or experiment.
 - Say where it will be moved or highlighted.
-- Do not claim a new experiment is complete unless it is.
+- Do not state that a new experiment is complete unless it is.
 
 ### Deliver now, not vague promise
 
@@ -144,14 +152,14 @@ Rules:
 - Avoid all-caps except for short labels such as `DIRECT ANSWER`.
 - Do not use emphasis to compensate for weak evidence.
 
-### Narrow claim
+### Narrow paper conclusion
 
-Use when the paper overclaims.
+Use when the paper contains an overstatement.
 
 Structure:
 
 ```text
-We agree the original wording was too broad. We will revise the claim from [broad claim] to [scoped claim], which is supported by [evidence].
+We agree the original wording was too broad. We will revise the paper conclusion from [broad conclusion] to [scoped conclusion], which is supported by [evidence].
 ```
 
 ### Bound limitation
@@ -171,12 +179,12 @@ Use sparingly when requested work cannot be completed before the response deadli
 Rules:
 
 - Be respectful.
-- Explain why the existing evidence still supports the central claim.
+- Explain why the existing evidence still supports the central paper conclusion.
 - State whether the issue will be added as a limitation or future work.
 
 ### Handle hostile or inappropriate review
 
-Use only when the review appears to violate reviewing norms or contains unsupported hostile claims.
+Use only when the review appears to violate reviewing norms or contains unsupported hostile statements.
 
 Rules:
 
@@ -217,4 +225,4 @@ Answer in this order:
 - Avoid promising more than can be done.
 - Prefer "we will revise" only for concrete manuscript changes.
 - Re-explain acronyms, datasets, settings, and key assumptions because committee members may not remember the paper.
-- Emphasize shared goals: fair comparison, reproducibility, complete evaluation, or clearer claims.
+- Emphasize shared goals: fair comparison, reproducibility, complete evaluation, or clearer paper conclusions.

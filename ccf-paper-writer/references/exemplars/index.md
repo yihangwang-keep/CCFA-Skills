@@ -2,6 +2,12 @@
 
 Use this index when the user asks for CCF A-level paper writing, best-paper style, venue-specific adaptation, default user-custom writing, or examples from strong papers. Load only the cards that match the target paper. Do not load every card by default.
 
+## Contents
+
+- Default custom format and selection rule
+- Venue card catalog and recommended bundles
+- Style, citation, and output reminders
+
 ## Default Custom Format
 
 When the target venue is not specified, load `references/custom-format/default-user-format.md` first. That format currently uses the user's two custom exemplar cards:
@@ -23,7 +29,7 @@ Pick at most 2-4 cards:
 - Use same story shape third: new task, new benchmark, new model family, new capability, or new evaluation economy.
 - Add one contrast card only when it improves reviewer-proofing.
 
-Use cards to borrow writing moves, not claims, wordings, examples, or technical content.
+Use cards to borrow writing moves, not conclusions, wordings, examples, or technical content.
 
 ## ICLR And CVPR Recent Best-Paper Cards
 
@@ -53,7 +59,7 @@ Use these cards when the user explicitly asks for ICLR/CVPR best-paper or outsta
 | ACM MM / 3D affordance | `cards/acmmm-2025-aff3dfunc.md` | open-vocabulary 3D affordance understanding and robot validation |
 | ACM MM / speech-video | `cards/acmmm-2024-speaker-to-dubber.md` | multimodal generation with alignment constraints and staged training |
 | ACL / NLP benchmark | `cards/acl-2025-minilongbench.md` | benchmark compression, evaluation cost reduction, rank-correlation evidence |
-| ACL / linguistic evaluation | `cards/acl-2024-mission-impossible.md` | cognitive/linguistic probes, synthetic tasks, claim-testing papers |
+| ACL / linguistic evaluation | `cards/acl-2024-mission-impossible.md` | cognitive/linguistic probes, synthetic tasks, evaluation-focused papers |
 | NeurIPS / RL scaling | `cards/neurips-2025-1000-layer-ssl-rl.md` | scaling studies, capability emergence, self-supervised RL evidence |
 | NeurIPS / image generation | `cards/neurips-2024-var.md` | new generation paradigm, scaling laws, next-scale prediction |
 
@@ -93,7 +99,7 @@ When loading exemplar cards, also follow the writing style and citation rules es
 
 - `references/research-writing-patterns.md` (Natural Writing Style section): prose flow, forbidden patterns (no bold labels, no citation dumps), citation weaving.
 - `references/citation-workflow.md`: search-bib-cite workflow, citation density per section, natural citation patterns.
-- `references/output-style-policy.md` (Citation Format Rules): claim-first citation style, no author-name subjects, bib file as source of truth.
+- `references/output-style-policy.md` (Citation Format Rules): point-first citation style, no author-name subjects, bib file as source of truth.
 
 The exemplar cards provide structural patterns. The style guides provide execution rules. Use both.
 

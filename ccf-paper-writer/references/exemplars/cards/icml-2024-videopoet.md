@@ -30,7 +30,7 @@ The paper transfers the language-model training recipe to video generation. Rath
 ## Evidence Moves
 
 - Use qualitative examples to demonstrate motion and conditional control.
-- Pair zero-shot claims with task diversity.
+- Pair zero-shot statements with task diversity.
 - Avoid overloading the main text with demos; keep visual evidence organized.
 
 ## Reusable Techniques
@@ -41,4 +41,4 @@ The paper transfers the language-model training recipe to video generation. Rath
 
 ## Do-Not-Copy Boundary
 
-Do not reuse VideoPoet's multimodal task mix, decoder-only framing, or zero-shot claims unless the user's model and evaluation support them.
+Do not reuse VideoPoet's multimodal task mix, decoder-only framing, or zero-shot statements unless the user's model and evaluation support them.

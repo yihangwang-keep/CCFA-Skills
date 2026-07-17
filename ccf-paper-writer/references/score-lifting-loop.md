@@ -2,9 +2,16 @@
 
 Use this file when the user reports weak review scores, asks to reduce rejection risk, requests a pre-submission check, or wants a paper revised for AAAI/NeurIPS/ICML/ICLR/ACL/CVPR or another CCF-A venue.
 
+## Contents
+
+- Core rule and review loop
+- Scoring and fixability tables
+- Score-improving writing moves
+- Venue-specific guidance and output format
+
 ## Core Rule
 
-Reduce review risk by fixing reviewer deductions, not by making the prose sound more positive. A claim can be strengthened only when the paper contains or can add evidence. Otherwise weaken the claim, add the missing evidence, or mark the issue as requiring new results.
+Reduce review risk by fixing reviewer deductions, not by making the prose sound more positive. A conclusion can be strengthened only when the paper contains or can add evidence. Otherwise qualify the conclusion, add the missing evidence, or mark the issue as requiring new results.
 
 Before running this loop, load `references/writing-checklists.md` and use its score-risk and final-readiness checks.
 
@@ -27,7 +34,7 @@ Before running this loop, load `references/writing-checklists.md` and use its sc
    - missing ablation/proof/study,
    - reproducibility gap,
    - unclear figures/tables,
-   - overclaim,
+   - overstatement,
    - limitations/ethics gap,
    - venue mismatch.
 4. Score the draft. If `ccf-paper-reviewer` was explicitly requested or confirmed after the optional-module gate, use its scientific review rubric, venue style, and calibration files. Otherwise use the venue adapter plus the scoring table below.
@@ -50,7 +57,7 @@ Before running this loop, load `references/writing-checklists.md` and use its sc
    - then polish local clarity.
 7. Re-score only after checking the revised text. Report conditional review-risk effects only for concrete changes and name the confidence level.
 8. Stop only when:
-   - no central claim is unsupported,
+   - no central conclusion is unsupported,
    - no likely reviewer repeats a fatal concern,
    - venue-specific evidence is visible in the main paper,
    - remaining weaknesses are honest limitations or require new results.
@@ -100,18 +107,18 @@ Status: open / fixed / requires new result / accepted limitation
 
 Use these moves only when supported by the manuscript:
 
-- Put the contribution claim early and make it specific.
+- Put the contribution statement early and make it specific.
 - Name the closest prior work and state the exact difference.
 - Tie each contribution to visible evidence.
-- Replace broad claims with scoped, testable claims.
+- Replace broad statements with scoped, testable conclusions.
 - Explain why the method works, not just that it performs well.
 - Move decisive evidence into the main text or signpost appendix evidence clearly.
 - Use literature search for stale or missing closest work instead of adding guessed citations.
 - Use experiment design for missing baselines, ablations, or result-table structure instead of inventing numbers.
-- Use compression for page-limit fixes instead of deleting claim-critical evidence.
+- Use compression for page-limit fixes instead of deleting evidence needed for a conclusion.
 - Add figure/table captions that state what a reviewer should learn.
 - Make limitations precise so they bound risk instead of weakening the whole paper.
-- Align Abstract, Introduction, Experiments, and Conclusion claims.
+- Align Abstract, Introduction, Experiments, and Conclusion statements.
 
 ## Venue-Specific Score Lift
 
@@ -122,7 +129,7 @@ Use these moves only when supported by the manuscript:
 - DB/KDD/IR: show realistic workload, scale, effectiveness, efficiency, and deployment or user utility.
 - Systems: show real bottleneck, implementation detail, end-to-end evaluation, and operational boundaries.
 - Security: define threat model, guarantees, disclosure/ethics, bypasses, and scope.
-- HCI: align research question, participants, method, analysis, ethics, and claim scope.
+- HCI: align research question, participants, method, analysis, ethics, and conclusion applicability range.
 - Theory: state model, assumptions, theorem novelty, proof intuition, and relation to known barriers.
 
 ## Output Format
@@ -134,8 +141,8 @@ Criterion scorecard:
 Main blockers:
 Fixability table:
 Priority revision queue:
-Claims to strengthen:
-Claims to weaken:
+Conclusions to strengthen:
+Conclusions to qualify:
 Evidence to add:
 New results required:
 Revised text or exact edit instructions:

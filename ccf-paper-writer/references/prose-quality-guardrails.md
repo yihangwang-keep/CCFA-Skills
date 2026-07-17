@@ -2,9 +2,16 @@
 
 Use this file for manuscript drafting, polishing, compression, abstract writing, introduction writing, paragraph review, and response text that may be copied into a paper. The goal is not to make prose decorative. The goal is to make every sentence serve the scientific argument.
 
+## Contents
+
+- Core principle and voice
+- Forbidden patterns
+- Cohesion, progression, and evidence boundaries
+- Section-specific checks and final self-audit
+
 ## Core Principle
 
-Write from inside the research contribution. A manuscript should sound like a coherent scientific argument made by the authors, not a detached report about "the paper", "the reviewers", or a checklist of isolated claims.
+Write from inside the research contribution. A manuscript should sound like a coherent scientific argument made by the authors, not a detached report about "the paper", "the reviewers", or a checklist of isolated statements.
 
 Default voice:
 
@@ -17,11 +24,11 @@ Default voice:
 Avoid these unless the venue, discipline, or user explicitly requires them:
 
 - Defensive or incremental framing: "we merely", "we only", "a simple extension", "despite being limited", "not much worse", or apology-like motivation. State the scientific reason and evidence instead.
-- Label-heavy writing: `Q1`, `Q2`, `C1`, `C2`, `RQ1`, `H1`, `P1`, or similar symbols in running prose. Use natural names such as "the invariance question" or "the efficiency claim". If labels are necessary for a study, define them once and keep them out of ordinary narrative.
+- Label-heavy writing: `Q1`, `Q2`, `C1`, `C2`, `RQ1`, `H1`, `P1`, or similar symbols in running prose. Use natural names such as "the invariance question" or "the efficiency finding". If labels are necessary for a study, define them once and keep them out of ordinary narrative.
 - Formula and theorem dumping: dense theorem blocks, equation chains, or notation-heavy paragraphs without explanation. Each theorem, equation, and symbol must answer a specific question in the story.
 - Abstracts that are mostly numbers: numbers should validate the contribution, not replace motivation, insight, method, and scope.
 - Punctuation as structure: repeated quotation marks, colon chains, em-dash interruptions, slash stacks, arrows, or bracketed labels used instead of sentences.
-- Overlong compound sentences that carry several unrelated ideas. Split when a sentence contains more than one claim, mechanism, and evidence item.
+- Overlong compound sentences that carry several unrelated ideas. Split when a sentence contains more than one conclusion, mechanism, and evidence item.
 - Strange symbols replacing natural language: arrows, mathematical shorthand, custom markers, or abbreviations that are not needed for the method.
 - Empty intensifiers and hype: "significant", "substantial", "powerful", "novel", "first", "dramatically", "obviously", or "clearly" without evidence and scope.
 - Repeated redefinition: once a concept is named, use the same term unless a narrower subcase is introduced.
@@ -45,14 +52,14 @@ If a sentence does none of these, cut it or rewrite it.
 Build sections as progressive arguments:
 
 ```text
-known context -> unresolved gap -> root cause -> insight -> method mechanism -> evidence -> bounded claim
+known context -> unresolved gap -> root cause -> insight -> method mechanism -> evidence -> supported conclusion with applicability range
 ```
 
-Do not jump from motivation directly to method names. Do not assert a claim before the reader has seen the reason it should be true.
+Do not jump from motivation directly to method names. Do not state a conclusion before the reader has seen the reason it should be true.
 
 ### Terminology Discipline
 
-- Keep one canonical term for each concept, module, dataset, metric, assumption, and claim.
+- Keep one canonical term for each concept, module, dataset, metric, assumption, and conclusion.
 - Do not alternate synonyms just to avoid repetition.
 - Repeat a term only when needed for clarity; otherwise use sentence structure to carry continuity.
 - Align abstract, introduction, method, experiments, and conclusion wording for the same contribution.
@@ -61,14 +68,14 @@ Do not jump from motivation directly to method names. Do not assert a claim befo
 
 Use varied sentence lengths. A strong paragraph usually mixes short signpost sentences with longer explanatory sentences. Avoid paragraphs where every sentence has the same template, length, or grammatical shape.
 
-### Evidence-Bounded Claims
+### Evidence-Bounded Conclusions
 
-Claims must match the available support:
+Conclusions must match the available support:
 
 - Use strong verbs only when evidence is strong.
-- Prefer scoped claims over universal claims.
+- Prefer scoped conclusions over universal statements.
 - State limitations as boundaries of validity, not as apologetic disclaimers.
-- Replace unsupported assertions with mechanism, evidence, or a narrower claim.
+- Replace unsupported assertions with mechanism, evidence, or a narrower conclusion.
 
 ## Section-Specific Checks
 
@@ -95,7 +102,7 @@ Do not list results as disconnected numbers. Each paragraph should answer a ques
 
 ### Conclusion
 
-Do not introduce new claims or return to broad motivation. Close on the core insight, strongest support, and honest scope.
+Do not introduce new conclusions or return to broad motivation. Close on the core insight, strongest support, and honest applicability range.
 
 ## Final Prose Self-Audit
 
