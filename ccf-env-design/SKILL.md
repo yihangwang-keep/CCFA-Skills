@@ -41,11 +41,13 @@ Load `references/communication-env-gates.md` for detailed communication-specific
 
 ## Workflow
 
-1. Inventory the research idea, target domain, task driver, available scenario/code artifacts, and decision goal.
+1. Inventory the research idea, target domain, task driver, available scenario/code artifacts, and decision goal based on a specific research question.
 2. Run the Ordered Design Gates in sequence. Resolve a failed earlier gate before relying on later mathematical or implementation conclusions.
 3. Use literature evidence when domain ranges, formulation choices, or strongest simple rules require external support; follow CCFA handoff and privacy controls.
 4. Produce the requested audit, repaired plan, or specification. Keep unknown values `TBD` and preserve version authority.
 5. Hand the environment specification and MVP to `ccf-env-code-auditor`. After environment acceptance, hand the accepted problem to `ccf-algorithm-designer`.
+
+If user ask to futher the env design, you need to find the true promblem in the current env design torwards to the vene goal and deepth the env design to the next level. And need to clearly consider the central scientific question, the new causal chain, the main tradeoff, the suggested mathematical extensions between the current scenario and the desired one, keep the objective function from inflating, the minimal viable scenario, and the scenario evidence that must be run.
 
 ## Adaptive Output Contract
 
