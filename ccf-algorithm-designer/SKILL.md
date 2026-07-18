@@ -1,6 +1,6 @@
 ---
 name: ccf-algorithm-designer
-description: "Design formal, verifiable communication and networking algorithms for an environment-authorized problem and minimum executable scenario (MES). Use for formal-target analysis, algorithm-family selection, mechanism derivation, solver/scheduler/controller design, algorithm MVPs, no-heuristic contribution checks, staged verification, complexity, 算法设计, 算法MVP. Do not change the environment contract, audit code, or design publication experiments."
+description: "Design formal, verifiable communication and networking algorithms for an environment-authorized problem, frozen minimum executable scenario (MES) anchor, and complexity stages. Use for formal-target analysis, algorithm-family selection, mechanism derivation, solver/scheduler/controller design, algorithm MVPs, no-heuristic contribution checks, staged verification, complexity, 算法设计, 算法MVP. Do not change the environment contract, audit code, or design publication experiments."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -14,9 +14,9 @@ metadata:
 
 ## Core Rule
 
-Treat the accepted environment specification and MES as one-way authority for the problem, objective, variables, constraints, information pattern, feasibility, task semantics, and parameter range. The algorithm may submit evidence against that authority; it may not edit or reinterpret it.
+Treat the accepted environment specification and frozen anchor MES as one-way authority for the problem, objective, variables, constraints, information pattern, feasibility, task semantics, and parameter range. The algorithm may submit evidence against that authority; it may not edit or reinterpret it. The initial algorithm is justified by the anchor-only L2 heuristic-probe result; later complexity stages inherit that result and are algorithm upgrades, not new algorithm-need tests or replacement MES designs.
 
-Derive the method from the formal target and exploitable structure. The algorithm MVP is the smallest complete input-to-decision path through the real environment interface on the accepted MES. Reference-sized cases test equations; MES execution tests the complete path.
+Derive the method from the formal target and exploitable structure. The algorithm MVP is the smallest complete input-to-decision path through the real environment interface on the accepted anchor MES. Reference-sized cases test equations; anchor-MES execution tests the complete path. When a complexity stage is added, test the current algorithm on the anchor and that stage; do not request a new MES to avoid a failure.
 
 For `method_role: proposed`, reject any heuristic decision mechanism without exception. Greedy rules, manually patched branches, heuristic local search, metaheuristics, rule accumulation, trial-and-error decisions, and hidden heuristic fallbacks remain blockers even when another component has a proof or certificate. Such methods may be labeled `baseline`, `environment_probe`, or `diagnostic`, but those roles never satisfy the proposed-method gate.
 
@@ -27,7 +27,7 @@ For `method_role: proposed`, reject any heuristic decision mechanism without exc
 - `repair`: revise one diagnosed algorithm-owned mechanism.
 - `handoff-spec`: produce an implementation-ready specification.
 
-Use `provisional` while any authority, interface, mechanism, role classification, or acceptance item is unresolved. Use `implementation-ready` only when all applicable gates close against exact artifact versions. Any relevant environment or MES successor returns the design to `provisional`.
+Use `provisional` while any authority, interface, mechanism, role classification, or acceptance item is unresolved. Use `implementation-ready` only when all applicable gates close against exact artifact versions. A complexity-stage failure returns the algorithm to `repair`, not to MES redesign. A formal amendment or research reframe returns the design to `provisional` against a new candidate MES.
 
 ## Ordered Design Gates
 
@@ -38,10 +38,11 @@ Use `provisional` while any authority, interface, mechanism, role classification
 5. **Mechanism gate:** derive initialization, update/search steps, feasibility handling, termination, randomness, surrogates, relaxations, penalties, recovery, and failure behavior from the formulation.
 6. **No-heuristic gate:** record `method_role`, classify every decision component, and set `no_heuristic_gate_status`; block `proposed` when any component is heuristic or unknown.
 7. **Environment-information gate:** classify every requested field as decision-visible or audit-only. Route an already-authorized interface omission to environment audit; route a semantic change request to environment design and remain provisional.
-8. **Algorithm-MVP gate:** define the full input, decision, configuration, seed, stopping, output, and compute path on the current MES.
-9. **Verification-plan gate:** bind each step to original-objective, original-constraint, invariant, reference, reproducibility, and complexity checks as applicable.
-10. **Algorithm-repair-exhaustion gate:** when faithful implementations of revised mechanisms or families still fail, record the route and what was tried, then always open environment/formal-model review. Environment design owns the final `algorithm_specific / model_defect / unresolved` classification; the algorithm may not pre-authorize a change or propose an easier problem.
-11. **Handoff-readiness gate:** record artifact identities, criteria, unresolved items, invalidations, reruns, and executable entry points.
+8. **Algorithm-MVP gate:** define the full input, decision, configuration, seed, stopping, output, and compute path on the frozen anchor MES.
+9. **Verification-plan gate:** bind each step to original-objective, original-constraint, invariant, reference, reproducibility, anchor regression, and complexity-stage checks as applicable. Do not add a heuristic-probe need test to a later stage.
+10. **Complexity-stage gate:** bind every stage to the frozen anchor MES, current formal problem, method-independent delta, anchor regression cases, and stage-specific acceptance criterion. Diagnose stage failures without changing the anchor.
+11. **Algorithm-repair-exhaustion gate:** when faithful implementations of revised mechanisms or families still fail at a named complexity stage, record the route and what was tried, then always open environment/formal-model review. Environment design owns the final `algorithm_specific / model_defect / unresolved` classification; the algorithm may not pre-authorize a change or propose an easier problem.
+12. **Handoff-readiness gate:** record artifact identities, anchor/stage criteria, unresolved items, invalidations, reruns, and executable entry points.
 
 Load `references/algorithm-design-protocol.md` completely for `mvp`, `repair`, `handoff-spec`, a full family decision, an Environment/Formal-Model Review Request, or a revision record. A narrow conceptual answer need not load it.
 
@@ -50,7 +51,7 @@ Load `references/algorithm-design-protocol.md` completely for `mvp`, `repair`, `
 1. Inventory current environment authority and audit evidence.
 2. Run the gates internally in order; keep unknowns `TBD` and do not disguise a heuristic by renaming it.
 3. Produce only the requested design artifact. In repair mode, change one owned mechanism per round.
-4. Never modify the environment. After route-specific algorithm repair is genuinely exhausted, submit an Environment/Formal-Model Review Request. Supply model-side evidence when available, but leave authoritative classification and amendment design to `ccf-env-design`. An unattainable algorithm-specific guarantee stays algorithm-owned. Do not weaken material difficulty for tractability or acceptance.
+4. Never modify the environment or replace the anchor MES. After route-specific algorithm repair is genuinely exhausted at a named user-requested complexity stage, submit an Environment/Formal-Model Review Request. Supply model-side evidence when available, but leave authoritative classification and amendment design to `ccf-env-design`. An unattainable algorithm-specific guarantee stays algorithm-owned. Do not weaken material difficulty for tractability or acceptance.
 5. Hand code to a fresh `ccf-algorithm-code-auditor`; route uncertain ownership to `ccf-experiment-debugger`.
 
 ## Internal Record And User Output

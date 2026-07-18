@@ -15,6 +15,10 @@ validation_contract_version:
 paper_scenario_version:
 formal_problem_version:
 minimum_executable_scenario_version:
+mes_role: anchor | candidate | legacy_successor
+mes_freeze_epoch:
+complexity_stage_id:
+parent_complexity_stage_id:
 environment_implementation_revision:
 algorithm_specification_version:
 algorithm_implementation_revision:
@@ -45,6 +49,9 @@ target_evidence_if_applicable:
 input_artifact_set_id:
 artifact_manifest: []
 preserved_logs_traces_outputs: []
+phase: anchor_acceptance | complexity_upgrade
+stage_request_id:
+l2_scope: anchor_only | inherited_for_complexity_stage
 ```
 
 An artifact manifest records repo-relative path, role, and content digest for authority, specification, implementation, configuration, test, checker, and raw evidence files. Bind the exhaustion, target evidence, and environment review to the same route ID. Append repaired runs and route-state events; never overwrite the original failure or reuse one route's review for another route.
@@ -54,7 +61,7 @@ An artifact manifest records repo-relative path, role, and content digest for au
 | Layer | Current evidence | Decisive status | Owner |
 | --- | --- | --- | --- |
 | Environment L1 | design contract, code traceability, semantics, independent MES execution, current native review | pass / conditional / fail / stale / missing | `ccf-env-code-auditor` |
-| Environment L2 | frozen MES, predeclared joint target, representative probes, tuning ranges and budget parity | demonstrated / not_demonstrated / contradicted / insufficient_evidence / stale | `ccf-env-code-auditor`; design target from `ccf-env-design` |
+| Environment L2 | initial frozen anchor MES, predeclared joint target, representative probes, tuning ranges and budget parity | demonstrated / not_demonstrated / contradicted / insufficient_evidence / stale; inherited for later stages | `ccf-env-code-auditor`; design target from `ccf-env-design` |
 | Algorithm design | formal target, family, role, component classification, mechanism, verification plan | implementation-ready / provisional / stale / contradicted | `ccf-algorithm-designer` |
 | Algorithm implementation | traceability, semantics, no-heuristic check for `proposed`, reference and MES evidence, current native review | pass / conditional / fail / stale / missing | `ccf-algorithm-code-auditor` |
 | Validation contract | locked cases, probes or baselines, metrics, checker, tolerances, status, resource accounting, pass criteria | accepted / stale / contradicted / missing | criterion's design owner; auditor verifies |
@@ -66,12 +73,13 @@ Refresh the earliest missing, stale, failed, or contradicted dependency. One lay
 | Confirmed cause | One owning action | Required refresh |
 | --- | --- | --- |
 | Environment code contradicts accepted design or MES | repair the smallest environment implementation path | affected L1 checks, native review, and downstream behavior that consumes the delta |
-| Environment L1 passes but tuned probes meet the joint target | record `algorithmic_need: not_demonstrated` or `contradicted` | no environment repair; stop the affected algorithm-contribution route |
+| Initial anchor L1 passes but tuned probes meet the joint target | record `algorithmic_need: not_demonstrated` or `contradicted` | no environment repair; stop the affected algorithm-contribution route |
+| Later complexity stage runs under a valid anchor | check stage implementation consistency and anchor regression; inherit anchor `algorithmic_need` | route algorithm behavior to the algorithm auditor/designer; do not rerun L2 |
 | Probe evidence lacks tuning, parity, or a predeclared target | repair the L2 validation evidence without changing the MES | affected probe runs and L2 decision |
 | Algorithm code contradicts its accepted specification or hides a heuristic fallback | repair the smallest algorithm path | affected algorithm checks, no-heuristic classification, native review, and downstream evidence |
 | Algorithm code matches its specification but mechanism misses the target | revise one mechanism in algorithm design | implementation traceability, full algorithm audit, MES evidence, and review |
 | Faithful algorithm code and documented mechanism/family revisions still cannot pass | create a route-specific exhaustion record and open environment/formal-model review | preserve all failed revisions; algorithm proposes, environment owner confirms classification |
-| Exhaustion review confirms a scenario or formal-model defect | submit one non-simplifying classified evolution proposal to environment design | successor environment audit and all evidence invalidated by the change class |
+| Exhaustion review confirms a scenario or formal-model defect | submit one non-simplifying formal-amendment proposal to environment design while preserving the anchor and failed stage | new candidate-MES environment audit and evidence-epoch rebaseline |
 | Environment review confirms `algorithm_specific` | close or supersede the exhausted route | open a fresh route ID if credible routes remain; otherwise evaluate `no-algorithmic-contribution` |
 | Exhaustion review is unresolved or only proposes an easier problem | keep the environment unchanged and record a blocker | missing evidence, alternative algorithm route, or reframe decision needed |
 | Locked validation measurement/checker is independently inconsistent with accepted semantics | submit a non-simplifying versioned correction to its design owner | preserve the old failure, rerun affected evidence, and do not accept retroactively |
@@ -106,8 +114,8 @@ Do not combine an environment-authority change and an algorithm change in one ro
 - Algorithm implementation repair: invalidate affected traceability, semantics, role classification, reference, runtime, reproducibility, and MES checks.
 - Algorithm specification change: invalidate mapped code, algorithm audit, relevant MES evidence, comparisons, and results.
 - Evidence expansion under the same authority: invalidate no old authority; run all relevant methods fairly on the new settings.
-- MES successor: preserve evidence for the parent; invalidate successor acceptance and affected downstream evidence until compatibility anchors and new cases rerun.
-- Formal amendment: create a new evidence epoch and rebaseline environment, algorithms, baselines, and results.
+- Complexity expansion: preserve anchor evidence; invalidate only the new stage and affected downstream evidence until anchor regression and stage rerun close. A legacy/exception MES successor preserves parent evidence but cannot establish successor acceptance.
+- Formal amendment: create a new evidence epoch and candidate MES; rebaseline environment, algorithms, baselines, and results.
 - Research reframe: close the current lineage; do not transfer acceptance to the new research object.
 - Validation implementation repair with unchanged semantics: rerun every affected result under the same validation-contract version.
 - Material validation-semantics change: create a new validation-contract version only after an independent non-simplification check; preserve the old outcome. A change that lowers cases, target, feasibility, tolerance, solver status, or resource requirements is not a repair and cannot inherit current contribution evidence.
@@ -116,4 +124,4 @@ Do not combine an environment-authority change and an algorithm change in one ro
 
 Close a repair only when the original failure is reproduced or characterized; one owner and delta are recorded; the original case and every invalidated check have current evidence; applicable environment L1/L2 and algorithm gates hold; and fresh native review reports bind both axes to the candidate artifact-set digest. If fresh reviewers or digest binding are unavailable, record `insufficient_evidence`; do not substitute coordinator self-review.
 
-Dropping the failure, choosing favorable seeds, widening tolerances, weakening feasibility or resource rules, exposing future information, or silently replacing the MES is not closure.
+Dropping the failure, choosing favorable seeds, widening tolerances, weakening feasibility or resource rules, exposing future information, or silently replacing the anchor MES is not closure.

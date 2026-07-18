@@ -1,8 +1,8 @@
 # Algorithm Code Audit Protocol
 
 Use this protocol in the same order as ccf-algorithm-code-auditor/SKILL.md to
-verify an algorithm path on the accepted environment and minimum executable
-scenario (MES). Load
+verify an algorithm path on the accepted environment, frozen anchor, and any
+declared complexity stage. Load
 ../../ccf-common/references/implementation-review-protocol.md for the native
 two-axis implementation review.
 
@@ -23,7 +23,8 @@ environment authorizes the formal problem; this audit must not change it.
 
 The domain-contract-fidelity reviewer checks the accepted environment contract and
 algorithm specification against the candidate implementation. Its frozen bundle
-records the environment version, MES version, algorithm specification, method
+records the environment version, anchor MES version, active complexity stage,
+algorithm specification, method
 role, mechanism classification, artifact digests, configuration, commands, and
 raw evidence. It traces:
 
@@ -150,7 +151,7 @@ blocked. The repairer cannot review the candidate it changed.
 
 ## 8. Version Invalidation And Fresh Audit
 
-- A same-semantics MES successor preserves the prior audit and evidence for the parent authority tuple, but they cannot establish successor acceptance. Run a fresh complete algorithm audit for the successor and invalidate only comparisons or results that depend on changed cases or behavior.
+- A `complexity_expansion` preserves the prior audit for the anchor authority tuple; run a fresh stage audit plus anchor regression and invalidate only stage-dependent comparisons or results. A legacy/exception MES successor preserves the prior audit for the parent tuple but cannot establish successor acceptance.
 - A formal environment, information-pattern, paper-range, or other semantic change starts a new evidence epoch and invalidates the complete algorithm audit and every dependent comparison and result.
 - An interface-only environment change invalidates interface, information-timing, traceability, end-to-end, and dependent reproducibility checks.
 - An algorithm-specification, method-role, or mechanism-classification change invalidates all mapped code paths and downstream semantic, eligibility, reference, and MES checks.

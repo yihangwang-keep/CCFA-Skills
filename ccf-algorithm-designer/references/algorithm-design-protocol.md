@@ -1,6 +1,6 @@
 # Algorithm Design Protocol
 
-Use this protocol after the paper scenario and its minimum executable scenario (MES) pass environment audit and the environment's heuristic-probe evidence establishes the intended algorithmic need. If either record is incomplete, use it only to produce a provisional design.
+Use this protocol after the paper scenario and its minimum executable scenario (MES) pass environment audit and the anchor-only heuristic-probe evidence establishes the intended initial algorithmic need. If either record is incomplete, use it only to produce a provisional design. A later complexity stage inherits the anchor result and enters algorithm repair/upgrade; it does not rerun the heuristic-probe need test.
 
 The environment authorizes the formal problem in one direction. The algorithm consumes that problem; it does not rewrite the scientific question, objective, decision variables, constraints, information pattern, feasibility meaning, task-causal semantics, paper parameter range, or MES.
 
@@ -17,6 +17,7 @@ The environment authorizes the formal problem in one direction. The algorithm co
 Paper scenario and formal problem:
 Paper parameter range:
 Minimum executable scenario and lineage:
+Anchor MES freeze epoch and current complexity stage:
 Environment specification and code version:
 Objective, decision variables, constraints, and information pattern:
 Feasibility meaning and task-causal semantics:
@@ -24,7 +25,7 @@ Environment acceptance evidence:
 Unresolved assumptions:
 ```
 
-The MES is the smallest causally complete, executable, independently checkable scenario package for the current paper-scenario and formal-problem version. It can include multiple registered cases needed to activate the central tradeoff. A simpler replacement problem is not an MES, and an accepted MES is not edited in place.
+The MES is the smallest causally complete, executable, independently checkable scenario package for the current paper-scenario and formal-problem version. It can include multiple registered cases needed to activate the central tradeoff. A simpler replacement problem is not an MES, and an accepted anchor MES is not edited in place. Later scale, load, topology, uncertainty, coupling, and boundary stages are run against this anchor under the same formal problem and interface; they are complexity evidence, not MES successors.
 
 ## Design State
 
@@ -65,7 +66,7 @@ Decision: select / reject / unresolved
 
 Select the least complex family that addresses the accepted formulation and evidence target.
 
-Include exact or enumerated solutions, certified bounds, and the tuned heuristic probes already used by environment audit. A proposed mechanism is justified only when the accepted problem and matched decision budget expose a limitation that those alternatives cannot resolve.
+For initial anchor design, include exact or enumerated solutions, certified bounds, and the tuned heuristic probes already used by environment audit. A proposed mechanism is justified only when the accepted problem and matched decision budget expose a limitation that those alternatives cannot resolve. For a complexity-stage upgrade, consume the fixed anchor result and compare the upgraded algorithm against the stage reference and anchor regression; do not create a new heuristic-probe need test.
 
 ## Method Role And No-Heuristic Gate
 
@@ -84,7 +85,7 @@ no_heuristic_gate_status: pass | blocker | unresolved | stale | not_applicable
 
 For `method_role: proposed`, set the gate to `required`; `no_heuristic_gate_status: pass` requires every decision component to be non-heuristic and traceable to the formal target, a valid solution procedure, or an accepted analytical result. Any greedy rule, rule-of-thumb, manually patched branch, heuristic local search, metaheuristic, empirical trial-and-error decision, rule accumulation, or hidden heuristic fallback sets `blocker`. A proof, certificate, exact subroutine, or formal wrapper elsewhere does not offset it. Non-proposed roles use `not_applicable`; unknown classification remains `unresolved`. The code auditor recomputes the status against implementation. Do not relabel the method to avoid this gate.
 
-The environment's heuristic-probe result establishes that tuned simple rules do not meet the predeclared joint target on the current MES. It does not certify the proposed method, and it cannot replace this component-level gate.
+The environment's anchor-only heuristic-probe result establishes whether tuned simple rules meet the predeclared joint target on the initial MES. It does not certify the proposed method, and it cannot replace this component-level gate. The result is inherited, not recomputed, for later complexity stages.
 
 ## Derived Mechanism And Evaluation Semantics
 
@@ -182,9 +183,11 @@ algorithm guarantee remains algorithm-owned. Only a completed environment
 review with `confirmed_classification: model_defect` and `decision:
 authorize_evolution` may produce a classified evolution proposal.
 `algorithm_specific` returns a completed route to algorithm ownership when
-credible routes remain; `unresolved` is blocked. Any successor must pass the
-environment owner's non-simplification contract and restart algorithm design
-at the authority gate.
+credible routes remain; `unresolved` is blocked. Any formal-amendment successor
+must pass the environment owner's non-simplification contract and restart
+algorithm design at the authority gate. A complexity stage does not restart
+authority or create a new MES; it reopens algorithm repair while retaining the
+anchor regression.
 
 ## Algorithm MVP Contract
 
@@ -196,6 +199,10 @@ environment_version:
 environment_interface_version:
 minimum_executable_scenario_version:
 parent_mes_version:
+mes_role: anchor | candidate | legacy_successor
+mes_freeze_epoch:
+complexity_stage_id:
+parent_complexity_stage_id:
 design_state: provisional | implementation-ready
 method_role: proposed | environment_probe | baseline | reference | diagnostic
 mechanism_classification:
@@ -222,7 +229,7 @@ original_constraint_checks:
 acceptance_criteria:
 ```
 
-The algorithm MVP is the first complete path through the real environment interface on the MES. Unit-sized cases may verify individual equations, while end-to-end acceptance uses the complete MES.
+The algorithm MVP is the first complete path through the real environment interface on the frozen anchor MES. Unit-sized cases may verify individual equations, while end-to-end acceptance uses the complete anchor. For each complexity stage, run the anchor regression and the new stage with the same information, feasibility, stopping, and resource rules; a stage failure is routed to algorithm repair before any environment review.
 
 ## Verification Sequence
 
@@ -232,7 +239,8 @@ The algorithm MVP is the first complete path through the real environment interf
 | 2 | Environment interface | shape, unit, timing, mask, information checks | interface matches the formal information pattern | environment code |
 | 3 | Feasibility path | independent original-constraint residuals and invariants | returned decisions satisfy declared constraints | algorithm code |
 | 4 | Update/search step | equation-to-code comparison | implementation matches the derivation | algorithm code |
-| 5 | Algorithm MVP end to end | termination, original objective, reproducibility, heuristic-probe comparison, complexity | current MES meets predeclared acceptance criteria and the proposed-method no-heuristic gate passes | independent algorithm audit |
+| 5 | Initial anchor algorithm MVP end to end | termination, original objective, reproducibility, anchor L2 comparison, complexity | anchor MES meets predeclared acceptance criteria and the proposed-method no-heuristic gate passes | independent algorithm audit |
+| 6 | Complexity-stage algorithm upgrade | stage objective/constraints, anchor regression, reproducibility, reference comparison, complexity | requested stage and anchor regression meet the current algorithm acceptance criteria; no new L2 probe sweep is introduced | independent algorithm audit |
 
 ## Working Evidence Record
 
@@ -250,11 +258,11 @@ Verification checks to rerun:
 Outcome:
 ```
 
-A completed revision preserves an explicit relationship among the paper problem, MES lineage, environment implementation, algorithm specification, and measured evidence.
+A completed revision preserves an explicit relationship among the paper problem, frozen anchor MES, complexity-stage lineage, environment implementation, algorithm specification, and measured evidence.
 
 Apply these invalidation rules:
 
-- A same-semantics MES successor preserves evidence for the parent authority tuple, but that evidence cannot establish successor acceptance; rerun affected algorithm design, implementation, comparison, and result evidence for the successor. A formal environment, information-pattern, paper-range, or other semantic change starts a new evidence epoch and invalidates the complete dependent algorithm evidence. An implementation repair under the same MES invalidates only dependent executable evidence.
+- A `complexity_expansion` keeps the anchor authority tuple and creates stage evidence only; preserve and rerun the anchor regression plus the new stage, and route a failure to the algorithm repair ledger. It does not create an MES successor or transfer a stage failure into environment redesign. A legacy/exception MES successor preserves evidence for its parent tuple but cannot establish successor acceptance. A formal environment, information-pattern, paper-range, or other semantic change starts a new evidence epoch, creates a new candidate MES, and invalidates the complete dependent algorithm evidence. An implementation repair under the same anchor MES invalidates only dependent executable evidence.
 - An environment-interface-only change invalidates interface, timing, end-to-end, and dependent reproducibility checks.
 - An algorithm-specification change invalidates the mapped implementation paths and every downstream check that exercises them.
 - A code or configuration change invalidates the affected semantic, reference, MVP, complexity, and reproducibility checks.

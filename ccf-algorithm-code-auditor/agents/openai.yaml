@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Communication Algorithm Auditor"
   short_description: "Audit algorithm implementations on the MES"
-  default_prompt: "Use $ccf-algorithm-code-auditor to verify environment-contract and equation-to-code fidelity, feasibility, reference evidence, proposed-method eligibility, and end-to-end acceptance on the accepted minimum executable scenario, then run the native two-axis read-only implementation review."
+  default_prompt: "Use $ccf-algorithm-code-auditor to verify environment-contract and equation-to-code fidelity, feasibility, reference evidence, proposed-method eligibility, anchor regression, complexity-stage behavior, and end-to-end acceptance, then run the native two-axis read-only implementation review."

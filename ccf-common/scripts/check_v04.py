@@ -95,6 +95,7 @@ REQUIRED_CORE_GATES = {
         "Paper-to-MES gate",
         "L1 audit-contract gate",
         "L2 probe-contract gate",
+        "MES-freeze-and-complexity-ladder gate",
         "Evolution-and-version gate",
         "Algorithm-to-model escalation gate",
         "Algorithm-information gate",
@@ -120,6 +121,7 @@ REQUIRED_CORE_GATES = {
         "Environment-information gate",
         "Algorithm-MVP gate",
         "Verification-plan gate",
+        "Complexity-stage gate",
         "Algorithm-repair-exhaustion gate",
         "Handoff-readiness gate",
     ),
@@ -312,6 +314,7 @@ def check_design_validation_contract(errors: list[str]) -> None:
         "ccf-env-design/references/scenario-evolution-contract.md": (
             "implementation_repair",
             "evidence_expansion",
+            "complexity_expansion",
             "scenario_extension",
             "formal_amendment",
             "research_reframe",
@@ -340,6 +343,9 @@ def check_design_validation_contract(errors: list[str]) -> None:
             "time_or_resource_budget_impact",
             "seed_selection_impact",
             "preserved_causal_difficulty_and_tradeoff",
+            "mes_freeze_epoch",
+            "complexity_stage_id",
+            "anchor_regression_required",
         ),
     }
     for rel, tokens in semantic_tokens.items():
@@ -347,6 +353,37 @@ def check_design_validation_contract(errors: list[str]) -> None:
         for token in tokens:
             if token not in protocol_text:
                 fail(errors, f"{rel}: missing protected contract token {token!r}")
+
+    phase_contract_tokens = {
+        "ccf-env-design/SKILL.md": (
+            "Phase A: anchor and initial algorithm",
+            "Phase B: user-requested complexity upgrade",
+            "do not rerun L2",
+        ),
+        "ccf-env-code-auditor/SKILL.md": (
+            "complexity-stage-audit",
+            "do not recompute `algorithmic_need`",
+            "do not rerun the sweep",
+        ),
+        "ccf-experiment-debugger/SKILL.md": (
+            "does not design the initial environment",
+            "do not rerun heuristic probes",
+        ),
+        "ccf-experiment-designer/SKILL.md": (
+            "This skill owns how an accepted environment/algorithm is used",
+            "A fresh L2 heuristic-probe sweep is neither required nor permitted",
+        ),
+        "ccf-experiment-debugger/references/design-validation-loop.md": (
+            "Phase A",
+            "Phase B",
+            "L2 is inherited",
+        ),
+    }
+    for rel, tokens in phase_contract_tokens.items():
+        phase_text = read(ROOT / rel)
+        for token in tokens:
+            if token not in phase_text:
+                fail(errors, f"{rel}: missing phase-boundary token {token!r}")
 
     for rel, gates in REQUIRED_CORE_GATES.items():
         text = read(ROOT / rel)
@@ -368,6 +405,9 @@ def check_design_validation_contract(errors: list[str]) -> None:
         "V0 validation contract",
         "one active owner",
         "scenario-evolution contract",
+        "complexity_expansion",
+        "mes_freeze_epoch",
+        "anchor regression",
         "Environment And Validation Changes",
         "Terminal Status Precedence",
         "scope: environment",

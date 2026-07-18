@@ -14,15 +14,18 @@ The family has three layers:
 | Shared state and policy | Keep routing, evidence, privacy, source registry, and artifact ownership consistent. | `ccf-common` |
 | Family maintenance | Maintain skills, docs, generated SVGs, validation, and releases. | `ccf-skill-forger` |
 
-The main chain is:
+The main chain has two operating phases:
 
 ```text
 scaffold -> orchestrate -> optimize idea -> review idea
          -> monitor recent literature -> search literature
-         -> design scenario -> audit environment implementation
-         -> design algorithm -> audit algorithm implementation
-         -> repair failed MVP and rerun affected gates when needed
-         -> design experiments -> compose visuals -> optional exemplar extraction
+         -> design scenario and complete anchor MES
+         -> audit environment implementation + one-time anchor L2
+         -> design initial algorithm -> audit initial algorithm implementation
+         -> user-requested complexity stage
+         -> audit stage consistency + anchor regression
+         -> upgrade algorithm; repair failed stage and rerun affected gates when needed
+         -> design paper-range usage experiments -> compose visuals -> optional exemplar extraction
          -> write manuscript -> review manuscript -> audit conclusion/evidence support
          -> check submission -> rebuttal / ledger / resubmission
 ```
@@ -35,16 +38,19 @@ The communication problem follows a separate Ralph-style loop before publication
 
 ```text
 ccf-env-design
-  -> ccf-env-code-auditor                 [environment-valid]
+  -> ccf-env-code-auditor                 [environment-valid + frozen anchor MES + one-time L2]
   -> ccf-algorithm-designer
   -> ccf-algorithm-code-auditor           [joint-ready]
-  -> ccf-experiment-debugger on failure
-       -> one minimal change by one owning skill
-       -> rerun every invalidated audit gate
-       -> return to environment-valid / joint-ready
+  -> complexity ladder: one method-independent stage at a time
+  -> ccf-experiment-debugger on initial/stage failure
+       -> algorithm owner, one minimal change, anchor regression + stage rerun
+  -> ccf-experiment-designer after accepted stage [paper-range usage evidence]
+  -> formal-model review only for an independently confirmed infeasible/ill-posed problem
 ```
 
-The environment owns the paper scenario, formal optimization problem, parameter applicability range, scenario MVP, information pattern, and feasibility meaning. Algorithm failure may produce an evidence-backed environment amendment request, but it may not silently change the objective, constraints, task semantics, information pattern, or test settings. Any accepted semantic change creates a new problem version, preserves the failed version as historical evidence, and invalidates downstream algorithm, baseline, and result evidence until affected gates are rerun.
+The environment owns the paper scenario, formal optimization problem, parameter applicability range, frozen anchor MES, complexity ladder, information pattern, and feasibility meaning. The accepted MES must already contain the complete causal chain and central tradeoff; it is the paper's minimum scale, not a minimum scientific problem. A complexity-stage failure is algorithm evidence and must not silently replace the anchor. Algorithm failure may produce an evidence-backed environment amendment request, but it may not silently change the objective, constraints, task semantics, information pattern, or test settings. Only an independently confirmed infeasible/ill-posed formal problem creates a new problem version, candidate MES, and evidence epoch; it preserves the failed version as historical evidence and invalidates downstream algorithm, baseline, and result evidence until affected gates are rerun.
+
+For each user-requested stage, environment validity means specification-to-code consistency plus anchor regression; it does not promise that the current algorithm will pass. A consistent stage with a failed algorithm remains valid stage evidence and enters the algorithm repair loop. The anchor-only heuristic L2 result is inherited unchanged.
 
 At checkpoint commits, invoke the installed `$code-review` skill with the fixed comparison point and accepted specification. CCFA records the checkpoint and consumes its report; it does not copy or redefine the external skill's Standards/Spec review rules.
 
@@ -79,12 +85,12 @@ The family intentionally merged helper skills into owner modes. In v0.8, `ccf-vi
 | Exemplar extraction | `ccf-paper-to-exemplar` | Converts PDFs into writing pattern cards; does not draft or review manuscripts. |
 | Writing review | `ccf-paper-reviewer` | Diagnoses writing and format-facing risk; does not rewrite unless handed back to writer. |
 | Environment design | `ccf-env-design` | Owns the paper scenario and formal optimization problem; does not validate environment code or design the algorithm. |
-| Environment implementation gate | `ccf-env-code-auditor` | Establishes `environment-valid`; does not judge algorithm performance. |
-| Algorithm design | `ccf-algorithm-designer` | Consumes a versioned environment contract; cannot rewrite environment semantics. |
+| Environment implementation gate | `ccf-env-code-auditor` | Runs initial anchor L1 + one-time L2, then stage L1 consistency + anchor regression; does not judge algorithm performance. |
+| Algorithm design | `ccf-algorithm-designer` | Consumes a versioned environment contract; designs the initial algorithm and upgrades its mechanism at accepted stages; cannot rewrite environment semantics. |
 | Algorithm implementation gate | `ccf-algorithm-code-auditor` | Establishes executable algorithm evidence and the `joint-ready` gate. |
-| Failed-MVP repair | `ccf-experiment-debugger` | Routes one minimal change to one owner and closes all affected reruns; does not replace either auditor. |
+| Failed-stage repair | `ccf-experiment-debugger` | Routes one minimal change to one owner and closes affected stage/anchor reruns; does not design initial methods or replace either auditor. |
 | Conclusion/evidence audit | `ccf-integrity-auditor` | Checks supported conclusions, existing citations, numbers, and figures; broad discovery stays with literature search. |
-| Result evidence and specs | `ccf-experiment-designer` | Uses real results; never invents numbers. |
+| Paper-range result evidence and specs | `ccf-experiment-designer` | Uses accepted anchor/stage methods to plan settings, baselines, metrics, ablations, robustness, and real results; does not define or repair environment/algorithm semantics. |
 | Publication figures/tables and plots | `ccf-visual-composer` | Owns visual contracts, bundled Python plotting recipes, palettes, panel/table layout, captions, manuscript integration, and render QA from supplied results. |
 | Venue format and artifacts | `ccf-submission-checker` | Checks package readiness; content polishing stays with writer. |
 | Resubmission adaptation | `ccf-rebuttal-writer` | Maintains response/ledger logic; manuscript edits route back to writer. |

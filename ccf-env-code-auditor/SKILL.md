@@ -1,6 +1,6 @@
 ---
 name: ccf-env-code-auditor
-description: "Audit communication paper scenarios, formal optimization problems, minimum executable scenarios, and environment code. Use for authority, design-to-code traceability, objective/constraint/state/decision semantics, information patterns, feasibility, invariants, causal bottlenecks, parameter applicability, 场景代码审查, 数学模型与代码一致性, 最小可执行场景核验. Do not design algorithms, judge algorithm performance, or replace scenario design."
+description: "Audit communication paper scenarios, formal optimization problems, the frozen minimum executable scenario (MES) anchor, complexity-stage implementations, and environment code. Use for authority, design-to-code traceability, objective/constraint/state/decision semantics, information patterns, feasibility, invariants, causal bottlenecks, parameter applicability, 场景代码审查, 数学模型与代码一致性, 最小可执行场景核验. Run heuristic L2 only for initial anchor acceptance; do not use it to judge later algorithm upgrades. Do not design algorithms, judge algorithm performance, or replace scenario design."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -26,46 +26,49 @@ scenario/problem item -> code symbol -> executed path -> independently observed 
 code behavior -> authorized problem item or necessary implementation detail
 ~~~
 
-Code presence, names, comments, and configuration fields are declarations, not behavioral evidence. Use the complete MES for acceptance and small controlled cases only for isolated semantic checks. Reapply the protocol after any code change, information-interface change, MES upgrade, or accepted environment amendment.
+Code presence, names, comments, and configuration fields are declarations, not behavioral evidence. Use the complete frozen anchor MES for initial acceptance and small controlled cases only for isolated semantic checks. For a method-independent complexity stage, audit the requested stage implementation, rerun the anchor regression and the new stage under the unchanged contract, and do not recompute `algorithmic_need`; reapply the protocol after the scenario code change including a scenario upgrade, or an accepted environment amendment.
+
+A stage implementation verdict is separate from algorithm acceptance: a requested stage passes its environment gate only when its specification, code, interface, and anchor regression agree. If that gate passes but the current algorithm fails, preserve the stage as valid failed evidence and route the failure to algorithm repair. Do not turn the algorithm result into a new MES or a reason to rerun L2.
 
 The environment remains the authority for objective, constraints, information pattern, feasibility meaning, and applicability. Audit evidence may justify an amendment request, but this skill does not silently rewrite those semantics to make an algorithm pass.
 
-Environment acceptance has two explicit layers. Layer 1 is code-to-environment-design contract fidelity. Layer 2 is heuristic tradeoff resistance: with a frozen MES, identical decision-time information and feasibility handling, a predeclared tuning budget, and an independently justified attainable target, sweep representative heuristic/probe rules and test whether they still fail to reach the intended objective or reasonable tradeoff. Record procedure completion separately from the outcome: resistance gives `algorithmic_need: demonstrated`, while a successful heuristic gives `not_demonstrated`. An impossible, unsupported, or post-selected target gives `insufficient_evidence`. Never alter environment parameters to manufacture heuristic failure.
+Environment acceptance has two explicit layers for the initial anchor. Layer 1 is code-to-environment-design contract fidelity. Layer 2 is heuristic tradeoff resistance: with a frozen anchor MES, identical decision-time information and feasibility handling, a predeclared tuning budget, and an independently justified attainable target, sweep representative heuristic/probe rules once and test whether they still fail to reach the intended objective or reasonable tradeoff. Record procedure completion separately from the outcome: resistance gives `algorithmic_need: demonstrated`, while a successful heuristic gives `not_demonstrated`. An impossible, unsupported, or post-selected target gives `insufficient_evidence`. Later complexity stages inherit this anchor result and do not rerun heuristic probes; they require stage L1 consistency and anchor regression. Never alter environment parameters to manufacture heuristic failure.
 
 ## Modes
 
 - static-trace: map the paper scenario and formal optimization problem into code.
 - executable-audit: verify the complete MES through execution.
+- complexity-stage-audit: verify one user-requested stage, anchor regressions, and implementation consistency without rerunning L2.
 - repair: coordinate an authorized environment-code repair and verify the new artifact set.
 - acceptance-gate: return the environment verdict, readiness state, and handoff evidence.
 
 ## Ordered Audit Gates
 
-1. **Authority gate:** identify paper-scenario, formal-problem, parameter-range, MES, equation, code, entry-point, configuration, seed, unit, time-index, and information-pattern versions; resolve conflicts before continuing.
+1. **Authority gate:** identify paper-scenario, formal-problem, parameter-range, frozen anchor MES, complexity-stage, equation, code, entry-point, configuration, time-index, and information-pattern versions; resolve conflicts before continuing.
 2. **Design-contract gate:** verify that the task causal chain, causal bottleneck, scientific question, supported conclusion and applicability, formal problem, paper-to-MES relation, complexity rationale, and information contract are complete and internally consistent.
 3. **Traceability gate:** map parameters, exogenous state, decision-time observations, decisions, objective terms, constraints, transitions, randomness, initialization, termination, metrics, and audit-only diagnostics; reverse-trace behavior that affects them.
 4. **Semantic-correctness gate:** verify objective direction and aggregation, constraint direction and enforcement, feasibility meaning, units, indexing, update order, decision domains, state/observation separation, information timing, randomness, and metrics.
 5. **Independent-execution gate:** run deterministic replay, independent objective/constraint/resource accounting, trace-wide invariants, controlled interventions, boundary configurations, repeated seeds, and full-load checks on the complete MES.
 6. **Optimization-fidelity gate:** verify that decisions remain effective, the planned decision space and coupling are preserved, objective terms vary as designed, constraints can bind, and feasibility is independently observable.
-7. **Layer-2 tradeoff-resistance gate:** verify target basis and attainability, then under a frozen MES and equal information, feasibility rules, seeds, cases, and predeclared tuning budget, sweep representative fixed, domain, greedy/myopic, decoupled, tuned, and random-feasible `environment_probe` or baseline roles. Record `evidence_status` separately from `algorithmic_need`; a successful heuristic gives `not_demonstrated` without invalidating Layer 1.
+7. **Layer-2 tradeoff-resistance gate:** for initial anchor acceptance only, verify target basis and attainability, then under a frozen anchor MES and equal information, feasibility rules, seeds, cases, and predeclared tuning budget, sweep representative fixed, domain, greedy/myopic, decoupled, tuned, and random-feasible `environment_probe` or baseline roles. Record `evidence_status` separately from `algorithmic_need`; a successful heuristic gives `not_demonstrated` without invalidating Layer 1. For a complexity-stage audit, mark this gate inherited/not applicable and do not rerun the sweep.
 8. **Acceptance gate:** issue pass, conditional, or fail, then separately determine Layer-1 environment-validity, Layer-2 algorithmic-need evidence, interface completeness, and current native implementation-review status. Do not issue joint-ready here.
 
 Missing evidence is not demonstrated; contradiction or failed behavior is incorrect. Stop executable conclusions when authority or design-contract evidence is unresolved.
 
 ## Native Implementation Review
 
-For an executable audit, repair verification, debugger-round closure, or acceptance gate, load ../ccf-common/references/implementation-review-protocol.md. Freeze a candidate artifact set with content digests and dispatch, in parallel, fresh read-only domain-contract-fidelity and implementation-assurance reviewers. These reviewers serve Layer 1 only: they check scenario/formal-problem/MES-to-code fidelity, information timing, feasibility, optimization fidelity, causal bottleneck, and probe-role labeling, plus implementation evidence. The auditor itself coordinates Layer 2's frozen-MES heuristic sweep and records its target, budget, settings, and outcome.
+For an executable audit, complexity-stage audit, repair verification, debugger-round closure, or acceptance gate, load ../ccf-common/references/implementation-review-protocol.md. Freeze a candidate artifact set with content digests and dispatch, in parallel, fresh read-only domain-contract-fidelity and implementation-assurance reviewers. These reviewers serve Layer 1 only: they check scenario/formal-problem/MES-to-code fidelity, information timing, feasibility, optimization fidelity, causal bottleneck, and probe-role labeling, plus implementation evidence. The auditor itself coordinates the initial anchor-only Layer 2 heuristic sweep and records its target, budget, settings, and outcome; a complexity-stage audit records only stage consistency and anchor regression.
 
 Reviewers only report; they never repair. An implementation owner cannot review the candidate it changed. A missing reviewer capability or missing digest is not_run/conditional and blocks acceptance; the coordinator must not self-review to downgrade it. Keep both axis reports separate and do not use one axis to offset another. Any artifact change marks prior review evidence stale.
 
 ## Workflow
 
-1. Inventory the authoritative design, MES, code, tests, commands, configurations, seeds, traces, and artifact-set digests.
+1. Inventory the authoritative design, anchor MES, requested complexity-stage contract when active, code, tests, commands, configurations, seeds, traces, and artifact-set digests.
 2. Run Layer 1 gates and the native two-axis review in sequence; attach each finding to the earliest failed gate.
-3. Verify that the L2 target is attainable independently of the compared heuristics, then run the frozen-MES sweep with matched information, feasibility, cases, and tuning budget; record all settings and the outcome.
+3. For initial anchor acceptance, verify that the L2 target is attainable independently of the compared heuristics, then run the frozen-anchor sweep with matched information, feasibility, cases, and tuning budget; record all settings and the outcome. For a user-requested complexity stage, skip L2, audit the stage implementation, rerun anchor regressions, and carry forward the anchor `algorithmic_need` result.
 4. When repair is authorized, route one smallest confirmed environment-code delta to its implementation owner, preserve the old artifact set, create a new candidate digest, and rerun every invalidated layer and gate. The repairer cannot sign the new review.
 5. When faithful algorithm code and a route-specific algorithm-design ledger are exhausted, forward a model-review request to `ccf-env-design` regardless of the proposed cause. Environment design owns classification. Only after it confirms `model_defect` may an amendment be proposed and the successor audited; do not edit or weaken the contract here.
-6. Return current Layer-1 environment-validity, Layer-2 algorithmic-need, interface evidence, and native-review status to ccf-algorithm-designer; return modeling-only or invalid results to the scenario owner, or failure evidence to ccf-experiment-debugger.
+6. Return current Layer-1 environment-validity, inherited anchor Layer-2 algorithmic-need, stage interface evidence, and native-review status to ccf-algorithm-designer; return modeling-only or invalid results to the scenario owner, or stage failure evidence to ccf-experiment-debugger.
 
 ## Internal Evidence Ledger
 
@@ -78,7 +81,8 @@ Lead with findings when the user requests a review; otherwise return the request
 ~~~text
 Verdict and readiness: pass / conditional / fail; environment-valid; algorithmic-need; interface-complete
 Layer 1 contract fidelity: status and material path:line findings
-Layer 2 heuristic tradeoff resistance: status, frozen MES, target, budget, and outcome
+Layer 2 heuristic tradeoff resistance: anchor-only status, frozen MES, target, budget, and outcome; inherited for complexity stages
+Complexity-stage consistency: requested stage, implementation trace, anchor regression, and inherited algorithmic-need
 Reviewed artifact set and authority versions:
 Domain contract fidelity: status and material path:line findings
 Implementation assurance: status and material path:line findings

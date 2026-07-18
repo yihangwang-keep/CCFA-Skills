@@ -33,9 +33,15 @@ formal_problem_version:
 parameter_applicability_range_version:
 minimum_executable_scenario_version:
 parent_mes_version:
+mes_role: anchor | candidate | legacy_successor
+mes_freeze_epoch:
+complexity_stage_id:
+parent_complexity_stage_id:
 environment_code_version:
 environment_contract_fidelity_verdict:
 algorithmic_need: demonstrated | not_demonstrated | contradicted | insufficient_evidence | stale
+l2_scope: anchor_only | inherited_for_complexity_stage
+stage_request_id:
 algorithm_specification_version:
 algorithm_code_version:
 algorithm_audit_verdict:
@@ -47,7 +53,7 @@ independent_checker:
 known_limitations_and_exclusions: []
 ```
 
-For non-algorithmic work, mark algorithm fields `not applicable` with a reason. A conditional verdict supports only the settings explicitly accepted by its auditor. A same-semantics MES successor preserves earlier evidence only for the parent authority tuple; rerun every method and conclusion item affected by successor cases or behavior. If a formal amendment changes the problem semantics, do not reuse earlier method rankings, objective values, or conclusion scope without complete rebaselining.
+For non-algorithmic work, mark algorithm fields `not applicable` with a reason. A conditional verdict supports only the settings explicitly accepted by its auditor. A `complexity_expansion` preserves the frozen anchor authority tuple: consume the accepted stage request, rerun the anchor regression and every method on the new stage, and keep stage failures as evidence. It does not create an MES successor or rerun the anchor L2 heuristic-probe need test. A legacy/exception MES successor preserves earlier evidence only for the parent authority tuple; rerun every method and conclusion item affected by successor cases or behavior. If a formal amendment changes the problem semantics, do not reuse earlier method rankings, objective values, or conclusion scope without complete rebaselining.
 
 ## Conclusion-Evidence Ledger
 
@@ -97,8 +103,8 @@ Freeze scenario generation before inspecting comparative outcomes.
 - **Method-independent construction:** derive settings from physical/task ranges, standards, traces, service requirements, or a generator fixed without using the proposed method's favorable outcomes.
 - **Coverage:** include credible nominal, diverse, hard, boundary, and failure settings. Report generation rules, parameter ranges, seeds, exclusions, and any after-the-fact filtering.
 - **Threshold integrity:** choose thresholds from domain meaning or a predeclared development rule. Give comparable methods matched tuning budgets and report the full relevant sweep. Never choose a final setting because it maximizes the proposed method's lead.
-- **Consume L2:** require a current `ccf-env-code-auditor` record containing the frozen MES, target basis and attainability, representative probes, tuning/search budgets, matched conditions, and `algorithmic_need`. Experiment design does not rerun or rejudge this gate.
-- **New contradiction:** heuristic methods may still appear as paper baselines. If new, fairly tuned evidence reaches the accepted target or contradicts L2, preserve it and route it through `ccf-experiment-debugger` to the environment auditor. Do not directly rewrite `algorithmic_need`, alter environment parameters, or construct a favorable successor MES inside experiment design.
+- **Consume L2:** require a current `ccf-env-code-auditor` record containing the frozen anchor MES, anchor-only target basis and attainability, representative probes, tuning/search budgets, matched conditions, and `algorithmic_need`. Experiment design does not rerun or rejudge this gate.
+- **Later-stage heuristic evidence:** heuristic methods may still appear as paper baselines. A later-stage heuristic result is comparison/use evidence, not a new L2 contradiction; preserve it and route any algorithm behavior issue through `ccf-experiment-debugger` to the algorithm owner. Do not directly rewrite `algorithmic_need`, alter environment parameters, or construct a favorable successor MES inside experiment design.
 - **Controlled modification:** state the external reason, changed assumption, old and new versions, invalidated evidence, and required reruns. Keep the original result visible when the modification follows result inspection.
 
 The experiment branch fails when the principal advantage disappears under credible variation or matched tuning while the paper still states a general algorithmic conclusion. Route the contradiction through `ccf-experiment-debugger`; do not construct a favorable replacement setting or issue a new environment verdict here.
@@ -161,10 +167,10 @@ Useful tests include removing one mechanism, replacing it with a generic admissi
 
 ## Robustness, Failure, And Version Boundaries
 
-- Expand one major parameter dimension at a time from accepted MES cases into the predeclared applicability range so failures remain attributable. This is evidence expansion, not an MES edit.
+- Expand one major parameter dimension at a time from the frozen anchor cases into the predeclared applicability range so failures remain attributable. Record each step as a complexity stage with a parent stage and method-independent delta. This is evidence expansion, not an MES edit.
 - Preserve every failed, infeasible, timed-out, and boundary setting. Distinguish solver failure from proven problem infeasibility.
-- Rerun the simple-rule check and relevant exact/oracle/bound comparison at each newly covered regime.
-- When the algorithm changes, rerun the MES, regressions, the current expansion level, and all affected baselines.
+- At the initial anchor, consume the completed L2 simple-rule/heuristic-probe result. At later complexity stages, do not rerun that environment need test; rerun the accepted algorithm, relevant exact/oracle/bound comparisons, and any explicitly declared paper baselines under matched conditions.
+- When the algorithm changes, rerun the anchor MES, all anchor regressions, the current complexity stage, and all affected baselines.
 - When the formal problem changes, end the current comparison epoch and rebaseline every method under the new version.
 - Compare different problem versions only through a genuinely common physical or service quantity, with the version change explicit.
 

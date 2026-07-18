@@ -1,5 +1,12 @@
 ﻿# Changelog
 
+## Unreleased - 2026-07-18
+
+- Reframed MES as the paper's minimum scale but a complete scientific problem: the first accepted MES must already activate the full task causal chain and central tradeoff, then freezes as the anchor.
+- Added an anchor-linked `complexity_expansion` ladder across environment design, algorithm design/audit, debugger loops, experiment planning, artifact contracts, routing, and README documentation. Complexity stages preserve anchor regressions and route failures to algorithm repair instead of creating replacement MES versions.
+- Restricted new candidate MES/evidence epochs to independently confirmed formal-model defects or research reframes, and extended validators for the anchor/stage contract and complexity-stage fields.
+- Made the operating phases explicit: anchor-only L2/algorithmic-need acceptance first, then user-requested complexity upgrades with stage L1 consistency, anchor regression, and inherited algorithmic need. Clarified that `ccf-experiment-debugger` owns repair coordination while `ccf-experiment-designer` owns downstream paper-range usage evidence.
+
 ## v0.8.0 - 2026-07-17
 
 - Refactored the communication environment, algorithm, implementation-audit, failed-run repair, and experiment-design skills so full gate reasoning stays in internal evidence ledgers while user-visible output leads with the requested artifact, decisive evidence, limitations, version changes, and next owner.

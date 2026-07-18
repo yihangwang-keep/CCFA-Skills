@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Experiment Debugger"
   short_description: "Run evidence-led MES and algorithm repair loops"
-  default_prompt: "Use $ccf-experiment-debugger to isolate this environment, MES, or algorithm-MVP failure, apply one owned delta per round, escalate exhausted algorithm repair to non-simplifying model review, and close invalidated checks with native independent review."
+  default_prompt: "Use $ccf-experiment-debugger only for a failed accepted anchor/complexity-stage run: apply one owned algorithm or implementation delta per round, preserve anchor regressions, inherit rather than rerun anchor L2, escalate exhausted repair to non-simplifying model review, and close invalidated checks with native independent review."

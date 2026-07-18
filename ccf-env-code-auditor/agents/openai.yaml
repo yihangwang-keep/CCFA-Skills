@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Environment Code Auditor"
   short_description: "Audit minimum executable scenario consistency"
-  default_prompt: "Use $ccf-env-code-auditor to verify the paper scenario, formal optimization problem, parameter applicability range, minimum executable scenario, decision-time information, feasibility meaning, and central tradeoff against executed environment behavior, then run the native two-axis read-only implementation review when applicable."
+  default_prompt: "Use $ccf-env-code-auditor to run the initial anchor L1 plus one-time L2 heuristic acceptance, or to verify a user-requested complexity-stage implementation and anchor regression without rerunning L2; then run the native two-axis read-only implementation review when applicable."

@@ -28,7 +28,7 @@ Keep this internal unless the user requests an audit or a version conflict affec
 | --- | --- | --- | --- | --- |
 | Paper scenario and formal problem |  | accepted | TBD |  |
 | MES and environment contract fidelity |  | accepted | TBD |  |
-| Upstream L2 heuristic-resistance record |  | `algorithmic_need: demonstrated` | TBD | target basis, attainability, probe coverage, and tuning limits |
+| Upstream anchor-only L2 heuristic-resistance record |  | `algorithmic_need: demonstrated` | TBD | target basis, attainability, probe coverage, tuning limits; inherited unchanged by later complexity stages |
 | Algorithm specification and implementation, when applicable |  | accepted | TBD |  |
 | Exact/oracle/bound reference and independent checker |  | accepted | TBD |  |
 ```
@@ -58,7 +58,7 @@ Keep this internal unless the user asks for the gate record or a failed item cha
 | Method-independent construction | source, ranges, generator, and seeds fixed without favorable-result selection | provenance and version | pass / fail / unresolved |
 | Applicability coverage | nominal, hard, boundary, and failure settings | coverage table | pass / fail / unresolved |
 | Threshold integrity | domain or predeclared selection with matched tuning budgets | full relevant sweep | pass / fail / N/A |
-| Upstream L2 record | environment-auditor target, attainability, probe coverage, tuning, and matched conditions | current auditor artifact | current / stale / missing |
+| Upstream anchor-only L2 record | environment-auditor target, attainability, probe coverage, tuning, and matched conditions | current anchor auditor artifact | current / stale / missing |
 | Scenario changes | reason, old/new versions, invalidated evidence, all methods rerun | change ledger | pass / fail / unchanged |
 ```
 

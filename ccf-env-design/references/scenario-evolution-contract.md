@@ -1,6 +1,6 @@
 # Scenario Evolution Contract
 
-Use this contract when code, audit, or experiment evidence suggests changing an accepted paper scenario, formal optimization problem, parameter applicability range, Minimum Executable Scenario (MES), or executable environment. Classify the change before editing. Keep the complete ledger internal unless the user requests it or a version decision blocks progress.
+Use this contract when code, audit, or experiment evidence suggests changing an accepted paper scenario, formal optimization problem, parameter applicability range, Minimum Executable Scenario (MES), complexity stage, or executable environment. Classify the change before editing. Keep the complete ledger internal unless the user requests it or a version decision blocks progress.
 
 ## Authority Lineage
 
@@ -12,14 +12,18 @@ formal_optimization_problem_version:
 parameter_applicability_range_version:
 minimum_executable_scenario_version:
 parent_mes_version:
+mes_role: candidate | anchor | legacy_successor
+mes_freeze_epoch:
+complexity_stage_id:
+parent_complexity_stage_id:
 environment_implementation_revision:
 validation_contract_version:
 evidence_epoch:
 ```
 
-An accepted authority artifact is immutable. A successor cites its parent and records the evidence, preserved invariants, semantic delta, invalidation set, and acceptance criteria. Superseding a version does not erase or make its evidence false; it limits that evidence to the authority tuple under which it was obtained.
+An accepted authority artifact is immutable. The first accepted MES is the anchor: after its design, L1, and L2 gates pass, its identity and complete causal package are frozen for the normal algorithm-development loop. A complexity stage cites the anchor and records its method-independent delta, evidence, preserved invariants, and acceptance criteria without creating a new MES. A formal amendment or research reframe is an exceptional authority change that starts a new candidate-MES design and evidence epoch. Superseding a version does not erase or make its evidence false; it limits that evidence to the authority tuple under which it was obtained.
 
-The intended progression is paper scenario -> first accepted MES -> environment and algorithm evidence -> classified non-simplifying delta -> successor MES or formal problem. MES is therefore the executable start of scenario validation, not a one-time frozen endpoint.
+The intended progression is paper scenario -> candidate MES with the complete central tradeoff -> L1/L2 acceptance and MES freeze -> complexity ladder with algorithm repair at each failed stage -> paper-range evidence. If the authoritative problem is independently shown infeasible or ill-posed, stop the ladder, revise the formal problem through an explicit amendment, and restart candidate-MES acceptance; this is not a routine algorithm upgrade. MES is the paper's minimum scale, not a minimum scientific problem.
 
 ## Change Classification
 
@@ -27,13 +31,14 @@ The intended progression is paper scenario -> first accepted MES -> environment 
 | --- | --- | --- | --- |
 | `implementation_repair` | Code, configuration, checker, or test contradicts the accepted contract while problem and MES semantics remain unchanged. | Keep paper-scenario, formal-problem, parameter-range, and MES versions; create a new implementation revision. | Reproduce the original failure and rerun affected environment checks plus every downstream check that consumed changed behavior. |
 | `evidence_expansion` | New runs add settings already authorized by the current formal problem, construction rule, parameter range, MES interface, and validation semantics. | Keep authority versions; create new evidence records. | Run all relevant methods fairly on the added settings. Do not call an ordinary sweep a scenario upgrade. |
-| `scenario_extension` | Evidence supports adding a method-independent registered case, construction dimension, or executable coverage while research identity and formal semantics remain unchanged. | Create a parent-linked successor MES; retain the same paper-scenario and formal-problem versions. | Audit the successor, run new coverage, and rerun compatibility anchors and affected methods. |
+| `complexity_expansion` | After the anchor MES and initial algorithm are accepted, a user/project owner requests a method-independent scale, load, topology, uncertainty, coupling, or boundary increase within the accepted formal problem, construction rule, parameter range, and interface. | Keep paper-scenario, formal-problem, parameter-range, and anchor MES versions; create a complexity-stage evidence record under the current epoch. | Audit stage implementation consistency, keep the anchor as a regression case, inherit anchor `algorithmic_need`, do not rerun L2, and route any algorithm failure to code/design repair. Do not create an MES successor. |
+| `scenario_extension` (legacy/exception) | Read existing successor-MES records, or use only when environment design documents that an already-authorized formal contract cannot be executed without an authority-level package change. It is not the normal post-acceptance complexity route. | Legacy records retain their parent; a new authority action must be reclassified as `formal_amendment` or `research_reframe` unless the environment owner explicitly records why the anchor contract itself is incomplete. | Preserve the anchor and all failed evidence; require explicit environment review, compatibility anchors, and the applicable rebaseline. |
 | `formal_amendment` | Objective, decision variables, material constraints, dynamics, uncertainty, information pattern, feasibility meaning, parameter semantics, or formal construction semantics change while research identity remains intact. | Create new formal-problem, parameter-range when affected, and MES versions; start a new evidence epoch. | Rebaseline environment, algorithm, baseline, and experimental evidence under one common successor contract. |
 | `research_reframe` | The task or service outcome, scientific question, task causal chain, central tradeoff, intended contribution type, or supported-conclusion meaning changes. | Start a new paper-scenario lineage, then define a new formal problem and MES. | End the current lineage as `reframe`; do not inherit acceptance or rankings as evidence for the new research object. |
 
 `invalidation` is not a sixth change class. It is the dependency consequence of an accepted delta. Record what becomes stale for the successor, why, what remains valid for the prior version, and the exact reruns needed.
 
-If a proposed extension changes formal semantics, reclassify it as `formal_amendment`. If it changes research identity, reclassify it as `research_reframe`. Names such as enhancement, upgrade, optimization, or cleanup do not override these boundaries.
+If a proposed complexity increase changes formal semantics, parameter meaning, or information/feasibility rules, reclassify it as `formal_amendment`; it cannot be hidden in a complexity stage. If it changes research identity, reclassify it as `research_reframe`. Names such as enhancement, upgrade, optimization, or cleanup do not override these boundaries.
 
 ## Decision Protocol
 
@@ -41,11 +46,11 @@ If a proposed extension changes formal semantics, reclassify it as `formal_amend
 2. Classify the origin as `algorithm_failure`, `domain_or_formal_evidence`, `code_or_audit_evidence`, or `experiment_evidence`, then identify whether it concerns implementation fidelity, coverage, scenario semantics, formal semantics, or research identity.
    Classify by the decisive evidence, not by which tool produced it. If the core fact is that an algorithm or its result missed a target, use `algorithm_failure` even when the observation came from code audit or an experiment. The other origins are reserved for evidence whose environment implication is independent of method ranking or failure.
 3. For `algorithm_failure`, require current environment L1 and algorithm-code fidelity plus the repair-exhaustion ledger. This always opens environment/formal-model review. Use another credible method, reference, bound, or probe when available; the environment owner then classifies the failure as algorithm-specific, model-defect, or unresolved. Only `model_defect` may justify a scenario or formal change on this branch.
-4. For other origins, require method-independent causal, task, physical, protocol, service, audit, or formal evidence appropriate to the proposed change. A non-failure `scenario_extension` does not require prior algorithm exhaustion.
+4. For other origins, require method-independent causal, task, physical, protocol, service, audit, or formal evidence appropriate to the proposed change. A `complexity_expansion` follows anchor and initial-algorithm acceptance, does not require prior algorithm exhaustion to open, and keeps the accepted authority; it does require a user/project-owner stage request, frozen construction rule, stage implementation contract, and anchor regression. A legacy/exception `scenario_extension` requires environment-owner review.
 5. Run a non-simplification check and select exactly one change class and owner before editing. Environment implementation repair belongs to environment code ownership; experiment-only coverage belongs to experiment design; scenario extension, formal amendment, and research reframe require environment-design acceptance.
-6. Predeclare successor versions, preserved invariants, acceptance criteria, invalidation set, and required reruns.
-7. Apply one owned delta. Mark dependent evidence stale before relying on any result from the successor.
-8. Obtain fresh environment audit evidence. Refresh algorithm and experiment evidence only against mutually compatible authority, implementation, and validation versions.
+6. For a complexity stage, predeclare the stage ID, parent stage, method-independent delta, preserved anchor, acceptance criteria, and affected reruns; do not propose a successor MES. For a formal amendment or reframe, predeclare successor versions, preserved invariants, invalidation set, and required reruns.
+7. Apply one owned delta. Mark dependent evidence stale before relying on new stage or successor evidence. At every complexity-stage failure, preserve the stage and route the earliest algorithm owner before considering a model review.
+8. Obtain fresh environment audit evidence for the changed implementation or formal authority. Refresh algorithm and experiment evidence only against mutually compatible authority, implementation, validation, and complexity-stage versions.
 
 Never obtain tractability or acceptance by deleting or weakening a material item, choosing favorable seeds, widening a tolerance, exposing future or audit-only information, replacing the environment objective with a solver surrogate, or tailoring the scenario to one method. An item independently proven inconsistent with the paper scenario may be corrected or replaced only when the successor preserves causal difficulty and the central tradeoff and rebaselines all dependent evidence.
 
@@ -82,8 +87,21 @@ environment_review_if_applicable:
   decision_owner: ccf-env-design
   evidence_ref:
 proposed_delta:
-change_class: implementation_repair / evidence_expansion / scenario_extension / formal_amendment / research_reframe
+change_class: implementation_repair / evidence_expansion / complexity_expansion / scenario_extension / formal_amendment / research_reframe
 owner:
+mes_policy: freeze_anchor | legacy_successor_review | new_candidate_after_formal_amendment | new_lineage_after_reframe
+complexity_stage:
+  stage_request_id:
+  requested_by:
+  stage_id:
+  parent_stage_id:
+  anchor_mes_version:
+  method_independent_delta:
+  formal_problem_unchanged: true | false
+  anchor_regression_required: true
+  rerun_l2_heuristic_probes: false
+  inherited_algorithmic_need:
+  algorithm_failure_route: code | mechanism | family | formal_model | unresolved
 preserved_research_invariants: []
 changed_contract_items: []
 method_independence_evidence:
@@ -140,13 +158,13 @@ contradiction may support model-defect review.
 
 Any accepted authority successor requires `non_simplification.status: pass`, an empty `unjustified_removed_or_weakened_items`, preserved predecessor regression anchors, and explicit evidence that target, tolerance, feasibility rules, solver status, time/resource budget, seed selection, weighting/priority, case distribution, aggregation, horizon/termination, and exogenous resources or capabilities do not hide a reduction in difficulty. A corrected model item requires independent scenario/formal evidence and must preserve the causal problem and central tradeoff.
 
-An accepted `scenario_extension` or `formal_amendment` produces a successor specification before dependent code is treated as authoritative. Do not rewrite documentation after implementation merely to legitimize observed behavior.
+An accepted `complexity_expansion` requires a user/project-owner stage request and produces a stage specification before dependent algorithm runs are treated as evidence; it never produces a successor MES or reruns anchor L2. A legacy/exception `scenario_extension` or a `formal_amendment` produces a successor specification before dependent code is treated as authoritative. A formal amendment creates a new candidate MES and evidence epoch; the prior anchor remains historical and is not silently edited. Do not rewrite documentation after implementation merely to legitimize observed behavior.
 
 ## Evidence Compatibility
 
 - Evidence is reusable only when its authority, implementation, validation, configuration, and metric semantics match the target conclusion. Cite the exact compatibility basis.
 - Old evidence remains valid for its recorded version unless independently contradicted. Mark it `historical` or `superseded`, not silently deleted.
-- A scenario extension or same-lineage formal amendment must preserve predecessor hard cases as regression anchors unless independent task or formal evidence proves a case invalid. A method's failure is not such evidence.
+- Every complexity expansion must preserve the anchor MES cases as regression anchors. A scenario extension or same-lineage formal amendment must also preserve predecessor hard cases unless independent task or formal evidence proves a case invalid. A method's failure is not such evidence.
 - Do not rank objective values from materially different formal-problem versions. Cross-version comparison requires a genuinely common task, physical, service, or resource quantity and an explicit version boundary.
 - Preserve every failed, infeasible, timed-out, and boundary setting with its original versions.
 

@@ -1,6 +1,6 @@
 ---
 name: ccf-algorithm-code-auditor
-description: "Audit and repair communication and networking algorithm implementations against an accepted formal problem, minimum executable scenario, environment contract, and algorithm specification. Use for authoritative-version checks, design-to-code traceability, solver/scheduler/controller semantics, feasibility, convergence, exact/oracle/bound comparison, algorithm validation, 算法代码审查, 算法验证, 求解器实现核验. Do not redesign the environment, choose the initial algorithm, or design publication experiments."
+description: "Audit and repair communication and networking algorithm implementations against an accepted formal problem, frozen minimum executable scenario (MES) anchor, complexity stages, environment contract, and algorithm specification. Use for authoritative-version checks, design-to-code traceability, solver/scheduler/controller semantics, feasibility, convergence, exact/oracle/bound comparison, algorithm validation, 算法代码审查, 算法验证, 求解器实现核验. Do not redesign the environment, choose the initial algorithm, or design publication experiments."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -19,8 +19,9 @@ metadata:
 
 ## Core Rule
 
-Audit the implementation against an implementation-ready algorithm design and its
-environment-authorized formal problem through bidirectional evidence:
+Audit the implementation against an implementation-ready algorithm design, the
+environment-authorized formal problem, and the frozen anchor MES through
+bidirectional evidence:
 
 ~~~text
 formal target/algorithm step -> code symbol -> executed path -> independent check
@@ -29,8 +30,10 @@ executed behavior -> authorized algorithm step or necessary implementation detai
 
 The environment remains the authority for objective, decision variables,
 constraints, information pattern, feasibility meaning, task-causal semantics,
-paper parameter range, and MES. Audit algorithm code against that contract; do
+paper parameter range, anchor MES, and current complexity stage. Audit algorithm code against that contract; do
 not alter the environment or accept an algorithm-side reinterpretation.
+
+Consume the initial anchor-only L2/`algorithmic_need` result from the environment auditor. For a later complexity stage, audit the upgraded algorithm on the stage and anchor regression while inheriting that result; this auditor does not rerun environment heuristic probes.
 
 Use small cases for semantic and reference checks, then decide acceptance on the
 complete MES. Bind every verdict to exact authority, specification, artifact
@@ -46,14 +49,14 @@ every gate that depends on the changed behavior.
 
 ## Ordered Audit Gates
 
-1. **Authority gate:** identify the paper formulation, MES, environment version/verdict, algorithm specification, method role, mechanism classification, artifact set, configuration, dependencies, seeds, metrics, and acceptance criteria.
+1. **Authority gate:** identify the paper formulation, frozen anchor MES, complexity stage, environment version/verdict, algorithm specification, method role, mechanism classification, artifact set, configuration, dependencies, seeds, metrics, and acceptance criteria.
 2. **Environment-contract gate:** confirm that algorithm inputs, outputs, action domains, feasibility signals, information timing, and interface version match the accepted environment contract; separate algorithm-visible information from audit-only diagnostics.
 3. **Design-contract gate:** verify that the design is implementation-ready and that the formal target, assumptions, selected family, derived mechanism, MES path, termination, complexity target, original-problem evaluation semantics, verification plan, method role, and mechanism classification are complete and internally consistent.
 4. **Traceability gate:** map initialization, preprocessing, decisions, every update/search step, feasibility handling, surrogate or relaxation, recovery, original-objective evaluation, original-constraint checks, randomness, termination, solution extraction, and metrics; reverse-trace behavior that changes them.
 5. **Semantic-correctness gate:** independently verify equations, signs, units, indices, update order, masks, gradients where applicable, residuals, stopping rules, extracted decisions, and failure behavior without hidden fallback.
 6. **Proposed-method eligibility gate:** when method_role is proposed, reject any heuristic decision mechanism, including a hidden heuristic fallback or clipping path, as a blocker. Heuristic and simple rules are permitted only for explicitly labelled baseline, reference, diagnostic, or environment-probe roles.
 7. **Reference gate:** compare hand-computable or small instances with the declared exact solver, enumeration, oracle, certified bound, relaxation, theorem, or other analytical target; state the certification scope and evaluate recovered decisions under the original objective and constraints.
-8. **Independent-MES gate:** run the complete algorithm path on the MES and verify feasibility, correctness/convergence evidence, numerical stability, reproducibility, original objective values, declared comparison conditions, and runtime/space against predeclared criteria.
+8. **Independent-MES gate:** run the complete algorithm path on the frozen anchor MES and, when a complexity stage is active, the new stage; verify anchor regression, feasibility, correctness/convergence evidence, numerical stability, reproducibility, original objective values, declared comparison conditions, and runtime/space against predeclared criteria.
 9. **Acceptance gate:** issue pass, conditional, or fail from the combined authority, contract, trace, semantic, reference, MES, and native implementation-review evidence. Set joint-ready only when the environment is current and valid and all applicable algorithm gates are accepted under the same artifact set.
 
 Missing evidence is not demonstrated; contradictions and failed checks are incorrect. A proposed-method heuristic violation is never downgraded to a minor finding.
@@ -71,7 +74,7 @@ The proposed-method eligibility gate is owned by this auditor's domain profile. 
 3. Report each finding with file:line, decisive evidence, severity, affected checks, owner, and required reruns; keep axis reports separate.
 4. When repair is authorized, route one smallest confirmed algorithm-code delta to its implementation owner, preserve the old artifact set, create a new candidate digest, and rerun dependent gates. The repairer cannot sign the new review.
 5. Never repair the environment or formal problem from this skill. Route environment-code defects to `ccf-env-code-auditor` and mechanism/no-heuristic failures to `ccf-algorithm-designer`. When code fidelity is current and the route-specific repair ledger is exhausted, always submit it through `ccf-experiment-debugger` for environment/formal-model review. Environment design classifies the cause; this auditor cannot require or approve an easier problem.
-6. For a same-semantics MES successor, preserve old evidence for its parent authority tuple, but do not use it to establish successor acceptance. Run a fresh successor algorithm audit and invalidate only comparisons and results that depend on changed cases or behavior. For a formal amendment or another semantic environment change, start a new evidence epoch and rebaseline the complete algorithm audit, comparisons, and results.
+6. For a `complexity_expansion`, preserve the anchor audit and rerun the anchor plus the new stage; invalidate only stage-dependent comparisons and results. A legacy/exception MES successor preserves old evidence for its parent authority tuple but cannot establish successor acceptance. For a formal amendment or another semantic environment change, start a new evidence epoch, use a new candidate MES, and rebaseline the complete algorithm audit, comparisons, and results.
 7. Send current joint-ready evidence to ccf-experiment-designer only after the native review axes and all algorithm gates are current and accepted.
 
 ## Working Evidence Ledger

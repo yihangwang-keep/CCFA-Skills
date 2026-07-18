@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Environment Design"
   short_description: "Design and evolve executable paper scenarios"
-  default_prompt: "Use $ccf-env-design to define or evolve the paper scenario, formal problem, and MES lineage; when algorithm repair is exhausted, accept only a model-defect correction that preserves the causal question and does not simplify material difficulty."
+  default_prompt: "Use $ccf-env-design to define the paper scenario, formal problem, and a complete core-tradeoff MES; run/hand off anchor-only L2, freeze the first accepted MES, accept one user-requested complexity stage at a time without creating MES successors, and route stage failures to algorithm repair. When repair is exhausted, accept only a model-defect formal amendment that preserves the causal question and does not simplify material difficulty."

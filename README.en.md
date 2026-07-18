@@ -63,15 +63,18 @@ project scaffold
 
 ### Versioned Design-Validation Loop
 
-Communication scenario and algorithm work follows this loop before publication-range experiment design:
+Communication scenario and algorithm work follows two phases with repair loops in both before publication-range experiment design. Phase A accepts the complete anchor MES, runs the one-time heuristic L2/algorithmic-need check, and accepts the initial algorithm; initial algorithm failures are repaired against the anchor. Phase B handles one user-requested complexity stage at a time: audit stage consistency, rerun anchor regressions, run/upgrade the algorithm, and repair failures. Phase B inherits the anchor L2 result and never reruns heuristic probes or redesigns MES.
 
 ```text
 ccf-env-design
-  -> ccf-env-code-auditor                 [environment-valid]
+  -> ccf-env-code-auditor                 [environment-valid + anchor MES]
   -> ccf-algorithm-designer
   -> ccf-algorithm-code-auditor           [joint-ready]
-  -> ccf-experiment-debugger on failure
-       -> one owner, one minimal change, all invalidated gates rerun
+  -> complexity ladder: one stage at a time
+  -> ccf-experiment-debugger on initial/stage failure (conditional repair loop)
+       -> algorithm owner, one minimal mechanism/code change, anchor regression + stage rerun
+  -> ccf-experiment-designer after accepted stage evidence (paper-range usage evidence)
+  -> formal-model review only for an independently confirmed infeasible/ill-posed problem
 ```
 
 Algorithm failure does not authorize a silent change to the environment objective, constraints, task semantics, information pattern, or test settings. An accepted environment semantic change creates a new problem version, preserves the failed version as evidence, and invalidates every dependent algorithm, baseline, and result artifact. At checkpoint commits, invoke the installed `$code-review` skill against the fixed comparison point and accepted specification; CCFA reuses that skill without copying its Standards/Spec rules.
@@ -88,12 +91,12 @@ Algorithm failure does not authorize a silent change to the environment objectiv
 | Idea gate | `ccf-idea-reviewer` | Explicitly score, rank, stress-test, or triage ideas. | Scores, risks, stage-aware development potential. | Brainstorming or developing one rough idea further. |
 | Monitoring | `ccf-literature-monitor` | Track new papers, competitors, arXiv/OpenReview/venue feeds, or ask whether recent work overlaps an idea. | Monitoring report, overlap levels, RELAX/RESEARCH/FOLLOW-UP flags, handoff signals. | Deep related-work search, citation audit, or final idea scoring. |
 | Evidence | `ccf-literature-searcher` | Search related work, prior art, datasets, benchmarks, and open gaps. | Literature notes, opportunity map, evidence gaps, related-work structure. | Auditing already cited papers or treating related work as a final idea kill gate. |
-| Environment design | `ccf-env-design` | Define or revise the paper scenario, formal optimization problem, parameter applicability range, scenario MVP, information pattern, and feasibility meaning. | Versioned environment specification and algorithm-facing contract. | Environment-code validation or algorithm design. |
+| Environment design | `ccf-env-design` | Define the paper scenario, formal optimization problem, parameter applicability range, and a complete core-tradeoff MES; freeze the first accepted MES as anchor and govern the complexity ladder. | Versioned environment specification, anchor MES, complexity-stage contract, and algorithm-facing contract. | Environment-code validation or algorithm design. |
 | Environment gate | `ccf-env-code-auditor` | Verify that environment code implements the accepted problem and runs independently. | Traceability evidence, execution evidence, `environment-valid` verdict. | Scenario redesign or algorithm performance judgment. |
 | Algorithm design | `ccf-algorithm-designer` | Derive a mechanism and algorithm MVP against an accepted environment contract. | Algorithm specification, verification targets, complexity analysis. | Scenario redesign, code audit, or publication experiments. |
 | Algorithm gate | `ccf-algorithm-code-auditor` | Verify the algorithm specification against code and independent MVP behavior. | Traceability evidence, reference comparisons, `joint-ready` verdict. | Initial algorithm selection or environment audit. |
-| Design validation | `ccf-experiment-debugger` | Diagnose a failed or weak MVP, or continue the versioned design-validation loop. | One-owner repair, invalidation ledger, closed reruns, terminal status. | Replacing either auditor or designing initial publication experiments. |
-| Experiments | `ccf-experiment-designer` | Design baselines, metrics, ablations, robustness checks. | Protocols, baseline matrix, result templates, evidence-bound figure/table specs. | Inventing results or drawing docs diagrams. |
+| Stage repair loop | `ccf-experiment-debugger` | Coordinate repair of a failed accepted anchor/complexity-stage run. | One-owner repair, invalidation ledger, closed anchor/stage reruns, terminal status. | Designing initial environment/algorithm or paper-range experiments. |
+| Paper-range usage evidence | `ccf-experiment-designer` | Use accepted anchor/stage methods to design baselines, metrics, ablations, robustness, and conclusion-bound evidence. | Protocols, baseline matrix, result templates, evidence-bound figure/table specs. | Defining or repairing environment/algorithm semantics, auditing code, or inventing results. |
 | Visuals | `ccf-visual-composer` | Compose publication-grade figures/tables, Python plotting code, palettes, captions, panel maps, and manuscript integration from supplied results. | Visual contract, plot recipe/code, panel/table map, palette, LaTeX placement, caption plan, render QA ledger. | Designing experiments, inventing results, writing prose as the main task, final submission compliance. |
 | Exemplar | `ccf-paper-to-exemplar` | Convert user-provided paper PDFs into reusable writing exemplar cards. | Exemplar cards, writing patterns, venue tags, writer index updates. | Writing papers or performing review. |
 | Manuscript | `ccf-paper-writer` | Draft, revise, polish, compress, create venue- and length-aware LaTeX, make presentations. | Manuscript text, format-preserving edits, compressed text, page budget, slides/poster/talk. | Full review, integrity audit, submission check, rebuttal. |

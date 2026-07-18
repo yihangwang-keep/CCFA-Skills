@@ -8,10 +8,10 @@ Use this as the domain contract for a Ralph-style design-validation loop. Ralph 
 | --- | --- | --- | --- |
 | `R0 research basis` | paper-scenario owner | task, scientific question, task causal chain, central tradeoff, service meaning, contribution and supported-conclusion type | none; a necessary change is `reframe` |
 | `R1 formal problem` | environment design | objective, variables, constraints, dynamics, uncertainty, information pattern, feasibility, parameter range | only an accepted `formal_amendment` |
-| `R2 MES and environment` | environment design and audit | MES lineage, registered cases, execution contract, code, independent checker, L1 criteria, L2 target and probe protocol | implementation repair or accepted successor MES |
+| `R2 MES and environment` | environment design and audit | frozen anchor MES, registered cases, complexity-stage ladder, execution contract, code, independent checker, L1 criteria, L2 target and probe protocol | implementation repair or complexity expansion; formal amendment only after confirmed model defect |
 | `R3 algorithm and implementation` | algorithm design and audit | formal target, role, component classification, mechanism, code, reference, tests, acceptance criteria | default repair layer |
 
-The MES retains the complete R0/R1 causal and formal path and may include multiple registered cases needed to activate the joint tradeoff. Accepted authority versions are immutable. Documentation is part of the contract: change the owning specification before dependent code when semantics change, rather than rewriting prose afterward to legitimize current behavior.
+The anchor MES retains the complete R0/R1 causal and formal path and may include multiple registered cases needed to activate the joint tradeoff. Accepted authority versions are immutable. The initial anchor L2 heuristic-probe result is frozen with the anchor. After initial algorithm acceptance, complexity stages add one user-requested, method-independent difficulty dimension at a time under the same R0/R1/interface contract; they never replace the anchor or reopen L2. Documentation is part of the contract: change the owning specification before dependent code when semantics change, rather than rewriting prose afterward to legitimize current behavior.
 
 Freeze `V0 validation contract` before the first repair. Record criterion owners, original failure, MES cases, seeds or traces, L2 probe families and tuning budgets, algorithm baselines, metrics, independent checker, tolerances, required solver status, time/resource/platform accounting, stop rule, and pass condition. Diagnostics may be added without removing a criterion. A material criterion change creates a successor validation contract and cannot make the old failure accepted.
 
@@ -22,10 +22,10 @@ Repeat this instruction unchanged; store round-specific state only in the ledger
 ```text
 Continue the CCFA design-validation loop at <ledger-path>.
 Read the frozen R0-R3 authority, validation contract, and current artifact manifests.
-Preserve every original failure, MES case, target, and pass criterion.
+Preserve every original failure, anchor MES case, complexity stage, target, and pass criterion.
 Work on the earliest missing, stale, failed, or contradicted dependency.
 Assign one active owner and apply at most one owned delta.
-Do not change the environment merely to rescue an algorithm or force heuristic-probe failure.
+Do not change the environment merely to rescue an algorithm or force initial-anchor heuristic-probe failure. For a later stage, check implementation consistency and anchor regression; do not run a new heuristic-probe need test.
 After faithful algorithm repairs are exhausted, route the exhaustion evidence to
 environment and formal-model review; let ccf-env-design classify the failure.
 Run the original failure, every invalidated check, and the applicable fresh CCFA audit.
@@ -40,12 +40,18 @@ The fixed-instruction hash prevents drift. A completion phrase has no status sem
 ```yaml
 loop_id:
 scope: environment | algorithm | joint
+phase: anchor_acceptance | complexity_upgrade
+stage_request_id:
 status: active | accepted | no-algorithmic-contribution | rebaseline-required | reframe | blocked
 fixed_instruction_hash:
 authority_versions:
   paper_scenario:
   formal_problem:
   minimum_executable_scenario_version:
+  mes_role: anchor | candidate | legacy_successor
+  mes_freeze_epoch:
+  complexity_stage_id:
+  parent_complexity_stage_id:
   environment_implementation:
   algorithm_specification:
   algorithm_implementation:
@@ -79,6 +85,7 @@ terminal_review_ids:
   algorithm:
 environment_l1:
 environment_l2_algorithmic_need:
+l2_scope: anchor_only | inherited_for_complexity_stage
 algorithm_no_heuristic_gate:
 algorithm_no_heuristic_gate_status:
 active_route_id:
@@ -150,10 +157,10 @@ evidence, not hidden reasoning or unpublished results in public systems.
 ## One Round
 
 1. Verify the fixed-instruction hash, authority tuple, validation contract, and round-input manifest.
-2. Select the earliest stale or failed dependency. L1 environment fidelity precedes L2 heuristic resistance; both precede algorithm acceptance.
-3. Name one owner and one smallest delta. Do not mix environment authority and algorithm behavior changes. Preserve algorithm revisions separately; when credible repairs are exhausted, close their round and open a model-review round.
+2. Select the earliest stale or failed dependency. In Phase A, L1 environment fidelity precedes the one-time L2 heuristic resistance and initial algorithm acceptance. In Phase B, stage L1 consistency and anchor regression precede algorithm-upgrade acceptance; L2 is inherited.
+3. Name one owner and one smallest delta. Do not mix environment authority and algorithm behavior changes. Preserve algorithm revisions separately; when credible repairs are exhausted at a named complexity stage, close their round and open a model-review round without replacing the anchor.
 4. Create the candidate artifact set and mark every dependent audit, review, and result stale when its content digest changed.
-5. Run the original failure under the locked validation contract, then all invalidated checks. Preserve failures; do not substitute an easier MES case, seed, target, tolerance, or budget; choosing favorable seeds to avoid failure is prohibited.
+5. Run the original failure and the anchor regression under the locked validation contract, then all invalidated checks. Preserve failures; do not substitute an easier MES case, seed, target, tolerance, or budget; choosing favorable seeds to avoid failure is prohibited. Do not add an L2 heuristic sweep for a Phase-B stage.
 6. Obtain the applicable fresh environment or algorithm auditor verdict. For environment scope, keep L1 contract fidelity separate from L2 algorithmic-need evidence.
 7. The auditor launches two fresh, read-only reviewers under the shared native implementation-review protocol. The repairer cannot be a reviewer. Both reports bind to the candidate digest; their statuses remain separate and cannot offset each other.
 8. Append the closed round to history and open a new `current_round` only when all required evidence is current. If a second cause appears, open a new round rather than expanding the current delta.
@@ -167,15 +174,16 @@ Classify environment deltas before editing:
 
 - `implementation_repair`: same formal problem and MES; new implementation revision.
 - `evidence_expansion`: same authority; new experimental coverage only.
-- `scenario_extension`: same formal problem; parent-linked successor MES.
+- `complexity_expansion`: same formal problem, parameter semantics, interface, and frozen anchor MES; record one method-independent complexity stage and keep anchor regression cases.
+- `scenario_extension`: legacy/exception parent-linked successor MES only with explicit environment-owner justification; not the normal post-acceptance route.
 - `formal_amendment`: new formal problem, MES, and evidence epoch.
 - `research_reframe`: new paper-scenario lineage.
 
-`invalidation` is a consequence, not a sixth class. An algorithm request must be method-independent, causally necessary, information-honest, and neutral to method ranking. An adequately tuned heuristic reaching the frozen L2 target is evidence that algorithmic need is not demonstrated, not permission to add difficulty. Use the environment's scenario-evolution contract for proposal fields and impact rules.
+`invalidation` is a consequence, not a sixth class. An algorithm request must be method-independent, causally necessary, information-honest, and neutral to method ranking. An adequately tuned heuristic reaching the initial anchor L2 target is evidence that algorithmic need is not demonstrated, not permission to add difficulty. A later complexity-stage heuristic result is only comparison evidence and does not reopen L2. Use the environment's scenario-evolution contract for proposal fields and impact rules.
 
 When environment L1 and algorithm-code fidelity pass but one route's documented mechanism or family revisions still cannot meet the formal target, bind exhaustion to `route_id`, algorithm-specification version, and scope, then set that route to `exhausted` and open `environment_review`. The algorithm/debugger may record only a proposed classification. Only `decision_owner: ccf-env-design` may set the confirmed classification, review status, and decision.
 
-A completed `model_defect` review with `decision: authorize_evolution` may create a classified formal-problem/MES successor. A completed `algorithm_specific` review with `return_to_algorithm` closes or supersedes the exhausted route; if credible routes remain, append a new route record with a new `route_id` and `status: not_started`, then move `active_route_id` rather than resetting or overwriting the old record. Bind target evidence, environment review, and any evolution proposal to that route ID. If `exhaustion_scope: credible_routes`, an algorithm-specific decision supports `no-algorithmic-contribution` rather than inventing another route. An `unresolved` review is blocked. Reject any successor that weakens material difficulty for tractability or acceptance. A model item independently proven inconsistent with the paper scenario may be corrected or replaced only when causal difficulty and the central tradeoff remain intact.
+A completed `model_defect` review with `decision: authorize_evolution` may create a classified formal-problem amendment and new candidate-MES/evidence epoch. It must not silently overwrite the frozen anchor. A completed `algorithm_specific` review with `return_to_algorithm` closes or supersedes the exhausted route; if credible routes remain, append a new route record with a new `route_id` and `status: not_started`, then move `active_route_id` rather than resetting or overwriting the old record. Bind target evidence, environment review, and any evolution proposal to that route ID. If `exhaustion_scope: credible_routes`, an algorithm-specific decision supports `no-algorithmic-contribution` rather than inventing another route. An `unresolved` review is blocked. Reject any replacement that weakens material difficulty for tractability or acceptance. A model item independently proven inconsistent with the paper scenario may be corrected or replaced only when causal difficulty and the central tradeoff remain intact.
 
 Resolve target definition and every evidence item owner before model classification using the scenario-evolution contract's legal owner combinations. A stale or invalid `environment_l2` target/attainability witness returns to environment design and environment audit. Analytical `algorithm_guarantee` evidence returns to algorithm design; implementation/execution evidence returns to algorithm code audit. Only a contradiction in the authoritative `formal_problem` target or feasibility semantics can support `model_defect`.
 
@@ -185,11 +193,11 @@ A validation-contract correction is allowed only when its owner independently pr
 
 Apply this order: `reframe` -> `rebaseline-required` -> `blocked` -> scope-specific scientific decision. Do not report `accepted` when a higher-precedence condition holds.
 
-- `scope: environment`, `accepted`: current R0-R2 and V0; L1 passes; L2 has a current supported result; original failure and invalidated checks close; and `terminal_review_ids.environment` names a native `terminal_acceptance` review whose two passing axes bind to the candidate artifact set. Set the algorithm review ID to `not_applicable`. For an algorithm-contribution handoff, L2 must be `algorithmic_need: demonstrated`.
-- `scope: algorithm`, `accepted`: current accepted environment with demonstrated L2 need; algorithm specification and code pass; `method_role: proposed` passes the no-heuristic gate; reference/MES evidence is current; and `terminal_review_ids.algorithm` names a native `terminal_acceptance` review whose two passing axes bind to the candidate artifact set. Retain the accepted environment review ID rather than replacing it.
+- `scope: environment`, `accepted`: current R0-R2 and V0; initial anchor L1 passes; anchor-only L2 has a current supported result; original failure and invalidated checks close; and `terminal_review_ids.environment` names a native `terminal_acceptance` review whose two passing axes bind to the candidate artifact set. A Phase-B stage additionally requires stage L1 consistency and anchor regression. Set the algorithm review ID to `not_applicable`. For an initial algorithm-contribution handoff, L2 must be `algorithmic_need: demonstrated`.
+- `scope: algorithm`, `accepted`: current accepted anchor environment with the anchor L2 result (inherited for a complexity stage); algorithm specification and code pass; `method_role: proposed` passes the no-heuristic gate; reference/MES evidence is current; and `terminal_review_ids.algorithm` names a native `terminal_acceptance` review whose two passing axes bind to the candidate artifact set. Retain the accepted environment review ID rather than replacing it.
 - `scope: joint`, `accepted`: both environment and algorithm terminal review IDs are current, have `purpose: terminal_acceptance`, and satisfy their acceptance conditions against one compatible authority tuple.
 - `no-algorithmic-contribution`: the current environment remains valid and adequately tuned probes meet the target, or credible non-heuristic algorithm routes are exhausted without a supportable contribution and no model defect is established. A no-heuristic violation alone routes to algorithm redesign. A confirmed `model_defect` routes to formal amendment and rebaselining, not this terminal status.
-- `rebaseline-required`: an accepted `formal_amendment` or material validation-semantic change creates a new evidence epoch. A same-semantics `scenario_extension` stays in the current lineage and invalidates only successor acceptance, compatibility anchors, and affected downstream evidence.
+- `rebaseline-required`: an accepted `formal_amendment` or material validation-semantic change creates a new evidence epoch and candidate MES. A `complexity_expansion` stays on the frozen anchor and invalidates only the new stage and dependent downstream evidence until the anchor regression and stage rerun close. A legacy/exception `scenario_extension` requires its explicitly declared successor invalidation.
 - `reframe`: R0 research identity must change.
 - `blocked`: failure classification remains `unresolved`, or required evidence, execution resources, independent review capability, external authority, or a material user decision is unavailable. Record the exact unblock condition; never lower criteria.
 

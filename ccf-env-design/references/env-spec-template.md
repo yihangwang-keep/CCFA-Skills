@@ -17,6 +17,10 @@ authority:
   parameter_applicability_range_version:
   minimum_executable_scenario_version:
   parent_mes_version:
+  mes_role: candidate | anchor | legacy_successor
+  mes_freeze_epoch:
+  complexity_stage_id:
+  parent_complexity_stage_id:
   environment_implementation_revision:
   validation_contract_version:
   evidence_epoch:
@@ -96,6 +100,7 @@ two_layer_environment_contract:
     independent_checks:
     acceptance_criteria:
   l2_method_independent_probe_contract:
+    scope: anchor_only
     frozen_mes_version:
     method_independent_construction: yes / no / conditional
     predeclared_joint_tradeoff_or_optimization_target:
@@ -107,9 +112,23 @@ two_layer_environment_contract:
     matched_information_feasibility_and_resource_budget:
     interpretation_rule:
 
+complexity_stage_contract:
+  stage_request_id:
+  requested_by:
+  anchor_mes_version:
+  parent_stage_id:
+  method_independent_delta:
+  formal_problem_unchanged: yes / no
+  implementation_consistency_checks:
+  anchor_regression_cases:
+  algorithm_audit_required: yes
+  rerun_l2_heuristic_probes: no
+  inherited_algorithmic_need:
+
 minimum_executable_scenario:
   id:
   status: candidate / accepted / superseded
+  role: candidate | anchor | legacy_successor
   parent_version:
   code_entrypoint:
   registered_configurations_or_construction:
@@ -127,6 +146,20 @@ minimum_executable_scenario:
   preserved_information_pattern:
   preserved_feasibility_meaning:
   preserved_central_tradeoff:
+
+complexity_ladder:
+  anchor_mes_version:
+  status: pre_acceptance_design | frozen | active | blocked | rebaseline_required
+  stage_contract:
+    stage_id:
+    parent_stage_id:
+    method_independent_delta:
+    formal_problem_unchanged: yes / no
+    parameter_range_authorized: yes / no
+    interface_unchanged: yes / no
+    anchor_regression_required: yes
+    algorithm_failure_route: code / mechanism / family / formal_model / unresolved
+  stages: []
 
 algorithm_required_environment_information:
   decision_time_observations:
@@ -171,7 +204,7 @@ scenario_evolution_proposal_if_any:
     decision_owner: ccf-env-design
     evidence_ref:
   credible_methods_checked:
-  change_class: implementation_repair / evidence_expansion / scenario_extension / formal_amendment / research_reframe
+  change_class: implementation_repair / evidence_expansion / complexity_expansion / scenario_extension / formal_amendment / research_reframe
   proposed_minimal_change:
   preserved_research_invariants:
   changed_contract_items:
@@ -218,15 +251,15 @@ handoff:
 
 ## Required Relations
 
-The paper scenario defines the task and communication setting. The formal optimization problem gives that setting mathematical semantics. The parameter applicability range states where the resulting conclusion is supported. The MES is the smallest versioned package that executes the complete causal and formal path with a registered interface, reproducibility controls, independent checks, and acceptance criteria.
+The paper scenario defines the task and communication setting. The formal optimization problem gives that setting mathematical semantics. The parameter applicability range states where the resulting conclusion is supported. The MES is the smallest versioned package that executes the complete causal and formal path with a registered interface, reproducibility controls, independent checks, and acceptance criteria. It is the paper's minimum scale, not the minimum scientific problem.
 
 An MES may use one or more registered configurations. It must not remove the task causal chain, objective, material constraints, coupled decisions, information pattern, feasibility meaning, or central tradeoff merely to become smaller or easier. Separate decision-time information from audit-only diagnostics.
 
-Accepted versions are immutable. Within-range experiment settings that do not alter the executable contract are `evidence_expansion`, not a new MES. A `scenario_extension` creates a parent-linked successor MES under the same formal semantics. A `formal_amendment` creates new formal-problem and MES versions. A `research_reframe` starts a new paper-scenario lineage. `implementation_repair` retains the MES authority version and changes only the implementation revision. Apply invalidation and evidence-reuse rules from `scenario-evolution-contract.md` before editing.
+Accepted versions are immutable. The first accepted MES is the frozen anchor. After acceptance, within-range scale, load, topology, uncertainty, coupling, and boundary changes are `complexity_expansion` stages under the anchor and current MES interface; they do not create a new MES. `evidence_expansion` covers other settings already authorized by the same contract. A legacy `scenario_extension` is not a default post-acceptance route and requires an explicit environment-owner exception. A `formal_amendment` creates new formal-problem and candidate-MES versions only when the authoritative problem itself is independently shown defective; a `research_reframe` starts a new paper-scenario lineage. `implementation_repair` retains the anchor MES authority version and changes only the implementation revision. Apply invalidation and evidence-reuse rules from `scenario-evolution-contract.md` before editing.
 
 Legacy artifacts may expose `scenario_mvp` or `scenario_mvp_version`. Treat those names as read-only aliases for migration; if legacy and canonical values conflict, report the conflict instead of choosing one.
 
-Environment design records the L1 acceptance contract and predeclares the L2 probe contract. It does not write executable verdicts into this authority artifact. `ccf-env-code-auditor` stores `environment_valid`, L2 `evidence_status`, `algorithmic_need`, interface status, and native-review results in the environment-audit artifact and may be linked through `latest_environment_audit_ref`. `algorithmic_need: demonstrated` requires tuned probes to miss an independently justified attainable target; an impossible or post-selected target yields `insufficient_evidence`. Never change the MES to force probe failure. Only downstream algorithm acceptance may set `joint-ready`.
+Environment design records the L1 acceptance contract and predeclares the anchor-only L2 probe contract. It does not write executable verdicts into this authority artifact. `ccf-env-code-auditor` stores `environment_valid`, anchor L2 `evidence_status`, `algorithmic_need`, complexity-stage L1/anchor-regression status, interface status, and native-review results in the environment-audit artifact and may be linked through `latest_environment_audit_ref`. `algorithmic_need: demonstrated` requires tuned probes to miss an independently justified attainable target on the initial anchor; an impossible or post-selected target yields `insufficient_evidence`. Later complexity stages inherit the anchor result and must not rerun L2. Never change the MES to force probe failure. Only downstream algorithm acceptance may set `joint-ready`.
 
 ## Recommended Persistent Artifact Headings
 

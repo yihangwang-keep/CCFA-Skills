@@ -1,4 +1,4 @@
 interface:
   display_name: "CCF Pipeline Orchestrator"
   short_description: "Plan paper-scenario-to-MES workflow gates"
-  default_prompt: "Use $ccf-pipeline-orchestrator to plan the paper scenario, MES lineage, two-layer environment checks, algorithm MVP, Ralph validation gates, and next-skill routing."
+  default_prompt: "Use $ccf-pipeline-orchestrator to plan the paper scenario, complete core-tradeoff anchor MES, two-layer environment checks, algorithm MVP, method-independent complexity ladder, Ralph validation gates, and next-skill routing."
