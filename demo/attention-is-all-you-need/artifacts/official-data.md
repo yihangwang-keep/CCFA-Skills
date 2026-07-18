@@ -44,7 +44,7 @@ This file records the verified data used by the demo. Re-check the source PDF be
 
 ## Demo Use Policy
 
-- `ccf-experiment-designer` may use these values to design experiments and build result tables/figures.
+- `ccf-pipeline-orchestrator` may use these values to design experiments and build result tables/figures.
 - `ccf-integrity-auditor` must check any claim against this file before marking it supported.
 - `ccf-integrity-auditor` must verify source metadata before real reuse.
 - No extra benchmark values should be added unless they are verified from the primary source.

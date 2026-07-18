@@ -1,6 +1,6 @@
 # Result Tables And Caption Outputs
 
-Owner: `ccf-experiment-designer`
+Owner: `ccf-pipeline-orchestrator`
 
 Input source: `official-data.md`
 

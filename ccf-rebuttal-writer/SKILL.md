@@ -31,7 +31,7 @@ Handle post-review communication and revision accountability. Responses must be 
 4. Load `references/revision-ledger.md` whenever promised edits, manuscript locations, or resubmission actions must be tracked.
 5. For full rebuttals, load `references/tex-templates.md` and use the TeX templates in `assets/templates/` when useful.
 6. For resubmission, map old reviewer concerns to the new venue's constraints through `ccf-submission-checker`; do not silently add experiments or bibliography changes.
-7. Hand off to `ccf-paper-writer` for manuscript revisions, `ccf-experiment-designer` for authorized new evidence, and `ccf-submission-checker` for venue/package checks.
+7. Hand off to `ccf-paper-writer` for manuscript revisions, `ccf-pipeline-orchestrator` for authorized new evidence, and `ccf-submission-checker` for venue/package checks.
 
 ## Adaptive Output Contract
 

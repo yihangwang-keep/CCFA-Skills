@@ -34,7 +34,7 @@ Prioritize real bottlenecks, implementation credibility, end-to-end evaluation, 
 
 ## Communication / Wireless / Networking Optimization
 
-Prioritize a clean optimization target object, credible channel/network assumptions, decision variables, binding constraints, uncertainty that changes decisions, and baselines that include simple rules, classical solvers, decoupled pipelines, and oracle or relaxation references. A strong idea should explain why joint optimization is necessary and why the scenario is not solved by max-SINR, nearest relay, equal allocation, fixed trajectory, or greedy scheduling. Keep the scenario as simple as possible while preserving the central coupling, so the later algorithm can be explained through a clear mechanism. If the scenario/formulation is the main contribution bottleneck, hand off to `ccf-env-design` before designing experiments.
+Prioritize a clean optimization target object, credible channel/network assumptions, decision variables, binding constraints, uncertainty that changes decisions, and baselines that include simple rules, classical solvers, decoupled pipelines, and oracle or relaxation references. A strong idea should explain why joint optimization is necessary and why the scenario is not solved by max-SINR, nearest relay, equal allocation, fixed trajectory, or greedy scheduling. Keep the scenario as simple as possible while preserving the central coupling, so the later algorithm can be explained through a clear mechanism. If the scenario/formulation is the main contribution bottleneck, hand off to `ccf-mes-validation` before designing experiments.
 
 ## Security
 

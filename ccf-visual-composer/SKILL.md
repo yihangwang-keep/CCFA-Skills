@@ -29,7 +29,7 @@ Make figures and tables evidence-bearing, readable, and integrated with the manu
 
 1. Identify target venue/family, manuscript context, supplied data/results, artifact type, output format, and whether the user wants creation, redesign, or QA.
 2. Load `../ccf-common/references/task-modes.md` and `../ccf-common/references/privacy-and-evidence.md` when the task touches manuscript files, private results, or project artifacts.
-3. If conclusions, evidence, source data, or result values are missing, mark the gap and hand off to `ccf-experiment-designer`; do not fill the gap by invention.
+3. If conclusions, evidence, source data, or result values are missing, mark the gap and hand off to `ccf-pipeline-orchestrator`; do not fill the gap by invention.
 4. Load `references/visual-contract.md` and write the visual contract before changing layout or style.
 5. Load `references/palette-and-accessibility.md` before choosing colors; prefer accessible scientific palettes and semantic consistency over decorative color.
 6. For plotting-code requests, load `references/python-plot-recipes.md` and use `resources/python/ccfa_plot_recipes.py` as a runnable starting point. Prefer analytical plot families when the evidence calls for them: pie/donut for composition, grouped bars for categorical comparisons, volcano plots for effect-size/significance screening, correlation heatmaps for relationship matrices, and composite dashboards for multi-view analysis. If a better plot grammar is needed, load `references/plot-inspiration-map.md` and invent a new evidence-bound chart without copying external code.

@@ -1,6 +1,6 @@
 ---
 name: ccf-algorithm-code-auditor
-description: "Audit and repair communication and networking algorithm implementations against an accepted formal problem, frozen minimum executable scenario (MES) anchor, complexity stages, environment contract, and algorithm specification. Use for authoritative-version checks, design-to-code traceability, solver/scheduler/controller semantics, feasibility, convergence, exact/oracle/bound comparison, algorithm validation, 算法代码审查, 算法验证, 求解器实现核验. Do not redesign the environment, choose the initial algorithm, or design publication experiments."
+description: "Independently audit Phase-A initial and Phase-B upgraded communication/networking algorithm implementations against the accepted phase document, environment contract, frozen MES anchor, and algorithm specification. Use for design-to-code traceability, solver/scheduler/controller semantics, feasibility, convergence, exact/oracle/bound comparison, anchor regression, 算法代码审查, 算法验证, 求解器实现核验. Do not design, implement, or repair algorithms or environments."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -15,7 +15,7 @@ metadata:
 ## Invocation Boundary
 
 - **Use:** the primary object is the algorithm specification, implementation, executed solver/scheduler/controller behavior, or algorithm acceptance evidence on the accepted minimum executable scenario (MES).
-- **Route elsewhere:** environment behavior belongs to ccf-env-code-auditor; initial algorithm design belongs to ccf-algorithm-designer.
+- **Route elsewhere:** environment behavior belongs to `ccf-env-code-auditor`; Phase-A initial algorithm work belongs to `ccf-mes-validation`; Phase-B algorithm modification and repair belongs to `ccf-complexity-upgrade`.
 
 ## Core Rule
 
@@ -63,7 +63,7 @@ Missing evidence is not demonstrated; contradictions and failed checks are incor
 
 ## Native Implementation Review
 
-For a full static trace, MES audit, repair verification, debugger-round closure, or acceptance gate, load ../ccf-common/references/implementation-review-protocol.md. Freeze one candidate artifact set with content digests and dispatch, in parallel, fresh read-only domain-contract-fidelity and implementation-assurance reviewers. The algorithm domain profile checks environment-contract and algorithm-specification fidelity, all declared steps, feasibility/recovery, original-objective evaluation, termination/extraction, reference scope, and MES behavior. The assurance reviewer checks independent reference/checker paths, failure detectability, reproducibility, numerical/resource safety, and hidden fallback or information leakage.
+For a full static trace, MES/stage audit, phase repair verification, or acceptance gate, load ../ccf-common/references/implementation-review-protocol.md. Freeze one candidate artifact set with content digests and dispatch, in parallel, fresh read-only domain-contract-fidelity and implementation-assurance reviewers. The algorithm domain profile checks environment-contract and algorithm-specification fidelity, all declared steps, feasibility/recovery, original-objective evaluation, termination/extraction, reference scope, anchor regression, and stage behavior. The assurance reviewer checks independent reference/checker paths, failure detectability, reproducibility, numerical/resource safety, and hidden fallback or information leakage.
 
 The proposed-method eligibility gate is owned by this auditor's domain profile. For method_role proposed, any heuristic decision path or hidden heuristic fallback emits blocker ALG-CONTRACT-NH-001. Environment-probe/baseline/reference/diagnostic roles may use heuristics when labelled and fairly evaluated. Reviewers only report; they never repair. An implementation owner cannot review the artifact set it changed. Missing reviewer capability or missing digest is not_run/conditional and blocks acceptance; prior reports become stale after any artifact change.
 
@@ -73,9 +73,9 @@ The proposed-method eligibility gate is owned by this auditor's domain profile. 
 2. Start a fresh native two-axis review from those artifacts and run the Ordered Audit Gates; do not inherit an implementer's or designer's pass status as evidence.
 3. Report each finding with file:line, decisive evidence, severity, affected checks, owner, and required reruns; keep axis reports separate.
 4. When repair is authorized, route one smallest confirmed algorithm-code delta to its implementation owner, preserve the old artifact set, create a new candidate digest, and rerun dependent gates. The repairer cannot sign the new review.
-5. Never repair the environment or formal problem from this skill. Route environment-code defects to `ccf-env-code-auditor` and mechanism/no-heuristic failures to `ccf-algorithm-designer`. When code fidelity is current and the route-specific repair ledger is exhausted, always submit it through `ccf-experiment-debugger` for environment/formal-model review. Environment design classifies the cause; this auditor cannot require or approve an easier problem.
-6. For a `complexity_expansion`, preserve the anchor audit and rerun the anchor plus the new stage; invalidate only stage-dependent comparisons and results. A legacy/exception MES successor preserves old evidence for its parent authority tuple but cannot establish successor acceptance. For a formal amendment or another semantic environment change, start a new evidence epoch, use a new candidate MES, and rebaseline the complete algorithm audit, comparisons, and results.
-7. Send current joint-ready evidence to ccf-experiment-designer only after the native review axes and all algorithm gates are current and accepted.
+5. Never repair the environment, formal problem, or algorithm from this skill. Return Phase-A findings to `ccf-mes-validation` and Phase-B findings to `ccf-complexity-upgrade`; the active phase records one smallest delta and requests a fresh audit.
+6. For Phase B, preserve the anchor audit and rerun the anchor plus the stage; invalidate only stage-dependent evidence. A Phase-B document or algorithm change never creates a successor MES. A research reframe starts a separate Phase A and evidence epoch.
+7. Set `joint-ready` only when both environment and algorithm evidence are current for the same phase artifact set.
 
 ## Working Evidence Ledger
 

@@ -43,7 +43,7 @@ In standard mode, complete this checklist before final output. In quick mode, ru
 9. Every statement about a paper is traceable to the linked source or marked as inferred.
 10. For idea-stage searches, each closest-work cluster includes what is already covered, what remains under-tested, and at least one possible differentiation or rescue route.
 11. A literature-search folder is written when file access is available and the user asked for a reusable report or standard workflow.
-12. Optional handoff to `ccf-literature-monitor`, `ccf-paper-writer`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-experiment-designer`, or `ccf-paper-reviewer` follows CCFA handoff mode.
+12. Optional handoff to `ccf-literature-monitor`, `ccf-paper-writer`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-pipeline-orchestrator`, or `ccf-paper-reviewer` follows CCFA handoff mode.
 
 ## Workflow
 
@@ -73,7 +73,7 @@ literature-search-YYYYMMDD-<topic-slug>/
    - For idea optimization: stale/overcrowded directions, open gaps, timely pivots, and minimum viable research questions.
    - For idea review: novelty confidence and likely prior-art risks.
    - For literature monitoring: watch queries, tracked competitors, and recurring overlap signals.
-   - For experiment environment design: task scenarios, objective functions, communication models, constraints, decision variables, baseline families, tractability notes, and unresolved realism questions for `ccf-env-design`.
+   - For experiment environment design: task scenarios, objective functions, communication models, constraints, decision variables, baseline families, tractability notes, and unresolved realism questions for `ccf-mes-validation`.
    - For experiment design: problem scenarios, algorithms, datasets or simulation settings, baselines, metrics, and formulation requirements.
    - For paper review: missing related work and baseline risks.
 

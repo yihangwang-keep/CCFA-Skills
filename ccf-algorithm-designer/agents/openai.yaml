@@ -1,4 +1,0 @@
-interface:
-  display_name: "CCF Communication Algorithm Designer"
-  short_description: "Design verifiable communication algorithm MVPs"
-  default_prompt: "Use $ccf-algorithm-designer to design the initial formal algorithm MVP from the anchor-only L2 result, or upgrade its mechanism for a user-requested complexity stage while inheriting that L2 result; enforce component-level no-heuristic eligibility and escalate route-exhaustion evidence without proposing an easier problem or MES replacement."

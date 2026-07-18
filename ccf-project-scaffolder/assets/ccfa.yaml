@@ -14,11 +14,10 @@ stage:
 artifacts:
   manuscript: "manuscript/main.tex"
   bibliography: "manuscript/references.bib"
-  environment_design: "environment-design/"
+  phase_a: "phase-a/"
+  phase_b: "phase-b/"
   environment_audit: "environment-audit/"
-  algorithm_design: "algorithm-design/"
   algorithm_audit: "algorithm-audit/"
-  experiment_debug: "experiment-debug/"
   figures: "figures/"
   tables: "tables/"
   experiments: "experiments/"

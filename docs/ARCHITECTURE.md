@@ -1,120 +1,80 @@
-﻿# CCFA Architecture
+# CCFA Architecture
 
-CCFA is a 21-skill paper-project workflow family, not a loose collection of unrelated writing prompts. The v0.8 architecture has one owner skill per responsibility area and uses `ccfa.yaml` plus explicit artifact contracts to keep stages connected.
+CCFA routes by the user's current research object. Runtime skills are user-visible
+owners, not every internal design or repair role.
 
-![Architecture](../assets/ccfa-skills-architecture.svg)
+## Research Flow
 
-## Core Model
+```text
+scaffold -> plan -> idea -> literature
+  -> Phase A: complete problem document -> candidate MES/environment
+       -> independent environment audit + one-time L2
+       -> initial algorithm -> independent algorithm audit
+       -> frozen accepted anchor
+  -> Phase B: one upgrade document -> stage_case environment
+       -> independent stage audit + anchor regression; inherited L2
+       -> run/modify/repair algorithm -> independent algorithm audit
+       -> accepted stage or explicit failure
+  -> evidence plan -> visuals -> manuscript -> review -> integrity
+  -> submission -> rebuttal
+```
 
-The family has three layers:
+## Communication Ownership
 
-| Layer | Purpose | Skills |
+| Object | Owner | Independent checker |
 | --- | --- | --- |
-| Research production chain | Move a paper project from project setup through versioned design validation to rebuttal. | `ccf-project-scaffolder`, `ccf-pipeline-orchestrator`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-env-design`, `ccf-env-code-auditor`, `ccf-algorithm-designer`, `ccf-algorithm-code-auditor`, `ccf-experiment-debugger`, `ccf-experiment-designer`, `ccf-visual-composer`, `ccf-paper-to-exemplar`, `ccf-paper-writer`, `ccf-paper-reviewer`, `ccf-integrity-auditor`, `ccf-submission-checker`, `ccf-rebuttal-writer` |
-| Shared state and policy | Keep routing, evidence, privacy, source registry, and artifact ownership consistent. | `ccf-common` |
-| Family maintenance | Maintain skills, docs, generated SVGs, validation, and releases. | `ccf-skill-forger` |
+| Initial scientific-problem document, candidate MES/environment, initial algorithm, pre-anchor repair, anchor freeze | `ccf-mes-validation` | `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` |
+| Versioned complexity-upgrade document, `stage_case` environment, algorithm modification/repair, anchor regressions | `ccf-complexity-upgrade` | `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` |
+| Paper-range conclusion-evidence plan after acceptance | `ccf-pipeline-orchestrator` evidence-plan mode | `ccf-integrity-auditor` later checks supplied results/conclusions |
+| Publication figures/tables from supplied real values | `ccf-visual-composer` | `ccf-integrity-auditor` checks numeric/text consistency |
 
-The main chain has two operating phases:
+Design and repair remain inside the active phase so users do not route among
+environment designer, algorithm designer, and debugger skills. Auditors remain
+separate because the implementation owner cannot independently accept its own
+artifact set.
 
-```text
-scaffold -> orchestrate -> optimize idea -> review idea
-         -> monitor recent literature -> search literature
-         -> design scenario and complete anchor MES
-         -> audit environment implementation + one-time anchor L2
-         -> design initial algorithm -> audit initial algorithm implementation
-         -> user-requested complexity stage
-         -> audit stage consistency + anchor regression
-         -> upgrade algorithm; repair failed stage and rerun affected gates when needed
-         -> design paper-range usage experiments -> compose visuals -> optional exemplar extraction
-         -> write manuscript -> review manuscript -> audit conclusion/evidence support
-         -> check submission -> rebuttal / ledger / resubmission
-```
+## Phase Rules
 
-The rebuttal stage can loop back to writing, experiments, integrity audit, or submission checks. This is why rebuttal is not a dead-end output skill; it owns response structure and ledger discipline, while actual manuscript edits go back to `ccf-paper-writer`.
+Phase A accepts a complete document only when it specifies the causal problem,
+formal model, applicability range, candidate-MES derivation, information
+boundary, executable configuration, independent checks, L1/L2 criteria, and
+initial-algorithm target. The candidate becomes an anchor only after both
+environment and initial-algorithm evidence pass.
 
-## Versioned Design-Validation Loop
+Phase B begins from that immutable anchor and an accepted algorithm. Its upgrade
+document may add scale, topology, uncertainty, coupling, state, information
+timing, constraints, or robust evaluation semantics. It uses a `stage_case`, not
+another MES. Environment implementation/audit happens before algorithm changes;
+every algorithm candidate reruns the stage and anchor regression.
 
-The communication problem follows a separate Ralph-style loop before publication-range experiment design:
+## Ralph Repair
 
-```text
-ccf-env-design
-  -> ccf-env-code-auditor                 [environment-valid + frozen anchor MES + one-time L2]
-  -> ccf-algorithm-designer
-  -> ccf-algorithm-code-auditor           [joint-ready]
-  -> complexity ladder: one method-independent stage at a time
-  -> ccf-experiment-debugger on initial/stage failure
-       -> algorithm owner, one minimal change, anchor regression + stage rerun
-  -> ccf-experiment-designer after accepted stage [paper-range usage evidence]
-  -> formal-model review only for an independently confirmed infeasible/ill-posed problem
-```
-
-The environment owns the paper scenario, formal optimization problem, parameter applicability range, frozen anchor MES, complexity ladder, information pattern, and feasibility meaning. The accepted MES must already contain the complete causal chain and central tradeoff; it is the paper's minimum scale, not a minimum scientific problem. A complexity-stage failure is algorithm evidence and must not silently replace the anchor. Algorithm failure may produce an evidence-backed environment amendment request, but it may not silently change the objective, constraints, task semantics, information pattern, or test settings. Only an independently confirmed infeasible/ill-posed formal problem creates a new problem version, candidate MES, and evidence epoch; it preserves the failed version as historical evidence and invalidates downstream algorithm, baseline, and result evidence until affected gates are rerun.
-
-For each user-requested stage, environment validity means specification-to-code consistency plus anchor regression; it does not promise that the current algorithm will pass. A consistent stage with a failed algorithm remains valid stage evidence and enters the algorithm repair loop. The anchor-only heuristic L2 result is inherited unchanged.
-
-At checkpoint commits, invoke the installed `$code-review` skill with the fixed comparison point and accepted specification. CCFA records the checkpoint and consumes its report; it does not copy or redefine the external skill's Standards/Spec review rules.
+Each phase keeps one append-only record. A round selects the earliest failed or
+stale dependency, assigns one phase-owned implementation or design owner, applies
+one smallest delta, preserves the old failure/artifact set, invalidates dependent
+checks, and requests fresh independent audits. Command success or a loop limit is
+never scientific acceptance.
 
 ## Artifact State
 
-`ccfa.yaml` records the project state:
-
-- `version`
-- `project`
-- `target_venue`
-- `stage`
-- `artifacts`
-- `paper_conclusions`
-- `experiments`
-- `reviews`
-- `revision_ledger`
-- `submission_checks`
-
-The file is not meant to contain the whole paper. It is a routing and status spine. Concrete outputs still live in manuscript, review, evidence, experiment, submission, artifact, and rebuttal files.
-
-![Artifact contract](../assets/ccfa-skills-artifacts.svg)
-
-## Owner Boundaries
-
-The family intentionally merged helper skills into owner modes. In v0.8, `ccf-visual-composer` also carries a small self-contained Python SVG plotting recipe library so paper-visual examples can run without optional plotting dependencies.
-
-| Capability | Owner | Boundary |
-| --- | --- | --- |
-| Workflow planning | `ccf-pipeline-orchestrator` | Coordinates stages; does not write, search, review, or rebut. |
-| Literature monitoring | `ccf-literature-monitor` | Tracks recent papers, venue feeds, labs, and competitors; deep retrieval stays with literature search. |
-| Compression and presentations | `ccf-paper-writer` | Changes manuscript-derived text; does not judge acceptance risk. |
-| Exemplar extraction | `ccf-paper-to-exemplar` | Converts PDFs into writing pattern cards; does not draft or review manuscripts. |
-| Writing review | `ccf-paper-reviewer` | Diagnoses writing and format-facing risk; does not rewrite unless handed back to writer. |
-| Environment design | `ccf-env-design` | Owns the paper scenario and formal optimization problem; does not validate environment code or design the algorithm. |
-| Environment implementation gate | `ccf-env-code-auditor` | Runs initial anchor L1 + one-time L2, then stage L1 consistency + anchor regression; does not judge algorithm performance. |
-| Algorithm design | `ccf-algorithm-designer` | Consumes a versioned environment contract; designs the initial algorithm and upgrades its mechanism at accepted stages; cannot rewrite environment semantics. |
-| Algorithm implementation gate | `ccf-algorithm-code-auditor` | Establishes executable algorithm evidence and the `joint-ready` gate. |
-| Failed-stage repair | `ccf-experiment-debugger` | Routes one minimal change to one owner and closes affected stage/anchor reruns; does not design initial methods or replace either auditor. |
-| Conclusion/evidence audit | `ccf-integrity-auditor` | Checks supported conclusions, existing citations, numbers, and figures; broad discovery stays with literature search. |
-| Paper-range result evidence and specs | `ccf-experiment-designer` | Uses accepted anchor/stage methods to plan settings, baselines, metrics, ablations, robustness, and real results; does not define or repair environment/algorithm semantics. |
-| Publication figures/tables and plots | `ccf-visual-composer` | Owns visual contracts, bundled Python plotting recipes, palettes, panel/table layout, captions, manuscript integration, and render QA from supplied results. |
-| Venue format and artifacts | `ccf-submission-checker` | Checks package readiness; content polishing stays with writer. |
-| Resubmission adaptation | `ccf-rebuttal-writer` | Maintains response/ledger logic; manuscript edits route back to writer. |
-| Docs SVGs | `ccf-skill-forger` | Repository maintenance only; research figures/tables stay with experiment designer and visual composer. |
-
-![Review boundaries](../assets/ccfa-skills-review-boundaries.svg)
-
-## Venue Branch
-
-Venue-specific LaTeX and policy notes are reference material:
+`ccfa.yaml` is a routing spine. Scenario-driven projects use:
 
 ```text
-ccf-paper-writer/references/venue-guides/index.md
-ccf-paper-writer/references/venue-guides/<venue>.md
+phase-a/             Phase-A document, candidate epochs, MES/algorithm versions, rounds, anchor terminal evidence
+phase-b/             upgrade documents, stage_case versions, environment/algorithm deltas, regressions, rounds
+environment-audit/   independent document-to-environment-code evidence
+algorithm-audit/     independent specification-to-algorithm-code evidence
+experiments/plan.*   post-acceptance conclusion-evidence plan
+experiments/results.* user-supplied real results
+figures/, tables/    visual-composer outputs
 ```
 
-Use `ccf-paper-writer` for venue-aware manuscript text and page-budget-aware drafting. Use `ccf-submission-checker` for final page limits, anonymity, PDF metadata, camera-ready checks, and package readiness. If a from-scratch writing request names a venue, writer reads the venue guide and length budget first; if no venue is named or the guide is missing, writer falls back to the NeurIPS template. Underfilled full drafts stay with writer for expansion; overfilled drafts stay with writer for compression before final submission checks.
+Accepted versions and failures are append-only evidence. Detailed gate ledgers,
+digests, traces, and native reviews stay in their owner artifacts, not in
+`ccfa.yaml`.
 
-## Source Of Truth
+## Shared Governance
 
-`SKILL.md` is authoritative for runtime behavior. These files are public indexes and audit aids:
-
-- [SKILLS_CATALOG.md](SKILLS_CATALOG.md)
-- [NAMING_AND_MERGE_AUDIT.md](NAMING_AND_MERGE_AUDIT.md)
-- `ccf-common/references/routing.md`
-- `ccf-common/references/skill-trigger-registry.yaml`
-- `ccf-common/references/artifact-contracts.md`
+`ccf-common` owns routing, terminology, source/privacy policy, `ccfa.yaml`, and
+artifact contracts. `ccf-skill-forger` remains the optional repository-maintenance
+skill; it is not part of research execution.

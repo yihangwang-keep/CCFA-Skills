@@ -9,7 +9,7 @@ This file records the intended closed loop across the current 15 runtime skills.
 | 3 | `ccf-idea-optimizer` | Original paper reading | `01-idea-document.md`, with problem-gap-insight-method-evidence framing. |
 | 4 | `ccf-idea-reviewer` | Idea brief | `03-idea-review.md`, strict ICLR novelty/soundness/evidence verdict. |
 | 5 | `ccf-literature-searcher` | Idea and source-related lines | Related-work targets: recurrent seq2seq, attention NMT, convolutional seq2seq, GNMT, WMT setup. |
-| 6 | `ccf-experiment-designer` | Idea, official data | Evidence matrix, BLEU table, complexity table, ablation plan, training-cost note. |
+| 6 | `ccf-pipeline-orchestrator` | Idea, official data | Evidence matrix, BLEU table, complexity table, ablation plan, training-cost note. |
 | 7 | `ccf-paper-writer` | Idea, venue guide, evidence artifacts | Full ICLR LaTeX manuscript: `paper/attention_iclr_submission.tex`. |
 | 8 | `ccf-paper-reviewer` | ICLR manuscript | `04-review-and-rebuttal.md`: writing review and scientific review with concrete revision actions. |
 | 9 | `ccf-integrity-auditor` | Manuscript, official data | Claim/number/citation audit table inside `04-review-and-rebuttal.md`. |

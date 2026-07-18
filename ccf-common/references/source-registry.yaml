@@ -281,7 +281,7 @@ sources:
     title: Nature Figure Skill
     url: https://github.com/Yuan1z0825/nature-skills/blob/main/skills/nature-figure/README.md
     source_type: background_method
-    used_by: [ccf-experiment-designer, ccf-visual-composer]
+    used_by: [ccf-pipeline-orchestrator, ccf-visual-composer]
     recorded_at: 2026-07-08
     verified_at: 2026-07-08
     stale_after_days: 365
@@ -731,7 +731,7 @@ sources:
     title: ACM Artifact Review And Badging
     url: https://www.acm.org/publications/policies/artifact-review-and-badging-current
     source_type: review_guideline
-    used_by: [ccf-experiment-designer]
+    used_by: [ccf-pipeline-orchestrator]
     recorded_at: 2026-06-05
     verified_at: null
     stale_after_days: 365
@@ -740,7 +740,7 @@ sources:
     title: Machine Learning Reproducibility Checklist
     url: https://arxiv.org/abs/2003.12206
     source_type: paper_or_proceeding
-    used_by: [ccf-experiment-designer, ccf-paper-writer]
+    used_by: [ccf-pipeline-orchestrator, ccf-paper-writer]
     recorded_at: 2026-06-05
     verified_at: null
     stale_after_days: 365
@@ -803,7 +803,7 @@ sources:
     title: Ralph Wiggum Plugin
     url: https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum
     source_type: background_method
-    used_by: [ccf-common, ccf-experiment-debugger]
+    used_by: [ccf-common, ccf-mes-validation, ccf-complexity-upgrade]
     recorded_at: 2026-07-17
     verified_at: 2026-07-17
     stale_after_days: 365
@@ -830,7 +830,7 @@ sources:
     title: Attention Is All You Need
     url: https://papers.nips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
     source_type: paper_or_proceeding
-    used_by: [ccf-paper-writer, ccf-experiment-designer, ccf-integrity-auditor, ccf-skill-forger]
+    used_by: [ccf-paper-writer, ccf-pipeline-orchestrator, ccf-integrity-auditor, ccf-skill-forger]
     recorded_at: 2026-06-06
     verified_at: 2026-06-06
     stale_after_days: 3650

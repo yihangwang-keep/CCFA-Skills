@@ -1,45 +1,12 @@
-# CCFA 安装矩阵
+# 安装矩阵
 
-可以只安装部分 skills，但任何子集都必须包含 `ccf-common`。
+按用户可见能力安装。通信设计验证闭环只保留四个运行入口：Phase A、Phase B 和两个独立代码 auditor。
 
-## 硬规则
-
-- 一定安装 `ccf-common`：它保存共享路由、handoff、隐私、source registry 和 artifact 合约。
-- 不要安装已经合并的旧 runtime 名称：`ccf-workflow-planner`、`ccf-paper-compressor`、`ccf-writing-reviewer`、`ccf-citation-auditor`、`ccf-figure-table-builder`、`ccf-artifact-packager`、`ccf-venue-format-guide`、`ccf-resubmission-adapter`、`ccf-paper-presenter`、`ccf-doc-diagram-designer`。
-- `ccf-experiment-designer` 只负责实验证据、真实结果表和 evidence-bound 图表规格；`ccf-visual-composer` 负责发表级图表排版、内置 Python 绘图配方、配色、caption、正文嵌入和渲染 QA。
-- 通信问题的设计验证闭环必须同时安装 `ccf-env-design`、`ccf-env-code-auditor`、`ccf-algorithm-designer`、`ccf-algorithm-code-auditor` 和 `ccf-experiment-debugger`。
-- 检查点需要代码审查时另行安装 `$code-review`。CCFA 直接复用该 skill，不复制它的审查规则。
-- `ccf-skill-forger` 负责 CCFA 文档 SVG，必须走 `tools/build_ccfa_diagrams.py` 和截图/渲染验收。
-
-## 推荐组合
-
-| 使用场景 | 安装 | 不安装会缺什么 |
+| 套件 | Skills | 能力 |
 | --- | --- | --- |
-| 全流程 | 21 个 runtime skills 全部安装 | 完整 CCFA 流程。 |
-| NeurIPS 论文路径 | `ccf-common`, `ccf-project-scaffolder`, `ccf-pipeline-orchestrator`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-env-design`, `ccf-env-code-auditor`, `ccf-algorithm-designer`, `ccf-algorithm-code-auditor`, `ccf-experiment-debugger`, `ccf-experiment-designer`, `ccf-visual-composer`, `ccf-paper-to-exemplar`, `ccf-paper-writer`, `ccf-paper-reviewer`, `ccf-integrity-auditor`, `ccf-submission-checker`, `ccf-rebuttal-writer` | 只缺家族维护能力。 |
-| 通信设计验证子集 | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-env-design`, `ccf-env-code-auditor`, `ccf-algorithm-designer`, `ccf-algorithm-code-auditor`, `ccf-experiment-debugger` | 可以达到 `environment-valid` 和 `joint-ready`；不包含论文实验设计、写作和投稿能力。 |
-| 写作子集 | `ccf-common`, `ccf-paper-writer`, `ccf-visual-composer`, `ccf-paper-reviewer`, `ccf-submission-checker` | 没有 idea、文献、实验和 rebuttal 流程；视觉任务仍需要已提供结果。 |
-| 审稿/审计子集 | `ccf-common`, `ccf-paper-reviewer`, `ccf-integrity-auditor` | 可以诊断问题，但不能写作、广泛检索、设计实验或检查投稿包。 |
-| 监控子集 | `ccf-common`, `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-idea-reviewer`, `ccf-idea-optimizer` | 能追踪新论文和竞品信号，但不能写作或投稿。 |
-| 早期研究子集 | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-env-design`, `ccf-env-code-auditor`, `ccf-algorithm-designer`, `ccf-algorithm-code-auditor`, `ccf-experiment-debugger`, `ccf-experiment-designer` | 没有正文写作、图表视觉整合、投稿检查和 rebuttal。 |
-| 图表/正文呈现子集 | `ccf-common`, `ccf-experiment-designer`, `ccf-visual-composer`, `ccf-paper-writer`, `ccf-integrity-auditor`, `ccf-submission-checker` | 能基于真实结果制作论文图表、Python SVG 绘图、配色、caption、正文嵌入和一致性检查，但不能做完整文献检索或完整审稿。 |
-| 投稿子集 | `ccf-common`, `ccf-paper-writer`, `ccf-visual-composer`, `ccf-submission-checker`, `ccf-integrity-auditor` | 能查格式、投稿包、artifact 和图表展示，但不能完整审稿。 |
-| 维护子集 | `ccf-common`, `ccf-skill-forger` | 只做家族维护和文档 SVG 生成。 |
+| 完整研究流程 | 全部 19 个 runtime skills | 从 idea 到 rebuttal，包含两个通信阶段和治理能力。 |
+| 通信设计验证 | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-mes-validation`, `ccf-complexity-upgrade`, `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` | 完成 Phase A、Phase B、独立审计和修复闭环。 |
+| 早期研究 | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-mes-validation`, `ccf-complexity-upgrade`, `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` | idea、文献、问题/MES/算法验收、复杂度升级和证据计划。 |
+| 图表与正文 | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-visual-composer`, `ccf-paper-writer`, `ccf-integrity-auditor`, `ccf-submission-checker` | 证据计划、真实结果图表、正文、一致性和投稿检查。 |
 
-## 部分安装示例
-
-Bash:
-
-```bash
-skills=(ccf-common ccf-paper-writer ccf-visual-composer ccf-paper-reviewer ccf-submission-checker)
-mkdir -p "$CODEX_HOME/skills"
-for s in "${skills[@]}"; do cp -R "$s" "$CODEX_HOME/skills/"; done
-```
-
-PowerShell:
-
-```powershell
-$skills = @("ccf-common", "ccf-paper-writer", "ccf-visual-composer", "ccf-paper-reviewer", "ccf-submission-checker")
-New-Item -ItemType Directory -Force "$env:CODEX_HOME\skills" | Out-Null
-foreach ($s in $skills) { Copy-Item -Recurse -Force $s "$env:CODEX_HOME\skills\" }
-```
+Phase A 包含初始问题/MES/环境与算法的设计、实现和修复。Phase B 包含升级文档、`stage_case` 环境、算法修改和修复；Phase B 不再创建 MES，也不重跑 Phase-A L2。

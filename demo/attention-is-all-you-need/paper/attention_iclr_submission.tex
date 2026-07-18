@@ -228,7 +228,7 @@ All models were trained on one machine with8 NVIDIA P100 GPUs. The base model tr
 
 Table~\ref{tab:bleu} reports the headline translation results. The big Transformer achieves28.4 BLEU on En-De, which at the time was the best reported single-model score, exceeding the previous best of26.0 from the convolutional seq2seq model and establishing the attention-only backbone as a viable and competitive architecture. On the larger En-Fr task, the big single model reaches41.0 BLEU. The base model's27.3 BLEU provides a reference for ablation analysis. These results constitute the primary evidence that attention can replace recurrence and convolution as the main sequence modeling operation while maintaining or improving translation quality.
 
-\textbf{Caveat:} These values are from the original2017 report. This demo faithfully reports official numbers without inventing baselines. In a real CCFA workflow, \texttt{ccf-literature-searcher} would refresh the baseline set and \texttt{ccf-experiment-designer} would structure a modern comparison. This demo preserves the original evidence while remaining honest about its temporal scope.
+\textbf{Caveat:} These values are from the original2017 report. This demo faithfully reports official numbers without inventing baselines. In a real CCFA workflow, \texttt{ccf-literature-searcher} would refresh the baseline set and \texttt{ccf-pipeline-orchestrator} would structure a modern comparison. This demo preserves the original evidence while remaining honest about its temporal scope.
 
 \subsection{Layer-Type Complexity Analysis}
 
@@ -286,11 +286,11 @@ The official study provides ablations investigating the marginal contribution of
 \textbf{Label smoothing:} $\epsilon_{\text{ls}}=0.1$ improves BLEU and perplexity; without it the model becomes overconfident.
 \textbf{Model scale:} Base$\to$Big improvement confirms positive scaling behavior.
 
-\textbf{Demo note:} This demo does not invent missing ablation numbers. In a full CCFA run, \texttt{ccf-experiment-designer} fills values from the official source and \texttt{ccf-integrity-auditor} verifies every number against primary evidence.
+\textbf{Demo note:} This demo does not invent missing ablation numbers. In a full CCFA run, \texttt{ccf-pipeline-orchestrator} fills values from the official source and \texttt{ccf-integrity-auditor} verifies every number against primary evidence.
 
 \subsection{Training Efficiency}
 
-The training time comparison provides practical evidence for the parallelism claim. The base model trains in approximately12 hours, achieving27.3 BLEU. The big model trains in approximately3.5 days. While these numbers are hardware-specific and dated, they illustrate the structural advantage: because training throughput is dominated by matrix multiplication throughput (highly optimized on GPU hardware) rather than sequential recurrent computation, the architecture benefits directly from hardware improvements. In a real submission, a contemporary efficiency comparison would be produced by \texttt{ccf-experiment-designer}.
+The training time comparison provides practical evidence for the parallelism claim. The base model trains in approximately12 hours, achieving27.3 BLEU. The big model trains in approximately3.5 days. While these numbers are hardware-specific and dated, they illustrate the structural advantage: because training throughput is dominated by matrix multiplication throughput (highly optimized on GPU hardware) rather than sequential recurrent computation, the architecture benefits directly from hardware improvements. In a real submission, a contemporary efficiency comparison would be produced by \texttt{ccf-pipeline-orchestrator}.
 
 
 \section{Related Work}
@@ -331,7 +331,7 @@ We identify four limitations that scope the contribution claims.
 
 \textbf{Head specialization not formally characterized.} Qualitative inspection of attention weights reveals interpretable patterns---some heads focus on local context, others on sentence boundaries, others on syntactically related positions---but a rigorous quantitative analysis of head specialization is left to future work.
 
-\textbf{Historical benchmarks.} The baselines, datasets, and evaluation protocols are from2017. A contemporary submission should include stronger and more recent comparison architectures, and extend evaluation to additional language pairs or domains. This demo does not perform that update; in a full CCFA run, \texttt{ccf-literature-searcher} and \texttt{ccf-experiment-designer} would modernize the experimental coverage.
+\textbf{Historical benchmarks.} The baselines, datasets, and evaluation protocols are from2017. A contemporary submission should include stronger and more recent comparison architectures, and extend evaluation to additional language pairs or domains. This demo does not perform that update; in a full CCFA run, \texttt{ccf-literature-searcher} and \texttt{ccf-pipeline-orchestrator} would modernize the experimental coverage.
 
 \subsection{Ethics and Broader Impact}
 
@@ -508,7 +508,7 @@ This appendix records the CCFA family workflow for this demo. It would not appea
 
 \begin{itemize}
  \item \textbf{Literature refresh:} Run \texttt{ccf-literature-searcher} for contemporary baselines (post-2017).
- \item \textbf{Ablation completion:} Run \texttt{ccf-experiment-designer} to fill \texttt{TBD} values.
+ \item \textbf{Ablation completion:} Run \texttt{ccf-pipeline-orchestrator} to fill \texttt{TBD} values.
  \item \textbf{Integrity audit:} Run \texttt{ccf-integrity-auditor} to verify claims, citations, and numbers.
  \item \textbf{Scientific review:} Run \texttt{ccf-paper-reviewer} for simulated review.
  \item \textbf{Submission check:} Run \texttt{ccf-submission-checker} for ICLR format, page limit, and build compliance.

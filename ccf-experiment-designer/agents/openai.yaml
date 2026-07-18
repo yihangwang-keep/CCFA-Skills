@@ -1,4 +1,0 @@
-interface:
-  display_name: "CCF Experiment Designer"
-  short_description: "Design paper-range evidence from accepted MES evidence"
-  default_prompt: "Use $ccf-experiment-designer after accepted anchor/complexity-stage algorithm evidence to plan paper-range usage settings, fair baselines, metrics, mechanism tests, robustness checks, and TBD result templates; do not define or repair environment/algorithm semantics or rerun anchor L2."

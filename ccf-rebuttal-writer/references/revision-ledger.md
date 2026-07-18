@@ -12,7 +12,7 @@ Use this reference when rebuttal, response-letter, resubmission, or camera-ready
 | `response_statement` | What the author response says or will say. |
 | `manuscript_action` | Concrete edit, experiment, clarification, limitation, or no-change rationale. |
 | `location` | Section, paragraph, line, figure, table, appendix, or TeX file. |
-| `owner_skill` | Usually `ccf-rebuttal-writer`, `ccf-paper-writer`, `ccf-experiment-designer`, or `ccf-submission-checker`. |
+| `owner_skill` | Usually `ccf-rebuttal-writer`, `ccf-paper-writer`, `ccf-pipeline-orchestrator`, or `ccf-submission-checker`. |
 | `status` | `open`, `planned`, `drafted`, `done`, `blocked`, or `accepted_limit`. |
 | `evidence` | Existing result, citation, table, figure, code, or explanation supporting the action. |
 | `risk` | Remaining reviewer or submission risk. |

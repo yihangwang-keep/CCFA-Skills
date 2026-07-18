@@ -2,7 +2,7 @@
 
 Use this file when turning an optimized idea into a minimum convincing evidence package for a CCF-A submission.
 
-For a full experiment plan, baseline search, simulation setting, evaluation setting, or result-fill table, use `ccf-experiment-designer` through the CCFA handoff mode. This file is the local lightweight evidence planner for idea optimization.
+For a full experiment plan, baseline search, simulation setting, evaluation setting, or result-fill table, use `ccf-pipeline-orchestrator` through the CCFA handoff mode. This file is the local lightweight evidence planner for idea optimization.
 
 ## Evidence Principle
 
@@ -48,7 +48,7 @@ For algorithmic ideas, define the objective, variables, constraints, assumptions
 
 Define scenarios independently of the desired result. Preserve the motivating difficulty, cover realistic and hard variations, use matched tuning budgets, and include a simple rule baseline. Do not stack rules or modify scenarios and thresholds merely to win under a chosen setting. If the rule baseline solves the setting, revise the setting or narrow the supported conclusion before expanding the experiment suite.
 
-For communication, wireless, networking, UAV, edge, IoT, vehicular, satellite, or task-oriented communication ideas, use `ccf-env-design` through the CCFA handoff mode when the problem environment itself needs to be designed or audited. The local minimum check is: optimization target object, objective function, decision variables, channel/network model, binding constraints, uncertainty that affects decisions, coupled decisions, shortcut baseline, scenario simplicity, and explainable algorithmic structure.
+For communication, wireless, networking, UAV, edge, IoT, vehicular, satellite, or task-oriented communication ideas, use `ccf-mes-validation` through the CCFA handoff mode when the problem environment itself needs to be designed or audited. The local minimum check is: optimization target object, objective function, decision variables, channel/network model, binding constraints, uncertainty that affects decisions, coupled decisions, shortcut baseline, scenario simplicity, and explainable algorithmic structure.
 
 ## Venue-Specific Evidence
 

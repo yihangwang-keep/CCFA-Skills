@@ -192,37 +192,29 @@ an authority or artifact change. A complexity-stage consistency record does not
 change this L2 result and must not be marked invalid merely because the
 algorithm performs poorly at the new stage.
 
-## 7. Model Review And Amendment Evidence
+## 7. Phase Document Review Evidence
 
-When a route-specific algorithm repair ledger is exhausted, verify current
-environment L1 and algorithm-code fidelity, bind the route ID/specification,
-preserve the frozen anchor MES and failed complexity stage, attempted repairs
-and references, and forward a model-review request
-to `ccf-env-design`. The algorithm side may include a proposed classification,
-but environment design records the authoritative `algorithm_specific`,
-`model_defect`, or `unresolved` decision.
+When algorithm repair is exhausted, verify current environment L1 and
+algorithm-code fidelity, bind the specification and artifact set, and preserve
+the frozen anchor, failed stage, attempted repairs, and references. Return that
+evidence to the active phase. The phase classifies the failure as
+`algorithm_specific`, `document_defect`, `unsupported_upgrade`, or `reframe`.
 
-Only after the environment review completes with `confirmed_classification: model_defect`
-and `decision: authorize_evolution` may it create an amendment proposal. That
-proposal must answer all six questions:
+Before revising a phase document, answer all six questions:
 
-1. **Authority and review:** are L1, algorithm-code fidelity, route-specific repair exhaustion, and the environment-owned `model_defect` decision current?
+1. **Authority and review:** are L1, algorithm-code fidelity, and route-specific repair-exhaustion records current?
 2. **Causal or formal necessity:** does task, communication, authoritative-problem infeasibility, invalid environment-target evidence, information, or modeling evidence require the change rather than an algorithm-specific target revision?
 3. **Semantic preservation:** do the task outcome, scientific question, and central tradeoff remain unchanged?
 4. **Information honesty:** does the decision-time interface still exclude future, hidden, and audit-only information?
 5. **Method neutrality:** would the change still be justified without knowing which method benefits?
 6. **Non-simplification:** is material difficulty preserved, with no weakening for tractability, ranking, or acceptance; and is any corrected item independently proven inconsistent with the paper scenario and replaced by semantics that retain the causal problem and central tradeoff?
 
-One algorithm failure alone is insufficient, but a documented route exhaustion
-always triggers formal environment review. `algorithm_specific` closes or
-supersedes that route and returns to algorithm design when another credible route
-exists; `unresolved` is blocked. If no non-simplifying model defect is confirmed,
-keep the environment unchanged. If an accepted change alters
-objective semantics, material constraints, information pattern, feasibility
-meaning, or applicability, create a new environment version and candidate MES,
-start a new evidence epoch, and invalidate all dependent algorithm, baseline,
-and experimental evidence. The prior anchor remains historical; a complexity
-stage never edits it.
+One algorithm failure alone is insufficient. `algorithm_specific` stays with the
+active phase's algorithm repair route; unresolved evidence is blocked. In Phase
+A, a confirmed pre-anchor document defect creates a new candidate environment/MES
+epoch. In Phase B, a confirmed upgrade-document defect creates a new stage
+document/environment version while retaining the anchor. A research-identity
+change ends Phase B as `reframe`; Phase B never creates or edits an MES.
 
 ## 8. Verdict And Readiness
 

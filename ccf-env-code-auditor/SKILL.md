@@ -1,6 +1,6 @@
 ---
 name: ccf-env-code-auditor
-description: "Audit communication paper scenarios, formal optimization problems, the frozen minimum executable scenario (MES) anchor, complexity-stage implementations, and environment code. Use for authority, design-to-code traceability, objective/constraint/state/decision semantics, information patterns, feasibility, invariants, causal bottlenecks, parameter applicability, 场景代码审查, 数学模型与代码一致性, 最小可执行场景核验. Run heuristic L2 only for initial anchor acceptance; do not use it to judge later algorithm upgrades. Do not design algorithms, judge algorithm performance, or replace scenario design."
+description: "Independently audit Phase-A candidate-MES and Phase-B complexity-stage environment implementations against their accepted documents. Use for authority, design-to-code traceability, objective/constraint/state/decision semantics, information timing, feasibility, invariants, causal bottlenecks, anchor regression, 场景代码审查, 数学模型与代码一致性, 最小可执行场景核验. Run heuristic L2 only in Phase A; do not design, implement, or repair the environment or algorithm."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -15,7 +15,7 @@ metadata:
 ## Invocation Boundary
 
 - **Use:** the primary object is the paper-scenario contract, formal optimization problem, parameter applicability range, minimum executable scenario (MES), environment implementation, executed behavior, or decision-time information interface.
-- **Route elsewhere:** scenario formulation and semantic amendments belong to ccf-env-design; algorithm mechanism and performance belong to the algorithm skills.
+- **Route elsewhere:** Phase-A document/environment work belongs to `ccf-mes-validation`; Phase-B upgrade-document/environment work belongs to `ccf-complexity-upgrade`; algorithm implementation evidence belongs to `ccf-algorithm-code-auditor`.
 
 ## Core Rule
 
@@ -26,7 +26,7 @@ scenario/problem item -> code symbol -> executed path -> independently observed 
 code behavior -> authorized problem item or necessary implementation detail
 ~~~
 
-Code presence, names, comments, and configuration fields are declarations, not behavioral evidence. Use the complete frozen anchor MES for initial acceptance and small controlled cases only for isolated semantic checks. For a method-independent complexity stage, audit the requested stage implementation, rerun the anchor regression and the new stage under the unchanged contract, and do not recompute `algorithmic_need`; reapply the protocol after the scenario code change including a scenario upgrade, or an accepted environment amendment.
+Code presence, names, comments, and configuration fields are declarations, not behavioral evidence. In Phase A, audit the complete candidate MES and use small controlled cases only for isolated semantic checks. In Phase B, audit the accepted upgrade document and its `stage_case`, rerun the frozen-anchor regression, and do not recompute `algorithmic_need`. A Phase-B stage may add method-independent formal complexity while preserving its declared parent invariants; it never creates another MES.
 
 A stage implementation verdict is separate from algorithm acceptance: a requested stage passes its environment gate only when its specification, code, interface, and anchor regression agree. If that gate passes but the current algorithm fails, preserve the stage as valid failed evidence and route the failure to algorithm repair. Do not turn the algorithm result into a new MES or a reason to rerun L2.
 
@@ -57,7 +57,7 @@ Missing evidence is not demonstrated; contradiction or failed behavior is incorr
 
 ## Native Implementation Review
 
-For an executable audit, complexity-stage audit, repair verification, debugger-round closure, or acceptance gate, load ../ccf-common/references/implementation-review-protocol.md. Freeze a candidate artifact set with content digests and dispatch, in parallel, fresh read-only domain-contract-fidelity and implementation-assurance reviewers. These reviewers serve Layer 1 only: they check scenario/formal-problem/MES-to-code fidelity, information timing, feasibility, optimization fidelity, causal bottleneck, and probe-role labeling, plus implementation evidence. The auditor itself coordinates the initial anchor-only Layer 2 heuristic sweep and records its target, budget, settings, and outcome; a complexity-stage audit records only stage consistency and anchor regression.
+For an executable audit, complexity-stage audit, phase repair verification, or acceptance gate, load ../ccf-common/references/implementation-review-protocol.md. Freeze a candidate artifact set with content digests and dispatch, in parallel, fresh read-only domain-contract-fidelity and implementation-assurance reviewers. These reviewers serve Layer 1 only: they check document/formal-problem/environment-to-code fidelity, information timing, feasibility, optimization fidelity, causal bottleneck, and implementation evidence. The auditor coordinates the Phase-A L2 sweep; a Phase-B audit records only stage consistency and anchor regression.
 
 Reviewers only report; they never repair. An implementation owner cannot review the candidate it changed. A missing reviewer capability or missing digest is not_run/conditional and blocks acceptance; the coordinator must not self-review to downgrade it. Keep both axis reports separate and do not use one axis to offset another. Any artifact change marks prior review evidence stale.
 
@@ -67,8 +67,8 @@ Reviewers only report; they never repair. An implementation owner cannot review 
 2. Run Layer 1 gates and the native two-axis review in sequence; attach each finding to the earliest failed gate.
 3. For initial anchor acceptance, verify that the L2 target is attainable independently of the compared heuristics, then run the frozen-anchor sweep with matched information, feasibility, cases, and tuning budget; record all settings and the outcome. For a user-requested complexity stage, skip L2, audit the stage implementation, rerun anchor regressions, and carry forward the anchor `algorithmic_need` result.
 4. When repair is authorized, route one smallest confirmed environment-code delta to its implementation owner, preserve the old artifact set, create a new candidate digest, and rerun every invalidated layer and gate. The repairer cannot sign the new review.
-5. When faithful algorithm code and a route-specific algorithm-design ledger are exhausted, forward a model-review request to `ccf-env-design` regardless of the proposed cause. Environment design owns classification. Only after it confirms `model_defect` may an amendment be proposed and the successor audited; do not edit or weaken the contract here.
-6. Return current Layer-1 environment-validity, inherited anchor Layer-2 algorithmic-need, stage interface evidence, and native-review status to ccf-algorithm-designer; return modeling-only or invalid results to the scenario owner, or stage failure evidence to ccf-experiment-debugger.
+5. Report findings without repairing them. Phase A or Phase B owns every document or implementation delta and must request a fresh audit for the new artifact set.
+6. Return Phase-A environment/L2 evidence to `ccf-mes-validation`; return Phase-B stage consistency, information-interface, checker, and anchor-regression evidence to `ccf-complexity-upgrade`.
 
 ## Internal Evidence Ledger
 

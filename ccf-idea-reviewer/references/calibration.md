@@ -64,7 +64,7 @@ Can fix before writing? yes / partly / no
 Required evidence or design change:
 Risk-reduction condition:
 Development-potential impact:
-Owner skill: ccf-literature-searcher / ccf-idea-optimizer / ccf-experiment-designer / ccf-paper-writer / ccf-paper-reviewer
+Owner skill: ccf-literature-searcher / ccf-idea-optimizer / ccf-pipeline-orchestrator / ccf-paper-writer / ccf-paper-reviewer
 ```
 
 ## Multi-Idea Tournament

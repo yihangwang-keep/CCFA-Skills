@@ -181,7 +181,7 @@ Citation rules:
 Checks:
 
 - Does each stated contribution have a corresponding experiment?
-- If the user needs datasets, baselines, ablations, benchmark design, or fill-in result tables, use `ccf-experiment-designer` through the CCFA handoff mode.
+- If the user needs datasets, baselines, ablations, benchmark design, or fill-in result tables, use `ccf-pipeline-orchestrator` through the CCFA handoff mode.
 - Are baselines strong, recent, and fair? Is every baseline cited?
 - Are metrics standard and sufficient?
 - Are ablations tied to modules and design choices?

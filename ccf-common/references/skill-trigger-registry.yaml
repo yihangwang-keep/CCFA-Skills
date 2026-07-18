@@ -1,21 +1,21 @@
 schema_version: 4
-generated_at: 2026-07-15
+generated_at: 2026-07-18
 authority: SKILL.md wins if this registry conflicts with a skill body.
 naming_policy: canonical runtime names use ccf-<object>-<role/action>; ccf-common is the governance exception.
-runtime_skill_count: 21
+runtime_skill_count: 19
 skills:
   - name: ccf-project-scaffolder
     trigger: "Create project folders, copy/select templates, initialize ccfa.yaml."
     exclude: "Does not create research content."
     handoff: "ccf-pipeline-orchestrator, ccf-paper-writer, ccf-submission-checker"
   - name: ccf-pipeline-orchestrator
-    trigger: "Plan workflow, decompose tasks, coordinate stages, gates, artifacts, handoffs, and ccfa.yaml state."
-    exclude: "Does not perform downstream writing, review, search, experiment design, or rebuttal."
+    trigger: "Plan workflow, coordinate stages/gates/artifacts/handoffs and ccfa.yaml state, or create a post-acceptance conclusion-evidence plan with baselines, metrics, ablations, robustness, and TBD result slots."
+    exclude: "Does not implement or audit phase code, invent results, draw publication visuals, write manuscript prose, or rebut."
     handoff: "All owning workflow skills"
   - name: ccf-idea-optimizer
     trigger: "Explore, rescue, optimize, and concretize rough research directions into problem, gap, insight, method, novelty, and evidence plans."
     exclude: "Does not rank or score multiple ideas as the main task."
-    handoff: "ccf-idea-reviewer, ccf-literature-monitor, ccf-literature-searcher, ccf-experiment-designer, ccf-paper-writer"
+    handoff: "ccf-idea-reviewer, ccf-literature-monitor, ccf-literature-searcher, ccf-pipeline-orchestrator, ccf-paper-writer"
   - name: ccf-idea-reviewer
     trigger: "Score, rank, compare, and triage early research ideas when the user explicitly asks for judgment."
     exclude: "Does not brainstorm directions, polish manuscripts, or optimize a single idea as the main task."
@@ -27,35 +27,27 @@ skills:
   - name: ccf-literature-searcher
     trigger: "Search and screen literature, related work, prior art, formulations, objectives, constraints, baselines, simulation settings, datasets, citation evidence, and research opportunity gaps."
     exclude: "Does not audit only already-cited references or act as a final idea kill gate."
-    handoff: "ccf-idea-optimizer, ccf-idea-reviewer, ccf-env-design, ccf-env-code-auditor, ccf-experiment-designer, ccf-paper-writer, ccf-integrity-auditor"
-  - name: ccf-env-design
-    trigger: "Design, audit, or evolve a communication/networking paper scenario, its formal objective and constraints, complete minimum executable scenario (MES) anchor, anchor-only L2 contract, user-requested method-independent complexity ladder, and algorithm-required environment information."
-    exclude: "Does not design algorithms, validate algorithm code, invent results, or replace literature search."
-    handoff: "ccf-literature-searcher, ccf-idea-optimizer, ccf-env-code-auditor, ccf-algorithm-designer, ccf-experiment-debugger"
+    handoff: "ccf-idea-optimizer, ccf-idea-reviewer, ccf-mes-validation, ccf-complexity-upgrade, ccf-env-code-auditor, ccf-pipeline-orchestrator, ccf-paper-writer, ccf-integrity-auditor"
+  - name: ccf-mes-validation
+    trigger: "Own Phase A from a complete scientific-problem document through candidate-MES environment implementation/audit, one-time L2, initial algorithm design/implementation/audit, repair, and terminal anchor freeze."
+    exclude: "Do not start later complexity upgrades, freeze an anchor before algorithm acceptance, or plan paper-range evidence."
+    handoff: "ccf-literature-searcher, ccf-env-code-auditor, ccf-algorithm-code-auditor, ccf-complexity-upgrade"
+  - name: ccf-complexity-upgrade
+    trigger: "Own Phase B for one versioned complexity-upgrade document: implement/audit the stage environment, preserve anchor regression and inherited L2, then modify/audit/repair the algorithm."
+    exclude: "Do not create another MES, rerun L2, change the anchor, modify the algorithm before environment acceptance, or plan paper-range evidence."
+    handoff: "ccf-env-code-auditor, ccf-algorithm-code-auditor, ccf-pipeline-orchestrator"
   - name: ccf-env-code-auditor
     trigger: "Use when the primary object under review is initial anchor L1/L2 acceptance, a user-requested complexity-stage implementation, anchor regression, mathematical model, environment implementation, executed behavior, or environment information exposed for algorithm verification. L2 heuristic need testing is anchor-only."
     exclude: "Do not use when the primary object under review is algorithm design, algorithm-code semantics, convergence, hyperparameters, or algorithm performance."
-    handoff: "ccf-env-design, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-debugger"
-  - name: ccf-algorithm-designer
-    trigger: "Design a formal algorithm MVP and stepwise verification targets for an accepted frozen minimum executable scenario (MES) anchor and its complexity stages."
-    exclude: "Does not redesign the scenario, audit implementation code, or design publication experiments."
-    handoff: "ccf-literature-searcher, ccf-env-design, ccf-env-code-auditor, ccf-algorithm-code-auditor, ccf-experiment-debugger, ccf-experiment-designer"
+    handoff: "ccf-mes-validation, ccf-complexity-upgrade, ccf-algorithm-code-auditor"
   - name: ccf-algorithm-code-auditor
     trigger: "Audit algorithm-MVP equation-to-code fidelity, feasibility, convergence/correctness, exact/oracle/bound evidence, and end-to-end acceptance."
-    exclude: "Does not choose the initial algorithm, redesign the environment, or design publication experiments."
-    handoff: "ccf-algorithm-designer, ccf-env-code-auditor, ccf-env-design, ccf-experiment-debugger, ccf-experiment-designer"
-  - name: ccf-experiment-designer
-    trigger: "Turn accepted anchor/complexity-stage MVP evidence into paper-range usage experiments for the conclusion applicability range, including settings, baselines, metrics, ablations, robustness tests, result templates, and real-result tables/figures."
-    exclude: "Does not define or repair the primary scenario/algorithm semantics, validate code, rerun anchor L2, or invent results."
-    handoff: "ccf-env-design, ccf-env-code-auditor, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-debugger, ccf-literature-searcher, ccf-visual-composer, ccf-paper-writer, ccf-paper-reviewer, ccf-integrity-auditor, ccf-submission-checker"
-  - name: ccf-experiment-debugger
-    trigger: "Coordinate the repair loop for a failed, unstable, divergent, irreproducible, or unexpectedly weak accepted anchor-MES/complexity-stage run from independent auditor evidence."
-    exclude: "Does not design initial environment/algorithm methods, plan paper-range usage experiments, replace auditors, rerun anchor L2 for later stages, or fabricate success."
-    handoff: "ccf-env-design, ccf-env-code-auditor, ccf-algorithm-designer, ccf-algorithm-code-auditor, ccf-experiment-designer"
+    exclude: "Does not choose, implement, or repair the algorithm or environment."
+    handoff: "ccf-mes-validation, ccf-complexity-upgrade, ccf-env-code-auditor"
   - name: ccf-visual-composer
     trigger: "Compose, polish, generate, and QA publication-grade figures, tables, Python plotting code, creative data-analysis plots, captions, palettes, panel maps, and manuscript visual layout integration from supplied data/results."
     exclude: "Does not design experiments, invent results, write manuscript prose as the main task, or perform final submission compliance."
-    handoff: "ccf-experiment-designer, ccf-paper-writer, ccf-integrity-auditor, ccf-submission-checker"
+    handoff: "ccf-pipeline-orchestrator, ccf-paper-writer, ccf-integrity-auditor, ccf-submission-checker"
   - name: ccf-paper-to-exemplar
     trigger: "Convert PDF papers into writing exemplar cards and register reusable style references for ccf-paper-writer."
     exclude: "Does not write papers or perform review."
@@ -63,11 +55,11 @@ skills:
   - name: ccf-paper-writer
     trigger: "Draft, revise, polish, compress, preserve source format during edits, create venue- and length-aware LaTeX manuscripts from ideas, and presentation-adapt paper text."
     exclude: "Does not perform full review, evidence audit, package check, or rebuttal."
-    handoff: "ccf-literature-monitor, ccf-literature-searcher, ccf-experiment-designer, ccf-visual-composer, ccf-paper-reviewer, ccf-submission-checker, ccf-rebuttal-writer"
+    handoff: "ccf-literature-monitor, ccf-literature-searcher, ccf-pipeline-orchestrator, ccf-visual-composer, ccf-paper-reviewer, ccf-submission-checker, ccf-rebuttal-writer"
   - name: ccf-paper-reviewer
     trigger: "Review manuscripts scientifically and stylistically: scores, reviewer panel, AC/meta-review, paragraph logic, and format-facing risks."
     exclude: "Does not rewrite the manuscript or draft rebuttals."
-    handoff: "ccf-paper-writer, ccf-experiment-designer, ccf-integrity-auditor, ccf-submission-checker, ccf-rebuttal-writer"
+    handoff: "ccf-paper-writer, ccf-pipeline-orchestrator, ccf-integrity-auditor, ccf-submission-checker, ccf-rebuttal-writer"
   - name: ccf-integrity-auditor
     trigger: "Audit paper conclusions, numbers, table/figure/text consistency, citation metadata, and citation-context support."
     exclude: "Does not replace full review or broad literature search."
@@ -75,11 +67,11 @@ skills:
   - name: ccf-submission-checker
     trigger: "Check venue format, LaTeX/PDF package readiness, anonymity, metadata, supplementary files, and artifact/reproducibility readiness."
     exclude: "Does not polish manuscript content."
-    handoff: "ccf-paper-writer, ccf-experiment-designer, ccf-visual-composer, ccf-paper-reviewer, ccf-rebuttal-writer"
+    handoff: "ccf-paper-writer, ccf-pipeline-orchestrator, ccf-visual-composer, ccf-paper-reviewer, ccf-rebuttal-writer"
   - name: ccf-rebuttal-writer
     trigger: "Write rebuttals, author responses, response letters, revision ledgers, and conservative resubmission plans."
     exclude: "Does not trigger for ordinary manuscript writing."
-    handoff: "ccf-paper-writer, ccf-experiment-designer, ccf-submission-checker"
+    handoff: "ccf-paper-writer, ccf-pipeline-orchestrator, ccf-submission-checker"
   - name: ccf-common
     trigger: "Maintain shared routing, trigger registry, handoff modes, source registry, privacy/evidence policy, and artifact contracts."
     exclude: "Not an ordinary research task skill."
@@ -90,10 +82,14 @@ skills:
     handoff: "ccf-common"
 merged_runtime_entries:
   ccf-workflow-planner: ccf-pipeline-orchestrator
+  ccf-env-design: ccf-mes-validation + ccf-complexity-upgrade
+  ccf-algorithm-designer: ccf-mes-validation + ccf-complexity-upgrade
+  ccf-experiment-debugger: ccf-mes-validation + ccf-complexity-upgrade
+  ccf-experiment-designer: ccf-pipeline-orchestrator + ccf-paper-writer + ccf-visual-composer + ccf-integrity-auditor
   ccf-paper-compressor: ccf-paper-writer
   ccf-writing-reviewer: ccf-paper-reviewer
   ccf-citation-auditor: ccf-integrity-auditor
-  ccf-figure-table-builder: ccf-experiment-designer + ccf-visual-composer
+  ccf-figure-table-builder: ccf-pipeline-orchestrator + ccf-visual-composer
   ccf-artifact-packager: ccf-submission-checker
   ccf-venue-format-guide: ccf-submission-checker
   ccf-resubmission-adapter: ccf-rebuttal-writer

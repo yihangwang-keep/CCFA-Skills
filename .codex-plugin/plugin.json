@@ -18,7 +18,7 @@
   "interface": {
     "displayName": "CCFA Skills",
     "shortDescription": "CCF paper-project workflow skills.",
-    "longDescription": "A governed 21-skill ccf-* family for CCF paper projects: idea, monitoring, literature, versioned environment and algorithm design/audit loops, experiments, publication visuals, writing, review, integrity, submission, rebuttal, and family maintenance.",
+    "longDescription": "A governed 19-skill ccf-* family for CCF paper projects: idea, monitoring, literature, a complete Phase-A MES/initial-algorithm loop, a separate no-new-MES Phase-B complexity-upgrade loop, independent environment/algorithm audits, evidence planning, publication visuals, writing, review, integrity, submission, rebuttal, and family maintenance.",
     "developerName": "CCFA Skills maintainers",
     "category": "Productivity",
     "capabilities": [

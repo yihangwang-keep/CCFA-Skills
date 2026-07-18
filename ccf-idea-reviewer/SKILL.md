@@ -49,7 +49,7 @@ In standard mode, complete this checklist before any idea score, ranking, or rec
 7. Fatal risks are separated from fixable weaknesses and local refinements.
 8. Confidence is reported separately from score.
 9. The final recommendation is one of: accept-to-develop, revise, pivot-with-rescue-route, abandon, or needs-literature-search. `abandon` is reserved for no plausible reformulation, not ordinary weakness.
-10. Any optional module transition to `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-idea-optimizer`, `ccf-experiment-designer`, or `ccf-paper-writer` follows the CCFA handoff mode; if denied or disabled, output upgrade actions only.
+10. Any optional module transition to `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-idea-optimizer`, `ccf-pipeline-orchestrator`, or `ccf-paper-writer` follows the CCFA handoff mode; if denied or disabled, output upgrade actions only.
 
 Load `references/strict-idea-review.md` in standard mode or whenever the user asks for strict review, novelty diagnosis, or literature-backed scoring. Load `references/rubric.md` whenever producing numeric scores.
 
@@ -64,7 +64,7 @@ Load `references/strict-idea-review.md` in standard mode or whenever the user as
 7. Load `references/rubric.md` and score the 10 dimensions. Use `references/calibration.md` to aggregate, calibrate confidence, apply fatal gates, and choose a recommendation. Include score-change conditions rather than unsupported acceptance probabilities.
 8. Convert every major weakness into an upgrade action. Label actions as problem-refinement, method-redesign, novelty-grounding, evidence-design, feasibility-check, venue-switch, pivot, or abandon. For every idea that is not `accept-to-develop`, include the smallest change that could raise development potential.
 9. For multiple ideas, rank by serious-risk-adjusted score after the literature and mechanism scan. Prefer ideas with fewer severe novelty/soundness/evidence risks even if they are less fashionable. If all ideas score low, still identify the best salvageable ingredient in each and the single most promising rescue path overall.
-10. If the idea is viable but underdeveloped, follow the CCFA handoff mode before using `ccf-idea-optimizer` for targeted repair. If the evidence package is the main weakness, follow handoff mode before using `ccf-experiment-designer`. If a module is denied, stop at verdict, risks, and action queue.
+10. If the idea is viable but underdeveloped, follow the CCFA handoff mode before using `ccf-idea-optimizer` for targeted repair. If the evidence package is the main weakness, follow handoff mode before using `ccf-pipeline-orchestrator`. If a module is denied, stop at verdict, risks, and action queue.
 
 ## Output Contracts
 

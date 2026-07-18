@@ -115,7 +115,7 @@ When a column contains long single words that cause underfull hboxes, use one of
 ```
 
 4. **Rotate wide headers**: use `\makecell` or `\rotatebox`.
-5. **Hyphenate long monospace words**: in narrow columns, long identifiers like `ccf-experiment-designer` will overflow even with `\raggedright`. Abbreviate to a shorter form (e.g., `ccf-expt-designer`) and explain in the caption or a table note. Do not let the compiler produce overfull hboxes from unbreakable words.
+5. **Hyphenate long monospace words**: in narrow columns, long identifiers like `ccf-pipeline-orchestrator` will overflow even with `\raggedright`. Abbreviate to a shorter form (e.g., `ccf-expt-designer`) and explain in the caption or a table note. Do not let the compiler produce overfull hboxes from unbreakable words.
 
 ## Number and Precision Rules
 

@@ -29,7 +29,7 @@ A strong paper is rarely defined by the final PDF alone. What matters is the res
 
 CCFA Skills starts from that observation. It treats a CCF-A paper project as a research storyline that can be maintained, audited, and advanced over time, rather than as a one-shot text generation task. An idea should be shaped before it is defended. Experiments should support explicit paper conclusions rather than merely fill tables. Writing should preserve evidence boundaries. A rebuttal should not be an improvised answer at the end of the process, but a traceable bridge to revision and resubmission.
 
-The central insight is that paper quality comes from the quality of continuous decisions. Writing, review, conclusion/evidence audit, submission checking, and rebuttal should not replace one another; they should keep separate responsibilities and hand off through the same project state. The current v0.8 line organizes the family into 21 stage roles, including a versioned environment-algorithm design-validation loop. Each stage has a clear responsibility, each artifact has a home, and the system behaves more like a collaboration framework around the research storyline than a loose prompt collection. v0.8 also gives `ccf-visual-composer` a bundled Python SVG plotting recipe library for paper-ready visual examples.
+The central insight is that paper quality comes from the quality of continuous decisions. Writing, review, conclusion/evidence audit, submission checking, and rebuttal should not replace one another; they should keep separate responsibilities and hand off through the same project state. The current v0.8 line organizes the family into 19 stage roles, including separate MES-validation and complexity-upgrade loops. Each stage has a clear responsibility, each artifact has a home, and the system behaves more like a collaboration framework around the research storyline than a loose prompt collection. v0.8 also gives `ccf-visual-composer` a bundled Python SVG plotting recipe library for paper-ready visual examples.
 
 ![CCFA skill family logic](assets/ccfa-skills-architecture.svg)
 
@@ -63,40 +63,33 @@ project scaffold
 
 ### Versioned Design-Validation Loop
 
-Communication scenario and algorithm work follows two phases with repair loops in both before publication-range experiment design. Phase A accepts the complete anchor MES, runs the one-time heuristic L2/algorithmic-need check, and accepts the initial algorithm; initial algorithm failures are repaired against the anchor. Phase B handles one user-requested complexity stage at a time: audit stage consistency, rerun anchor regressions, run/upgrade the algorithm, and repair failures. Phase B inherits the anchor L2 result and never reruns heuristic probes or redesigns MES.
+Communication work has two independent phase-owned loops. Phase A accepts a complete scientific-problem document, implements and audits a candidate MES/environment, runs one L2 check, implements and audits the initial algorithm, and freezes the anchor only after all evidence passes. Phase B accepts one versioned upgrade document, implements and audits its `stage_case` environment first, then runs, modifies, and repairs the algorithm. It inherits L2, preserves anchor regression, and never creates another MES.
 
 ```text
-ccf-env-design
-  -> ccf-env-code-auditor                 [environment-valid + anchor MES]
-  -> ccf-algorithm-designer
-  -> ccf-algorithm-code-auditor           [joint-ready]
-  -> complexity ladder: one stage at a time
-  -> ccf-experiment-debugger on initial/stage failure (conditional repair loop)
-       -> algorithm owner, one minimal mechanism/code change, anchor regression + stage rerun
-  -> ccf-experiment-designer after accepted stage evidence (paper-range usage evidence)
-  -> formal-model review only for an independently confirmed infeasible/ill-posed problem
+ccf-mes-validation                        [Phase A: problem document -> candidate MES/environment -> initial algorithm -> anchor]
+  -> ccf-env-code-auditor / ccf-algorithm-code-auditor
+ccf-complexity-upgrade                    [Phase B: upgrade document -> stage_case environment -> algorithm modification/repair]
+  -> both independent auditors + anchor regression; no new MES and no L2 rerun
 ```
 
 Algorithm failure does not authorize a silent change to the environment objective, constraints, task semantics, information pattern, or test settings. An accepted environment semantic change creates a new problem version, preserves the failed version as evidence, and invalidates every dependent algorithm, baseline, and result artifact. At checkpoint commits, invoke the installed `$code-review` skill against the fixed comparison point and accepted specification; CCFA reuses that skill without copying its Standards/Spec rules.
 
 ![Workflow](assets/ccfa-skills-workflow.svg)
 
-## 21 Runtime Skills
+## 19 Runtime Skills
 
 | Stage | Skill | Starts when | Main output | Do not use for |
 | --- | --- | --- | --- | --- |
 | Setup | `ccf-project-scaffolder` | Create a paper project, copy templates, initialize `ccfa.yaml`. | Project tree, template files, initial state. | Research content generation. |
-| Planning | `ccf-pipeline-orchestrator` | Plan stages, gates, artifact status, next owner. | Workflow plan, gates, handoff. | Writing, review, search, experiments, rebuttal. |
+| Planning/evidence plan | `ccf-pipeline-orchestrator` | Plan stages/gates or, after acceptance, baselines, metrics, ablations, robustness, and result slots. | Workflow plan, conclusion-evidence ledger, `TBD` result plan. | Phase implementation/audit, invented results, visuals, manuscript prose. |
 | Idea shaping | `ccf-idea-optimizer` | Explore, rescue, or concretize a rough idea or vague direction. | Problem-gap-insight-method-evidence brief, rescue routes, minimum testable question. | Ranking multiple ideas. |
 | Idea gate | `ccf-idea-reviewer` | Explicitly score, rank, stress-test, or triage ideas. | Scores, risks, stage-aware development potential. | Brainstorming or developing one rough idea further. |
 | Monitoring | `ccf-literature-monitor` | Track new papers, competitors, arXiv/OpenReview/venue feeds, or ask whether recent work overlaps an idea. | Monitoring report, overlap levels, RELAX/RESEARCH/FOLLOW-UP flags, handoff signals. | Deep related-work search, citation audit, or final idea scoring. |
 | Evidence | `ccf-literature-searcher` | Search related work, prior art, datasets, benchmarks, and open gaps. | Literature notes, opportunity map, evidence gaps, related-work structure. | Auditing already cited papers or treating related work as a final idea kill gate. |
-| Environment design | `ccf-env-design` | Define the paper scenario, formal optimization problem, parameter applicability range, and a complete core-tradeoff MES; freeze the first accepted MES as anchor and govern the complexity ladder. | Versioned environment specification, anchor MES, complexity-stage contract, and algorithm-facing contract. | Environment-code validation or algorithm design. |
+| Phase A MES validation | `ccf-mes-validation` | Turn a complete problem document into an audited candidate MES/environment and initial algorithm. | Problem contract, implementations, repair record, frozen accepted anchor. | Later complexity stages or paper-range evidence planning. |
 | Environment gate | `ccf-env-code-auditor` | Verify that environment code implements the accepted problem and runs independently. | Traceability evidence, execution evidence, `environment-valid` verdict. | Scenario redesign or algorithm performance judgment. |
-| Algorithm design | `ccf-algorithm-designer` | Derive a mechanism and algorithm MVP against an accepted environment contract. | Algorithm specification, verification targets, complexity analysis. | Scenario redesign, code audit, or publication experiments. |
 | Algorithm gate | `ccf-algorithm-code-auditor` | Verify the algorithm specification against code and independent MVP behavior. | Traceability evidence, reference comparisons, `joint-ready` verdict. | Initial algorithm selection or environment audit. |
-| Stage repair loop | `ccf-experiment-debugger` | Coordinate repair of a failed accepted anchor/complexity-stage run. | One-owner repair, invalidation ledger, closed anchor/stage reruns, terminal status. | Designing initial environment/algorithm or paper-range experiments. |
-| Paper-range usage evidence | `ccf-experiment-designer` | Use accepted anchor/stage methods to design baselines, metrics, ablations, robustness, and conclusion-bound evidence. | Protocols, baseline matrix, result templates, evidence-bound figure/table specs. | Defining or repairing environment/algorithm semantics, auditing code, or inventing results. |
+| Phase B complexity upgrade | `ccf-complexity-upgrade` | Implement/audit one upgrade document, then modify and repair the algorithm. | Upgrade contract, `stage_case`, environment/algorithm deltas, anchor regressions. | Creating another MES, rerunning L2, changing the anchor, paper-range evidence planning. |
 | Visuals | `ccf-visual-composer` | Compose publication-grade figures/tables, Python plotting code, palettes, captions, panel maps, and manuscript integration from supplied results. | Visual contract, plot recipe/code, panel/table map, palette, LaTeX placement, caption plan, render QA ledger. | Designing experiments, inventing results, writing prose as the main task, final submission compliance. |
 | Exemplar | `ccf-paper-to-exemplar` | Convert user-provided paper PDFs into reusable writing exemplar cards. | Exemplar cards, writing patterns, venue tags, writer index updates. | Writing papers or performing review. |
 | Manuscript | `ccf-paper-writer` | Draft, revise, polish, compress, create venue- and length-aware LaTeX, make presentations. | Manuscript text, format-preserving edits, compressed text, page budget, slides/poster/talk. | Full review, integrity audit, submission check, rebuttal. |
@@ -117,20 +110,15 @@ Algorithm failure does not authorize a silent change to the environment objectiv
 | Explicitly score, rank, or select ideas | `ccf-idea-reviewer` | `ccf-idea-optimizer` |
 | Monitor new papers, competitors, or recent similar ideas | `ccf-literature-monitor` | `ccf-literature-searcher` |
 | Find new papers, datasets, benchmarks, or open gaps | `ccf-literature-searcher` | `ccf-integrity-auditor` |
-| Design the paper scenario and formal optimization problem | `ccf-env-design` | `ccf-algorithm-designer` |
-| Verify environment code against the accepted problem | `ccf-env-code-auditor` | `ccf-env-design` |
-| Design the algorithm against an accepted environment | `ccf-algorithm-designer` | `ccf-env-design` |
-| Verify algorithm code and MVP behavior | `ccf-algorithm-code-auditor` | `ccf-algorithm-designer` |
-| Coordinate a failed MVP repair and close reruns | `ccf-experiment-debugger` | `ccf-experiment-designer` |
+| Implement and accept the initial problem/MES/environment/algorithm from a complete document | `ccf-mes-validation` | `ccf-complexity-upgrade` |
+| Implement a post-anchor upgrade document and modify/repair the algorithm | `ccf-complexity-upgrade` | `ccf-mes-validation` |
+| Plan baselines, metrics, ablations, robustness, and result evidence after acceptance | `ccf-pipeline-orchestrator` | `ccf-visual-composer` |
 | Verify already cited papers | `ccf-integrity-auditor` | `ccf-literature-searcher` |
-| Design experiments, metrics, baselines, and result evidence specs | `ccf-experiment-designer` | `ccf-paper-writer` |
-| Compose figure/table layout, Python plots, palettes, captions, and manuscript visual integration | `ccf-visual-composer` | `ccf-experiment-designer` |
 | Convert a PDF into a writing exemplar | `ccf-paper-to-exemplar` | `ccf-paper-writer` |
 | Draft, polish, compress, preserve source format | `ccf-paper-writer` | `ccf-paper-reviewer` |
 | Judge acceptance risk | `ccf-paper-reviewer` | `ccf-paper-writer` |
 | Check pages, anonymity, PDF, metadata, artifacts | `ccf-submission-checker` | `ccf-paper-writer` |
 | Answer reviewers and maintain revision ledger | `ccf-rebuttal-writer` | `ccf-paper-reviewer` |
-| Maintain docs diagrams or skills | `ccf-skill-forger` | `ccf-experiment-designer` |
 
 ![Routing boundaries](assets/ccfa-skills-routing.svg)
 
@@ -140,6 +128,10 @@ Do not install these old names as standalone runtime skills:
 
 ```text
 ccf-workflow-planner
+ccf-env-design
+ccf-algorithm-designer
+ccf-experiment-debugger
+ccf-experiment-designer
 ccf-paper-compressor
 ccf-writing-reviewer
 ccf-citation-auditor
@@ -157,7 +149,6 @@ ccf-doc-diagram-designer
 | Compression, slides, poster, talk, Q&A | `ccf-paper-writer` |
 | Writing review | `ccf-paper-reviewer` |
 | Citation audit | `ccf-integrity-auditor` |
-| Result evidence/specs | `ccf-experiment-designer` |
 | Publication figure/table layout, Python plotting recipes, palettes, captions, render QA | `ccf-visual-composer` |
 | Artifact package and venue format | `ccf-submission-checker` |
 | Resubmission adaptation | `ccf-rebuttal-writer` |
@@ -202,7 +193,7 @@ mkdir -p "$CODEX_HOME/skills"
 cp -R CCFA-Skills/ccf-* "$CODEX_HOME/skills/"
 ```
 
-The full install contains all 21 runtime skills. Install `$code-review` separately when the versioned design-validation loop must review checkpoint commits.
+The full install contains all 19 runtime skills. Install `$code-review` separately when the versioned design-validation loop must review checkpoint commits.
 
 Partial install must include `ccf-common`:
 

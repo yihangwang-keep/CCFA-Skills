@@ -88,5 +88,5 @@ For reproducibility, we will expand the appendix with preprocessing, batching, m
 | R1 | Novelty over prior attention | Add backbone-replacement sentence in Introduction and Related Work. | `ccf-paper-writer` | Done. |
 | R2 | Overbroad efficiency | Add quadratic-cost caveat in path-length section. | `ccf-paper-writer` | Done. |
 | R3 | Reproducibility detail | Add artifact/checklist appendix and mark missing ablations. | `ccf-submission-checker`, `ccf-integrity-auditor` | Partial. |
-| R3 | Missing full ablation values | Fill values from original Table 3 or reproduction logs. | `ccf-experiment-designer` | Open. |
+| R3 | Missing full ablation values | Fill values from original Table 3 or reproduction logs. | `ccf-pipeline-orchestrator` | Open. |
 | All | Current related work | Run modern related-work search if this is used as a real current submission. | `ccf-literature-searcher` | Open. |

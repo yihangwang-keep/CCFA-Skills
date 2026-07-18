@@ -36,7 +36,7 @@ If two tactical tweaks fail, change structure rather than keep nudging fonts or 
 
 After three unresolved high-severity visual issues, escalate to the next owner instead of silently continuing:
 
-- missing or unsupported data -> `ccf-experiment-designer`
+- missing or unsupported data -> `ccf-pipeline-orchestrator`
 - conclusion/number mismatch -> `ccf-integrity-auditor`
 - prose or narrative placement issue -> `ccf-paper-writer`
 - final venue/package rule issue -> `ccf-submission-checker`

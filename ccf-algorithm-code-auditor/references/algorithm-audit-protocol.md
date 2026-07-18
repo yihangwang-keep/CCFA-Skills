@@ -137,22 +137,19 @@ Assign each failure to its earliest confirmed owner:
 - algorithm code: specification-to-code, numerical, state-update, recovery, termination, extraction, or hidden-fallback defect;
 - algorithm design: mechanism, assumption, role/classification, feasibility method, or decision-budget mismatch with correct code;
 - environment code: implementation contradicts the accepted formal environment;
-- environment design review: always after algorithm-code fidelity is current and the current route's documented algorithm-design repairs are exhausted; environment design then decides whether evidence identifies an inconsistent/infeasible authoritative problem, invalid environment-target witness, information mismatch, missing causal factor, objective/task mismatch, or only an algorithm-specific target failure.
+- phase document review: after algorithm-code fidelity is current and documented algorithm repairs are exhausted, the active phase decides whether evidence identifies a document defect, unsupported upgrade, research reframe, or only an algorithm-specific failure.
 
-Repair only confirmed algorithm-code defects through the implementation owner.
-When a route-specific algorithm-design ledger is exhausted, record its route ID,
-specification version, scope, failed repairs, alternative families/references/
-probes checked when available, and any proposed cause. Submit a model-review
-request through the debugger regardless of that proposed cause. Do not call it
-an accepted amendment: only `ccf-env-design` may record the confirmed
-classification and, for `model_defect`, create a non-simplifying evolution
-proposal. `algorithm_specific` closes or supersedes the route; `unresolved` is
-blocked. The repairer cannot review the candidate it changed.
+The auditor never performs the repair. Record the route ID, specification
+version, scope, failed repairs, alternative families/references/probes checked
+when available, and proposed cause. Return Phase-A findings to
+`ccf-mes-validation` and Phase-B findings to `ccf-complexity-upgrade`. The active
+phase owns one smallest design or implementation delta; the repairer cannot
+review the candidate it changed.
 
 ## 8. Version Invalidation And Fresh Audit
 
-- A `complexity_expansion` preserves the prior audit for the anchor authority tuple; run a fresh stage audit plus anchor regression and invalidate only stage-dependent comparisons or results. A legacy/exception MES successor preserves the prior audit for the parent tuple but cannot establish successor acceptance.
-- A formal environment, information-pattern, paper-range, or other semantic change starts a new evidence epoch and invalidates the complete algorithm audit and every dependent comparison and result.
+- A Phase-B complexity upgrade preserves the prior audit for the anchor authority tuple; run a fresh stage audit plus anchor regression and invalidate only stage-dependent evidence. Phase B never creates a successor MES.
+- A Phase-A candidate-document change or a Phase-B upgrade-document change starts a new phase-local evidence version and invalidates its dependent algorithm audit. A research reframe starts a separate Phase A.
 - An interface-only environment change invalidates interface, information-timing, traceability, end-to-end, and dependent reproducibility checks.
 - An algorithm-specification, method-role, or mechanism-classification change invalidates all mapped code paths and downstream semantic, eligibility, reference, and MES checks.
 - A code or configuration change invalidates affected traceability, semantic, eligibility, reference, MES, complexity, and reproducibility checks.

@@ -61,7 +61,7 @@ Apply `references/prose-quality-guardrails.md` to all manuscript-facing prose. A
 7. **Compile and check** (mandatory for full manuscripts when a LaTeX engine is available): compile the draft, measure the actual page count, and compare against the venue budget from step3. If under target by >15%, expand with mechanism detail, experiment setup, analysis, limitations, and `TBD` placeholders---not padding or invented results. If over target by >10%, compress with `references/compression-rules.md`. Recompile after any substantial change and repeat until the page count is within tolerance. Record the final status: `underfilled / target-fit / draft-over / final-over / not compiled`.
 8. For compression, load `references/compression-rules.md`; return compressed text in the same format and include a cut log only when requested or when content was materially removed.
 9. For presentation adaptation, derive slides/poster/talk/Q&A only from the manuscript and supplied evidence, in the user's requested slide/poster/script format.
-10. If current literature, baselines, or experiments are missing, ask a targeted question or hand off to `ccf-literature-monitor` for recent-paper/competitor watch, `ccf-literature-searcher` for deep retrieval, or `ccf-experiment-designer` for experiment design. For publication-grade figure/table layout, visual contracts, palette choices, caption placement, or manuscript visual integration, hand off to `ccf-visual-composer`. Do not fill gaps by invention.
+10. If current literature, baselines, or experiments are missing, ask a targeted question or hand off to `ccf-literature-monitor` for recent-paper/competitor watch, `ccf-literature-searcher` for deep retrieval, or `ccf-pipeline-orchestrator` for experiment design. For publication-grade figure/table layout, visual contracts, palette choices, caption placement, or manuscript visual integration, hand off to `ccf-visual-composer`. Do not fill gaps by invention.
 11. Before calling text ready, run the final prose self-audit in `references/prose-quality-guardrails.md`, then run a local score-risk check with quantitative writing feedback when enough text is available; when scientific judgment is needed, hand off to `ccf-paper-reviewer`.
 
 ## Post-Writing Coordination
@@ -75,7 +75,7 @@ Next CCFA skills available:
 - ccf-paper-reviewer: scientific review, score prediction, reviewer simulation, venue-fit check
 - ccf-integrity-auditor: citation existence, conclusion-evidence consistency, bibtex correctness
 - ccf-submission-checker: venue template compliance, page/anonymity limits, LaTeX compilation
-- ccf-experiment-designer: missing experiments, baseline design, ablation planning
+- ccf-pipeline-orchestrator: missing experiments, baseline design, ablation planning
 - ccf-visual-composer: publication-grade figures/tables, palette, caption, layout, visual QA
 - ccf-literature-monitor: recent-paper tracking, competitor monitoring, novelty-threat alerts
 - ccf-literature-searcher: missing related work, closest-competitor search
