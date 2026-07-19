@@ -29,21 +29,21 @@ skills:
     exclude: "Does not audit only already-cited references or act as a final idea kill gate."
     handoff: "ccf-idea-optimizer, ccf-idea-reviewer, ccf-mes-validation, ccf-complexity-upgrade, ccf-env-code-auditor, ccf-pipeline-orchestrator, ccf-paper-writer, ccf-integrity-auditor"
   - name: ccf-mes-validation
-    trigger: "Own Phase A from a complete scientific-problem document through candidate-MES environment implementation/audit, one-time L2, initial algorithm design/implementation/audit, repair, and terminal anchor freeze."
-    exclude: "Do not start later complexity upgrades, freeze an anchor before algorithm acceptance, or plan paper-range evidence."
+    trigger: "Use a complete paper/scenario document to build a minimal-but-complete MES, audit its environment, implement and audit the initial algorithm, and freeze the first anchor."
+    exclude: "Do not start a post-anchor complexity upgrade or plan paper-range evidence."
     handoff: "ccf-literature-searcher, ccf-env-code-auditor, ccf-algorithm-code-auditor, ccf-complexity-upgrade"
   - name: ccf-complexity-upgrade
-    trigger: "Own Phase B for one versioned complexity-upgrade document: implement/audit the stage environment, preserve anchor regression and inherited L2, then modify/audit/repair the algorithm."
-    exclude: "Do not create another MES, rerun L2, change the anchor, modify the algorithm before environment acceptance, or plan paper-range evidence."
+    trigger: "Use the current scenario, environment/algorithm implementation, and results to write an upgrade scenario document, modify and audit the existing environment, and modify/repair the algorithm."
+    exclude: "Do not replace the requested scenario upgrade with an unrelated research problem or plan paper-range evidence."
     handoff: "ccf-env-code-auditor, ccf-algorithm-code-auditor, ccf-pipeline-orchestrator"
   - name: ccf-env-code-auditor
-    trigger: "Use when the primary object under review is initial anchor L1/L2 acceptance, a user-requested complexity-stage implementation, anchor regression, mathematical model, environment implementation, executed behavior, or environment information exposed for algorithm verification. L2 heuristic need testing is anchor-only."
+    trigger: "Use when the primary object under review is environment-to-document fidelity, representation of the scientific core and tradeoff, lightweight heuristic or random probes, or decision-time information."
     exclude: "Do not use when the primary object under review is algorithm design, algorithm-code semantics, convergence, hyperparameters, or algorithm performance."
     handoff: "ccf-mes-validation, ccf-complexity-upgrade, ccf-algorithm-code-auditor"
   - name: ccf-algorithm-code-auditor
-    trigger: "Audit algorithm-MVP equation-to-code fidelity, feasibility, convergence/correctness, exact/oracle/bound evidence, and end-to-end acceptance."
-    exclude: "Does not choose, implement, or repair the algorithm or environment."
-    handoff: "ccf-mes-validation, ccf-complexity-upgrade, ccf-env-code-auditor"
+    trigger: "Check algorithm equation-to-code fidelity, semantic correctness, execution-flow correctness, feasibility, reproducibility, and implementation behavior when invoked by ccf-mes-validation or ccf-complexity-upgrade."
+    exclude: "Does not choose, implement, or repair the algorithm."
+    handoff: "ccf-mes-validation, ccf-complexity-upgrade"
   - name: ccf-visual-composer
     trigger: "Compose, polish, generate, and QA publication-grade figures, tables, Python plotting code, creative data-analysis plots, captions, palettes, panel maps, and manuscript visual layout integration from supplied data/results."
     exclude: "Does not design experiments, invent results, write manuscript prose as the main task, or perform final submission compliance."

@@ -1,6 +1,6 @@
 ---
 name: ccf-complexity-upgrade
-description: "Own Phase B for an accepted communication-paper anchor: accept one versioned complexity-upgrade document, implement and audit the upgraded environment while preserving anchor regression, then modify, audit, and repair the algorithm. Use for complexity upgrade, 场景的升级, 复杂度升级Ralph闭环, robust/uncertain/scale/topology/information-pattern upgrades, or algorithm repair on an accepted anchor. Phase B never creates another MES, reruns L2, or changes the frozen anchor."
+description: "Use for Phase B: upgrade a current scenario by writing an upgrade scenario document from the current implementation and results, modifying and auditing the existing environment, then modifying and repairing the algorithm. Use for 场景升级 and complexity-upgrade Ralph loops."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -10,95 +10,94 @@ metadata:
     shared_controls: ../ccf-common/references/
 ---
 
-# Complexity Upgrade
+# Phase B: Deepen The Accepted Scenario
 
-## Phase Ownership
+## Purpose
 
-Phase B starts from one accepted Phase-A record, its immutable MES anchor, and its
-accepted initial algorithm. It owns the upgrade document, stage environment
-implementation, algorithm modification, and repair loop. The environment and
-algorithm code auditors remain independent acceptance owners.
+Phase B starts after already having accepted the scenario and its algorithm. Phase B increases the problem's complexity, exposes where the current
+algorithm stops working, and improves the algorithm mechanism. It does not
+replace the scenario-upgrade request with an unrelated research problem.
 
-Phase B does not derive, name, register, or freeze another MES. A fixed minimal
-configuration used to implement an upgrade is a `stage_case`, not an MES, MVP,
-anchor, successor, or replacement. The accepted anchor remains an immutable
-regression target even when the stage adds scale, topology, uncertainty,
-coupling, state, information timing, constraints, or a method-independent robust
-evaluation objective.
+The environment and algorithm auditors remain independent. This skill writes
+the upgrade document, changes the existing implementation, and owns the
+repair loop.
 
-## Accepted Upgrade Document
+## First Write An Upgrade Scenario Document
 
-Accept one user-approved upgrade document only when it records:
+Before editing code, read the accepted current environment, algorithm, and
+available experiment/results. Then write a new scenario document describing the
+upgrade. If the user supplied a draft, complete it from the same evidence. The
+document is the single authority for the Phase-B environment changes.
 
-1. `stage_request_id`, document/version status, parent Phase-A record, frozen
-   anchor and initial-algorithm digests, and the parent artifacts that must remain
-   unchanged;
-2. the parent scientific question and causal chain, inherited semantics, exact
-   method-independent complexity delta, and why the delta is needed scientifically;
-3. added or extended states, dynamics, uncertainty processes, information reveal
-   timing, decisions, constraints, objectives, interfaces, and feasibility rules;
-4. an explicit inherited/added/forbidden matrix proving that the upgrade extends
-   rather than silently deletes or weakens the parent task semantics;
-5. one reproducible `stage_case`, its configuration and range, environment
-   implementation deliverables, algorithm-visible and audit-only fields, traces,
-   independent checkers, and no-leakage tests;
-6. stage-specific environment gates, parent anchor regression, evidence required
-   before algorithm modification, and conditions that classify a failure as
-   implementation, algorithm, unsupported upgrade, or research reframe;
-7. a freeze rule that keeps existing algorithm files unchanged until the upgraded
-   environment and independent checkers pass.
+For example:
 
-The document may introduce a versioned stage problem and richer formal objects.
-It must not overwrite the Phase-A problem or state that its `stage_case` is a new
-MES. If it changes the research identity, removes a parent invariant, or cannot
-retain anchor regression, terminate as `reframe` and start a separate Phase A.
+1. relation to the accepted scenario, including the 
+   same scientific question and causal chain;
+2. current implementation/results and the limitation they expose;
+3. upgraded scenario background, the same scientific question and causal chain,
+   and how the added complexity stresses the existing tradeoff;
+4. semantics retained from the current scenario and the exact added complexity;
+5. added state, uncertainty, information timing, actions, and transitions;
+6. objective, constraints, aggregation, and feasibility;
+7. algorithm-visible interface, audit-only fields, and leakage rules;
+8. parameter range, fixed reproducible configurations, traces, and independent
+   checkers;
+9. environment implementation changes and consistency-audit evidence;
+10. algorithm mechanism to change, expected failure explanation, and acceptance
+    evidence.
+
+The new document may add complexity to the setting, but it must keep the same
+question and causal tradeoff and explain why this is still the same research
+problem. Do not add complexity just to make an algorithm look better.
 
 ## Phase B Ralph Loop
 
-Follow `../ccf-common/references/ralph-phase-contract.md`:
+The loop is deliberately short:
 
-1. Validate and freeze the upgrade document, parent digests, stage case, gates,
-   and algorithm-file freeze boundary before implementation.
-2. Implement only the upgraded environment, versioned interface, traces,
-   independent checker/reference paths, and stage tests. Do not modify the
-   accepted algorithm during this environment subphase.
-3. Invoke `ccf-env-code-auditor` to check document-to-code fidelity, causal and
-   information semantics, stage execution, checker independence, and complete
-   anchor regression. Inherit the Phase-A L2 result without rerunning or
-   recomputing `algorithmic_need`.
-4. Repair confirmed stage-document or environment-implementation defects with one
-   smallest delta per round. Preserve every failed artifact set and rerun all
-   invalidated stage checks plus anchor regression.
-5. Only after the stage environment passes, unfreeze algorithm work. Run the
-   accepted algorithm unchanged first and preserve that result as the upgrade
-   baseline.
-6. When the algorithm fails the accepted stage target, modify its implementation
-   or mechanism while keeping the stage document, anchor, information boundary,
-   cases, targets, tolerances, and resource limits fixed.
-7. Invoke `ccf-algorithm-code-auditor` after each candidate algorithm delta. Rerun
-   the original stage failure, stage algorithm checks, and anchor algorithm
-   regression for the same artifact digests.
-8. If credible algorithm repairs are exhausted, stop as `algorithm_failed` unless
-   independent evidence establishes that the upgrade document itself is
-   infeasible, ill-posed, causally unsupported, or informationally inconsistent.
-   A document defect may create a new stage-document version, but still cannot
-   create or modify an MES. A changed research identity routes to a new Phase A.
+```text
+accepted scenario + current code/results
+  -> write upgrade scenario document
+  -> modify the existing environment from that document
+  -> environment consistency audit
+  -> modify the algorithm mechanism
+  -> algorithm consistency audit
+  -> focused algorithm repair or upgrade-document/environment repair
+  -> repeat the affected audit
+  -> accepted upgrade
+```
 
-## Terminal Conditions
+1. **Read the starting point.** Identify the current implementation's observed
+   limitation and the exact complexity added by the upgrade document.
+2. **Modify the existing environment.** Implement the document in the current
+   scenario code, interfaces, traces, and independent checkers. This is a
+   direct extension of the current scenario implementation.
+3. **Audit the environment.** Invoke `ccf-env-code-auditor`. If the code is
+   inconsistent, fix the code. If the document's semantics need correction,
+   append a new version/decision to the same upgrade document, then update the
+   environment and audit again.
+4. **Modify the algorithm.** Once the environment is coherent, use the observed
+   failure and the new causal difficulty to change the algorithm mechanism or
+   implementation.
+5. **Audit and repair.** Invoke `ccf-algorithm-code-auditor`. If the finding is
+   algorithmic, make algorithm fixes and solve this problem correctly to the best effort.
+   In the end if independent evidence shows that the added problem itself is infeasible, revise the added semantics in then upgrade document and re-design the existing environment but needn't to use easy algorithmes to verify the scenario again. 
+   Record each failure and its evidence simply in order to complete the repair process.
+6. **Finish the upgrade.** When the upgraded environment and algorithm both
+   pass their audits for the current document, record the versions and the
+   evidence. If the proposed addition no longer represents the same research
+   question, stop and ask whether it should be handled as a separate scenario
+   rather than silently treating it as this upgrade.
 
-- `stage_accepted`: upgrade document, stage environment, all independent checkers,
-  anchor regressions, upgraded algorithm, and native reviews pass for one current
-  artifact set.
-- `algorithm_failed`: the stage environment is valid, but the algorithm remains
-  unaccepted after the recorded repair route.
-- `upgrade_unsupported`: the proposed complexity delta lacks causal support or a
-  feasible method-independent contract while the parent anchor remains valid.
-- `blocked`: required artifacts, checker capability, execution resources, or a
-  credible repair path are unavailable.
-- `reframe`: the requested change replaces the parent research identity or cannot
-  preserve the frozen anchor as regression evidence.
+Use record fields `in_progress`, `accepted`, and `blocked`.
+Describe every failure in the round notes: what was found, what changed, what
+was rerun, and whether the work can continue.
 
-Read `references/phase-b-upgrade-contract.md` when drafting or validating the
-upgrade document. Read `references/complexity-upgrade-record.md` when creating the stage record.
-Publication-range evidence planning happens only after `stage_accepted` and is not
-part of this Ralph loop.
+Read `references/phase-b-upgrade-contract.md` when writing the document and
+`references/complexity-upgrade-record.md` when recording the loop.
+
+## Handoff
+
+Return the upgrade scenario document, the modified environment and checker
+entry points, the environment audit, the modified algorithm and algorithm
+audit, and the focused repair history. Publication-range experiment planning
+starts later in `ccf-pipeline-orchestrator`.

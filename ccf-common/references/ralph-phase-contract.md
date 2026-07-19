@@ -1,31 +1,44 @@
-# Ralph Phase Contract
+# Ralph Repair Loop
 
-Ralph is the small append-only repair discipline embedded in Phase A and Phase B.
-It is not a runtime skill, a third audit, or a separate artifact owner.
+Ralph is a small, repeatable repair habit used by both phase skills. It is not
+another state machine or audit owner.
 
-## Shared Round
+## Every Round
 
-1. Read the fixed phase document, authority versions, acceptance criteria, and
-   current artifact digests.
-2. Select the earliest failed or stale dependency.
-3. Assign one phase-owned implementation or design owner and apply one smallest delta.
-4. Preserve the failure and old artifact set; mark every dependent check stale.
-5. Rerun the original failure, invalidated checks, regressions, and the applicable
-   fresh independent domain audit.
-6. Append the round evidence to the phase record. Never replace earlier failures
-   or inherit a verdict across changed artifact digests.
-7. Stop only at the phase-specific scientific terminal conditions. A successful
-   command, empty diff, iteration limit, or resource limit is not acceptance.
+1. Read the current document, code, and the concrete failure evidence.
+2. Find the first check that is actually failing.
+3. Make one focused change in the correct place: document, environment, or
+   algorithm.
+4. Keep the old evidence and write down what changed.
+5. Rerun the failing check and the checks affected by that change.
+6. Continue until the required audits pass or a missing input/resource makes
+   further work impossible.
 
-## Phase Separation
+Do not hide a failure by deleting the central tradeoff, loosening a material
+constraint, exposing future information, or changing the target after seeing
+the result.
 
-| Phase | Authority transition | Required checks | Forbidden action |
-| --- | --- | --- | --- |
-| `mes_validation` | complete problem document -> candidate MES/environment -> initial algorithm -> frozen accepted anchor | document contract, environment L1, one anchor-candidate L2, algorithm audit, fresh reviews | freezing the anchor before algorithm acceptance, hiding failure by weakening the problem, or starting a complexity stage |
-| `complexity_upgrade` | frozen anchor + accepted algorithm + one upgrade document -> stage environment -> upgraded algorithm | stage document fidelity, stage execution, anchor regression, inherited L2, algorithm audit and regression | creating another MES, rerunning L2, changing the anchor, or modifying the algorithm before stage-environment acceptance |
+## The Two Phases
 
-Phase A may create a new candidate evidence epoch before anchor acceptance when
-independent evidence establishes a document/model defect. Phase B may version its
-upgrade document, but it never creates or edits an MES. A Phase-B change that
-replaces the parent research identity or cannot preserve anchor regression ends
-as `reframe` and requires a separate Phase A.
+```text
+Phase A: paper problem document
+  -> minimal-but-complete MES/environment
+  -> environment audit
+  -> initial algorithm
+  -> algorithm audit and repair
+  -> freeze the accepted MES and algorithm
+
+Phase B: current scenario + current code/results
+  -> write an upgrade scenario document
+  -> modify the existing environment
+  -> environment audit
+  -> modify and repair the algorithm
+  -> algorithm audit and repair
+```
+
+Phase A may revise its problem document before the anchor is accepted when
+evidence proves that the stated problem is infeasible, ill-posed, or missing a
+causal requirement. Phase B may revise its own upgrade document when an
+environment audit or algorithm diagnosis provides independent evidence of a
+document/environment defect, then update and re-audit the existing environment;
+it keeps the correction in the same upgrade document.

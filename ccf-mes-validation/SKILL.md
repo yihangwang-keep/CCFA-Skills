@@ -1,6 +1,6 @@
 ---
 name: ccf-mes-validation
-description: "Own Phase A for a communication paper: accept a complete scientific-problem document, implement and audit one faithful Minimum Executable Scenario (MES), design and implement the initial algorithm, and run the repair loop until the anchor is accepted or blocked. Use for initial problem/MES/algorithm acceptance, 第一阶段MES验证, 初始Ralph闭环, or pre-anchor repair. Do not start a later complexity upgrade or plan publication experiments."
+description: "Use for Phase A: turn a paper's complete scientific-problem document into one minimal-but-complete MES, implement and audit its environment, then implement and audit the initial algorithm. Use for 第一阶段 MES 验证 and the initial Ralph loop. Do not use for a post-anchor complexity upgrade."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -10,94 +10,95 @@ metadata:
     shared_controls: ../ccf-common/references/
 ---
 
-# MES Validation
+# Phase A: Build The First MES
 
-## Phase Ownership
+## Purpose
 
-Phase A owns the complete path from an authoritative scientific-problem document
-to one frozen MES anchor and an accepted initial algorithm. It designs and
-implements the candidate environment and algorithm; the two code auditors remain
-independent acceptance owners. Do not route design or repair through separate
-environment-designer, algorithm-designer, or debugger skills.
+Phase A starts with the paper's scientific-problem document. It ends with one
+working environment and one accepted initial algorithm. The environment and
+algorithm auditors are independent reviewers; this skill implements the work
+and owns the repair loop.
 
-The candidate remains a candidate through environment and algorithm audit. Set
-`mes_role: anchor` only at the terminal `anchor_accepted` transition, after the
-initial algorithm passes against the same artifact set. Never freeze the MES
-before initial-algorithm acceptance.
+### What MES means
 
-## Accepted Input Document
+MES means **minimal but complete**. Reduce the paper problem's scale (for
+example, fewer nodes, messages, or time slots), but keep the problem itself
+intact. The MES must still contain:
 
-Accept a document for implementation only when it fixes or explicitly marks
-`TBD` for all of the following:
+- the paper's scientific question and task causal chain;
+- the central tradeoff and its causal bottleneck;
+- the objective and its ordering;
+- every decision, material constraint, coupling, and feasibility rule;
+- the information available at each decision time; and
+- the task consequence that the communication decisions are meant to change.
 
-1. authority, version, source document, research identity, and intended supported
-   conclusion;
-2. paper scenario, abstraction boundary, task causal chain, causal bottleneck,
-   focused scientific question, and central tradeoff;
-3. formal optimization problem: parameters, states, decisions, objective order,
-   constraints, dynamics, uncertainty, information timing, and feasibility;
-4. parameter applicability range and the rule for selecting one reproducible
-   candidate MES without deleting a material variable, constraint, coupling,
-   information restriction, task consequence, or difficult registered case;
-5. fixed MES configuration, executable entry points, deterministic seeds or
-   traces, algorithm-visible interface, audit-only fields, and leakage boundary;
-6. independent checker/reference path, environment implementation deliverables,
-   L1 acceptance checks, one predeclared anchor-only L2 procedure and target, and
-   terminal evidence required before algorithm work;
-7. initial algorithm target, admissible method role, reference/oracle/bound,
-   implementation interface, verification criteria, and resource limits, which
-   may remain `TBD` until the environment passes.
+If removing an object can change the preferred decision or make the tradeoff
+disappear, it is not a valid MES reduction. MES is the paper's smallest
+credible **scale**, not the paper's easiest or smallest **problem**. Once this
+MES and its initial algorithm are accepted, freeze it. Phase B only adds
+complexity on top of it; it does not redesign the MES.
 
-A narrative scenario without executable parameters, information timing,
-independent checks, or acceptance criteria is not implementation-ready. A
-document may be revised before acceptance, but every accepted semantic revision
-creates a new candidate authority version and invalidates dependent evidence.
+## Input Document
+
+Use the user's paper/scenario document, such as
+`ideas/scenario-partition-merge-mission-consistency.md`, as the authority. It
+must explain the background, causal chain, scientific question, tradeoff,
+formal problem, MES scaling rule, interface, and acceptance evidence. Key
+semantics must be written in the document. 
+
+Read `references/phase-a-problem-contract.md` for the document outline before
+implementation.
 
 ## Phase A Ralph Loop
 
-Follow `../ccf-common/references/ralph-phase-contract.md` and keep one append-only
-record:
+Keep the loop visible and linear:
 
-1. Validate and version the input document; record `document_accepted` only when
-   the document contract above is complete.
-2. Implement the candidate MES, environment interface, registered configuration,
-   trace, and independent checker directly from that document.
-3. Invoke `ccf-env-code-auditor` for design-to-code L1 and the one-time
-   anchor-candidate L2. L1 failure returns to the environment implementation or,
-   when the document itself is contradicted, to a new candidate document version.
-4. If L2 is complete but `algorithmic_need` is not demonstrated, stop with
-   `no_algorithmic_contribution`; do not tune the problem or candidate MES to
-   force heuristic failure.
-5. When environment evidence passes, derive and implement the initial algorithm
-   against the exact formal target and visible interface. For `method_role:
-   proposed`, classify every decision component and reject heuristic or hidden
-   fallback mechanisms.
-6. Invoke `ccf-algorithm-code-auditor` for specification-to-code fidelity,
-   feasibility, independent reference evidence, complete candidate-MES execution,
-   and native implementation review.
-7. On failure, select the earliest failed dependency, assign one implementation
-   or design owner inside this phase, apply one smallest delta, mark dependent
-   evidence stale, and rerun the original failure plus both affected audits.
-8. If independent evidence confirms that the pre-anchor formal problem is
-   infeasible, ill-posed, informationally inconsistent, or causally incomplete,
-   preserve the failed epoch and open a new candidate document/MES epoch inside
-   Phase A. Never weaken material difficulty merely to obtain acceptance.
-9. Only after current environment L1/L2 and initial algorithm audit all pass for
-   the same authority and artifact digests, atomically set `mes_role: anchor` and
-   `status: anchor_accepted`.
+```text
+paper problem document
+  -> MES and environment implementation
+  -> environment consistency audit
+  -> initial algorithm implementation
+  -> algorithm consistency audit
+  -> focused repair of the algorithm or (when evidence requires it) the scenario
+  -> repeat the affected audit
+  -> accepted MES and its' algorithm
+```
 
-## Terminal Conditions
+1. **Understand the document.** Write down the scientific question, causal
+   chain, central tradeoff, and the exact objects that the MES must preserve.
+   Completion means another reader can explain why this is the same problem at
+   a smaller scale.
+2. **Implement the MES and environment.** Build the
+   minimal-but-complete MES and its environment code. 
+3. **Run the environment audit.** Invoke `ccf-env-code-auditor`. If code and
+   document disagree, fix the code. The audit must also show that the core tradeoff is active in the environment and easy algorithms can't solve the problem.
+   If it is not active, return to the problem document/MES and fix the
+   representation before implementing the algorithm.
+4. **Implement the initial algorithm.** After the
+   environment audit is clear,
+   implement the algorithm for this exact formal problem. 
+5. **Run the algorithm audit and repair.** Invoke
+   `ccf-algorithm-code-auditor`. Repair the algorithm
+   first up to best effort. Only when that evidence shows that the
+   problem is infeasible, or missing a causal requirement should you
+   revise the document. Under the new document version, rebuild or
+   update the affected MES/environment document and complete a fresh environment audit
+   before auditing the algorithm again. Never remove the tradeoff or relax a
+   material rule just to make the algorithm pass.
+6. **Freeze the result.** When both audits pass for the same document, MES,
+   environment, and algorithm, record the versions and mark `mes_role: anchor`.
+   This is the handoff to Phase B.
 
-- `anchor_accepted`: complete document, environment L1, one-time L2 with
-  demonstrated algorithmic need, accepted initial algorithm, current independent
-  reviews, and frozen artifact digests.
-- `no_algorithmic_contribution`: environment is valid but the predeclared L2 does
-  not demonstrate a need for the proposed algorithmic contribution.
-- `blocked`: a required input, executable path, independent checker, credible
-  repair, or acceptance criterion cannot be supplied.
-- `reframe`: the scientific question, task consequence, central tradeoff, or
-  contribution identity must change.
+Each repair round should change one focused thing, preserve the old failure
+evidence, and rerun the check that exposed the problem plus any check affected
+by the change. Use the simple record in
+`references/mes-validation-record.md`; detailed matrices stay with the
+auditors.
 
-Read `references/phase-a-problem-contract.md` when drafting or validating the
-input document. Read `references/mes-validation-record.md` when creating the persistent record.
-Phase A never starts a complexity stage and never edits an accepted anchor.
+## Handoff
+
+Return the accepted problem document, MES configuration, environment and
+algorithm entry points, audit reports, and a short repair history. If a
+required input or executable path cannot be supplied, explain the concrete
+blocker and leave the work open for correction. Do not start a Phase-B upgrade
+from this skill.

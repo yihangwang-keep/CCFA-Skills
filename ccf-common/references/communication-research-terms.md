@@ -1,69 +1,74 @@
 # Communication Research Contract Terms
 
-Use these terms across the communication environment, algorithm, audit, repair, and experiment-design skills. They describe the research object itself rather than a particular implementation technique.
+Use these terms consistently in the communication scenario, environment,
+algorithm, and audit skills. Keep the user-facing explanation simple; detailed
+audit tables belong in the audit references.
 
-## Canonical Terms
+## Core Terms
 
-- **Paper scenario:** the communication task, actors, physical/network conditions, task consequences, and abstraction boundary studied by the paper.
-- **Formal optimization problem:** the decision variables, objective, constraints, dynamics, uncertainty, information pattern, and feasibility meaning derived from the paper scenario.
-- **Parameter applicability range:** the method-independent range of physical, communication, task, load, deadline, topology, and uncertainty settings for which the formal problem and final conclusions are intended to hold.
-- **Minimum Executable Scenario (MES):** the smallest end-to-end scenario package for one accepted paper-scenario and formal-problem version. It preserves the complete task causal chain, objective, material constraints, decision coupling, information pattern, feasibility meaning, and central tradeoff, and binds them to executable entry points, registered configurations, interfaces, seeds or traces, an independent checker, and acceptance criteria. It may contain more than one registered case when those cases are necessary to activate the tradeoff. "Minimum" means causally and auditably complete, not the fewest entities or easiest instance.
-- **MES anchor and complexity ladder:** the first accepted MES is the immutable Phase-A anchor for algorithm validation. Its L2 heuristic-probe/algorithmic-need test is run once. Phase B may add method-independent scale, load, topology, uncertainty, coupling, state, information timing, constraints, or robust evaluation semantics through a versioned upgrade document and `stage_case`. It preserves the anchor as regression evidence, inherits L2, and never creates another MES.
-- **MES lineage:** accepted MES artifacts are immutable evidence. Phase-B stages point to the anchor and record inherited versus added semantics without creating a candidate, successor, or replacement MES. A Phase-B document may version its added formal objects while retaining parent invariants. A change that replaces the research identity or cannot preserve anchor regression requires a separate Phase A and evidence lineage.
-- **Task causal chain:** the path from exogenous conditions and communication decisions through network behavior to task or service consequences. A physical network event such as reconnection, contact, or successful transmission is not automatically task recovery; trace it through application state, dependencies, completion, and acknowledgement semantics.
-- **Central tradeoff:** the attributable conflict among task value, communication resources, feasibility, delay, reliability, freshness, energy, or another domain quantity that the optimization must resolve.
-- **Information pattern:** what is available at each decision time, when it becomes available, and what remains unavailable, future, or audit-only.
-- **Feasibility meaning:** the task, physical, protocol, resource, safety, or service conditions that make a decision admissible.
-- **Causal bottleneck:** the scarce resource, binding constraint, dependent event, or coupled decision through which communication affects the task outcome.
-- **Supported conclusion:** a paper conclusion whose stated applicability range is no broader than the supplied analysis, proof, execution, or experimental evidence.
-- **Conclusion applicability range:** the scenario versions, parameter range, assumptions, information pattern, and operating conditions under which a supported conclusion may be used.
-- **Environment-valid:** the paper scenario, formal problem, parameter range, frozen anchor MES, active complexity stage (when applicable), and environment implementation consistently represent the intended communication problem.
-- **Joint-ready:** an environment-valid problem also has an accepted algorithm contract, executable verification path, and sufficient evidence to proceed to paper-range experiment design.
+- **Paper scenario:** the communication task, actors, physical/network
+  conditions, task consequences, and abstraction boundary studied by the paper.
+- **Formal optimization problem:** decisions, objective, constraints, dynamics,
+  uncertainty, information pattern, and feasibility derived from the scenario.
+- **Parameter applicability range:** the method-independent settings for which
+  the problem and a conclusion are intended to hold.
+- **Minimum Executable Scenario (MES):** the paper's smallest end-to-end scale
+  that is still complete. It keeps the causal chain, central tradeoff,
+  objective, material constraints, decision coupling, information timing,
+  feasibility, executable interface, and independent checks. "Minimum" refers
+  to scale, not to an easier or different problem.
+- **MES anchor:** the accepted Phase-A MES and its initial algorithm.
+- **Task causal chain:** the path from exogenous conditions and communication
+  decisions through network behavior to a task or service outcome.
+- **Central tradeoff:** the attributable conflict among task value, resources,
+  delay, reliability, freshness, energy, or another domain quantity that the
+  optimization must resolve.
+- **Information pattern:** what is visible at each decision time, when it is
+  revealed, and what remains future or audit-only.
+- **Feasibility meaning:** the physical, protocol, resource, safety, or service
+  conditions that make a decision admissible.
+- **Causal bottleneck:** the scarce resource, binding constraint, dependent
+  event, or coupled decision through which communication changes the outcome.
+- **Environment-valid:** the current document, formal problem, interface, and
+  environment implementation agree and execute as specified.
+- **Joint-ready:** the environment is valid and the current algorithm has
+  passed its independent audit for the same document and interface.
 
-Phase A defines the candidate-MES L1/L2 contracts; Phase B defines its upgrade-document gates and anchor regression. Environment-code audit executes those contracts and owns `environment-valid`, `algorithmic_need`, stage-consistency, and interface-completeness results. Neither auditor designs or repairs. `joint-ready` additionally requires a current accepted algorithm specification and implementation audit against the same phase artifact set.
+## Authority And Repair
 
-## Environment And Algorithm Authority
+The active phase document is the authority for objectives, constraints,
+information, and task semantics. Code and algorithms must follow it. A
+document or environment change is justified only by independent evidence and a
+causal explanation; it cannot be made merely to improve an algorithm's score.
 
-The active phase owns its paper-scenario or upgrade-document semantics; the algorithm consumes that versioned environment contract. It may challenge the contract with evidence, but it must not directly change objectives, constraints, task semantics, information timing, stage cases, or the MES anchor.
+If an algorithm fails, first inspect and repair the algorithm. If evidence shows
+that the problem or environment is wrong, record a new document version, update
+the environment, and rerun the affected audits. Never remove the central
+tradeoff, weaken a material constraint, or expose future information to obtain
+acceptance.
 
-An algorithm-originated environment or mathematical-model amendment must establish:
+## Method Roles
 
-1. algorithm-code and algorithm-design repair have been exhausted for the current versions, with a repair ledger; when available, another credible solver, reference, bound, or probe reproduces the defect, or formal evidence independently establishes an infeasible/ill-posed authoritative problem, invalid environment-target evidence, information mismatch, or missing causal semantics. An unattainable algorithm-specific guarantee remains algorithm-owned;
-2. the amendment follows from the task causal chain, physical model, protocol, standard, trace, or service requirement;
-3. the task or service outcome, scientific question, task causal chain, central tradeoff, and intended contribution type are preserved; a material R1 change that preserves this research identity starts a rebaselined problem version, while a change to the identity is a reframe;
-4. no future, global, exact-solution, or audit-only information becomes algorithm-visible without a justified change to the information pattern;
-5. the amendment improves the problem definition independently of the proposed algorithm's ranking;
-6. the successor does not simplify the research problem for tractability, ranking, or acceptance by deleting or weakening a material objective term, constraint, coupling, dynamic, uncertainty, information restriction, difficult registered case, target, feasibility rule, or resource limit; exposing future/audit-only information; or replacing the authoritative objective with an algorithm surrogate. An item independently proven inconsistent with the paper scenario may be corrected or replaced only when the intended causal difficulty and central tradeoff remain intact and all dependent evidence is rebaselined.
+- **`environment_probe`:** a simple rule used to check that the MES activates
+  the bottleneck and tradeoff. It is environment evidence, not the proposed
+  method.
+- **`proposed`:** the algorithmic contribution. Its decision path must follow
+  the declared mechanism and interface, without hidden fallback rules.
+- **`baseline`:** a comparison method, evaluated under matched information,
+  feasibility, and resource conditions.
+- **`reference` / `diagnostic`:** an exact solver, oracle, bound, checker, or
+  targeted test with an explicit scope.
 
-Changing a formula or interface to enforce an already declared feasibility or information meaning is a contract correction. Changing what counts as feasible, what is available at decision time, the objective semantics, or the material feasible set is a new R1 problem version even when the research identity is preserved. A documented algorithm-repair exhaustion triggers environment review, but it does not predetermine the amendment. If no causally justified, non-simplifying correction exists, keep the environment version and report the route as blocked, unsupported, or requiring a research reframe. Neither kind of change may inherit current algorithm, baseline, or result evidence without the declared reruns.
+## Phase Vocabulary
 
-## Method Roles And Heuristics
+Phase A is: problem document -> MES/environment -> environment audit -> initial
+algorithm -> algorithm audit and repair -> frozen anchor. Phase B is: current
+scenario, implementation, and results -> upgrade scenario document -> direct
+changes to the existing environment -> environment audit -> algorithm
+modification and repair -> algorithm audit.
 
-Classify every executable decision method before using its evidence:
-
-- **`environment_probe`:** a fixed, random-feasible, greedy, domain, or tuned simple rule used to test whether the MES activates the causal bottleneck, central tradeoff, feasibility boundary, and need for optimization. It is environment evidence, not the paper's proposed algorithm.
-- **`proposed`:** the algorithmic contribution presented by the paper. Any heuristic decision mechanism in this role is a blocking failure, including a hidden fallback, manually patched branch, rule accumulation, heuristic local search, or renamed strategy. A formal wrapper or certified component elsewhere does not cure the heuristic component.
-- **`baseline`:** a comparison method. Heuristic methods are allowed when labeled, properly tuned, and run under matched information, feasibility, stopping, and resource conditions.
-- **`reference` or `diagnostic`:** an exact, oracle, bound, checker, or targeted diagnostic method whose certification scope is explicit.
-
-Environment validity and proposed-algorithm admissibility are separate decisions. A heuristic probe can validate or challenge the initial MES without passing the proposed method's no-heuristic gate. It is not rerun as an algorithmic-need gate for later complexity stages. Conversely, rejecting a proposed heuristic does not by itself invalidate the environment. The active phase owns role classification and the no-heuristic contract; the algorithm code auditor verifies it component by component; downstream evidence planning consumes the current acceptance record.
-
-Use `algorithmic_need: demonstrated | not_demonstrated | contradicted | insufficient_evidence | stale` in machine-readable records. A completed, fair L2 sweep can yield either `demonstrated` or `not_demonstrated`; completion of the evidence procedure and the scientific outcome are separate fields.
-
-- **Design-validation repair loop:** an operational loop for a failed implementation, algorithm, or accepted complexity-stage run. It preserves the failure, assigns one owner and one delta, and reruns invalidated checks; it does not design the initial problem, initial algorithm, or publication evidence.
-- **Paper-range experiment design:** downstream evidence planning after anchor algorithm acceptance. It chooses settings, baselines, metrics, ablations, robustness checks, and conclusion-bound result artifacts; it consumes accepted stage contracts and does not repair environment or algorithm semantics.
-
-Legacy `scenario MVP`, `scenario_mvp`, and `scenario_mvp_version` values may be read only as aliases for MES fields. New artifacts use `minimum_executable_scenario` and `minimum_executable_scenario_version`. If canonical and legacy values coexist and differ, report a version conflict rather than merging them.
-
-## Terminology Boundaries
-
-- Use **paper conclusion**, **supported conclusion**, **conclusion applicability range**, or **statement** instead of `claim` in runtime skills and project contracts.
-- In communication skills, `model` means a physical, mathematical, channel, traffic, mobility, queueing, protocol, or optimization model.
-- Use **objective**, **cost**, **utility**, **constraint residual**, or **feasibility signal** instead of `reward` unless the accepted algorithm is explicitly formulated with that term.
-- Use **scenario**, **trace**, **configuration**, **parameter setting**, or **operating regime** instead of training- or dataset-oriented language unless those objects are genuinely part of the user's problem.
-- Do not introduce learning, training, prediction, or generalization terminology merely because an algorithm is being designed. Use it only when the accepted formal problem and selected algorithm require it.
-- Runtime terms such as reviewer, tool, or sub-agent describe execution roles only. Do not use them as substitutes for communicating entities, decision makers, controllers, or network nodes in the paper scenario.
-
-## Evidence Wording
-
-Internal protocols may keep complete gate matrices, candidate comparisons, rejected hypotheses, reviewer disagreements, artifact manifests, and evidence ledgers. These are model-working records, not a default response template. User-visible output should lead with the requested artifact and expose only the current verdict, decisive evidence, material limitation, version change, required rerun, next owner, or user decision that affects the result. Show the full internal record only when the user explicitly requests an audit trail.
+Use **supported conclusion** and **applicability range** for paper statements.
+Use **objective**, **cost**, or **utility** instead of `reward` unless the
+accepted problem explicitly uses that term. Use **scenario**, **trace**, and
+**configuration** instead of training- or dataset-oriented language unless
+those objects genuinely belong to the problem.

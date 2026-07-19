@@ -6,7 +6,7 @@ current. This is paper-range evidence planning, not phase design or repair.
 ## Accepted Inputs
 
 Record the accepted phase record, environment and algorithm versions, frozen
-anchor, active stage when applicable, applicability range, independent
+anchor, current upgrade scenario when applicable, applicability range, independent
 reference/checker, limitations, and excluded settings. Stop an affected branch
 when these versions are stale or incompatible.
 
@@ -27,8 +27,9 @@ For each intended paper conclusion record:
 
 Give comparable methods the same information, feasibility rules, stopping
 tolerance, tuning budget, cases, seeds, and compute accounting. Preserve failures
-and exclusions. Heuristics may be baselines under a declared role; a later-stage
-baseline result never reruns or rewrites Phase-A `algorithmic_need`.
+and exclusions. Heuristics may be baselines under a declared role; later
+baseline results do not rewrite the accepted Phase-A environment or algorithm
+audit evidence.
 
 ## Minimum Convincing Package
 

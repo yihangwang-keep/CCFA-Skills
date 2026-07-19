@@ -44,12 +44,9 @@ project scaffold
   -> idea review
   -> literature monitoring / competitor tracking
   -> literature search
-  -> paper-scenario and formal-problem design
-  -> environment implementation audit
-  -> algorithm design
-  -> algorithm implementation audit
-  -> failed-MVP diagnosis and minimal repair when needed
-  -> experiment design
+  -> ccf-mes-validation: complete problem document, minimal-but-complete MES/environment, initial algorithm, audits and repair
+  -> ccf-complexity-upgrade: current code/results, upgrade scenario document, existing-environment revision, algorithm repair
+  -> post-acceptance evidence planning
   -> visual composition
   -> writing exemplar extraction (optional)
   -> venue-aware writing
@@ -63,13 +60,13 @@ project scaffold
 
 ### Versioned Design-Validation Loop
 
-Communication work has two independent phase-owned loops. Phase A accepts a complete scientific-problem document, implements and audits a candidate MES/environment, runs one L2 check, implements and audits the initial algorithm, and freezes the anchor only after all evidence passes. Phase B accepts one versioned upgrade document, implements and audits its `stage_case` environment first, then runs, modifies, and repairs the algorithm. It inherits L2, preserves anchor regression, and never creates another MES.
+Communication work has two independent phase-owned loops. Phase A accepts a complete scientific-problem document, builds and audits one minimal-but-complete MES/environment, implements and audits the initial algorithm, and freezes the anchor only after both audits pass. Phase B reads the accepted MES, current code, and results, writes an upgrade scenario document, modifies the existing environment from that document, audits it, and then modifies/repairs the algorithm. It does not create another MES or require an unchanged-algorithm baseline.
 
 ```text
 ccf-mes-validation                        [Phase A: problem document -> candidate MES/environment -> initial algorithm -> anchor]
   -> ccf-env-code-auditor / ccf-algorithm-code-auditor
-ccf-complexity-upgrade                    [Phase B: upgrade document -> stage_case environment -> algorithm modification/repair]
-  -> both independent auditors + anchor regression; no new MES and no L2 rerun
+ccf-complexity-upgrade                    [Phase B: current MES/code/results -> upgrade document -> existing environment -> algorithm repair]
+  -> both independent auditors; no new MES and no unchanged-algorithm baseline
 ```
 
 Algorithm failure does not authorize a silent change to the environment objective, constraints, task semantics, information pattern, or test settings. An accepted environment semantic change creates a new problem version, preserves the failed version as evidence, and invalidates every dependent algorithm, baseline, and result artifact. At checkpoint commits, invoke the installed `$code-review` skill against the fixed comparison point and accepted specification; CCFA reuses that skill without copying its Standards/Spec rules.
@@ -86,10 +83,10 @@ Algorithm failure does not authorize a silent change to the environment objectiv
 | Idea gate | `ccf-idea-reviewer` | Explicitly score, rank, stress-test, or triage ideas. | Scores, risks, stage-aware development potential. | Brainstorming or developing one rough idea further. |
 | Monitoring | `ccf-literature-monitor` | Track new papers, competitors, arXiv/OpenReview/venue feeds, or ask whether recent work overlaps an idea. | Monitoring report, overlap levels, RELAX/RESEARCH/FOLLOW-UP flags, handoff signals. | Deep related-work search, citation audit, or final idea scoring. |
 | Evidence | `ccf-literature-searcher` | Search related work, prior art, datasets, benchmarks, and open gaps. | Literature notes, opportunity map, evidence gaps, related-work structure. | Auditing already cited papers or treating related work as a final idea kill gate. |
-| Phase A MES validation | `ccf-mes-validation` | Turn a complete problem document into an audited candidate MES/environment and initial algorithm. | Problem contract, implementations, repair record, frozen accepted anchor. | Later complexity stages or paper-range evidence planning. |
-| Environment gate | `ccf-env-code-auditor` | Verify that environment code implements the accepted problem and runs independently. | Traceability evidence, execution evidence, `environment-valid` verdict. | Scenario redesign or algorithm performance judgment. |
-| Algorithm gate | `ccf-algorithm-code-auditor` | Verify the algorithm specification against code and independent MVP behavior. | Traceability evidence, reference comparisons, `joint-ready` verdict. | Initial algorithm selection or environment audit. |
-| Phase B complexity upgrade | `ccf-complexity-upgrade` | Implement/audit one upgrade document, then modify and repair the algorithm. | Upgrade contract, `stage_case`, environment/algorithm deltas, anchor regressions. | Creating another MES, rerunning L2, changing the anchor, paper-range evidence planning. |
+| Phase A MES validation | `ccf-mes-validation` | Turn a complete problem document into an audited minimal-but-complete MES/environment and initial algorithm. | Problem contract, implementations, repair record, frozen accepted anchor. | Post-anchor upgrades or paper-range evidence planning. |
+| Environment gate | `ccf-env-code-auditor` | Verify that environment code implements the accepted problem and runs independently. | Traceability, execution evidence, and an environment audit result. | Scenario redesign or algorithm performance judgment. |
+| Algorithm gate | `ccf-algorithm-code-auditor` | Verify the initial or upgraded algorithm against its specification, environment, and independent references. | Traceability, reference comparisons, and an algorithm audit result. | Algorithm selection, implementation, or environment audit. |
+| Phase B complexity upgrade | `ccf-complexity-upgrade` | Read current code/results, write an upgrade scenario document, modify/audit the existing environment, then modify and repair the algorithm. | Upgrade document, environment/algorithm deltas, audit and repair evidence. | Redesigning the MES, an unchanged-algorithm baseline, or paper-range evidence planning. |
 | Visuals | `ccf-visual-composer` | Compose publication-grade figures/tables, Python plotting code, palettes, captions, panel maps, and manuscript integration from supplied results. | Visual contract, plot recipe/code, panel/table map, palette, LaTeX placement, caption plan, render QA ledger. | Designing experiments, inventing results, writing prose as the main task, final submission compliance. |
 | Exemplar | `ccf-paper-to-exemplar` | Convert user-provided paper PDFs into reusable writing exemplar cards. | Exemplar cards, writing patterns, venue tags, writer index updates. | Writing papers or performing review. |
 | Manuscript | `ccf-paper-writer` | Draft, revise, polish, compress, create venue- and length-aware LaTeX, make presentations. | Manuscript text, format-preserving edits, compressed text, page budget, slides/poster/talk. | Full review, integrity audit, submission check, rebuttal. |
@@ -111,7 +108,7 @@ Algorithm failure does not authorize a silent change to the environment objectiv
 | Monitor new papers, competitors, or recent similar ideas | `ccf-literature-monitor` | `ccf-literature-searcher` |
 | Find new papers, datasets, benchmarks, or open gaps | `ccf-literature-searcher` | `ccf-integrity-auditor` |
 | Implement and accept the initial problem/MES/environment/algorithm from a complete document | `ccf-mes-validation` | `ccf-complexity-upgrade` |
-| Implement a post-anchor upgrade document and modify/repair the algorithm | `ccf-complexity-upgrade` | `ccf-mes-validation` |
+| Turn a post-anchor upgrade request into a scenario document, then modify/audit the existing environment and algorithm | `ccf-complexity-upgrade` | `ccf-mes-validation` |
 | Plan baselines, metrics, ablations, robustness, and result evidence after acceptance | `ccf-pipeline-orchestrator` | `ccf-visual-composer` |
 | Verify already cited papers | `ccf-integrity-auditor` | `ccf-literature-searcher` |
 | Convert a PDF into a writing exemplar | `ccf-paper-to-exemplar` | `ccf-paper-writer` |

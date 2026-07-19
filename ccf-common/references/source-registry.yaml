@@ -807,7 +807,7 @@ sources:
     recorded_at: 2026-07-17
     verified_at: 2026-07-17
     stale_after_days: 365
-    notes: Host-loop reference for repeating one fixed instruction, preserving file-backed progress, and stopping on an explicit marker. CCFA supplies separate domain ownership, evidence, versioning, review, and terminal-status rules; this is not a scientific evidence source.
+    notes: Host-loop reference for repeating one fixed instruction and preserving file-backed progress. CCFA supplies separate domain ownership, evidence, versioning, review, and completion/repair rules; this is not a scientific evidence source.
   - id: gopen-swan-scientific-writing
     title: The Science of Scientific Writing
     url: https://www.cs.tufts.edu/comp/150FP/archive/george-gopen/sci.html

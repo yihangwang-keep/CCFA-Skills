@@ -7,14 +7,14 @@ owners, not every internal design or repair role.
 
 ```text
 scaffold -> plan -> idea -> literature
-  -> Phase A: complete problem document -> candidate MES/environment
-       -> independent environment audit + one-time L2
-       -> initial algorithm -> independent algorithm audit
+  -> Phase A: complete problem document -> minimal-but-complete MES/environment
+       -> independent environment audit and tradeoff sanity check
+       -> initial algorithm -> independent algorithm audit/repair
        -> frozen accepted anchor
-  -> Phase B: one upgrade document -> stage_case environment
-       -> independent stage audit + anchor regression; inherited L2
-       -> run/modify/repair algorithm -> independent algorithm audit
-       -> accepted stage or explicit failure
+  -> Phase B: accepted MES + current code/results -> upgrade scenario document
+       -> direct existing-environment modification -> independent environment audit
+       -> algorithm modification/repair -> independent algorithm audit
+       -> accepted upgrade
   -> evidence plan -> visuals -> manuscript -> review -> integrity
   -> submission -> rebuttal
 ```
@@ -23,8 +23,8 @@ scaffold -> plan -> idea -> literature
 
 | Object | Owner | Independent checker |
 | --- | --- | --- |
-| Initial scientific-problem document, candidate MES/environment, initial algorithm, pre-anchor repair, anchor freeze | `ccf-mes-validation` | `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` |
-| Versioned complexity-upgrade document, `stage_case` environment, algorithm modification/repair, anchor regressions | `ccf-complexity-upgrade` | `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` |
+| Initial scientific-problem document, minimal-but-complete MES/environment, initial algorithm, pre-anchor repair, anchor freeze | `ccf-mes-validation` | `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` |
+| Upgrade scenario document from current code/results, direct environment modification/audit, algorithm modification/repair | `ccf-complexity-upgrade` | `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` |
 | Paper-range conclusion-evidence plan after acceptance | `ccf-pipeline-orchestrator` evidence-plan mode | `ccf-integrity-auditor` later checks supplied results/conclusions |
 | Publication figures/tables from supplied real values | `ccf-visual-composer` | `ccf-integrity-auditor` checks numeric/text consistency |
 
@@ -36,32 +36,33 @@ artifact set.
 ## Phase Rules
 
 Phase A accepts a complete document only when it specifies the causal problem,
-formal model, applicability range, candidate-MES derivation, information
-boundary, executable configuration, independent checks, L1/L2 criteria, and
-initial-algorithm target. The candidate becomes an anchor only after both
-environment and initial-algorithm evidence pass.
+formal model, applicability range, minimal-but-complete MES derivation,
+information boundary, executable configuration, independent checks, and
+initial-algorithm target. The MES becomes an anchor only after both environment
+and initial-algorithm evidence pass.
 
-Phase B begins from that immutable anchor and an accepted algorithm. Its upgrade
-document may add scale, topology, uncertainty, coupling, state, information
-timing, constraints, or robust evaluation semantics. It uses a `stage_case`, not
-another MES. Environment implementation/audit happens before algorithm changes;
-every algorithm candidate reruns the stage and anchor regression.
+Phase B begins from that accepted MES, its current implementation, and existing
+results. Its upgrade document may add scale, topology, uncertainty, coupling,
+state, information timing, constraints, or robust evaluation semantics. It
+directly modifies and audits the existing environment before changing the
+algorithm. It does not require an unchanged-algorithm baseline; run a MES
+compatibility regression only when shared code or the interface could affect
+the frozen anchor.
 
 ## Ralph Repair
 
-Each phase keeps one append-only record. A round selects the earliest failed or
-stale dependency, assigns one phase-owned implementation or design owner, applies
-one smallest delta, preserves the old failure/artifact set, invalidates dependent
-checks, and requests fresh independent audits. Command success or a loop limit is
-never scientific acceptance.
+Each phase keeps one append-only record. A round starts from concrete failure
+evidence, makes one focused document/environment/algorithm change, preserves the
+old result, and reruns the failed and affected checks with fresh independent
+audits. Command success or a loop limit is never scientific acceptance.
 
 ## Artifact State
 
 `ccfa.yaml` is a routing spine. Scenario-driven projects use:
 
 ```text
-phase-a/             Phase-A document, candidate epochs, MES/algorithm versions, rounds, anchor terminal evidence
-phase-b/             upgrade documents, stage_case versions, environment/algorithm deltas, regressions, rounds
+phase-a/             Phase-A document, MES/algorithm versions, rounds, anchor evidence
+phase-b/             upgrade documents, existing-environment/algorithm deltas, audits, rounds
 environment-audit/   independent document-to-environment-code evidence
 algorithm-audit/     independent specification-to-algorithm-code evidence
 experiments/plan.*   post-acceptance conclusion-evidence plan

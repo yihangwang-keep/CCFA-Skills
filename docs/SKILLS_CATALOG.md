@@ -15,10 +15,10 @@ authoritative when another document conflicts with a runtime skill.
 | `ccf-idea-reviewer` | Score, compare, rank, and triage ideas when judgment is explicit. | Does not brainstorm or optimize a single idea as the main task. |
 | `ccf-literature-monitor` | Track recent papers, venues, labs, competitors, and novelty threats. | Does not replace deep literature search. |
 | `ccf-literature-searcher` | Search prior art, formulations, settings, baselines, and opportunities. | Does not audit only existing citations. |
-| `ccf-mes-validation` | Phase A: complete problem document -> candidate MES/environment -> initial algorithm -> frozen anchor, including repair. | No later complexity stage or paper-range evidence plan. |
-| `ccf-complexity-upgrade` | Phase B: upgrade document -> stage environment/audit -> algorithm modification/audit/repair. | No new MES, L2 rerun, or anchor mutation. |
-| `ccf-env-code-auditor` | Independently audit Phase-A/Phase-B environment code, L1/L2 or stage consistency, information timing, and anchor regression. | Does not design, implement, repair, or judge algorithms. |
-| `ccf-algorithm-code-auditor` | Independently audit initial/upgraded algorithm code, role, semantics, reference evidence, and anchor/stage behavior. | Does not design, implement, or repair. |
+| `ccf-mes-validation` | Phase A: complete problem document -> minimal-but-complete MES/environment -> initial algorithm -> audit/repair -> frozen anchor. | No post-anchor upgrade or paper-range evidence plan. |
+| `ccf-complexity-upgrade` | Phase B: current MES/code/results -> upgrade scenario document -> existing-environment edit/audit -> algorithm modification/audit/repair. | No new MES or unchanged-algorithm baseline. |
+| `ccf-env-code-auditor` | Independently audit Phase-A/Phase-B environment code, information timing, feasibility, independent execution, and tradeoff/upgrade consistency. | Does not design, implement, repair, or judge algorithms. |
+| `ccf-algorithm-code-auditor` | Independently audit initial/upgraded algorithm code, role, semantics, reference evidence, and current-scenario behavior. | Does not design, implement, or repair. |
 | `ccf-visual-composer` | Compose and QA publication figures/tables, plots, palettes, captions, and manuscript integration from supplied results. | Does not design experiments or invent values. |
 | `ccf-paper-to-exemplar` | Convert supplied PDFs into reusable writing exemplar cards. | Does not draft or review papers. |
 | `ccf-paper-writer` | Draft, revise, polish, compress, and presentation-adapt manuscript text. | Does not perform full review, evidence audit, submission check, or rebuttal. |
@@ -34,24 +34,24 @@ authoritative when another document conflicts with a runtime skill.
 ```text
 Phase A: ccf-mes-validation
   complete scientific-problem document
-    -> candidate MES/environment implementation
-    -> ccf-env-code-auditor: L1 + one-time L2
+    -> minimal-but-complete MES/environment implementation
+    -> environment consistency audit and tradeoff sanity check
     -> initial algorithm implementation
-    -> ccf-algorithm-code-auditor
+    -> algorithm audit and focused repair
     -> freeze accepted anchor
 
 Phase B: ccf-complexity-upgrade
-  frozen anchor + accepted algorithm + one upgrade document
-    -> stage_case environment implementation
-    -> ccf-env-code-auditor: stage checks + anchor regression; no L2
-    -> run then modify/repair algorithm
-    -> ccf-algorithm-code-auditor: stage + anchor regression
-    -> stage accepted or explicit failure
+  accepted MES + current code/results
+    -> write upgrade scenario document
+    -> modify existing environment and run consistency audit
+    -> modify algorithm mechanism
+    -> algorithm audit and focused repair
+    -> accepted upgrade or concrete blocker
 ```
 
 Phase B may add uncertainty, state, topology, load, information timing,
-constraints, coupling, or robust evaluation semantics. Its fixed implementation
-case is a `stage_case`, never another MES, MVP, anchor, or successor.
+constraints, coupling, or robust evaluation semantics. The upgrade is a direct
+extension of the existing environment; it is never another MES.
 
 ## Merged Runtime Entries
 
@@ -59,7 +59,7 @@ case is a `stage_case`, never another MES, MVP, anchor, or successor.
 | --- | --- |
 | `ccf-env-design` | Phase A initial problem/MES contract; Phase B upgrade document |
 | `ccf-algorithm-designer` | Phase A initial algorithm; Phase B algorithm modification/repair |
-| `ccf-experiment-debugger` | Active phase Ralph rounds |
+| `ccf-experiment-debugger` | Phase-owned focused repair notes and reruns |
 | `ccf-experiment-designer` | Pipeline evidence plan, writer prose, visual composer figures/tables, integrity audit |
 | `ccf-workflow-planner` | `ccf-pipeline-orchestrator` |
 | `ccf-paper-compressor`, `ccf-paper-presenter` | `ccf-paper-writer` |

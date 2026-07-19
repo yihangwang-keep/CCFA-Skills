@@ -9,4 +9,4 @@
 | 早期研究 | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-mes-validation`, `ccf-complexity-upgrade`, `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` | idea、文献、问题/MES/算法验收、复杂度升级和证据计划。 |
 | 图表与正文 | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-visual-composer`, `ccf-paper-writer`, `ccf-integrity-auditor`, `ccf-submission-checker` | 证据计划、真实结果图表、正文、一致性和投稿检查。 |
 
-Phase A 包含初始问题/MES/环境与算法的设计、实现和修复。Phase B 包含升级文档、`stage_case` 环境、算法修改和修复；Phase B 不再创建 MES，也不重跑 Phase-A L2。
+Phase A 包含初始问题文档、最小但完整的 MES/环境、初始算法、审计和修复。Phase B 读取已接受的 MES、现有代码和结果，写升级场景文档，直接修改并审计现有环境，再修改和修复算法；Phase B 不再创建 MES，也不要求先运行未经修改的原算法基线。

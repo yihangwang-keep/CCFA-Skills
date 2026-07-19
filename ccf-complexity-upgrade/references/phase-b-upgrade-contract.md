@@ -1,64 +1,63 @@
-# Phase-B Complexity-Upgrade Contract
+# Phase-B Upgrade Scenario Document
 
-Use this structure for a user-approved stage design document after Phase A is
-accepted. The document may add formal complexity, but it does not define another
-MES. Replace legacy `MVP`, `MSE`, `candidate MES`, or `successor MES` names for the
-stage's fixed implementation case with `stage_case`.
+Write this document after reading the current scenario, environment,
+algorithm, and available results. It is the authority for the direct
+environment modification in Phase B.
 
-## 1. Authority And Parent Freeze
+## 1. Authority And Starting Point
 
-- upgrade document ID/version/status and `stage_request_id`;
-- parent Phase-A record, frozen anchor and base-algorithm digests;
-- parent files, configurations, reports, conclusions, and regressions that remain
-  immutable;
-- environment-ready, audit-ready, algorithm-ready, and conclusion-ready verdicts
-  as separate fields.
+- document name, version, status, and upgrade request;
+- current scenario document, environment, algorithm, and result references;
+- the current scenario version and implementation used as the starting point;
+- the current implementation limitation that motivates the upgrade.
 
 ## 2. Scientific Upgrade
 
-- parent limitation or complexity gap;
-- upgraded scientific question and causal chain;
-- exact method-independent delta and causal/domain justification;
-- inherited, added, removed, and forbidden semantics table;
-- reason the upgrade remains in the same research lineage and preserves anchor
-  regression.
+- parent question and causal chain;
+- exact complexity added and why it matters to the domain;
+- the same question and central tradeoff under the harder conditions;
+- a short argument that the research identity is unchanged.
 
-## 3. Added Formal Objects
+## 3. Inherited And Added Semantics
 
-- added state, exogenous process, dynamics, uncertainty, observation/reveal
-  timing, decisions, constraints, feasibility, objective, and aggregation;
-- invariants inherited unchanged from Phase A;
-- information pattern, nonanticipativity/causality requirements when applicable,
-  and prohibited future/oracle leakage;
-- conditions under which the stage is unsupported or becomes a research reframe.
+List what is inherited unchanged and what is added. Cover state, exogenous
+processes, dynamics, uncertainty, observations, reveal timing, decisions,
+constraints, objectives, aggregation, and feasibility. State every forbidden
+shortcut, including future or audit-only information leakage and hidden action
+repair.
 
-## 4. Stage Case And Interface
+## 4. Environment Interface And Cases
 
-- `stage_case_id`, fixed configuration, supported range, and out-of-range
-  diagnostics;
 - algorithm-visible observations/actions and audit-only fields;
-- trace schema, independent replay/checkers, reference/oracle scope, leakage tests,
-  and reproducibility requirements;
-- explicit statement that the stage case is not an MES, anchor, or successor.
+- transition and trace schema;
+- parameter range and one or more reproducible configurations;
+- independent replay, objective/constraint accounting, reference paths, and
+  no-leakage checks.
 
-## 5. Environment Implementation And Gates
+## 5. Environment Change And Audit Plan
 
-- implementation deliverables and exact files/interfaces allowed to change;
-- algorithm-file freeze until the environment passes;
-- document-to-code, physical/causal generation, information timing, constraint,
-  action-effectiveness, independent replay, stage-feasibility, active-coupling,
-  reproducibility, and coverage gates;
-- complete Phase-A anchor regression and inherited L2 pointer.
+- exact environment files/interfaces to change;
+- expected physical, causal, information, feasibility, and objective effects;
+- checks that show the added complexity is active and the inherited semantics
+  still hold;
+- how a document correction will be recorded in a later version of this same
+  document.
 
-## 6. Algorithm Modification And Repair
+For uncertainty or partial information, include reveal timing,
+nonanticipativity, and rolling recourse rules. Explain how traces expose the
+failure that the algorithm must repair.
 
-- unchanged base-algorithm run recorded before modification;
-- stage-specific algorithm target, mechanism gap, permitted implementation or
-  design changes, reference/bound, resource limits, and acceptance criteria;
-- stage and anchor algorithm regression after every candidate delta;
-- terminal classification: `stage_accepted`, `algorithm_failed`,
-  `upgrade_unsupported`, `blocked`, or `reframe`.
+## 6. Algorithm Repair Plan
 
-Environment acceptance must precede algorithm modification. A failed algorithm
-does not authorize changing the stage case, information boundary, target,
-tolerance, resource budget, or frozen anchor.
+- current algorithm mechanism and the failure exposed by the added complexity;
+- mechanism or implementation to change;
+- reference/oracle/bound, resource limits, and acceptance criteria;
+- tests for the upgraded scenario and the affected checks to repeat after each
+  algorithm change.
+
+## 7. Evidence And Handoff
+
+List the environment-audit result, algorithm-audit result, changed versions,
+rerun evidence, remaining limitations, and the exact supported conclusion that
+the upgrade can justify. Keep unknown results as `TBD`; do not write a success
+statement before execution.

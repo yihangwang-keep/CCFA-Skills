@@ -10,7 +10,9 @@ four runtime entries: Phase A, Phase B, and two independent code auditors.
 | Early research | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-idea-optimizer`, `ccf-idea-reviewer`, `ccf-literature-monitor`, `ccf-literature-searcher`, `ccf-mes-validation`, `ccf-complexity-upgrade`, `ccf-env-code-auditor`, `ccf-algorithm-code-auditor` | Idea, literature, problem/MES/algorithm acceptance, upgrade, and evidence planning. |
 | Visual/manuscript | `ccf-common`, `ccf-pipeline-orchestrator`, `ccf-visual-composer`, `ccf-paper-writer`, `ccf-integrity-auditor`, `ccf-submission-checker` | Evidence plan, supplied-result visuals, manuscript, consistency, and submission checks. |
 
-Phase A includes the initial problem/MES/environment and algorithm design,
-implementation, and repair. Phase B includes the upgrade document, `stage_case`
-environment, algorithm modification, and repair. Phase B never creates another
-MES or reruns the Phase-A L2 decision.
+Phase A includes the initial problem document, minimal-but-complete
+MES/environment, initial algorithm, audits, and repair. Phase B reads the
+accepted MES and current code/results, writes an upgrade scenario document,
+modifies and audits the existing environment, then modifies and repairs the
+algorithm. Phase B never creates another MES or requires an unchanged-algorithm
+baseline run.

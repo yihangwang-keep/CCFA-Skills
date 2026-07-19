@@ -1,19 +1,23 @@
 # CCFA Native Implementation Review Protocol
 
-Use this protocol from ccf-env-code-auditor or
-ccf-algorithm-code-auditor whenever an executable audit, repair
-verification, debugger-round closure, or terminal acceptance requires an
-implementation review. It defines the review mechanism only. The environment
-and algorithm audit protocols remain authoritative for their respective
-research semantics.
+Use this protocol from `ccf-env-code-auditor` whenever an executable
+environment audit, repair verification, debugger-round closure, or terminal
+acceptance requires an implementation review. It defines the review mechanism
+only. The environment audit protocol remains authoritative for the research
+semantics.
+
+Readers only need the simple rule: two independent reviewers read the same
+version, the phase owner fixes findings, and every change gets a fresh review.
+The manifest, digest, and reviewer-status fields below are internal evidence;
+they are not additional Phase-A or Phase-B transition states.
 
 ## Purpose And Boundaries
 
 The auditor is the review coordinator and owns the final domain verdict. It
 starts two independent, fresh, read-only reviewers in parallel:
 
-1. domain-contract-fidelity: checks the environment or algorithm contract
-   supplied by the invoking auditor;
+1. domain-contract-fidelity: checks the environment contract supplied by the
+   invoking auditor;
 2. implementation-assurance: checks whether the implementation and its
    evidence can be trusted, reproduced, and maintained.
 
@@ -83,12 +87,13 @@ dependencies, alter seeds, relax criteria, or delete a failing case.
 
 ### Domain-contract reviewer
 
-Use the exact versioned domain profile supplied by the invoking environment or
-algorithm auditor. The shared protocol does not copy those domain gates or own
-their scientific decisions. Record `domain_profile_ref` in the frozen bundle,
-apply every required gate in that profile, and report contradictions without
-redesigning the environment or algorithm. The environment profile serves L1;
-the environment auditor separately owns L2 execution and `algorithmic_need`.
+Use the exact versioned domain profile supplied by the invoking environment
+auditor. The shared protocol does not copy those domain gates or own their
+scientific decisions. Record `domain_profile_ref` in the frozen bundle, apply
+every required gate in that profile, and report contradictions without
+redesigning the environment. The environment profile covers
+environment consistency and the scientific-problem/tradeoff probe checks; the
+responsible owner records any additional sanity evidence separately.
 
 ### Implementation-assurance reviewer
 
@@ -212,7 +217,7 @@ The coordinator stores the complete record internally:
 ~~~yaml
 review_id:
 purpose: executable_audit | repair_verification | round_closure | terminal_acceptance
-audit_kind: environment | algorithm
+audit_kind: environment
 input_artifact_set_id:
 candidate_artifact_set_id:
 coordinator_id:

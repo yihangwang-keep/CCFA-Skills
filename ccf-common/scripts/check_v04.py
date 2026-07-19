@@ -83,24 +83,20 @@ FORBIDDEN_COMMUNICATION_DEFAULTS = {
 REQUIRED_CORE_GATES = {
     "ccf-env-code-auditor/SKILL.md": (
         "Authority gate",
-        "Design-contract gate",
+        "Scientific-problem gate",
         "Traceability gate",
-        "Semantic-correctness gate",
-        "Independent-execution gate",
-        "Optimization-fidelity gate",
-        "Layer-2 tradeoff-resistance gate",
+        "Scientific-problem fidelity gate",
+        "Tradeoff-evidence gate",
         "Acceptance gate",
     ),
     "ccf-algorithm-code-auditor/SKILL.md": (
-        "Authority gate",
-        "Environment-contract gate",
-        "Design-contract gate",
-        "Traceability gate",
-        "Semantic-correctness gate",
-        "Proposed-method eligibility gate",
-        "Reference gate",
-        "Independent-MES gate",
-        "Acceptance gate",
+        "Input check",
+        "Interface check",
+        "Traceability check",
+        "Semantic check",
+        "Method-path check",
+        "Execution-flow check",
+        "Result check",
     ),
 }
 
@@ -254,10 +250,7 @@ def check_design_validation_contract(errors: list[str]) -> None:
             fail(errors, f"missing shared protocol: {rel}")
 
     review_ref = "../ccf-common/references/implementation-review-protocol.md"
-    for rel in (
-        "ccf-env-code-auditor/SKILL.md",
-        "ccf-algorithm-code-auditor/SKILL.md",
-    ):
+    for rel in ("ccf-env-code-auditor/SKILL.md",):
         if review_ref not in read(ROOT / rel):
             fail(errors, f"{rel}: missing CCFA-native implementation-review reference")
 
@@ -285,44 +278,47 @@ def check_design_validation_contract(errors: list[str]) -> None:
     phase_contract_tokens = {
         "ccf-mes-validation/SKILL.md": (
             "Phase A",
-            "Accepted Input Document",
+            "What MES means",
+            "minimal but complete",
             "mes_role: anchor",
-            "anchor_accepted",
             "ccf-env-code-auditor",
             "ccf-algorithm-code-auditor",
         ),
         "ccf-complexity-upgrade/SKILL.md": (
             "Phase B",
-            "Accepted Upgrade Document",
-            "stage_case",
-            "anchor regression",
-            "never creates another MES",
+            "First Write An Upgrade Scenario Document",
+            "modify the existing environment",
+            "current scenario implementation",
+            "same upgrade document",
+            "ccf-env-code-auditor",
+            "ccf-algorithm-code-auditor",
         ),
         "ccf-env-code-auditor/SKILL.md": (
-            "complexity-stage-audit",
-            "do not recompute `algorithmic_need`",
-            "do not rerun the sweep",
+            "tradeoff-probe",
+            "Scientific-problem fidelity gate",
+            "seeded random actions",
         ),
         "ccf-common/references/ralph-phase-contract.md": (
-            "one smallest delta",
-            "mes_validation",
-            "complexity_upgrade",
-            "creating another MES",
-            "freezing the anchor before algorithm acceptance",
+            "one focused change",
+            "Phase A",
+            "Phase B",
+            "same upgrade document",
+            "freeze the accepted MES",
         ),
         "ccf-mes-validation/references/mes-validation-record.md": (
-            "status: active | document_accepted",
-            "scope: anchor_candidate_only",
+            "phase: A",
+            "status: in_progress | accepted | blocked",
+            "minimum_executable_scenario_version",
             "mes_role: candidate | anchor",
-            "terminal_evidence",
+            "environment_audit",
         ),
         "ccf-complexity-upgrade/references/complexity-upgrade-record.md": (
-            "status: active | document_accepted",
-            "anchor_mes_version",
-            "stage_case_id",
-            "environment_consistency",
-            "anchor_regression",
-            "terminal_evidence",
+            "phase: B",
+            "status: in_progress | accepted | blocked",
+            "scenario_version",
+            "upgrade_document",
+            "environment_audit",
+            "algorithm_audit",
         ),
     }
     for rel, tokens in phase_contract_tokens.items():
@@ -341,6 +337,11 @@ def check_design_validation_contract(errors: list[str]) -> None:
     for token in ("evidence-plan", "research reframe", "TBD", "ccf-visual-composer"):
         if token not in pipeline_text:
             fail(errors, f"ccf-pipeline-orchestrator/SKILL.md missing evolution token: {token}")
+
+    pipeline_prompt = read(ROOT / "ccf-pipeline-orchestrator" / "agents" / "openai.yaml")
+    for token in ("current code/results", "upgrade scenario document", "direct environment revision/audit"):
+        if token not in pipeline_prompt:
+            fail(errors, f"ccf-pipeline-orchestrator/agents/openai.yaml missing Phase-B token: {token}")
 
     phase_paths = (
         ROOT / "ccf-common" / "references" / "ralph-phase-contract.md",
