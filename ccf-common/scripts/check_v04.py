@@ -82,9 +82,7 @@ FORBIDDEN_COMMUNICATION_DEFAULTS = {
 
 REQUIRED_CORE_GATES = {
     "ccf-env-code-auditor/SKILL.md": (
-        "Authority gate",
         "Scientific-problem gate",
-        "Traceability gate",
         "Scientific-problem fidelity gate",
         "Tradeoff-evidence gate",
         "Acceptance gate",
@@ -313,12 +311,11 @@ def check_design_validation_contract(errors: list[str]) -> None:
             "environment_audit",
         ),
         "ccf-complexity-upgrade/references/complexity-upgrade-record.md": (
-            "phase: B",
-            "status: in_progress | accepted | blocked",
+            "parent:",
             "scenario_version",
             "upgrade_document",
-            "environment_audit",
-            "algorithm_audit",
+            "failures:",
+            "audit: environment | algorithm",
         ),
     }
     for rel, tokens in phase_contract_tokens.items():

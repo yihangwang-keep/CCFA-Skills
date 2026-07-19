@@ -81,16 +81,15 @@ accepted scenario + current code/results
 5. **Audit and repair.** Invoke `ccf-algorithm-code-auditor`. If the finding is
    algorithmic, make algorithm fixes and solve this problem correctly to the best effort.
    In the end if independent evidence shows that the added problem itself is infeasible, revise the added semantics in then upgrade document and re-design the existing environment but needn't to use easy algorithmes to verify the scenario again. 
-   Record each failure and its evidence simply in order to complete the repair process.
+   Record each failure reason briefly.
 6. **Finish the upgrade.** When the upgraded environment and algorithm both
    pass their audits for the current document, record the versions and the
    evidence. If the proposed addition no longer represents the same research
    question, stop and ask whether it should be handled as a separate scenario
    rather than silently treating it as this upgrade.
 
-Use record fields `in_progress`, `accepted`, and `blocked`.
-Describe every failure in the round notes: what was found, what changed, what
-was rerun, and whether the work can continue.
+When a check fails, add one short failure note with the audit scope and reason.
+Do not maintain a workflow state machine for these notes.
 
 Read `references/phase-b-upgrade-contract.md` when writing the document and
 `references/complexity-upgrade-record.md` when recording the loop.
@@ -99,5 +98,5 @@ Read `references/phase-b-upgrade-contract.md` when writing the document and
 
 Return the upgrade scenario document, the modified environment and checker
 entry points, the environment audit, the modified algorithm and algorithm
-audit, and the focused repair history. Publication-range experiment planning
+audit, and any short failure reasons. Publication-range experiment planning
 starts later in `ccf-pipeline-orchestrator`.

@@ -4,7 +4,6 @@ Keep one readable, append-only record for the upgrade. It describes the work
 in order; it does not encode a large phase state machine.
 
 ```yaml
-status: in_progress | accepted | blocked
 parent:
   scenario_document:
   scenario_version:
@@ -17,31 +16,17 @@ upgrade_document:
 environment:
   version:
   changed_files: []
-environment_audit:
-  status: pending | pass | needs_repair
-  report_ref:
-  reviewed_upgrade_document_version:
-  reviewed_environment_version:
 algorithm:
   version:
   changed_files: []
-algorithm_audit:
-  status: pending | pass | needs_repair
-  report_ref:
-  reviewed_upgrade_document_version:
-  reviewed_environment_version:
-  reviewed_algorithm_version:
-rounds:
-  - finding:
-    owner: environment | algorithm
-    changed:
-    rerun:
-    result:
+failures:
+  - audit: environment | algorithm
+    location:
+    reason:
 notes: []
 ```
 
-Keep the parent scenario version as the starting-point reference. If the
-research question itself changes, record the reason and start a separate
-scenario document instead of mutating this record. Mark the upgrade `accepted`
-only when both audit reports reference the current upgrade document,
-environment, and algorithm versions.
+Keep the parent scenario version as the starting-point reference. For a failed
+environment or algorithm check, record only its location and reason in
+`failures`. If the research question itself changes, record the reason and start
+a separate scenario document instead of mutating this record.

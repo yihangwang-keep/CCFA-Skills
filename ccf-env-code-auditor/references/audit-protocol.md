@@ -65,14 +65,10 @@ For every material finding record:
 
 ```yaml
 finding:
+  audit: environment
   location: path:line
-  observed:
-  expected:
-  consequence:
-  repair_owner: document | environment
-  rerun:
+  reason:
 ```
 
-Return findings without editing. The responsible owner decides whether to
-change the document or code, keeps the old evidence, and requests this audit
-again.
+Return the reason without editing. The responsible owner handles any repair and
+requests this audit again when needed.

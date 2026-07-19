@@ -50,17 +50,13 @@ and resource limits. Record feasibility, objective values,
 correctness/convergence indicators, execution trace, numerical behavior,
 runtime/space, and reproducibility.
 
-## 5. Findings And Rechecks
+## 5. Findings And Handoff
 
 ```yaml
 finding:
+  audit: algorithm
   location: path:line
-  observed:
-  expected:
-  consequence:
-  required_recheck:
+  reason:
 ```
 
-The auditor reports findings only. Return every finding to the invoking phase
-owner. That owner makes a focused repair, keeps the previous check evidence,
-and requests the original failed check plus all affected checks again.
+The auditor reports the reason only and returns it to the invoking phase owner.
