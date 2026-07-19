@@ -41,19 +41,15 @@ The audit uses one common contract for every scenario.
 
 ## Ordered Audit Gates
 
-1. **Scientific-problem gate:** confirm the background, causal chain,
-   scientific question, core difficulty, tradeoff, formal problem,
-   applicability range, and information contract are complete in the code.
-2. **Scientific-problem fidelity gate:** check whether the environment code
-   represents the documented scientific question and core problem, preserves
-   the relevant objective/constraint tension, and does not erase the intended
-   tradeoff through hidden information, clipping, projection, or repair.
-3. **Tradeoff-evidence gate:** use small, predeclared probes based on simple
-   heuristics, parameter sweeps, or seeded random actions. The probes should
-   show that generic choices do not trivially achieve both competing goals and
-   that the environment makes the documented tradeoff observable.
-4. **Acceptance gate:** return `pass`, `conditional`, or `fail`, with decisive
-   evidence and the next owner.
+1. **Scientific-problem check:** the  scientific-problem    
+   itself can be reflected in the document. If the document is not scientific and cannot be implemented, report a document/design-contract finding.
+2. **Document-to-code check:** map the scientific question, causal chain,
+   objectives, constraints, information contract, and feasibility semantics to
+   the environment code.
+3. **Tradeoff check:** use heuristics, parameter sweeps,
+   or seeded random actions to show that the documented competing goals remain
+   observable in the environment.
+
 
 ## Review And Handoff
 
@@ -62,9 +58,7 @@ This skill is the environment audit step used by `ccf-mes-validation` and
 skill audits it, and the phase owner repairs any finding. Do not repair findings
 in this skill.
 
-If the scientific-problem document contradicts itself, or cannot be
-implemented consistently with the environment contract, report a
-document/design-contract finding. Do not silently reinterpret or repair the
+Do not silently reinterpret or repair the
 document as part of this audit.
 
 Return a short report first:

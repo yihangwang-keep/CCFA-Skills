@@ -82,19 +82,14 @@ FORBIDDEN_COMMUNICATION_DEFAULTS = {
 
 REQUIRED_CORE_GATES = {
     "ccf-env-code-auditor/SKILL.md": (
-        "Scientific-problem gate",
-        "Scientific-problem fidelity gate",
-        "Tradeoff-evidence gate",
-        "Acceptance gate",
+        "Document-to-code check",
+        "Interface check",
+        "Tradeoff check",
     ),
     "ccf-algorithm-code-auditor/SKILL.md": (
-        "Input check",
-        "Interface check",
-        "Traceability check",
+        "Formula-to-code check",
         "Semantic check",
-        "Method-path check",
         "Execution-flow check",
-        "Result check",
     ),
 }
 
@@ -268,7 +263,9 @@ def check_design_validation_contract(errors: list[str]) -> None:
         ),
         "ccf-env-code-auditor/SKILL.md": (
             "tradeoff-probe",
-            "Scientific-problem fidelity gate",
+            "Document-to-code check",
+            "Interface check",
+            "Tradeoff check",
             "seeded random actions",
         ),
         "ccf-common/references/ralph-phase-contract.md": (

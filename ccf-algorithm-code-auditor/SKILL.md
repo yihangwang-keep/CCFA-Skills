@@ -36,25 +36,9 @@ reinterpret them or use audit-only/future information.
 
 ## Ordered Checks
 
-1. **Input check:** identify the invoking phase owner, formal algorithm
-   specification, declared interfaces, code, configuration, seeds, execution
-   evidence, and acceptance criteria.
-2. **Interface check:** confirm inputs, outputs, action domains,
-   feasibility signals, information timing, and audit-only separation.
-3. **Traceability check:** map initialization, preprocessing, decisions, every
-   update/search step, feasibility handling, recovery, objective evaluation,
-   termination, extraction, randomness, and metrics.
-4. **Semantic check:** check equations, signs, units,
-   indices, masks, update order, residuals, stopping rules, and recovered
-   decisions.
-5. **Method-path check:** a proposed method must use its declared
-   mechanism. Hidden heuristic fallback, clipping, or manual action repair is a
-   blocker; simple rules are allowed only for labelled probes or baselines.
-6. **Execution-flow check:** inspect the actual call order, branches, state
-   transitions, updates, recovery, and termination. Report each algorithm step
-   and code path whose observed behavior contradicts the specification.
-7. **Result check:** return `pass`, `conditional`, or `fail` with concrete
-   code and execution evidence.
+1. **Formula-to-code check:** map the formal equations and algorithm steps to
+   initialization, updates, decisions, outputs, and their code paths agree.
+2. **Semantic check:** verify objectives, constraints, variables, feasibility, and the declared mechanism.
 
 ## Review And Handoff
 
