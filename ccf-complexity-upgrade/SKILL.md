@@ -58,9 +58,9 @@ The loop is deliberately short:
 accepted scenario + current code/results
   -> write upgrade scenario document
   -> modify the existing environment from that document
-  -> environment consistency audit
+  -> environment consistency audit in a clean session
   -> modify the algorithm mechanism
-  -> algorithm consistency audit
+  -> algorithm consistency audit in a clean session
   -> focused algorithm repair or upgrade-document/environment repair
   -> repeat the affected audit
   -> accepted upgrade
@@ -71,14 +71,15 @@ accepted scenario + current code/results
 2. **Modify the existing environment.** Implement the document in the current
    scenario code, interfaces, traces, and independent checkers. This is a
    direct extension of the current scenario implementation.
-3. **Audit the environment.** Invoke `ccf-env-code-auditor`. If the code is
+3. **Audit the environment.** Invoke `ccf-env-code-auditor`in a new clean, read-only
+   session to review the implementation of the environment. If the code is
    inconsistent, fix the code. If the document's semantics need correction,
    append a new version/decision to the same upgrade document, then update the
    environment and audit again.
 4. **Modify the algorithm.** Once the environment is coherent, use the observed
    failure and the new causal difficulty to change the algorithm mechanism or
    implementation.
-5. **Audit and repair.** Invoke `ccf-algorithm-code-auditor`. If the finding is
+5. **Audit and repair.** Invoke `ccf-algorithm-code-auditor` to review the implementation of algorithm in a new clean, read-only session. If the finding is
    algorithmic, make algorithm fixes and solve this problem correctly to the best effort.
    In the end if independent evidence shows that the added problem itself is infeasible, revise the added semantics in then upgrade document and re-design the existing environment but needn't to use easy algorithmes to verify the scenario again. 
    Record each failure reason briefly.

@@ -238,7 +238,6 @@ def check_research_terminology(errors: list[str]) -> None:
 
 def check_design_validation_contract(errors: list[str]) -> None:
     for rel in (
-        "ccf-common/references/implementation-review-protocol.md",
         "ccf-common/references/ralph-phase-contract.md",
         "ccf-mes-validation/references/phase-a-problem-contract.md",
         "ccf-complexity-upgrade/references/phase-b-upgrade-contract.md",
@@ -246,32 +245,6 @@ def check_design_validation_contract(errors: list[str]) -> None:
     ):
         if not (ROOT / rel).is_file():
             fail(errors, f"missing shared protocol: {rel}")
-
-    review_ref = "../ccf-common/references/implementation-review-protocol.md"
-    for rel in ("ccf-env-code-auditor/SKILL.md",):
-        if review_ref not in read(ROOT / rel):
-            fail(errors, f"{rel}: missing CCFA-native implementation-review reference")
-
-    semantic_tokens = {
-        "ccf-common/references/implementation-review-protocol.md": (
-            "canonical review envelope",
-            "review_protocol_digest",
-            "coordinator_id",
-            "fresh: true",
-            "read_only: true",
-            "implementer_ids",
-            "reviewer_distinctness_check",
-            "reviewer_coordinator_exclusion_check",
-            "cannot offset",
-            "stale",
-            "terminal_acceptance",
-        ),
-    }
-    for rel, tokens in semantic_tokens.items():
-        protocol_text = read(ROOT / rel)
-        for token in tokens:
-            if token not in protocol_text:
-                fail(errors, f"{rel}: missing protected contract token {token!r}")
 
     phase_contract_tokens = {
         "ccf-mes-validation/SKILL.md": (
@@ -281,6 +254,7 @@ def check_design_validation_contract(errors: list[str]) -> None:
             "mes_role: anchor",
             "ccf-env-code-auditor",
             "ccf-algorithm-code-auditor",
+            "clean, read-only session",
         ),
         "ccf-complexity-upgrade/SKILL.md": (
             "Phase B",
@@ -290,6 +264,7 @@ def check_design_validation_contract(errors: list[str]) -> None:
             "same upgrade document",
             "ccf-env-code-auditor",
             "ccf-algorithm-code-auditor",
+            "clean, read-only session",
         ),
         "ccf-env-code-auditor/SKILL.md": (
             "tradeoff-probe",
@@ -344,7 +319,6 @@ def check_design_validation_contract(errors: list[str]) -> None:
         ROOT / "ccf-common" / "references" / "ralph-phase-contract.md",
         ROOT / "ccf-mes-validation" / "SKILL.md",
         ROOT / "ccf-complexity-upgrade" / "SKILL.md",
-        ROOT / "ccf-common" / "references" / "implementation-review-protocol.md",
         ROOT / "ccf-env-code-auditor" / "SKILL.md",
         ROOT / "ccf-env-code-auditor" / "references" / "audit-protocol.md",
         ROOT / "ccf-algorithm-code-auditor" / "SKILL.md",

@@ -28,7 +28,6 @@ Load only the file needed for the current maintenance task:
 - `references/communication-research-terms.md`: Use for paper-scenario, formal-problem, minimum-executable-scenario, environment-algorithm authority, method-role, conclusion, and evidence terminology.
 - `references/task-modes.md`: Use to interpret quick and standard execution modes across CCFA skills.
 - `references/review-output-standards.md`: Use to keep numeric scoring, multi-reviewer panels, score-change conditions, and visible output quality consistent.
-- `references/implementation-review-protocol.md`: Use for the CCFA-native, two-axis environment implementation review.
 - `references/handoff-modes.md`: Use to interpret `metadata.ccf_skill_controls.handoff_question_mode`.
 - `references/privacy-and-evidence.md`: Use when handling manuscripts, reviews, rebuttals, private drafts, literature searches, or evidence statements.
 - `references/source-registry.yaml`: Use as the shared source inventory for venue rules, review methods, exemplar records, and research-workflow references.

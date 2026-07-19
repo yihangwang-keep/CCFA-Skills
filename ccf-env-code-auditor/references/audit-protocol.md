@@ -46,20 +46,7 @@ competing goals, that actions affect the documented causal path, and that the
 environment code makes the tradeoff observable. These probes validate the
 scientific scenario; they are not proposed-algorithm performance evidence.
 
-## 5. Independent Review
-
-When explicitly required by the project, use the shared implementation-review
-protocol to obtain:
-
-- a domain-contract review of scientific-problem and document-to-code fidelity;
-- an implementation-assurance review of probe reproducibility, error handling,
-  and hidden information or action repair.
-
-Both reviewers are fresh and read-only. The implementer cannot review its own
-changed artifact. Report `pass`, `conditional`, `fail`, or `not_run` for each
-axis and keep the reports separate.
-
-## 6. Finding And Repair Handoff
+## 5. Finding And Repair Handoff
 
 For every material finding record:
 

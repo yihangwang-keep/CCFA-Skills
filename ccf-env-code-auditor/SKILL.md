@@ -57,10 +57,10 @@ The audit uses one common contract for every scenario.
 
 ## Review And Handoff
 
-When explicitly required by the project, load
-`../ccf-common/references/implementation-review-protocol.md` and use two fresh,
-read-only review axes. Keep old evidence when code changes and request a new
-review for the new artifact. Do not repair findings in this skill.
+This skill is the environment audit step used by `ccf-mes-validation` and
+`ccf-complexity-upgrade`. The phase owner implements the environment, this
+skill audits it, and the phase owner repairs any finding. Do not repair findings
+in this skill.
 
 If the scientific-problem document contradicts itself, or cannot be
 implemented consistently with the environment contract, report a

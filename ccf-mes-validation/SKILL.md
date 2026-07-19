@@ -56,9 +56,9 @@ Keep the loop visible and linear:
 ```text
 paper problem document
   -> MES and environment implementation
-  -> environment consistency audit
+  -> environment consistency audit in a clean session
   -> initial algorithm implementation
-  -> algorithm consistency audit
+  -> algorithm consistency audit in a clean session
   -> focused repair of the algorithm or (when evidence requires it) the scenario
   -> repeat the affected audit
   -> accepted MES and its' algorithm
@@ -70,7 +70,7 @@ paper problem document
    a smaller scale.
 2. **Implement the MES and environment.** Build the
    minimal-but-complete MES and its environment code. 
-3. **Run the environment audit.** Invoke `ccf-env-code-auditor`. If code and
+3. **Run the environment audit.** Invoke `ccf-env-code-auditor` in a new clean, read-only session to review the implementation of the environment. If code and
    document disagree, fix the code. The audit must also show that the core tradeoff is active in the environment and easy algorithms can't solve the problem.
    If it is not active, return to the problem document/MES and fix the
    representation before implementing the algorithm.
@@ -78,7 +78,7 @@ paper problem document
    environment audit is clear,
    implement the algorithm for this exact formal problem. 
 5. **Run the algorithm audit and repair.** Invoke
-   `ccf-algorithm-code-auditor`. Repair the algorithm
+   `ccf-algorithm-code-auditor` in a new clean, read-only session to review the implementation of the algorithm. Repair the algorithm
    first up to best effort. Only when that evidence shows that the
    problem is infeasible, or missing a causal requirement should you
    revise the document. Under the new document version, rebuild or
