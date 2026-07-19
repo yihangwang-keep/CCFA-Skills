@@ -1,54 +1,40 @@
 # Algorithm Audit Protocol
 
 Use this protocol with `ccf-algorithm-code-auditor` when invoked by
-`ccf-mes-validation` or `ccf-complexity-upgrade`. It keeps the algorithm check
-traceable while leaving all repairs to the invoking phase owner.
+`ccf-mes-validation` or `ccf-complexity-upgrade`. Its sole purpose is to check
+whether the implementation faithfully executes the declared algorithm. The
+auditor reports divergences; the invoking phase owner makes all repairs.
 
-## 1. Input Bundle
+## 1. Define The Audit Scope
 
-Record the invoking phase owner, applicable algorithm specification, required
-interfaces, algorithm code, configuration, seeds, tests, execution traces, and
-acceptance criteria. Bind the report to exact versions or content digests. A
-changed input requires the affected checks to run again.
+Identify the exact algorithm specification, required interfaces,
+implementation, configuration, and available execution traces. Bind
+the audit to those versions. Recheck affected steps when an input changes.
 
-## 2. Traceability Matrix
+## 2. Check Algorithm Steps Against The Code
 
-Create an internal row for each material algorithm step:
+Compare the declared algorithm with its implementation. Confirm that every
+algorithm step is present in the code and that no extra logic changes the
+algorithm's meaning.
 
-| Step | Declared meaning | Code path | Executed evidence | Result |
-| --- | --- | --- | --- | --- |
-| initialize/update/decide/recover/terminate | inputs and output | symbol and call path | trace, assertion, or test | pass/fail |
+## 3. Check Implementation Correctness
 
-Also map feasibility handling, objective evaluation, randomness, resource
-limits, and termination behavior. Reverse-trace code that changes a decision
-or reported metric.
+This check answers two questions:
 
-## 3. Semantic And Interface Checks
+- **Is the algorithm implemented correctly?** Confirm that the code performs
+  the declared algorithm steps and produces the expected results.
+- **Does the algorithm solve the scientific problem?** Confirm that it uses
+  the problem's required inputs and returns the kind of decision or solution
+  required by the stated objective and constraints.
 
-Verify:
+Report a finding when either answer is no.
 
-- objective direction, units, aggregation, and original-objective evaluation;
-- decision domains, masks, constraints, feasibility signals, and recovery;
-- state/observation timing and absence of future or audit-only information;
-- equation signs, indices, update order, residuals, stopping rules, and
-  solution extraction;
-- seed/reset behavior, numerical stability, termination, and resource limits.
+## 4. Confirm The Executed Flow
 
-For `method_role: proposed`, inspect every decision component for hidden
-heuristic fallback, clipping, or manual repair. Label simple rules explicitly
-when they are probes or baselines.
-
-## 4. Execution Flow Check
-
-Inspect the algorithm's actual execution order, state transitions, branch
-conditions, updates, recovery, and termination. Report each declared algorithm
-step and code path whose observed behavior contradicts the specification,
-together with the relevant code and execution evidence.
-
-Use the invoking phase's declared configuration, seeds, tolerances, metrics,
-and resource limits. Record feasibility, objective values,
-correctness/convergence indicators, execution trace, numerical behavior,
-runtime/space, and reproducibility.
+Use tests, assertions, or traces to confirm that the actual execution order,
+branch choices, updates, termination, and returned solution match the declared
+steps. For each mismatch, report the first point where execution diverges from
+the specification and cite the corresponding code and evidence.
 
 ## 5. Findings And Handoff
 
