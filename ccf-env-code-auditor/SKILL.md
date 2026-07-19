@@ -15,9 +15,10 @@ metadata:
 ## Boundary
 
 Audit the environment against the current scientific-problem document and
-environment contract. The document is authoritative for objectives,
-constraints, information timing, feasibility, and task meaning. Report what is
-wrong; the responsible owner repairs it. Algorithm behavior belongs to
+environment contract. The document is authoritative. Decide whether the
+implementation faithfully represents the stated scientific problem and keeps
+its core mechanism and tradeoff observable. Report what is wrong; the
+responsible owner repairs it. Algorithm behavior belongs to
 `ccf-algorithm-code-auditor`.
 
 ## What To Check
@@ -55,21 +56,8 @@ The audit uses one common contract for every scenario.
 
 This skill is the environment audit step used by `ccf-mes-validation` and
 `ccf-complexity-upgrade`. The phase owner implements the environment, this
-skill audits it, and the phase owner repairs any finding. Do not repair findings
-in this skill.
+skill audits it, and the phase owner repairs any finding. Return a concise
+verdict and explain each material mismatch with its location, reason, and
+supporting evidence. Do not repair or silently reinterpret the document.
 
-Do not silently reinterpret or repair the
-document as part of this audit.
-
-Return a short report first:
-
-```text
-Verdict: pass / conditional / fail
-Document-to-code findings:
-Implementation traceability evidence:
-Scientific-problem and tradeoff evidence:
-Required repair and rerun:
-Next owner: responsible owner
-```
-
-Read `references/audit-protocol.md` for the detailed trace and probe checklist.
+Read `references/audit-protocol.md` for the audit procedure.

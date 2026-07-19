@@ -1,6 +1,6 @@
 ---
 name: ccf-algorithm-code-auditor
-description: "Check whether a communication algorithm is correctly implemented against its formal specification and required interfaces. Use for equation-to-code traceability, implementation correctness, and execution-flow verification inside ccf-mes-validation or ccf-complexity-upgrade. Report findings to the invoking phase owner; do not design or repair the algorithm."
+description: "Check whether a communication algorithm faithfully implements its specification, executes as declared, and produces a solution for the stated scientific problem. Use inside ccf-mes-validation or ccf-complexity-upgrade. Report findings to the invoking phase owner; do not design or repair the algorithm."
 metadata:
   ccf_skill_controls:
     handoff_question_mode: partial
@@ -15,10 +15,11 @@ metadata:
 ## Boundary
 
 Audit the algorithm implementation against its formal specification, declared
-interfaces, and available execution evidence. The auditor checks whether the
-algorithm's operations and execution flow match the declared method and where
-an observed run first diverges from that specification. The invoking
-`ccf-mes-validation` or `ccf-complexity-upgrade` owner makes all repairs.
+interfaces, scientific problem, and available execution evidence. Decide
+whether the code faithfully implements the declared method, whether its actual
+execution follows that method, and whether its result is a solution to the
+stated problem. The invoking `ccf-mes-validation` or
+`ccf-complexity-upgrade` owner makes all repairs.
 
 ## Core Rule
 
@@ -35,32 +36,20 @@ the environment audit.
 
 ## Ordered Checks
 
-1. **Formula-to-code check:** map the formal equation and algorithm step to
-   its implementation code.
-2. **Implementation check:** verify that operations, variables, parameters match the specification.
-3. **Execution-flow check:** verify that initialization, branch choices,
-   updates, termination, and solution extraction execute in the declared order.
+1. **Formula-to-code check:** confirm that the formal equations and declared
+   algorithm steps are represented faithfully in the implementation.
+2. **Implementation check:** confirm that the code correctly implements the
+   algorithm and produces the kind of solution required by the scientific
+   problem.
+3. **Execution-flow check:** confirm from actual execution evidence that the
+   implemented process and returned result follow the declared algorithm.
 
 ## Review And Handoff
 
 Return every finding to the invoking phase owner. The phase owner repairs the
-algorithm and requests the original failed check plus every affected check
-again. The auditor does not modify code, select a replacement mechanism, or
-route findings to another owner.
+algorithm and requests another audit of the affected behavior. Return a concise
+verdict and explain each material divergence with its location, reason, and
+supporting evidence. The auditor does not modify the code or select a
+replacement method.
 
-Return:
-
-```text
-Verdict: pass / conditional / fail
-Invoking phase owner: ccf-mes-validation / ccf-complexity-upgrade
-Specification and interface:
-Algorithm specification and implementation:
-Equation-to-code trace:
-Implementation findings:
-Execution-flow findings:
-Required recheck:
-Next owner: current phase owner
-```
-
-Read `references/algorithm-audit-protocol.md` for the detailed evidence
-checklist.
+Read `references/algorithm-audit-protocol.md` for the audit procedure.
