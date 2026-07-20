@@ -14,8 +14,7 @@ metadata:
 
 ## Purpose
 
-Phase B starts after already having accepted the scenario and its algorithm. Phase B increases the problem's complexity, exposes where the current
-algorithm stops working, and improves the algorithm mechanism. It does not
+Phase B starts based the already accepted the scenario and its algorithm. The main purpose is to increase the problem's complexity and improves the algorithm mechanism. It does not
 replace the scenario-upgrade request with an unrelated research problem.
 
 The environment and algorithm auditors remain independent. This skill writes
@@ -24,9 +23,9 @@ repair loop.
 
 ## First Write An Upgrade Scenario Document
 
-Before editing code, read the accepted current environment, algorithm, and
+Before editing code, you should clearly know the current accepted environment, algorithm, and
 available experiment/results. Then write a new scenario document describing the
-upgrade. If the user supplied a draft, complete it from the same evidence. The
+upgrade idea. If the user supplied a draft, complete it from the same evidence. The
 document is the single authority for the Phase-B environment changes.
 
 For example:
@@ -37,18 +36,15 @@ For example:
 3. upgraded scenario background, the same scientific question and causal chain,
    and how the added complexity stresses the existing tradeoff;
 4. semantics retained from the current scenario and the exact added complexity;
-5. added state, uncertainty, information timing, actions, and transitions;
-6. objective, constraints, aggregation, and feasibility;
-7. algorithm-visible interface, audit-only fields, and leakage rules;
-8. parameter range, fixed reproducible configurations, traces, and independent
-   checkers;
-9. environment implementation changes and consistency-audit evidence;
-10. algorithm mechanism to change, expected failure explanation, and acceptance
+5. expected changes in the environment and algorithm, including the new tradeoff problem;
+6. objective, constraints and feasibility;
+7. algorithm must expose audit-visible fields that capture essential execution evidence. These fields allow auditors to determine where and why an upgraded algorithm fails when evaluated in a new environment.;
+8. environment implementation to change;
+9. algorithm mechanism to change, expected failure explanation, and acceptance
     evidence.
 
 The new document may add complexity to the setting, but it must keep the same
-question and causal tradeoff and explain why this is still the same research
-problem. Do not add complexity just to make an algorithm look better.
+research problem with the upgraded tradeoff problems. Do not make the problem total different from the origin or add complexity just to make an algorithm look better.
 
 ## Phase B Ralph Loop
 
@@ -72,17 +68,14 @@ accepted scenario + current code/results
    scenario code, interfaces, traces, and independent checkers. This is a
    direct extension of the current scenario implementation.
 3. **Audit the environment.** Invoke `ccf-env-code-auditor`in a new clean, read-only
-   session to review the implementation of the environment. If the code is
-   inconsistent, fix the code. If the document's semantics need correction,
-   append a new version/decision to the same upgrade document, then update the
-   environment and audit again.
+   session to review the implementation of the environment but needn't to tradeoff check to verify the scenario again. If the code is
+   inconsistent, fix the code. If issues are identified in the document semantics, correct the document first, then update the environment code accordingly and perform the audit again.
 4. **Modify the algorithm.** Once the environment is coherent, use the observed
-   failure and the new causal difficulty to change the algorithm mechanism or
+   failure and the new causal difficulty to change the algorithm mechanism and 
    implementation.
 5. **Audit and repair.** Invoke `ccf-algorithm-code-auditor` to review the implementation of algorithm in a new clean, read-only session. If the finding is
    algorithmic, make algorithm fixes and solve this problem correctly to the best effort.
-   In the end if independent evidence shows that the added problem itself is infeasible, revise the added semantics in then upgrade document and re-design the existing environment but needn't to use easy algorithmes to verify the scenario again. 
-   Record each failure reason briefly.
+   In the end if independent evidence shows that the added problem itself is infeasible, revise the added semantics in then upgrade document and re-design the existing environment but needn't to tradeoff check to verify the scenario again the record this scenario failure reason briefly.
 6. **Finish the upgrade.** When the upgraded environment and algorithm both
    pass their audits for the current document, record the versions and the
    evidence. If the proposed addition no longer represents the same research

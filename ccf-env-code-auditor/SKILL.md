@@ -44,7 +44,7 @@ The audit uses one common contract for every scenario.
 
 1. **Scientific-problem check:** the  scientific-problem    
    itself can be reflected in the document. If the document is not scientific and cannot be implemented, report a document/design-contract finding.
-2. **Document-to-code check:** map the scientific question, causal chain,
+2. **Document-to-code check:** check the scientific question, causal chain,
    objectives, constraints, information contract, and feasibility semantics to
    the environment code.
 3. **Tradeoff check:** use heuristics, parameter sweeps,

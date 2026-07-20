@@ -40,8 +40,7 @@ complexity on top of it; it does not redesign the MES.
 
 ## Input Document
 
-Use the user's paper/scenario document, such as
-`ideas/scenario-partition-merge-mission-consistency.md`, as the authority. It
+Use the user's paper/scenario document, as the authority. It
 must explain the background, causal chain, scientific question, tradeoff,
 formal problem, MES scaling rule, interface, and acceptance evidence. Key
 semantics must be written in the document. 
