@@ -83,9 +83,10 @@ paper problem document
    revise the document. Under the new document version, revise the affected document and complete a fresh environment audit
    before auditing the algorithm again. Never remove the tradeoff or relax a
    material rule just to make the algorithm pass.
-6. **Freeze the result.** When both audits pass for the same document, MES,
-   environment, and algorithm, record the versions and mark `mes_role: anchor`.
-   This is the handoff to Phase B.
+6. **Freeze the result.** Success requires both audits to pass for the environment and algorithm. It also requires execution
+   evidence that the algorithm performs favorably against the declared
+   baseline on the MES under the same evaluation protocol and the document's
+   predeclared metrics and acceptance criteria.
 
 Each repair round should change one focused thing, preserve the old failure
 evidence, and rerun the check that exposed the problem plus any check affected
