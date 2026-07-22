@@ -78,7 +78,7 @@ paper problem document
    implement the algorithm for this exact formal problem. 
 5. **Run the algorithm audit and repair.** Invoke
    `ccf-algorithm-code-auditor` in a new clean, read-only session to review the implementation of the algorithm. If the finding is
-   algorithmic, repair it with a decision rule that applies uniformly across all states. After every algorithm repair, invoke `ccf-algorithm-code-auditor` again in a new clean, read-only session; no repair round may bypass this independent audit. Do not repair the algorithm in adding a scenario-specific rule because a remaining scenario performs poorly. Once the algorithm is frozen, rerun it across the affected scenario. Only when that evidence shows that the
+   algorithmic, repair it with a way that applies uniformly across all states. Do not repair the algorithm in adding a scenario-specific rule because a remaining scenario performs poorly. After every algorithm repair, invoke `ccf-algorithm-code-auditor` again in a new clean, read-only session; no repair round may bypass this independent audit. Once the algorithm is frozen, rerun it across the affected scenario. Only when that evidence shows that the
    problem is infeasible, or missing a causal requirement should you
    revise the document. Under the new document version, revise the affected document and complete a fresh environment audit
    before auditing the algorithm again. Never remove the tradeoff or relax a

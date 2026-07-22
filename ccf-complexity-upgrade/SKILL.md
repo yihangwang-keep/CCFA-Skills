@@ -74,7 +74,7 @@ accepted scenario + current code/results
    failure and the new causal difficulty to change the algorithm mechanism and 
    implementation.
 5. **Audit and repair.** Invoke `ccf-algorithm-code-auditor` to review the implementation of algorithm in a new clean, read-only session. If the finding is
-   algorithmic, repair it with a decision rule that applies uniformly across all states. After every algorithm repair, invoke `ccf-algorithm-code-auditor` again in a new clean, read-only session; no repair round may bypass this independent audit. Once the algorithm is frozen, rerun it across the affected scenario matrix. Do not repair the algorithm in adding a scenario-specific rule because a remaining scenario performs poorly.
+   algorithmic, repair it in a way that applies uniformly across all states. Do not repair the algorithm in adding a scenario-specific rule because a remaining scenario performs poorly.After every algorithm repair, invoke `ccf-algorithm-code-auditor` again in a new clean, read-only session; no repair round may bypass this independent audit. Once the algorithm is frozen, rerun it across the affected scenario matrix. 
    Only when that evidence shows that the added problem itself is infeasible, revise the added semantics and re-design the existing environment but needn't to tradeoff check to verify the scenario again the record this scenario failure reason briefly.
 6. **Finish the upgrade.** Success requires the upgraded environment and
    algorithm to pass their audits. It also requires
