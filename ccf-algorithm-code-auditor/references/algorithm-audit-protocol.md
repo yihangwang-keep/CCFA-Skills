@@ -20,10 +20,9 @@ executed flow remains faithful to it, and whether the returned result is the
 kind of solution required by the scientific problem.
 
 Use code references, tests, assertions, or traces only as needed to support the
-judgment and identify where a mismatch begins. Do not create a mapping table or
-an exhaustive record of implementation details.
+judgment and identify where a mismatch begins.
 
-## 5. Findings And Handoff
+## 3. Findings And Handoff
 
 ```yaml
 finding:

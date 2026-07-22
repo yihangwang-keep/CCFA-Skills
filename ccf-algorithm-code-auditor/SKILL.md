@@ -38,18 +38,19 @@ the environment audit.
 
 1. **Formula-to-code check:** confirm that the formal equations and declared
    algorithm steps are represented faithfully in the implementation.
-2. **Implementation check:** confirm that the code correctly implements the
-   algorithm and produces the kind of solution required by the scientific
-   problem.
-3. **Execution-flow check:** confirm from actual execution evidence that the
-   implemented process and returned result follow the declared algorithm.
+2. **Implementation check:** confirm that the code correctly implements the algorithm.
+3. **Failure-root-cause check:** classify each failure as either a genuine
+   algorithm defect, or a scenario/problem that is infeasible.
 
 ## Review And Handoff
 
-Return every finding to the invoking phase owner. The phase owner repairs the
-algorithm and requests another audit of the affected behavior. Return a concise
-verdict and explain each material divergence with its location, reason, and
-supporting evidence. The auditor does not modify the code or select a
-replacement method.
+Return every finding to the invoking phase owner with one of two root causes:
+
+- **Algorithm defect:** the phase owner repairs the algorithm.
+- **Scenario/problem defect:** the phase owner revises the scenario or problem.
+
+Return a concise verdict and explain each material divergence with its
+location, reason, and supporting evidence. The auditor does not modify the
+algorithm, scenario, or problem, or select a replacement method.
 
 Read `references/algorithm-audit-protocol.md` for the audit procedure.
